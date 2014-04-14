@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<verificationTools xmlns:xlink="http://www.w3.org/1999/xlink">
+<verificationTool>
+  <toolName>The Coq Proof Assistant</toolName>
+  <toolOverview>
+    <description>Coq is a formal proof management system. It provides a formal language to write 
+    mathematical definitions, 
+    executable algorithms and theorems together with an environment for semi-interactive 
+    development of machine-checked proofs. Typical applications include the formalization 
+    of programming languages semantics (e.g. the CompCert compiler certification project or Java Card 
+    EAL7 certification in industrial context), the formalization of mathematics (e.g. the full formalization 
+    of the 4 color theorem or constructive mathematics at Nijmegen) and teaching.
+ </description>
+ </toolOverview>
+ <availableVersions>
+   <version status="Current">
+     <versionName>Coq 8.4pl3</versionName>
+     <description>This version features: 1) a new modular and uniform extension of the arithmetical libraries by P. Letouzey which systematically provides power, gcd/lcm, square root, base 2 logarithm, division, modulo, bitwise operators, logical shift, comparisons, iterators for all of nat, N, Z, BigN and BigZ on top of a uniform naming layer (e.g. plus and mult are now consistently named add and mul while still remaining mostly compatible with 8.3) (example 1, example 2, example 3);
+2) a new proof engine by A. Spiwack whose most salient feature is the introduction of bullets (+, -, *) and structured scripts ({ ... }) (example).</description>
+     <linkDescription xlink:type="simple" xlink:href="http://coq.inria.fr/coq-84-is-out" xlink:show="new">More Information</linkDescription>
+     <linkDescription xlink:type="simple" xlink:href="http://coq.inria.fr/distrib/V8.4pl3/CHANGES" xlink:show="new">Changes from Previous Versions</linkDescription>
+     <linkDescription xlink:type="simple" xlink:href="http://coq.inria.fr/distrib/V8.4pl3/COMPATIBILITY" xlink:show="new">Main Incompatibilites</linkDescription>
+   </version>
+   <version status="Previous">
+     <versionName>version 8.3</versionName>
+     <linkDescription xlink:type="simple" xlink:href="http://coq.inria.fr/coq-8.3" xlink:show="new">Previous Version 8.3</linkDescription>
+   </version>
+ </availableVersions>
+  <Functionalities>
+    <functionality>
+      <description>Coq implements a program specification and mathematical higher-level language 
+      called Gallina that is based on an expressive formal language called the Calculus of Inductive Constructions that itself combines both a higher-order logic and a richly-typed functional programming language. 
+      Through a vernacular language of commands</description>
+    </functionality>
+  </Functionalities>
+ <experimentalContentsOrExtensions>
+   <contentDescription>When compiled with Objective Caml 3.11 (which is the case of the Windows and MacOS 
+   packages we release), 
+   Coq supports dynamic loading of extensions. Note: Objective Caml = 3.11.1 is required for 
+   building plugins on MacOS 10.5. (*) above means that the plugin is submitted to the user contributions 
+   and planned to be kept 
+   compatible with the new releases of Coq to come.</contentDescription>
+ <content>
+   <description>The small scale reflection package (ssreflect) contains the robust and compact tactic language and libraries that were started for supporting the full formalization of the 4 color theorem and that now serves, among other applications, as support for the ongoing formalization of the odd order theorem in group theory. (*)</description>
+   <linkDescription xlink:type="simple" xlink:href="http://www.msr-inria.inria.fr/Projects/math-components" xlink:show="new">Small scale reflection</linkDescription>
+ </content>
+ </experimentalContentsOrExtensions>
+ <contacts>
+   <contact>
+     <contactsDescription>There is a strong and active community of users working with Coq. They are contributing formal developments, extensions of Coq, 
+     and tools based on Coq (see Related Tools).</contactsDescription>
+     <linkDescription xlink:type="simple" xlink:href="http://coq.inria.fr/pylons/contribs/index" xlink:show="new">The Coq Users' Contributions</linkDescription>
+   </contact>
+ </contacts>
+<supportingDocuments>
+  <document>
+    <documentName>Reference Manual </documentName>
+    <documentLinkDescription xlink:type="simple" xlink:href="http://coq.inria.fr/distrib/current/refman" xlink:show="new">Reference Manual</documentLinkDescription>
+  </document>
+  <document>
+    <documentName>Standard Library</documentName>
+    <documentLinkDescription xlink:type="simple" xlink:href="http://coq.inria.fr/distrib/current/stdlib/" xlink:show="new">Standard Library</documentLinkDescription>
+  </document>
+</supportingDocuments> 
+<relatedLinks>
+  <relatedLinkDescription xlink:type="simple" xlink:href="http://coq.inria.fr/coq-workshop/" xlink:show="new">The Coq workshop</relatedLinkDescription>
+</relatedLinks>
+<relatedTools>
+  <tool>
+    <toolName>Software Verification Tools</toolName>
+    <toolDescription>Several tools are being built on top of Coq, for software verification purposes.
+Why is a verification conditions generator back-end.
+Krakatoa is a Java code certification tool that uses both Coq and Why to verify the soundness of implementations with regards to the specifications.
+Caduceus is a verification tool for C programs, built on top of Why.
+Concoqtion is a dependently-typed extension of Objective Caml (and of MetaOCaml) with specifications expressed and proved in Coq.
+Ynot is an extension of Coq providing a "Hoare Type Theory" for specifying higher-order, imperative and concurrent programs.
+Ott is a tool to translate the descriptions of the syntax and semantics of programming languages to the syntax of Coq, or of other provers.</toolDescription>
+    <toolLinkDescription xlink:type="simple" xlink:href="http://why.lri.fr/index.en.html" xlink:show="new">Why Tool</toolLinkDescription>
+    <toolLinkDescription xlink:type="simple" xlink:href="http://krakatoa.lri.fr/" xlink:show="new">Krakatoa Tool</toolLinkDescription>
+  </tool>
+</relatedTools>
+<howToObtain>
+  <Download status="Source">
+   <size>4 MB</size>
+  <linkDescription xlink:type="simple" xlink:href="http://coq.inria.fr/distrib/V8.4pl3/files/coq-8.4pl3.tar.gz" xlink:show="new">coq-8.4pl3.tar.gz</linkDescription>
+  </Download>
+  <Download status="Binary">
+   <size>54 MB</size>
+   <format>Windows</format>
+  <linkDescription xlink:type="simple" xlink:href="http://coq.inria.fr/distrib/V8.4pl3/files/coq-installer-8.4pl3.exe" xlink:show="new">coq-installer-8.4pl3.exe (bundled with CoqIDE) (sha1, sha1 sig)</linkDescription>
+  </Download>
+</howToObtain>
+</verificationTool>
+</verificationTools>

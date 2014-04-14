@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<Elevations xmlns="http://www.us-maps.org"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation=
+                          "http://www.us-maps.org
+                           Elevation.xsd">
+
+        <Mt-Everest units="feet" foo="junk"/>
+
+</Elevations>

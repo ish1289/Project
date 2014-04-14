@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xlink="http://www.w3.org/1999/xlink">
+<xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="http://www.w3.org/1999/xlink.xsd"/>
+  
+<xs:complexType name="contributorType">
+  <xs:sequence>
+    <xs:element name="name" type="xs:string" minOccurs="0"></xs:element>
+    <xs:element name="contributionDescription" type="xs:string" minOccurs="0"></xs:element>
+    <xs:element name="phone" type="xs:string" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    <xs:element name="email" type="xs:string" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    <xs:element name="linkDescription" minOccurs="0" maxOccurs="unbounded">
+      <xs:complexType>
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:anyAttribute namespace="http://www.w3.org/1999/xlink"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+    </xs:element>
+  </xs:sequence>    
+</xs:complexType>  
+<xs:complexType name="contributorsType">
+  <xs:sequence>
+    <xs:element name="contributor" type="contributorType" maxOccurs="unbounded"></xs:element>
+  </xs:sequence>    
+</xs:complexType>  
+<xs:complexType name="toolsType">
+    <xs:sequence>
+      <xs:element name="tool" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="toolName" type="xs:string"></xs:element>
+            <xs:element name="toolDescription" type="xs:string"></xs:element>
+            <xs:element name="toolLinkDescription" minOccurs="0">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:string">
+                    <xs:anyAttribute namespace="http://www.w3.org/1999/xlink"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="relatedLinksType">
+    <xs:sequence>
+     <xs:element name="relatedLinkDescription" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:simpleContent>
+                  <xs:extension base="xs:string">
+                    <xs:anyAttribute namespace="http://www.w3.org/1999/xlink"/>
+                  </xs:extension>
+           </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+</xs:complexType>
+<xs:complexType name="descriptionType">
+  <xs:sequence>
+    <xs:element name="name" type="xs:string" minOccurs="0"></xs:element>
+    <xs:element name="description" type="xs:string" minOccurs="0"></xs:element>
+    <xs:element name="linkDescription" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:simpleContent>
+                  <xs:extension base="xs:string">
+                    <xs:anyAttribute namespace="http://www.w3.org/1999/xlink"/>
+                  </xs:extension>
+           </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+  </xs:sequence>
+</xs:complexType> 
+<xs:complexType name="versionType">
+  <xs:sequence>
+    <xs:element name="versionName" type="xs:string" minOccurs="0"></xs:element>
+    <xs:element name="year" type="xs:string" minOccurs="0"></xs:element>
+    <xs:element name="description" type="xs:string" minOccurs="0"></xs:element>
+    <xs:element name="linkDescription" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:simpleContent>
+                  <xs:extension base="xs:string">
+                    <xs:anyAttribute namespace="http://www.w3.org/1999/xlink"/>
+                  </xs:extension>
+           </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+  </xs:sequence>
+  <xs:attribute name="status" use="optional">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="Current"/>
+        <xs:enumeration value="Previous"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+</xs:complexType>
+<xs:complexType name="versionsType">
+  <xs:sequence>
+    <xs:element name="version" type="versionType" maxOccurs="unbounded"></xs:element>
+  </xs:sequence>
+</xs:complexType>
+<xs:complexType name ="exContentsType">
+  <xs:sequence>
+    <xs:element name="contentDescription" type="xs:string" minOccurs="0"></xs:element>
+    <xs:element name="content" type="descriptionType" maxOccurs="unbounded"></xs:element>
+  </xs:sequence>
+</xs:complexType>
+<xs:complexType name="contentFilesType">
+  <xs:sequence>
+    <xs:element name="contentDescription" type="xs:string" minOccurs="0"></xs:element>
+    <xs:element name="contentFile" type="descriptionType" maxOccurs="unbounded"></xs:element>
+  </xs:sequence>
+</xs:complexType> 
+<xs:complexType name="downloadType">
+  <xs:sequence>
+    <xs:element name="description" type="xs:string" minOccurs="0"></xs:element>
+    <xs:element name="compatibleOS" type="xs:string" minOccurs="0"></xs:element>
+    <xs:element name="size" type="xs:string" minOccurs="0"></xs:element>
+    <xs:element name="linkDescription" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:simpleContent>
+                  <xs:extension base="xs:string">
+                    <xs:anyAttribute namespace="http://www.w3.org/1999/xlink"/>
+                  </xs:extension>
+           </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+  </xs:sequence>
+</xs:complexType>
+<xs:complexType name="downloadsType">
+  <xs:sequence>
+    <xs:element name="download" type="downloadType" maxOccurs="unbounded"></xs:element>
+  </xs:sequence>
+</xs:complexType>
+<xs:complexType name="documentType">
+    <xs:sequence>
+      <xs:element name="documentName" type="xs:string"></xs:element>
+      <xs:element name="documentDescription" type="xs:string"></xs:element>
+      <xs:element name="documentLinkDescription" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:simpleContent>
+                  <xs:extension base="xs:string">
+                    <xs:anyAttribute namespace="http://www.w3.org/1999/xlink"/>
+                  </xs:extension>
+           </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+</xs:complexType>
+<xs:complexType name="supportingDocumentsType">
+    <xs:sequence>
+      <xs:element name="document" type="documentType" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="dependencyDetailsType">
+  <xs:sequence>
+    <xs:element name="dependency" type="descriptionType" maxOccurs="unbounded"></xs:element>
+  </xs:sequence>
+</xs:complexType>
+<xs:complexType name="examplesType">
+  <xs:sequence>
+    <xs:element name="example" type="descriptionType" maxOccurs="unbounded"></xs:element>
+  </xs:sequence>
+</xs:complexType>
+<xs:complexType name="referencesType">
+  <xs:sequence>
+    <xs:element name="reference" type="descriptionType" maxOccurs="unbounded"></xs:element>
+  </xs:sequence>
+</xs:complexType>
+<xs:element name="libraries">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="library" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="libraryName" type="xs:string"></xs:element>
+            <xs:element name="libraryOverview" type="descriptionType" minOccurs="0"></xs:element>
+            <xs:element name="availableVersions" type="versionsType" minOccurs="0"></xs:element>
+            <xs:element name="experimentalContentsOrExtensions" type="exContentsType" minOccurs="0"></xs:element>
+            <xs:element name="contributors" type="contributorsType" minOccurs="0"></xs:element>
+            <xs:element name="contentFiles" type="contentFilesType" minOccurs="0"></xs:element>
+            <xs:element name="downloads" type="downloadsType" minOccurs="0"></xs:element>
+            <xs:element name="requiredToolsForCompilation" type="toolsType" minOccurs="0"></xs:element>
+            <xs:element name="supportingDocuments" type="supportingDocumentsType" minOccurs="0"></xs:element>
+            <xs:element name="dependencyDetails" type="dependencyDetailsType" minOccurs="0"></xs:element>
+            <xs:element name="examples" type="examplesType" minOccurs="0"></xs:element>
+            <xs:element name="relatedLinks" type="relatedLinksType" minOccurs="0"></xs:element> 
+            <xs:element name="references" type="referencesType" minOccurs="0"></xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>   
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+</xs:schema>
+

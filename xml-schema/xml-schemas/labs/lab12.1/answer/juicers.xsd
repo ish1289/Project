@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.juicers.org"
+            xmlns:xlink="http://www.w3.org/1999/xlink/namespace"
+            elementFormDefault="qualified">
+    <xsd:import namespace="http://www.w3.org/1999/xlink/namespace"
+                schemaLocation="XLink.xsd"/>
+
+    <xsd:element name="juicers">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="juicer" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:complexType>
+                        <xsd:attribute ref="xlink:href" use="required"/>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

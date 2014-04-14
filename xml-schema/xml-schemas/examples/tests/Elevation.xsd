@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.us-maps.org"
+            xmlns="http://www.us-maps.org"
+            elementFormDefault="qualified">
+
+    <xsd:simpleType name="EarthSurfaceElevation">
+        <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="-1290"/>
+            <xsd:maxInclusive value="29035"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="BostonAreaEarthSurfaceElevation">
+        <xsd:restriction base="EarthSurfaceElevation">
+            <xsd:minInclusive value="0"/>
+            <xsd:maxInclusive value="120"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="SurfaceElevation">
+        <xsd:attribute name="units" type="xsd:string" fixed="feet"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="BostonAreaSurfaceElevation">
+        <xsd:complexContent>
+            <xsd:extension base="SurfaceElevation">
+                <xsd:attribute name="foo"/>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:element name="Elevations">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Mt-Everest" type="BostonAreaSurfaceElevation"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+</xsd:schema>

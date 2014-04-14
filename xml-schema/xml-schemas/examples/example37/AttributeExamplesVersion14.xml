@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<AttributeExamples xmlns="http://www.attribute-examples.org"
+                   xmlns:i="http://www.attribute-examples.org"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation=
+                              "http://www.attribute-examples.org
+                               AttributeExamplesVersion14.xsd">
+
+    <!-- ************************************** -->
+    <!--                Version #14             -->
+    <!-- ************************************** -->
+
+    <image/>                                <!-- Using the fixed value -->
+    <image i:src="http://www.xfront.com"/>  <!-- Specifying the fixed value -->
+
+</AttributeExamples>

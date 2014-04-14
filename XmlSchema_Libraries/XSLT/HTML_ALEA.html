@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns:xlink="http://www.w3.org/1999/xlink">
+    <style type="text/css">
+          .alignmentCenter{
+            text-align: center;
+              }
+           .setWidth{
+             width: 50%;
+           }
+          }
+        </style>
+    <body>
+        <h3 class="alignmentCenter">Alea: a library for reasoning on randomized algorithms in Coq</h3>
+        <h3>Overview:-</h3>This library forms a basis for reasoning on randomised algorithms in the proof assistant Coq .
+   The theoretical basis of this work is a joint work with Philippe Audebaud and is described in. 
+   It is developed in the framework of the SCALP project (ANR-07-SESU-010) on Security of Cryptographic 
+   ALgorithms with Probabilities. With respect to previous versions of this library, 
+   the mechanism of type classes introduced by N. Oury and M. Sozeau [4] is used in order to represent 
+   the order structure and the cpo structure on a given type. In this version, P. Courtieu started to 
+   design simple automatic tactics for reasoning on measures, making an essential use of the possibility
+   to rewrite under abstraction.
+ <br/>
+        <a href="http://scalp.gforge.inria.fr/">SCALP project</a>
+        <br/>
+        <a href="http://www.msr-inria.inria.fr/projects/sec/certicrypt/index.html">CertiCrypt</a>
+        <br/>
+        <br/>
+        <h3>Contributors:-</h3>
+        <li>Christine Paulin-Mohring</li>Description-Main contact. LRI, UMR 8623 Univ. Paris-Sud 11, CNRS &amp; INRIA Saclay - Île-de-France<br/>
+        <a href="http://www.lri.fr/~paulin#alea">Web page Link</a>
+        <br/>
+        <li>David Baelde</li>
+        <li>Pierre Courtieu</li>
+        <li>PROVAL Team</li>
+        <a href="http://proval.lri.fr/">PROVAL Team</a>
+        <br/>
+        <h3>Available Versions:-</h3>
+        <table border="1">
+            <tr bgcolor="#9acd32">
+                <th>Version Name</th>
+                <th>Description</th>
+                <th>Year</th>
+                <th>Link</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>Version 8</td>
+                <td>Compatible with Coq V8.4pl2. Also the development for positive real numbers has been slightly adapted.</td>
+                <td>May 2013</td>
+                <td>-</td>
+                <td>Current</td>
+            </tr>
+            <tr>
+                <td>Version 7</td>
+                <td> This library also provides a livrary for positive real numbers represented with both integral part (in nat) and fractional part in [0,1].</td>
+                <td>-</td>
+                <td>-</td>
+                <td>Previous</td>
+            </tr>
+        </table>
+        <h3>Extensions/Experimental Content:-</h3>
+        <b>Description:- </b>This experimental library represents positive real numbers with an integral part 
+   and a fractional part in [0,1]. It requires an extra axiom for decidability of 
+   testing x≤ y in [0,1].<br/>
+        <b>Contents-</b>
+        <br/>
+        <b>Markov</b>
+        <br/>A general library to implement a minimimalization algorithm for a decidable predicat P on natural numbers, assuming a proof of ∃ n, P n.<br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/html/ALEA.Markov.html">Markov</a>
+        <br/>
+        <br/>
+        <b>Rplus</b>
+        <br/>An experimental representation of positive real numbers with integral and fractional part. 
+     The real (n,1) is equal to (n+1,0). The four arithmetic operations are implemented and their main 
+     properties proved. The exponential (with respect to a natural number) is defined as 
+     well as bounded sum. A tactic Rpsimpl is defined to perform basic simplifications on expressions.<br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/html/ALEA.Rplus.html">Rplus</a>
+        <br/>
+        <br/>
+        <b>RpRing</b>
+        <br/>Implementation of tactics Ring and Field on the set Rplus.<br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/html/ALEA.RpRing.html">RpRing</a>
+        <br/>
+        <br/>
+        <h3>Content Files:-</h3>
+        <b>Contents-</b>
+        <br/>
+        <b>Misc</b>
+        <br/>A few preliminary definitions, in particular primitives for reasoning classically in Coq are defined.<br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/html/ALEA.Misc.html">Misc</a>
+        <br/>
+        <br/>
+        <b>Cpo</b>
+        <br/>The definition of structures for ordered sets and ω-complete partial orders 
+     (a monotonic sequence has a least-upper bound). We define the type O1→m O2 of monotonic functions and define the fixpoint-construction for monotonic functionals. Continuity is also defined.<br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/html/ALEA.Ccpo.html">Cpo</a>
+        <br/>
+        <br/>
+        <b>Utheory</b>
+        <br/>An axiomatisation of the interval [0,1]. The type [0,1] is given a cpo structure: we have the predicates ≤ and ==, a least element 0 and a least-upper bound on all monotonic sequences of elements of [0,1].<br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/html/ALEA.Utheory.html">Utheory</a>
+        <br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/">The primitive operations</a>
+        <br/>
+        <br/>
+        <b>Uprop</b>
+        <br/>Derived operations and properties of operators on [0,1]. This file defines a tactic Usimpl designed to help simplify expressions using operations on [0,1].<br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/html/ALEA.Uprop.html">Uprop</a>
+        <br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/">The main defined operations</a>
+        <br/>
+        <br/>
+        <b>Monads</b>
+        <br/>Definition of the basic monad for randomized constructions, the type α is mapped 
+     to the type (α → [0,1])→m [0,1] of measure functions. We define the unit and star constructions 
+     and prove that they satisfy the basic monadic properties. A measure will be a function of type 
+     (α → [0,1])→m [0,1] which enjoys extra properties such as stability with respect to basic operations, 
+     continuity. We prove that functions produced by unit 
+     and star satisfy these extra properties under apropriate assumptions.<br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/html/ALEA.Monads.html">Monads</a>
+        <br/>
+        <br/>
+        <b>Probas</b>
+        <br/>Definition of a dependent type for distributions on a type α. A distribution on a type α is a record containing a function µ of type (α → [0,1])→m [0,1] and proofs that this function enjoys the stability properties of measures.
+     We define the interpretation of specific random primitives : the distribution corresponding to a coin flip and the distribution corresponding to the random function which applied to n gives a number between 0 and n with probability 1/n+1.<br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/html/ALEA.Probas.html">Probas</a>
+        <br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/">Stability Properties</a>
+        <br/>
+        <br/>
+        <b>Prog</b>
+        <br/>Definition of randomized programs constructions. We define the probabilistic choice and conditional constructions and a fixpoint operator obtained by iterating a monotonic functional. We introduce an axiomatic semantics for these randomized programs : let e be a randomized expression of type τ, p be an element of [0,1] and q be a function of type τ → [0,1], we define p ≤ [e](q) to be the property : the measure of q by the distribution associated to the expression e is not less than p. In the case q is the characteristic function of a predicate Q, p ≤ [e](q) can be interpreted as “the probability for the result of the evaluation of e to satisfy Q is not less than p”. In the particular case where q is the constant function equal to 1, the relation p ≤ [e](q) can be interpreted as “the probability for the evaluation of e to terminate is not less than p”.
+We derive inference rules for this relation.<br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/html/ALEA.Prog.html">Prog</a>
+        <br/>
+        <br/>
+        <b>SProbas</b>
+        <br/>A relaxed notion of distributions called sub-distributions suitable to model programs 
+     using both non-deterministic and random choice. A sub-distribution is not additive but instead satisfies 
+     the following weaker properties.<br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/html/ALEA.SProbas.html">SProbas</a>
+        <br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/">Properties</a>
+        <br/>
+        <br/>
+        <b>Cover</b>
+        <br/>A definition of what it means for a function f to be the characteristic function of a predicate P. Defines also characteristic functions for decidable predicates.
+     This file uses the library Sets.v which defines sets as predicates and finite sets with an inductive definition.<br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/html/ALEA.Cover.html">Cover</a>
+        <br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/html/Sets.html">Sets.v</a>
+        <br/>
+        <br/>
+        <b>BinCoeff</b>
+        <br/>Definition of binomial coefficients.<br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/html/ALEA.BinCoeff.html">BinCoeff</a>
+        <br/>
+        <br/>
+        <b>Bernoulli</b>
+        <br/>Construction of a bernoulli distribution from the flip distribution.We prove that the probability of bernouilli(p) to answer true is exactly p. We use this distribution in order to simulate a binomial distribution such that Pr((binomial p n)=k) = Ckn pk(1−p)n−k.<br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/html/ALEA.Bernoulli.html">Bernoulli</a>
+        <br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/">Example Program</a>
+        <br/>
+        <br/>
+        <b>IsDiscrete</b>
+        <br/>Proof that a distribution on a discrete domain is discrete. This result is adapted from the Certicrypt development.<br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/html/ALEA.IsDiscrete.html">IsDiscrete</a>
+        <br/>
+        <br/>
+        <b>DistrTactic</b>
+        <br/>This file introduces a tactic rsimplmu which attempts to simplify expressions involving randomized programs.<br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/html/ALEA.DistrTactic.html">DistrTactic</a>
+        <br/>
+        <br/>
+        <h3>Downloads:-</h3>
+        <table border="1">
+            <tr bgcolor="#9acd32">
+                <th>Description</th>
+                <th>Compatible OS</th>
+                <th>Size</th>
+                <th>Link</th>
+            </tr>
+            <tr>
+                <td>Source Files Downloads</td>
+                <td>-</td>
+                <td>-</td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="http://www.lri.fr/~paulin#alea">Library Download Link</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <h3>Tools Required:</h3>
+        <b>Tool Name: - </b>Coq<br/>
+        <b>Description: - </b>The source files can be compiled using Coq version V8.3.<br/>Links:- <li>
+            <a href="http://coq.inria.fr/">Coq Link</a>
+        </li>
+        <br/>
+        <h3>Examples:-</h3>
+        <b>IterFlip</b>
+        <br/>A proof of probabilistic termination for a random walk. We consider the program
+            let rec iter x = if flip() then iter (x+1) else x
+         We prove that the probability that this program terminates is 1.<br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/html/ALEA.IterFlip.html">IterFlip</a>
+        <br/>
+        <br/>
+        <b>Choice</b>
+        <br/>A proof of composition of two runs of a probabilistic program, when a choice can improve 
+     the quality of the result. Given two randomized expressions p1 and p2 of type τ and a function Q to be 
+     estimated, we consider a choice function such that the value of Q for choice(x,y) is not less than Q(x)+Q(y). We prove that if pi evaluates Q not less than ki and terminates with probability 1 then 
+     the expression choice(p1,p2) evaluates Q not less than k1(1−k2)+k2 (which is greater than both k1 and k2 
+     when k1 and k2 are not equal to 0).<br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/html/ALEA.Choice.html">Choice</a>
+        <br/>
+        <br/>
+        <b>RandomList</b>
+        <br/>Construction of a distribution to pick uniformely an element in a list.<br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/html/ALEA.RandomList.html">RandomList</a>
+        <br/>
+        <br/>
+        <b>ProbTuring</b>
+        <br/>A simple formalisation of probabilistic Turing machines in ALEA.<br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/html/examples/ProbTuring.html">ProbTuring</a>
+        <br/>
+        <br/>
+        <b>Ycart</b>
+        <br/>Evaluation of probability of termination for a program adapted from an example due to B. Ycart, parameterized by a function K of type nat→ nat and a natural number N.
+        let rec ycart n = if random N &lt; K n then n else ycart (n+1)
+        Probability of termination of (ycart n) is shown to be equal to ∏k=n∞ (1−F k), with F n=K n/(1+N).<br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/html/examples/Ycart.html">Ycart</a>
+        <br/>
+        <br/>
+        <b>AbstractWalk</b>
+        <br/>proof of termination of a special walk where with a bounded positive probability we strictly decrease the size of the object in the call (otherwise we call the procedure on the same object).<br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/html/examples/AbstractWalk.html">AbstractWalk</a>
+        <br/>
+        <br/>
+        <h3>References:-</h3>Philippe Audebaud and Christine Paulin-Mohring. Proofs of randomized algorithms in Coq. 
+    Science of Computer Programming, 74(8):568–589, 2009. 
+    A preliminary version appeared in the proc. of MPC 06.<br/>
+        <br/>Dexter Kozen. Semantics of probabilistic programs. J. of Computer and System Science, 1981.<br/>
+        <br/>Dexter Kozen. A probabilistic PDL. In 15th ACM Symposium on Theory of Computing, 1983.<br/>
+        <br/>Matthieu Sozeau and Nicolas Oury. First-Class Type Classes. In Sofiène Tahar, Otmame Ait-Mohamed, and César Muñoz, editors, 21th International Conference on Theorem Proving in Higher Order Logics, LNCS. Springer-Verlag, August 2008.<br/>
+        <br/>The Coq Development Team. The Coq Proof Assistant Reference Manual – Version V8.3, 2010.<br/>
+        <br/>
+    </body>
+</html>

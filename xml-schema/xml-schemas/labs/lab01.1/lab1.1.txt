@@ -1,0 +1,5 @@
+Lab 1.1 Default XMLSchema Namespace
+
+For this lab you are to rework lab 1 so that XMLSchema is
+the default namespace.  After you have done this validate
+your instance document against your new schema.

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.bookstore.org"
+        xmlns:xlink="http://www.w3.org/1999/xlink/namespace"
+        elementFormDefault="qualified">
+
+    <import namespace="http://www.w3.org/1999/xlink/namespace"
+            schemaLocation="XLink.xsd"/>
+
+    <element name="BookStore">
+        <complexType>
+            <sequence>
+                <element name="Book" maxOccurs="unbounded">
+                    <complexType>
+                        <sequence/>
+                        <attribute ref="xlink:href" use="required"/>
+                    </complexType>
+                </element>
+            </sequence>
+        </complexType>
+    </element>
+</schema>

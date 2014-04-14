@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<challenges xmlns:xlink="http://www.w3.org/1999/xlink">
+  <challenge>
+    <challengeName>Satisfiability Modulo Theories Competition (SMT-COMP)</challengeName>
+    <area>Satisfiability Modulo Theories Solvers</area>
+    <challengeDescription>
+      <description>
+        The SMT workshop will include a block of time to present the competitors and results of the SMTCOMP competition.
+        The Satisfiability Modulo Theories Competition (SMT-COMP) arose from the SMT-LIB (``Satisfiability Modulo Theories Library'') 
+        initiative to spur adoption of the common, community-designed SMT-LIB formats, and to spark further advances in SMT, especially for verification.
+      </description>
+      <challengeDate>
+        <from>2012-06-30</from>
+        <to>2012-07-01</to>
+      </challengeDate>
+      <challengeLocation>Manchester, UK</challengeLocation>
+      <associatedConference>IJCAR</associatedConference>
+      <partOfSeries>SMT workshop</partOfSeries>
+    </challengeDescription>
+    <rules>
+      <rule> 
+        <ruleCategory>Rules Information</ruleCategory>
+        <ruleDescription>Official List of rules</ruleDescription>
+        <ruleLinkDescription xlink:type="simple" xlink:href="http://smtcomp.sourceforge.net/2012/rules12.pdf" xlink:show="new">Rule List</ruleLinkDescription>
+      </rule>
+      <rule>
+        <ruleCategory>Submission Requirement</ruleCategory>
+        <ruleDescription>
+          Submission this year will be through the SMT-Exec service, an execution service for SMT solvers.
+          You are encouraged to upload early and often to test your solver on the competition infrastructure.
+          SMT-Exec allows you to keep such submissions private, and when you have completed your competition solver,
+          you can upload the final version of your solver for competition, or mark one of your previous uploads as your competition submission.
+        </ruleDescription>
+       </rule>
+      <rule>
+        <ruleCategory>Benchmarks</ruleCategory>
+        <ruleDescription>Benchmark Information</ruleDescription>
+        <ruleLinkDescription xlink:type="simple" xlink:href="http://smtcomp.sourceforge.net/2012/call12.txt" xlink:show="new">Call for benchmarks</ruleLinkDescription>
+        <ruleLinkDescription xlink:type="simple" xlink:href="http://smtcomp.sourceforge.net/2012/application.shtml" xlink:show="new">Sample Benchmarks</ruleLinkDescription>
+      </rule>
+    </rules>
+    <supportingDocuments>
+      <document>
+        <documentName>Disussion List</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://cs.nyu.edu/mailman/listinfo/smt-comp" xlink:show="new">Discussion list for the Satisfiability Modulo Theories Competition</documentLinkDescription>
+      </document>
+      <document>
+        <documentName>SMP-COMP Papers</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://smtcomp.sourceforge.net/2012/docs.shtml" xlink:show="new">SMT-COMP Papers</documentLinkDescription>
+      </document>
+      <document>
+        <documentName>Final Competition Report and some final system descriptions</documentName>
+         <documentLinkDescription xlink:type="simple" xlink:href="http://smtcomp.sourceforge.net/2012/reports/SMTCOMP2012.pdf" xlink:show="new">The 2012 SMT Competition</documentLinkDescription>
+         <documentLinkDescription xlink:type="simple" xlink:href="http://smtcomp.sourceforge.net/2012/reports" xlink:show="new">2012 Reports</documentLinkDescription>
+      </document>
+    </supportingDocuments>
+    <year>2012</year>
+    <participants>
+      <participant>The details are given in the following link</participant>
+      <participantDescriptionLink xlink:type="simple" xlink:href="http://www.smtexec.org/exec/competitors2012.php" xlink:show="new">
+        Competitors: SMT-COMP 2012
+      </participantDescriptionLink>
+    </participants>
+    <benchmarks>
+      <benchmark>
+        <categories>Application track Benchmarks</categories>
+        <description>
+          Benchmarks and tools are subject to change until their respective freeze dates, as documented in the SMT-COMP rules</description>
+        <format>
+          Each tarball contains one or two status files for each benchmark:
+            BENCHMARK.results.txt is always present, and
+            BENCHMARK.results_untrusted.txt might be present as well
+          These files contain one status per line, corresponding to the series of (check-sat) commands in the benchmarks.
+          Each status line (where different from "unknown") has been determined by running at least 
+          3 different SMT solvers on the set of instances resulted from "unfolding" each incremental benchmark using the scrambler. 
+          For *.results.txt, all the results different from "unknown" have been reported by at least 2 different solvers, whereas all 
+          the status lines generated by a single solver only (because e.g. the others timed out) have been replaced with "unknown". 
+          For *.results_untrusted.txt, the single-solver answer is also included. However, they are marked with an "# untrusted" comment.
+        </format>
+        <benchmarkLinkDescription xlink:type="simple" xlink:href="http://smtcomp.sourceforge.net/2012/application.shtml" xlink:show="new">
+         Application track Benchmarks
+        </benchmarkLinkDescription>
+      </benchmark>
+      <benchmark>
+        <categories>Unsat core benchmarks</categories>
+        <description>
+          The unsat core benchmarks are the subset of the benchmarks from the indicated logics that are unsatisfiable; the benchmarks themselves have been modified to include names for the assertions. Per the SMTLIB standard, the benchmarks are allowed to contain a mix of named and unmaned formulae, though ordinarily,
+          all top-level formulae will have names. The names may be scrambled by the benchmark scrambler. 
+        </description>
+        <format>
+          Each tarball contains one or two status files for each benchmark:
+          BENCHMARK.results.txt is always present, and
+          BENCHMARK.results_untrusted.txt might be present as well
+          These files contain one status per line, corresponding to the series of (check-sat) commands in the benchmarks.
+          Each status line (where different from "unknown") has been determined by running at least
+          3 different SMT solvers on the set of instances resulted from "unfolding" each incremental benchmark using the scrambler.
+          For *.results.txt, all the results different from "unknown" have been reported by at least 2 different solvers, whereas all
+          the status lines generated by a single solver only (because e.g. the others timed out) have been replaced with "unknown".
+          For *.results_untrusted.txt, the single-solver answer is also included. However, they are marked with an "# untrusted" comment.
+        </format>
+        <benchmarkLinkDescription xlink:type="simple" xlink:href="http://smtcomp.sourceforge.net/2012/application.shtml" xlink:show="new">
+          Unsat core benchmarks
+        </benchmarkLinkDescription>
+      </benchmark>
+    </benchmarks>
+    <expectedSolution>
+      <executionEnvironment>
+        <environmentDescription>
+          The competition will run on a cluster of 11 machines at The University of Iowa.
+          All eleven execution nodes have the same OS configuration. 
+          However, please note that we may make software and configuration changes before the competition. 
+          When you submit your solver for SMT-COMP through the SMT-Exec service, it is checked for compatibility with the competition 
+          infrastructure on simple benchmarks supported by your solver. Note that the organizers had expected the 
+          Star-Exec service to be ready for the 2012 competition; the Star-Exec service would have provided considerably 
+          more resources. However, development delays have required us (as of mid-May 2012) to plan to use SMT-Exec again this year.
+        </environmentDescription>
+        <libraries>
+          <library>
+            <libraryName>runtime libraries from gcc-4.1.2-42.el5</libraryName>
+          </library>
+        </libraries>
+        <compilers>
+          <compiler>
+            <compilerName>glibc-2.5-24.el5_2.2</compilerName>
+          </compiler>
+        </compilers>
+        <processors>
+          <processor>
+            <processorName>AMD Opteron 250s</processorName>
+            <processorMemory>
+              1 MB cache and 4 GB main memory
+            </processorMemory>
+            <processorDescription>Out of 11 cluster machines, 9 are of this type. 2.4 GHz, configured for single core, 64-bit processing
+            </processorDescription>
+          </processor>
+          <processor>
+            <processorName>Intel Xeon E5540s</processorName>
+            <processorMemory>
+              8 MB cache and 12 GB main memory
+            </processorMemory>
+            <processorDescription>Out of 11 cluster machines, 2 are of this type. 2.53 GHz, configured for single core, 64-bit processing
+            </processorDescription>
+          </processor>
+        </processors>
+        <OSUsed>
+          <OS>
+            <osName>Red Hat Enterprise Linux Client release 5.2 (Tikanga)</osName>
+            <osVersion>Linux, kernel version 2.6.18-128.2.1.el5</osVersion>
+          </OS>
+        </OSUsed>
+      </executionEnvironment>
+      <deadlines>
+        <deadline>
+          <deadlineName>Call for benchmarks and solvers, and draft rules for comment are made public</deadlineName>
+          <submissionDeadline>2012-01-23T00:00:00</submissionDeadline>
+        </deadline>
+        <deadline>
+          <deadlineName>Revised rules posted; new benchmarks available; call for solvers restated</deadlineName>
+          <submissionDeadline>2012-06-02T00:00:00</submissionDeadline>
+        </deadline>
+        <deadline>
+          <deadlineName>Competition started - results online</deadlineName>
+          <submissionDeadline>2012-06-23T00:00:00</submissionDeadline>
+        </deadline>
+        <deadline>
+          <deadlineName>Competition report and system descriptions posted</deadlineName>
+          <submissionDeadline>2012-08-26T00:00:00</submissionDeadline>
+        </deadline>
+      </deadlines>   
+    </expectedSolution>
+    <allowedTools>
+        <tool>
+          <toolName>Benchmark scrambler</toolName>
+          <toolDescription>This tool can be downloaded as a zip file</toolDescription>
+          <toolLinkDescription xlink:type="simple" xlink:href="https://es.fbk.eu/people/griggio/smtcomp/smtcomp2012_scrambler.tar.gz" xlink:show="new">
+          Download Benchmark scrambler
+        </toolLinkDescription>
+        </tool>
+        <tool>
+          <toolName>Benchmark selection tool</toolName>
+          <toolDescription>Python program to generate benchmark selection</toolDescription>
+        <toolLinkDescription xlink:type="simple" xlink:href="http://smtcomp.sourceforge.net/2012/generate_benchmark_selection_list.py" xlink:show="new">
+          Benchmark selection tool
+        </toolLinkDescription>
+        </tool>
+        <tool>
+          <toolName>Benchmark retrieval tool</toolName>
+          <toolDescription>Gets the selected benchmarks</toolDescription>
+          <toolLinkDescription xlink:type="simple" xlink:href="http://smtcomp.sourceforge.net/2012/get_selected_benchmarks_paths.py" xlink:show="new">
+          Benchmark retrieval tool
+        </toolLinkDescription>
+        </tool>
+        <tool>
+        <toolName>Trace executor</toolName>
+        <toolDescription>Download Trace Executor</toolDescription>
+        <toolLinkDescription xlink:type="simple" xlink:href="https://es.fbk.eu/people/griggio/smtcomp/smtcomp2012_trace_executor.tar.gz" xlink:show="new">
+            Trace executor
+          </toolLinkDescription>
+        </tool>
+        <tool>
+          <toolName>Benchmark selection</toolName>
+          <toolDescription>Benchmark Selection Details</toolDescription>
+          <toolLinkDescription xlink:type="simple" xlink:href="http://smtcomp.sourceforge.net/2012/bench_selection.shtml" xlink:show="new">
+            Benchmark selection
+          </toolLinkDescription>
+        </tool>
+        <tool>
+          <toolName>TreeLimitedRun wrapper (borrowed from CASC and modified)</toolName>
+          <toolDescription>Program to watch CPU usage of a process</toolDescription>
+          <toolLinkDescription xlink:type="simple" xlink:href="http://smtcomp.sourceforge.net/2012/TreeLimitedRun.c" xlink:show="new">
+            TreeLimitedRun wrapper
+          </toolLinkDescription>
+        </tool>
+        <tool>
+          <toolName>SMT-LIB benchmarks</toolName>
+          <toolDescription>Information about SMT-LIB benchmarks</toolDescription>
+          <toolLinkDescription xlink:type="simple" xlink:href="http://smtcomp.sourceforge.net/2012/smtlib2012-benchs.txt.bz2" xlink:show="new">
+            SMT-LIB benchmarks
+          </toolLinkDescription>
+        </tool>
+        <tool>
+          <toolName>Eligible Benchmarks</toolName>
+          <toolDescription>Benchmarks eligible for the 2012 competition</toolDescription>
+          <toolLinkDescription xlink:type="simple" xlink:href="http://smtcomp.sourceforge.net/2012/smtcomp2012-eligible.txt.bz2" xlink:show="new">
+            Download Benchmarks eligible for the 2012 competition
+          </toolLinkDescription>
+        </tool>
+        <tool>
+          <toolName>Unsat core track</toolName>
+          <toolDescription>Script to run the unsat core track</toolDescription>
+        <toolLinkDescription xlink:type="simple" xlink:href="http://smtcomp.sourceforge.net/2012/run_unsat_core_track.sh" xlink:show="new">
+            Download Script  
+          </toolLinkDescription>
+        </tool>
+        <tool>
+          <toolName>SMT-LIBv2 parser</toolName>
+          <toolDescription>Script to write SMT-LIBv2 parser</toolDescription>
+          <toolLinkDescription xlink:type="simple" xlink:href="https://es.fbk.eu/people/griggio/misc/smtlib2parser.html" xlink:show="new">
+            Download Script  
+          </toolLinkDescription>
+        </tool>
+        <tool>
+          <toolName>SMT-LIBv2 tutorial</toolName>
+          <toolDescription>SMT-LIBv2 tutorial and resources (thanks to GrammaTech's David Cok)</toolDescription>
+          <toolLinkDescription xlink:type="simple" xlink:href="http://www.grammatech.com/resources/smt/" xlink:show="new">
+            Download Link  
+          </toolLinkDescription>
+        </tool>
+      </allowedTools>
+    <contactDetails>
+      <contact>
+        <name>Roberto Bruttomesso - Organizer</name>
+        <linkDescription xlink:type="simple" xlink:href="http://www.inf.usi.ch/postdoc/bruttomesso/" xlink:show="new">
+            Roberto Bruttomesso Web Link
+          </linkDescription>
+      </contact>
+      <contact>
+        <name>David Cok - Organizer</name>
+      </contact>
+      <contact>
+        <name> Alberto Griggio - Organizer</name>
+        <linkDescription xlink:type="simple" xlink:href="https://es.fbk.eu/people/griggio/" xlink:show="new">
+            Alberto Griggio Web Link
+          </linkDescription>
+      </contact>
+      <contact>
+        <name>Acknowledgement</name>
+         <linkDescription xlink:type="simple" xlink:href="http://smtcomp.sourceforge.net/2012/acknowledgments.shtml" xlink:show="new">
+            Acknowledgement Web Link
+          </linkDescription>
+      </contact>
+    </contactDetails>
+  </challenge>
+</challenges>

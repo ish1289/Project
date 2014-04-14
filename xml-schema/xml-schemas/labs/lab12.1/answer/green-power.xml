@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<juicer id="green-power" electric="true" type="gear"
+        xmlns="http://www.juicer.org" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.juicer.org
+                            juicer.xsd">
+    <description>You are not What You Eat, But What you Absorb.  The rate of absorption of juice has never been considered a factor in comparing juicers. With the introduction of Green Power&apos;s magnetic Twin Gear press, this has now changed. Experiments conducted by the Green Power Co. Research and Development Dept. show the rate of absorption of green juice using dual gear extraction is up to five times greater than using centrifugal extraction.</description>
+    <name>Green Power Gold Juice Extractor</name>
+    <image>images\greenPower.jpg</image>
+    <cost currency="USD">459.99</cost>
+    <retailer href="http://www.discountjuicers.com/greencomplete.html"/>
+</juicer>

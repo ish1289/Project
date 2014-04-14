@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xlink="http://www.w3.org/1999/xlink">
+<xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="http://www.w3.org/1999/xlink.xsd"/>
+
+<xs:complexType name ="benchmarkType">
+    <xs:sequence>
+      <xs:element name="categories" type="xs:string" minOccurs="0"></xs:element>
+      <xs:element name="description" type="xs:string" minOccurs="0"></xs:element>
+      <xs:element name="format" type="xs:string" minOccurs="0" maxOccurs="unbounded"></xs:element>
+      <xs:element name="timeline" type="xs:duration" minOccurs="0"></xs:element>
+      <xs:element name="benchmarkLinkDescription" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+         <xs:simpleContent>
+           <xs:extension base="xs:string">
+          <xs:anyAttribute namespace="http://www.w3.org/1999/xlink"/>
+          </xs:extension>
+         </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+ <xs:group name="groupBenchmark">
+    <xs:sequence>
+      <xs:element name="benchmark" type="benchmarkType" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:group>
+
+<xs:complexType name="benchmarksType">
+    <xs:sequence>
+      <xs:group ref="groupBenchmark"></xs:group>
+    </xs:sequence>
+  </xs:complexType>
+
+ <xs:element name="benchmarks" type="benchmarksType" ></xs:element>
+</xs:schema>
+
+
+<benchmarks xmlns:xlink="http://www.w3.org/1999/xlink">
+<benchmark>
+<benchmarkLinkDescription xlink:href="http://book.com/images/HPotter.gif">ssss</benchmarkLinkDescription>
+</benchmark>
+</benchmarks>

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xlink="http://www.w3.org/1999/xlink">
+<xs:include schemaLocation="XmlSchema_Execution_Environment_Challenge_Problem_Version_5.xsd"/>
+<xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="http://www.w3.org/1999/xlink.xsd"/>
+  
+  <!--Declaring Simple Types-->
+  <xs:simpleType name="documentCategoryType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="Tutorial|Discussion|File|Other" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="participantsType">
+    <xs:sequence>
+      <xs:element name="participant" maxOccurs="unbounded" type="xs:string"></xs:element>
+      <xs:element name="participantDescriptionLink" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:anyAttribute namespace="http://www.w3.org/1999/xlink"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="challengeDateType">
+    <xs:sequence>
+      <xs:element name="from" type="xs:date"></xs:element>
+      <xs:element name="to" type="xs:date" minOccurs="0"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!--Declaring ComplexTypes and Groups-->
+  <xs:complexType name="supportingDocumentsType">
+    <xs:sequence>
+      <xs:group ref="groupDocuments"></xs:group>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name ="benchmarkType">
+    <xs:sequence>
+      <xs:element name="categories" type="xs:string" minOccurs="0"></xs:element>
+      <xs:element name="description" type="xs:string" minOccurs="0"></xs:element>
+      <xs:element name="format" type="xs:string" minOccurs="0" maxOccurs="unbounded"></xs:element>
+      <xs:element name="timeline" type="xs:duration" minOccurs="0"></xs:element>
+      <xs:element name="benchmarkLinkDescription" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:simpleContent>
+                  <xs:extension base="xs:string">
+                    <xs:anyAttribute namespace="http://www.w3.org/1999/xlink"/>
+                  </xs:extension>
+           </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="documentType">
+    <xs:sequence>
+      <xs:element name="documentName" type="xs:string"></xs:element>
+      <xs:element name="documentCategory" type="documentCategoryType"></xs:element>
+      <xs:element name="documentLinkDescription" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:simpleContent>
+                  <xs:extension base="xs:string">
+                    <xs:anyAttribute namespace="http://www.w3.org/1999/xlink"/>
+                  </xs:extension>
+           </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ruleDetailsType">
+    <xs:sequence>
+      <xs:element name="ruleCategory" type="xs:string" minOccurs="0"></xs:element>
+      <xs:element name="ruleDescription" type="xs:string"></xs:element>
+      <xs:element name="inputRequirements" type="inputRequirementsType" minOccurs="0"></xs:element>
+      <xs:element name="outputRequirements" type="outputRequirementsType" minOccurs="0"></xs:element>
+      <xs:element name="ruleLinkDescription" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:simpleContent>
+                  <xs:extension base="xs:string">
+                    <xs:anyAttribute namespace="http://www.w3.org/1999/xlink"/>
+                  </xs:extension>
+           </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ruleType">
+    <xs:sequence>
+      <xs:element name="rule" maxOccurs="unbounded" type="ruleDetailsType"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="solutionformatType">
+    <xs:sequence>
+      <xs:element name ="solutionForm" type="xs:string"></xs:element>
+      <xs:element name="solutionLinkDescription" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:simpleContent>
+                  <xs:extension base="xs:string">
+                    <xs:anyAttribute namespace="http://www.w3.org/1999/xlink"/>
+                  </xs:extension>
+           </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="groupDocuments">
+    <xs:sequence>
+      <xs:element name="document" type="documentType" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="groupBenchmark">
+    <xs:sequence>
+      <xs:element name="benchmark" type="benchmarkType" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="solutionType">
+    <xs:sequence>
+      <xs:element name="solutionFormat" type="solutionformatType" minOccurs="0"></xs:element>
+      <xs:element name="solutionDescription" type="xs:string" minOccurs="0"></xs:element>
+      <xs:element name="inputRequirements" type="inputRequirementsType" minOccurs="0"></xs:element>
+      <xs:element name="outputRequirements" type="outputRequirementsType" minOccurs="0"></xs:element>
+      <xs:element name="executionEnvironment" type="ExecutionEnvironmentType" minOccurs="0"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="groupSolution">
+    <xs:sequence>
+      <xs:element name="solution" type="solutionType" minOccurs="0" maxOccurs="unbounded"></xs:element>     
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="benchmarksType">
+    <xs:sequence>
+      <xs:group ref="groupBenchmark"></xs:group>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="solutionsType">
+    <xs:sequence>
+      <xs:group ref="groupSolution"></xs:group>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="contactType">
+    <xs:sequence>
+      <xs:element name="contactName" minOccurs="0"></xs:element>
+      <xs:element name="phone" minOccurs="0" maxOccurs="unbounded"></xs:element>
+      <xs:element name="email" minOccurs="0" maxOccurs="unbounded"></xs:element>
+      <xs:element name="contactLinkDescription" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:simpleContent>
+                  <xs:extension base="xs:string">
+                    <xs:anyAttribute namespace="http://www.w3.org/1999/xlink"/>
+                  </xs:extension>
+           </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="contactsType">
+    <xs:sequence>
+      <xs:element name="contact" type="contactType" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resultsType">
+    <xs:sequence>
+     <xs:element name="resultsLinkDescription" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:simpleContent>
+                  <xs:extension base="xs:string">
+                    <xs:anyAttribute namespace="http://www.w3.org/1999/xlink"/>
+                  </xs:extension>
+           </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+    
+  <xs:complexType name="challengeDescriptionType">
+    <xs:sequence>
+      <xs:element name="description" type="xs:string"></xs:element>
+      <xs:element name="challengeDate" type="challengeDateType" minOccurs="0"></xs:element>
+      <xs:element name="challengeLocation" type="xs:string" minOccurs="0"></xs:element>
+      <xs:element name="associatedConference" type="xs:string" minOccurs="0"></xs:element>
+      <xs:element name="partOfSeries" type="xs:string" minOccurs="0"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="scoreDetailType">
+    <xs:sequence>
+      <xs:element name="points" type="xs:string" minOccurs="0"></xs:element>
+      <xs:element name="description" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="scoreDetailsType">
+    <xs:sequence>
+      <xs:element name="score" type="scoreDetailType" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="assesmentDescriptionType">
+    <xs:sequence>
+      <xs:element name="description" type="xs:string" minOccurs="0"></xs:element>
+     <xs:element name="assessmentLinkDescription" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:simpleContent>
+                  <xs:extension base="xs:string">
+                    <xs:anyAttribute namespace="http://www.w3.org/1999/xlink"/>
+                  </xs:extension>
+           </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="jury" type="contactsType" minOccurs="0" maxOccurs="unbounded"></xs:element>
+      <xs:element name="scoreDetails" type="scoreDetailsType" minOccurs="0"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="changeType">
+    <xs:sequence>
+      <xs:element name="changeDescription" type="xs:string"></xs:element>
+      <xs:element name="changeDescriptionLink" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:anyAttribute namespace="http://www.w3.org/1999/xlink"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="changesType">
+    <xs:sequence>
+      <xs:element name="change" type="changeType" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <!-- Main Schema -->
+  <xs:element name ="challenges">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="challenge" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="challengeName" type="xs:string" />
+              <xs:element name="area" type="xs:string" />
+              <xs:element name="challengeDescription" type="challengeDescriptionType"></xs:element>
+              <xs:element name="rules" type="ruleType" minOccurs="0"></xs:element>
+              <xs:element name="supportingDocuments" type="supportingDocumentsType" minOccurs="0"></xs:element>
+              <xs:element name="year" type="xs:gYear" minOccurs="0"></xs:element>
+              <xs:element name="assessmentDescription" type="assesmentDescriptionType" minOccurs="0"></xs:element>
+              <xs:element name="participants" type="participantsType" minOccurs="0"></xs:element>
+              <xs:element name="benchmarks" type="benchmarksType" minOccurs="0"></xs:element>
+              <xs:element name="expectedSolution" type="expectedSolutionType"></xs:element>
+              <xs:element name="solutions" type="solutionsType" minOccurs="0"></xs:element>
+              <xs:element name="contactDetails" type="contactsType" minOccurs="0"></xs:element>
+              <xs:element name="results" type="resultsType" minOccurs="0"></xs:element>
+              <xs:element name="changes" type="changesType" minOccurs="0"></xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

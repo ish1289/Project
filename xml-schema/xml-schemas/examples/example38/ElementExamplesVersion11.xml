@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<ElementExamples xmlns="http://www.element-examples.org"
+                   xmlns:ex="http://www.element-examples.org"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation=
+                              "http://www.element-examples.org
+                               ElementExamplesVersion11.xsd">
+
+    <!-- ************************************** -->
+    <!--                Version #11             -->
+    <!-- ************************************** -->
+
+    <aircraft/>                      <!-- Using the fixed value -->
+    <aircraft>Boeing 747</aircraft>  <!-- Specifying the fixed value -->
+
+</ElementExamples>

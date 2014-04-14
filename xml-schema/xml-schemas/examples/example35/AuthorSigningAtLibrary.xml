@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<Library xmlns="http://www.library.org"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation=
+                              "http://www.library.org
+                               AuthorSigningAtLibrary.xsd">
+    <Books>
+        <Book>
+                <Title>My Life and Times</Title>
+                <Author>Paul McCartney</Author>
+                <Date>1998</Date>
+                <ISBN>94303-12021-43892</ISBN>
+                <Publisher>McMillin Publishing</Publisher>
+        </Book>
+        <Book>
+                <Title>Illusions The Adventures of a Reluctant Messiah</Title>
+                <Author>Richard Bach</Author>
+                <Date>1977</Date>
+                <ISBN>0-440-34319-4</ISBN>
+                <Publisher>Dell Publishing Co.</Publisher>
+        </Book>
+        <Book>
+                <Title>The First and Last Freedom</Title>
+                <Author>J. Krishnamurti</Author>
+                <Date>1954</Date>
+                <ISBN>0-06-064831-7</ISBN>
+                <Publisher>Harper &amp; Row</Publisher>
+        </Book>
+    </Books>
+    <GuestAuthors>
+        <Author>
+            <Name>Richard Bach</Name>
+            <BookForSigning>
+                <Title>Illusions The Adventures of a Reluctant Messiah</Title>
+                <ISBN>0-440-34319-4</ISBN>
+            </BookForSigning>
+        </Author>
+    </GuestAuthors>
+</Library>

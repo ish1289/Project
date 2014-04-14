@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.aviation.org"
+        xmlns:a="http://www.aviation.org" 
+        elementFormDefault="qualified">
+    <element name="Flight">
+        <complexType>
+            <sequence>
+                <element name="Aircraft">
+                    <complexType>
+                        <sequence>
+                            <element name="Elevation">
+                                <complexType>
+                                    <simpleContent>
+                                        <extension base="integer">
+                                            <attribute name="units" use="required">
+                                                <simpleType>
+                                                    <restriction base="string">
+                                                        <enumeration value="feet"/>
+                                                        <enumeration value="meters"/>
+                                                    </restriction>
+                                                </simpleType>
+                                            </attribute>
+                                        </extension>
+                                    </simpleContent>
+                                </complexType>
+                            </element>
+                        </sequence>
+                        <attribute name="type" type="string" use="required"/>
+                    </complexType>
+                </element>
+                <element name="Obstacle">
+                    <complexType>
+                        <sequence>
+                            <element name="Height">
+                                <complexType>
+                                    <simpleContent>
+                                        <extension base="nonNegativeInteger">
+                                            <attribute name="units" use="required">
+                                                <simpleType>
+                                                    <restriction base="string">
+                                                        <enumeration value="feet"/>
+                                                        <enumeration value="meters"/>
+                                                    </restriction>
+                                                </simpleType>
+                                            </attribute>
+                                        </extension>
+                                    </simpleContent>
+                                </complexType>
+                            </element>
+                        </sequence>
+                        <attribute name="type" use="required">
+                            <simpleType>
+                                <restriction base="string">
+                                    <enumeration value="antenna"/>
+                                    <enumeration value="building"/>
+                                    <enumeration value="mountain"/>
+                                </restriction>
+                            </simpleType>
+                        </attribute>
+                    </complexType>
+                </element>
+            </sequence>
+        </complexType>
+    </element>
+</schema>
+

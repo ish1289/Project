@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2000/10/XMLSchema"
+            targetNamespace="http://www.juicers.org"
+            xmlns="http://www.juicers.org"
+            elementFormDefault="qualified">
+    <xsd:complexType name="juicer">
+         <xsd:sequence>
+              <xsd:element name="name" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+              <xsd:element name="weight" type="xsd:nonNegativeInteger" minOccurs="0" maxOccurs="1"/>
+              <xsd:element name="cost" type="money" minOccurs="1" maxOccurs="unbounded"/>
+              <xsd:element name="retailer" type="xsd:uriReference" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:simpleType name="money">
+        <xsd:restriction base="xsd:decimal">
+            <xsd:scale value="2"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

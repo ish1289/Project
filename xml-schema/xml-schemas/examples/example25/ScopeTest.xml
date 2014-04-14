@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<BookOnCars xmlns="http://www.publishing.org"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation=
+                              "http://www.publishing.org
+                               ScopeTest.xsd">
+        <Chapter>
+                <Title>My Car</Title>
+                <Section>
+                    <Title>Thunderbird</Title>
+                </Section>
+        </Chapter>
+        <Title>A car</Title>
+</BookOnCars>

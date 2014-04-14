@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.olympus.com"
+        xmlns:o="http://www.olympus.com"
+        elementFormDefault="qualified">
+    <complexType name="lens_type">
+        <sequence>
+            <element name="zoom" type="string"/>
+            <element name="f-stop" type="string"/>
+        </sequence>
+    </complexType>
+</schema>

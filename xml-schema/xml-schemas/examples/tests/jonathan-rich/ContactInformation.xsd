@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.somewhere.com"
+        elementFormDefault="qualified"
+        xmlns:test="http://www.somewhere.com">
+
+<xsd:include schemaLocation="contactName.xsd"/>
+
+<xsd:element name="ContactInformation">
+  <xsd:complexType>
+    <xsd:sequence>
+      <xsd:element ref="test:contactName"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:element>
+
+</xsd:schema>

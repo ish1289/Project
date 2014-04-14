@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.library.org"
+            xmlns="http://www.library.org"
+            elementFormDefault="qualified">
+    <xsd:include schemaLocation="LibraryBook.xsd"/>
+    <xsd:include schemaLocation="LibraryEmployee.xsd"/>
+    <xsd:element name="Library">
+        <xsd:complexType>
+             <xsd:sequence>
+                 <xsd:element name="Books">
+                     <xsd:complexType>
+                         <xsd:sequence>
+                             <xsd:element ref="Book" maxOccurs="unbounded"/>
+                         </xsd:sequence>
+                     </xsd:complexType>
+                 </xsd:element>
+                 <xsd:element name="Employees">
+                     <xsd:complexType>
+                         <xsd:sequence>
+                             <xsd:element ref="Employee" maxOccurs="unbounded"/>
+                         </xsd:sequence>
+                     </xsd:complexType>
+                 </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.camera.org"
+        xmlns:c="http://www.camera.org"
+        xmlns:nikon="http://www.nikon.com"
+        xmlns:olympus="http://www.olympus.com"
+        xmlns:pentax="http://www.pentax.com"
+        elementFormDefault="qualified">
+
+    <import namespace="http://www.nikon.com"
+            schemaLocation="Nikon.xsd"/>
+    <import namespace="http://www.olympus.com"
+            schemaLocation="Olympus.xsd"/>
+    <import namespace="http://www.pentax.com"
+            schemaLocation="Pentax.xsd"/>
+
+    <element name="camera">
+        <complexType>
+             <sequence>
+                 <element name="body" type="nikon:body_type"/>
+                 <element name="lens" type="olympus:lens_type"/>
+                 <element name="manual_adapter" type="pentax:manual_adapter_type"/>
+            </sequence>
+        </complexType>
+    </element>
+</schema>
+

@@ -1,0 +1,41 @@
+Lab 9. Elements in Any Order
+
+There is no inherent reason that the children of the 
+juicer element should occur in a specified 
+order.  Let's change the schema so that the
+juicer element contains the same set of child elements
+but allow them to occur in any order.  Once you've
+done that, shuffle the elements around in
+juicers.xml.  As always, validate the instance document 
+against your schema.
+
+Notes: 
+
+[1] Whenever a type extends a base type, the
+extension elements are always appended to the 
+base type's elements:
+
+b1, b2, e1, e2
+
+where b1 and b2 are the base type's elements and
+e1, e2 are the elements from the type that is 
+extending the base type.  
+
+Thus, even if you make the base type unordered and
+the type extending the base type unordered, the
+resulting set of elements will still be partially ordered:
+
+{b1, b2}, {e1, e2}
+
+where the curly braces indicates an unordered set.  
+We have an unordered first set followed (sequentially)
+by an unordered second set.
+
+So, for this lab you are to delete the appliance type
+and place its element declarations in with the 
+juiceAppliance type.
+
+[2] One of the restrictions on using the <all> element
+is that the elements declared within <all> must have a maxOccurs="1".
+So, remove the cost that specifies the cost in Canadian Dollars.
+(We will just deal in US currency.)

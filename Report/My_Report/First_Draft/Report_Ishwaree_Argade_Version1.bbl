@@ -1,0 +1,109 @@
+\begin{thebibliography}{CADb}
+
+\bibitem[Ale13]{Alea}
+{Alea: a library for reasoning on randomized algorithms in Coq }.
+\newblock \url{https://www.lri.fr/~paulin/ALEA/}, 2013.
+
+\bibitem[AW10]{Lawford}
+Mark~Lawford Alan~Wassyng, Tom~Maibaum.
+\newblock On software certification: We need product-focused approaches.
+\newblock Number LNCS 6028. Springer-Verlag Berlin Heidelberg, 2010.
+\newblock C. Choppy and O. Sokolsky (Eds.): Monterey Workshop 2008.
+
+\bibitem[Ben11]{seminar}
+Marc Bender.
+\newblock What is software certification?
+\newblock McMaster Centre for Software Certification (McSCert), April 13 2011.
+\newblock McSCert Seminar 2.
+
+\bibitem[Bria]{olXSD}
+Domenico Briganti.
+\newblock {W3C XML Schema (XSD) Validation online}.
+\newblock \url{http://www.utilities-online.info/xsdvalidation/#.U0M3I_ldXwg}.
+
+\bibitem[Brib]{olXSL}
+Domenico Briganti.
+\newblock {XSLT (eXtensible Stylesheet Language Transformations) online
+  transformations}.
+\newblock
+  \url{http://www.utilities-online.info/xsltransformation/#.U0M6RfldXwg}.
+
+\bibitem[CADa]{CADP}
+{Construction and Analysis of Distributed Processes}.
+\newblock \url{http://cadp.inria.fr/}.
+\newblock Toolbox for the design of asynchronous concurrent systems.
+
+\bibitem[CADb]{CADE}
+{The CADE ATP System Competition}.
+\newblock \url{http://www.cs.miami.edu/~tptp/CASC/}.
+\newblock The World Championship for Automated Theorem Proving.
+
+\bibitem[COQ]{COQ}
+{The Coq Proof Assistant}.
+\newblock \url{http://coq.inria.fr/}.
+
+\bibitem[CW94]{CSC}
+Per~Runeson Claes~Wohlin.
+\newblock Certification of software components.
+\newblock {\em IEEE TRANSACTIONS ON SOFTWARE ENGINEERING}, 20, June 1994.
+
+\bibitem[DF05]{SCMS}
+Ewen Denney and Bernd Fischer.
+\newblock Software certification and software certificate management systems.
+\newblock In {\em 2005 Automated Software Engineering Workshop on Software
+  Certificate Management}, Long Beach, California, USA, November 8 2005.
+  Association for Computing Machinery.
+
+\bibitem[DFC]{DFC}
+{A Coq Library on Floating-Point Arithmetic }.
+\newblock \url{http://lipforge.ens-lyon.fr/www/pff/}.
+
+\bibitem[MaC]{MaC}
+{MECHTRON/SFWR ENG 4AA4/6GA3 – Real-Time Systems }.
+\newblock \url{http://www.cas.mcmaster.ca/~downd/courses/4aa4/4aaout.htm}.
+\newblock McMaster University.
+
+\bibitem[MCH]{MCHIP}
+{Microchip Certified Class B Safety Software Library for 16 bit and PIC32 MCUs
+  }.
+\newblock
+  \url{http://www.microchip.com/stellent/idcplg?IdcService=SS_GET_PAGE&nodeId=2680&dDocName=en548988}.
+
+\bibitem[Pac07]{Pacemaker}
+{Pacemaker Formal Methods Challenge}.
+\newblock \url{http://sqrl.mcmaster.ca/pacemaker.htm}, 2007.
+
+\bibitem[SAT]{SAT}
+{SAT Challenge 2012}.
+\newblock \url{http://baldur.iti.kit.edu/SAT-Challenge-2012/}.
+
+\bibitem[SMT]{SMT}
+{SMT-COMP 2012}.
+\newblock \url{http://smtcomp.sourceforge.net/2012/}.
+
+\bibitem[SV13]{SV}
+{Competition on Software Verification (SV-COMP)}.
+\newblock \url{http://sv-comp.sosy-lab.org/2013/index.php}, 2013.
+
+\bibitem[Vic]{Victoria}
+{Embedded and Networked Systems }.
+\newblock \url{http://www.vu.edu.au/units/ENE3202}.
+\newblock Victoria University.
+
+\bibitem[Voa14]{Voas}
+Jeffrey Voas.
+\newblock Developing a usage-based software certification process.
+\newblock Reliable Software Technologies, 03 2014.
+
+\bibitem[Wat]{Waterloo}
+{ECE423: Embedded Computer Systems }.
+\newblock \url{https://ece.uwaterloo.ca/~rpellizz/ECE423.php}.
+\newblock University of Waterloo.
+
+\bibitem[Yor]{York}
+{Course Modules Offered at York University }.
+\newblock
+  \url{https://www.cs.york.ac.uk/postgraduate/taught-courses/msc-scse/#tab-2}.
+\newblock MSc in Safety Critical Systems Engineering.
+
+\end{thebibliography}

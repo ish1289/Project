@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modules xmlns:xlink="http://www.w3.org/1999/xlink">
+  <module>
+    <school>York University</school>
+    <moduleName>Hazard &amp; Risk Assessment (HRAS)</moduleName>
+    <moduleCode>COM00025M</moduleCode>
+    <year>2013</year>
+    <professors>
+      <contact>
+        <name>Georgios Despotou</name>
+        <linkDescription xlink:type="simple" xlink:href="http://www.cs.york.ac.uk/people/george" xlink:show="new">Link to Web page: Georgios Despotou</linkDescription>
+      </contact>
+      <contact>
+        <name>Oleg Lisagor</name>
+        <linkDescription xlink:type="simple" xlink:href="http://www.cs.york.ac.uk/people/oleg" xlink:show="new">Link to Web page:Oleg Lisagor</linkDescription>
+      </contact>
+      <contact>
+        <name>Xiaocheng Ge</name>
+        <linkDescription xlink:type="simple" xlink:href="http://www.cs.york.ac.uk/people/xchge" xlink:show="new">Link to Web page:Katrina Attwood</linkDescription>
+      </contact>
+    </professors>
+    <status>Core</status>
+    <requiredFor>Both Full-time and Part-time</requiredFor>
+    <allowedTracks>
+      <track>GTC</track>
+      <track>SCSE</track>
+      <track>GTC</track>
+    </allowedTracks>
+    <numberOfCredits>10</numberOfCredits>
+    <teachingTermsAllowed>
+      <term>Autumn 6</term>
+    </teachingTermsAllowed>
+    <preRequisites>
+      <preRequisite>
+        <description>Basic Knowledge of safety terminology either through Foundations of System Safety Engineering (FSSE) module or demonstration of equivalent knowledge 
+        through industrial experience / previous education. </description>
+        <preRequisiteLinkDescription xlink:type="simple" xlink:href="http://www.cs.york.ac.uk/postgraduate/modules/fsse.html" xlink:show="new">FSSE - Foundations of System Safety Engineering</preRequisiteLinkDescription>
+      </preRequisite>
+    </preRequisites>
+    <courseDescription>
+      <description>
+        This module teaches systematic approaches to hazard identification and risk assessment,
+        including principles of risk reduction and ALARP. It effectively covers the first half of
+        the safety process in the system development lifecycle. It encompasses predictive,
+        target-setting techniques and should ideally be taken as a pair with System Safety Assessment,
+        which addresses concepts and techniques appropriate to the later stages of a development project.
+      </description>
+    </courseDescription>
+    <aims>
+      <aim>
+        <description>
+          This module teaches systematic approaches to hazard identification and risk assessment, including principles of risk reduction and ALARP. It effectively covers the 
+          first half of the safety process in the system development lifecycle.
+        </description>
+      </aim>
+      <aim>
+        <description>
+          It encompasses predictive, target-setting techniques and should ideally be taken as a pair with System Safety Assessment, which addresses concepts 
+          and techniques appropriate to the later stages of a development project.
+        </description>
+      </aim>
+    </aims>
+    <learningOutcomes>
+      <learningOutcome>An understanding of the principles of hazard identification and assessment</learningOutcome>
+      <learningOutcome>An initial ability to apply techniques such as Functional Failure Analysis and HAZOP</learningOutcome>
+      <learningOutcome>An understanding of approaches to risk reduction</learningOutcome>
+      <learningOutcome>An appreciation of common cause / common mode failure mechanisms, and their importance</learningOutcome>
+    </learningOutcomes>
+    <workload>
+      <totalLectureHours>14</totalLectureHours>
+      <eachLectureDuration>1 hour and 30 mins</eachLectureDuration>
+      <totalPracticalHours>8 hours</totalPracticalHours>
+      <totalPrivateStudyTime>30 Hours</totalPrivateStudyTime>
+      <assessmentTime>35hrs</assessmentTime>
+      <description>
+        The teaching is organised in one intense week of lectures and case studies (practicals)
+        Students should expect to undertake about 65 hours of private study. This is divided 
+        as approximately 30 hours private study 
+        time and 35 hours writing response to assessment questions.
+      </description>
+    </workload>
+    <feedback>
+      <feedbackDescription>Individual written feedback is provided via the online feedback system till 15th Jan.</feedbackDescription>
+      <feedbackLinkDescription xlink:type="simple" xlink:href="http://www.cs.york.ac.uk/submit/" xlink:show="new">Online Feedback Link</feedbackLinkDescription>
+    </feedback>
+    <content>
+      <topicsCovered>
+        <topic>
+          <description>Session 1:	Introduction</description>
+        </topic>
+        <topic>
+          <description>Session 2:	Preliminary Hazard Identification </description>
+        </topic>
+        <topic>
+          <description>Session 3:	Cherry Picker PHI (Case Study)</description>
+        </topic>
+        <topic>
+          <description>Session 4:	Hazard Analysis in the Design Process </description>
+        </topic>
+        <topic>
+          <description>Session 5:	Severity, Probability and Risk Classes</description>
+        </topic>
+        <topic>
+          <description>Session 6:	Defining Risk Classes (Case Study)</description>
+        </topic>
+        <topic>
+          <description>Session 7:	Event Tree Revision </description>
+        </topic>
+        <topic>
+          <description>Session 8:	Chemical Hazard Containment (Case Study)</description>
+        </topic>
+        <topic>
+          <description>Session 9:	Introduction to Hazard Management	</description>
+        </topic>
+        <topic>
+          <description>Session 10:	Risk Considerations at System Level	</description>
+        </topic>
+        <topic>
+          <description>Session 11:	ALARP </description>
+        </topic>
+        <topic>
+          <description>Session 12:	ALARP (Case Study) </description>
+        </topic>
+        <topic>
+          <description>Session 13:	Functional Hazard Analysis  </description>
+        </topic>
+        <topic>
+          <description>Session 14:	System FFA (Case Study) </description>
+        </topic>
+        <topic>
+          <description>Session 15:	Systematic Failure  </description>
+        </topic>
+        <topic>
+          <description>Session 16:	HAZOP </description>
+        </topic>
+        <topic>
+          <description>Session 17:	Process Plant HAZOP (Case Study)  </description>
+        </topic>
+        <topic>
+          <description>Session 18:	SILs </description>
+        </topic>
+        <topic>
+          <description>Session 19:	Trailer braking (Case Study)  </description>
+        </topic>
+        <topic>
+          <description>Session 20:	Common Cause and Zonal Hazard Analysis  </description>
+        </topic>
+        <topic>
+          <description>Session 21:	Common cause and ZHA (Case Study) </description>
+        </topic>
+        <topic>
+          <description>Session 22: Particular Risk Assessment </description>
+        </topic>
+      </topicsCovered>
+      <teachingMaterial>
+        <material>
+          <materialName>Copies of all lecture slides, case studies and exercises will be provided.</materialName>
+        </material>
+      </teachingMaterial>
+      <books>
+        <book>
+          <bookName>HAZOP and HAZAN: Identifying and Assessing Process Industry Hazards</bookName>
+          <bookType>Recommended</bookType>
+          <bookAuthor>Kletz, T.</bookAuthor>
+          <bookPublisher>Institution of Chemical Engineers</bookPublisher>
+          <bookYear>1992</bookYear>
+        </book>
+        <book>
+          <bookName>Hazard Analysis Techniques for System Safety</bookName>
+          <bookType>Recommended</bookType>
+          <bookAuthor>Ericson, C.A</bookAuthor>
+          <bookPublisher>Wiley</bookPublisher>
+          <bookYear>2005</bookYear>
+        </book>
+        <book>
+          <bookName>System Safety Analysis Handbook (2nd Ed)</bookName>
+          <bookType>Recommended</bookType>
+          <bookAuthor>Stephans, R.A. and Talso W.W</bookAuthor>
+          <bookPublisher>System Safety Society</bookPublisher>
+          <bookYear>1997</bookYear>
+        </book>
+      </books>
+      <startDate>2013-10-21</startDate>
+      <assessment>
+        <description>Open assessment is done</description>
+        <startDate>2013-11-07T00:00:00</startDate>
+        <endDate>2014-01-08T00:00:00</endDate>
+      </assessment>
+    </content>
+  </module>
+</modules>

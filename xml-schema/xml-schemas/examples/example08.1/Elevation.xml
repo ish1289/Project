@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<Elevations xmlns="http://www.us-maps.org"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation=
+                          "http://www.us-maps.org
+                           Elevation.xsd">
+
+        <Mt-Everest units="feet">29035</Mt-Everest>
+        <Boston units="feet">30</Boston>
+
+</Elevations>

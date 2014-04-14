@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<libraries xmlns:xlink="http://www.w3.org/1999/xlink">
+  <library>
+    <libraryName>PIC32 Audio Equalizer (EQ) Filter Library</libraryName>
+    <libraryOverview>
+      <description>
+        The PIC32 Audio Equalizer (EQ) Filter Library is specifically designed to assist with multiple-frequency filtering of digital audio. 
+        The library can work from multiple audio sources, and customize the listening experience to compensate for speaker, room / enclosure acoustics or user preferences. The library can
+        support either graphic equalizer or parametric equalizer filtering functions.
+        An optional element of graphical frequency-band magnitude is also available to enable a real-time display of the audio output.
+      </description>
+      <linkDescription xlink:type="simple" xlink:href="http://www.microchip.com/stellent/idcplg?IdcService=SS_GET_PAGE&amp;nodeId=2680&amp;dDocName=en567035" xlink:show="new">More Details</linkDescription>
+    </libraryOverview>
+    <contentFiles>
+      <contentFile>
+        <name>Audio Equalizer Filtering Library</name>
+        <description>
+          In music playback, digital filtering can be performed before digital bits are converted into analog
+          voltages that are
+          played by speakers to maintain high fidelity audio as shown in the figure 1 above.
+          An audio equalizer filtering library performs various tasks including digital filtering to
+          correct deficits in the recorded music, mitigate problems in the speakers being used, or
+          simply correct for the room's acoustics - all focused on improving the user's experience of the music.
+          The library provides filtering primitives for audio equalization using infinite impulse response (IIR)
+          filters. It supports filter architectures for traditional graphical equalization and for parametric
+          equalization.
+          1) Parametric Equalizer Filters - Serial sequence of IIR filters from 2-20 biquads, 
+          Typically runs peaking and shelving filter designs, 
+          Used for factory tuning of speaker and enclosure / environmental harmonics,
+          2) Graphic Equalizer Filters - Parallel architecture of filters, 2 biquad filters per band, 
+          summed for a single output, 4-16 frequency bands can be supported, Typically runs band-pass filter designs,
+          Used for user preference filtering and real-time gain adjustment per frequency band
+        </description>
+      </contentFile>
+      <contentFile>
+        <name>Graphic Equalizer Display Library</name>
+        <description>
+          The Graphic Equalizer Display Library works on any Microchip device that drives
+          an LCD display, providing Graphic Equalizer displays for the host application.
+          Graphic Equalizers are used to adjust the spectral content of music by providing gain or
+          attenuation to parts of the music based on frequency. This library works hand-in-hand with
+          the Audio Equalizer Filtering Library, which does the actual signal processing (filtering).
+          The Graphic Equalizer Display Library is an adjunct of the Audio Equalizer Filtering Library in 
+          that it supports displaying information produced by routines in the filtering library, 
+          namely signal strength as measured by the filtering library. It also supports displaying band 
+          filter gains so that the user can adjust filter gains as part of a Graphic Equalizer display.
+        </description>
+      </contentFile>
+    </contentFiles>
+    <downloads>
+      <download>
+        <description>PIC32 Audio Equalizer Package</description>
+        <size>19311 KB</size>
+        <linkDescription xlink:type="simple" xlink:href="https://www.microchip.com/wwwregister/default.aspx?ReturnURL=http://www.microchip.com/stellent/idcplg?IdcService=SS_GET_PAGE&amp;nodeId=2680&amp;dDocName=en567035" xlink:show="new">Download Link</linkDescription>
+      </download>
+    </downloads>
+    <requiredToolsForCompilation>
+      <tool>
+        <toolName>License Details</toolName>
+        <toolDescription>
+          The library is free to download and there are no associated royalties for this library when the code is used with a Microchip PIC processor.
+        </toolDescription>
+      </tool>
+    </requiredToolsForCompilation>
+    <supportingDocuments>
+      <document>
+        <documentName>
+          PIC32 Audio Equalizer Filter Help
+        </documentName>
+        <documentDescription>Date Created: 12/11/2013 2:32:52 PM</documentDescription>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://ww1.microchip.com/downloads/en/DeviceDoc/help_audio_equalizer_filter.pdf" xlink:show="new">Link</documentLinkDescription>
+      </document>
+      <document>
+        <documentName>
+          PIC32 Audio Equalizer LCD Graphics Help
+        </documentName>
+        <documentDescription>Date Created: 12/11/2013 2:32:06 PM</documentDescription>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://ww1.microchip.com/downloads/en/DeviceDoc/help_audio_equalizer_lcd_graphics.pdf" xlink:show="new">Link</documentLinkDescription>
+      </document>
+    </supportingDocuments>
+  </library>
+</libraries>

@@ -1,0 +1,24 @@
+Lab 12.1 Making the Juicer Information Net-Centric
+
+Up till now the juicers data was all in one, monolithic XML document.
+This is not net-centricity!
+
+I have split up the data.  Now there is an XML document for each juicer.
+
+You are to:
+
+1. Create juicers.xml
+      - this XML document should be designed to link to each juicer document
+        Notes:
+           use physical URLs, since we don't have a web server running
+           I have already created a skeletal version of juicers.xml for you
+
+2. Create juicers.xsd
+
+3. Create juicer.xsd
+
+Use the schema from Lab10 as your starting point.
+
+I have provided XLink.xsd for you in this folder.  You can use it. 
+
+Validate each juicer document, and juicers.xml

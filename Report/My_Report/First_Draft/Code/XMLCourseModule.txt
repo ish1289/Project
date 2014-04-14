@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modules xmlns:xlink="http://www.w3.org/1999/xlink">
+  <module>
+    <school>York University</school>
+    <moduleName>Foundations of System Safety Engineering (FSSE)</moduleName>
+    <moduleCode>COM00006M</moduleCode>
+    <year>2013</year>
+    <professors>
+      <contact>
+        <name>Oleg Lisagor</name>
+        <linkDescription xlink:type="simple" xlink:href="http://www.cs.york.ac.uk/people/oleg" xlink:show="new">Link to Web page: Oleg Lisagor</linkDescription>
+      </contact>
+    </professors>
+    <status>Core</status>
+    <requiredFor>Both Full-time and Part-time</requiredFor>
+    <allowedTracks>
+      <track>LSCITS 1</track>
+    </allowedTracks>
+    <numberOfCredits>10</numberOfCredits>
+    <teachingTermsAllowed>
+      <term>Autumn 0</term>
+    </teachingTermsAllowed>
+    <preRequisites>
+      <preRequisite>
+        <description>A basic understanding of safety principles would be good but not essential. 
+      Please check with the module owner if you are unsure of your experience.</description>
+    </preRequisite>
+    </preRequisites>
+    <courseDescription>
+    <description>
+      This module is an introduction to the principles of system safety, including risk, 
+      basic terminology, and the main types of hazard and safety assessment techniques. 
+      It also provides a brief overview of material which will be covered in greater depth in later modules, 
+      such as legal issues, management of safety critical projects, and human factors.
+    </description>
+   </courseDescription>
+    <aims>
+      <aim>
+        <description>This module is an introduction to the principles of system safety, including risk, basic terminology, 
+        and the main types of hazard and safety assessment techniques. </description>
+      </aim>
+    </aims>
+    <learningOutcomes>
+      <learningOutcome>Understand risk, and the factors influencing perception and acceptability of risk</learningOutcome>
+    </learningOutcomes>
+    <workload>
+      <totalLectureHours>35</totalLectureHours>
+      <eachLectureDuration>1 hour</eachLectureDuration>
+      <totalPrivateStudyTime>30hrs</totalPrivateStudyTime>
+      <assessmentTime>35hrs</assessmentTime>
+      <description>The teaching for this module combines traditional lectures with a number of exercises and case studies which will be tackled in small groups.</description>
+    </workload>
+    <feedback>
+      <feedbackDescription>Individual written feedback is provided via the online feedback system till 11th Dec.</feedbackDescription>
+      <feedbackLinkDescription xlink:type="simple" xlink:href="http://www.cs.york.ac.uk/submit/" xlink:show="new">Online Feedback Link</feedbackLinkDescription>  
+   </feedback>
+    <content>
+      <topicsCovered>
+        <topic>
+          <description>Introduction to accidents, hazards and risk</description>
+        </topic>
+        <topic>
+          <description>Formal definitions of safety engineering terminology</description>
+        </topic>
+      </topicsCovered>
+      <teachingMaterial>
+        <material>
+          <materialName>Copies of all lecture slides, case studies and exercises will be provided.</materialName>
+        </material>
+      </teachingMaterial>
+      <books>
+        <book>
+          <bookName>Safeware: System Safety and Computers</bookName>
+          <bookType>Recommended</bookType>
+          <bookAuthor>Leveson, N.G.</bookAuthor>
+          <bookPublisher>Addison Wesley</bookPublisher>
+          <bookYear>1995</bookYear>
+        </book>
+        <book>
+          <bookName>Normal Accidents: Living with High-Risk Technologies</bookName>
+          <bookType>Recommended</bookType>
+          <bookAuthor>Perrow, C.</bookAuthor>
+          <bookPublisher>Princeton University Press</bookPublisher>
+          <bookYear>1999</bookYear>
+        </book>
+      <startDate>2013-09-23</startDate>
+      <assessment>
+        <description>Open assessment is done</description>
+        <startDate>2013-09-26T00:00:00</startDate>
+        <endDate>2013-10-30T00:00:00</endDate>
+      </assessment>
+    </content>
+  </module>
+</modules>

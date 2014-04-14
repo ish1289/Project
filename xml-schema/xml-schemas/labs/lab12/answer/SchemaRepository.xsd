@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.repository.org"
+        xmlns="http://www.repository.org"
+        elementFormDefault="qualified">
+    <xsd:attribute name="id" type="xsd:ID"/>
+    <xsd:element name="color" type="xsd:string"/>
+</xsd:schema>
+

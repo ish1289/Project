@@ -1,0 +1,69 @@
+Modules
+a.	Module
+	1.	School/University
+	2.	Module Name 
+	3.	Module Code
+	4.	Professors/Lecturers
+	5.	Status (Core/Optional)
+	6.	Required For (Full-time/part-time)
+	7.	Allowed Tracks  
+	8.	Number of credits 
+	9.	Teaching Term 
+	10.	Pre-requisites 
+	11.	Description 
+	12.	Aims 
+		a.	Aim
+			i.	Description
+			ii.	Link
+	13.	Learning Outcomes
+	14.	Rules 
+	15.	Workload 
+		i.	Total lecture hours 
+		ii.	Each lecture time 
+		iii.	Total Private study time 
+		iv.	Assessment Time 
+	16.	Feedback 
+		i.	Description 
+		ii.	Link
+	17.	 Content 
+		i.	Topics covered 
+			a.	Description 
+			b.	Link 
+		ii.	Teaching Material 
+			a.	Name 
+			b.	description
+			c.	Type (Slides/Case Studies/exercise)
+			d.	Link 
+		iii.	Books 
+			a.	Name 
+			b.	Type (Required/Recommended)
+			c.	Author 
+			d.	Title 
+			e.	Publisher 
+			f.	Year 
+		iv.	Deadlines 
+		v.	Submissions
+			a.	Description
+			b.	Link 
+			c.	Start Date 
+			d.	End Date 
+		vii.	Assessment 
+			a.	Description 
+			b.	Assignments
+				1.	Assignment
+					a.	Description
+					b.	weight
+					c.	Link
+			c.	Exams
+				2.	Exam
+					d.	Description
+					e.	weight
+					f.	Link
+			d.	Start Date 
+			e.	End Date 
+		viii.	Allowed Tools
+			a.	Tool Name 
+			b.	Description 
+			c.	Link 
+		ix.	Location
+		x.	Results

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<ElementExamples xmlns="http://www.element-examples.org"
+                   xmlns:ex="http://www.element-examples.org"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation=
+                              "http://www.element-examples.org
+                               ElementExamplesVersion05.xsd">
+
+    <!-- ************************************** -->
+    <!--                Version #5              -->
+    <!-- ************************************** -->
+
+    <aircraft>F-16</aircraft>  <!-- Assigning aircraft a value -->
+
+</ElementExamples>

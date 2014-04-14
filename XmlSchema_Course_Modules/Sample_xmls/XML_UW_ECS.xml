@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modules xmlns:xlink="http://www.w3.org/1999/xlink">
+  <module>
+    <school>University of Waterloo</school>
+    <moduleName>Embedded Computer Systems</moduleName>
+    <moduleCode>ECE423</moduleCode>
+    <year>2014</year>
+    <professors>
+      <contact>
+        <name>Rodolfo Pellizoni</name>
+        <linkDescription xlink:type="simple" xlink:href="https://ece.uwaterloo.ca/~rpellizz/ECE423.php" xlink:show="new">Link to Web page</linkDescription>
+      </contact>
+    </professors>
+    <teachingTermsAllowed>
+      <term>Winter</term>
+    </teachingTermsAllowed>
+    <preRequisites>
+      <preRequisite>
+        <description>ECE 224/325: the course assumes basic understanding of microprocessor architecture, interfacing, synchronization and bus structures. The students are also assumed to be familiar with Altera Quartus Development tools.</description>
+      </preRequisite>
+      <preRequisite>
+        <description>Some understanding of OS fundamentals and digital design is also beneficial. Students who are interested in the course but did not take one of ECE 254 or ECE 429 or ECE 455 (or equivalent) are invited to contact the instructor. Note that while ECE 327 is listed as a prerequisite, it can be waived for students with a sufficient understanding and/or interest in digital design.</description>
+      </preRequisite>
+    </preRequisites>
+    <courseDescription>
+    <description>
+       Specification and design of embedded systems, specification languages, hardware/software 
+       co-design, performance estimation, co-simulation, verification, validation, embedded architectures, 
+       processor architectures and software synthesis, system-on-a-chip paradigm, retargetable code generation 
+       and optimization, verification and validation, environmental issues and considerations.
+       Embedded systems are omnipresent; they range from consumer products such as cell-phones 
+       to safety-critical systems such as cars and airplanes. An embedded system is designed to 
+       support a specific set of functionalities and must typically satifisy stringent requirements 
+       in terms of cost, performance, power consumption, timing, etc. To meet such requirements, 
+       the System-on-Chip (SoC) paradigm is becoming increasingly popular, 
+       where all components of the electronic system are integrated on a single chip.
+    </description>
+    </courseDescription>
+    <aims>
+      <aim>
+        <description>
+          The goal of ECE 423 is to provide students with the knowledge and skills to design modern embedded systems. The course takes a requirement-driven design approach, where a functional specification is derived from a set of system requirements 
+          and then mapped into hardware and software components.  
+        </description>
+      </aim>
+      <aim>
+        <description>
+          A significant portion of the course is devoted to performance estimation of hardware-software systems, co-design and design space exploration. The key problem we try to solve is the follow: given a functional specification of the desired system, how do we decide which functionalities should be implemented in hardware rather than software? How do we validate that the designed hardware/software system will meet requirements? 
+          How do we verify its correctness? To address such questions, the course also introduces students to existing alternatives in embedded processor and interconnect architecture, as well as general SoC design methodologies. The course project provides further on-hand experience on major phases in the development lifecycle of a SoC-based embedded system.
+        </description>
+      </aim>
+    </aims>
+    <learningOutcomes>
+      <learningOutcome>The embedded system industry is arguably the dominant force in the development and commercialization of digital systems. Over 99% of all processors produced nowadays are shipped as part of embedded systems. Many embedded markets are among the most competitive in the whole industry (ex: smartphones). Being able to co-optimize both the hardware and software 
+      platform is paramount to gain a competitive advantage.</learningOutcome>
+      <learningOutcome>Learn key skills required by the industry: companies such as Blackberry, Qualcomm, ARM, etc., actively seek engineers with key skills imparted by this course: 1) reason about complex trade-offs in terms of cost, performance, power consumption, etc.; 2) understand the relation between hardware architectural choices and software components; 3) 
+      maintain a holistic view of system design.</learningOutcome>
+      <learningOutcome>Strengthen your understanding of computer architecture: for students interested in computer architecture, ECE 423 provides a natural continuation of the topics covered in ECE 429. In particular, it covers topics in embedded processor architecture (general purpose vs application-specific instruction processor vs gpgpu vs coprocessor vs reconfigurable logic), 
+      interconnects and system-on-chip design.</learningOutcome>
+      <learningOutcome>Become an embedded systems specialist: for students directly interested in the area of embedded systems, ECE 423 provides a companion course to ECE 455. ECE 455 introduces software technologies, models, languages and analysis methods for embedded systems. ECE 423 extends these concepts to the 
+      combined design of hardware/software systems.</learningOutcome>
+    </learningOutcomes>
+    <workload>
+      <description>Hours per Week: Lecture = 3, Tutorial = 1, Lab = 1.5</description>
+    </workload>
+    <content>
+      <topicsCovered>
+        <topic>
+          <description>Embedded Architecture: Processor and Interconnects</description>
+        </topic>
+        <topic>
+          <description>SoC design and IP reuse</description>
+        </topic>
+        <topic>
+          <description>Scheduling</description>
+        </topic>
+        <topic>
+          <description>Performance Estimation</description>
+        </topic>
+        <topic>
+          <description>Models of Computation and Co-Simulation</description>
+        </topic>
+        <topic>
+          <description>Requirement Specification and HW/SW Co-design</description>
+        </topic>
+        <topic>
+          <description>High-level synthesis</description>
+        </topic>
+        <topic>
+          <description>Design Space Exploration</description>
+        </topic>
+        <topic>
+          <description>The lab component of the course consists of a system design 
+          project used to expose the students to major aspects of the embedded systems 
+          development cycle, including: identification of system requirements, 
+          functional specification, system-level co-design, design space exploration and optimization, 
+          integration, validation and verification. Students work in groups to design, integrate 
+          and test a multimedia application on FPGA. Students are tasked with analyzing system requirements, 
+          sub-dividing the problem, selecting available IPs, estimating performance, 
+          assembling the system and writing test cases.</description>
+        </topic>
+      </topicsCovered>
+      <teachingMaterial>
+        <material>
+          <materialName>
+            All course materials will be made available through Learn, including course slides, lab manual and assignments.
+          </materialName>
+        </material>
+      </teachingMaterial>
+      <assessment>
+        <description>The course grade will be based on a midterm examination, final examination and lab project.</description>
+      </assessment>
+    </content>
+  </module>
+</modules>

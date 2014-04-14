@@ -1,0 +1,12 @@
+Lab 10. Using Empty
+
+Revert back to the schema that you created in lab 8.c
+(where you had an appliance complexType).
+
+Currently the retailer element has as its
+content a URI.  Modify it so that its
+content is empty and it instead has an
+attribute - href - whose type is anyURI.
+Once you've done that, modify juicers.xml
+to reflect this change. As always, validate 
+the instance document against your schema.

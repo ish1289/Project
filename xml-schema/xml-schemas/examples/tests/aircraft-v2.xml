@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<Flight xmlns="http://www.aviation.org" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:schemaLocation=
+                    "http://www.aviation.org 
+                     Aircraft.xsd">
+    <Aircraft type="Boeing 747">
+        <Elevation units="feet">3300</Elevation>
+    </Aircraft>
+    <Obstacle type="mountain">
+        <Height units="feet">26000</Height>
+    </Obstacle>
+</Flight>

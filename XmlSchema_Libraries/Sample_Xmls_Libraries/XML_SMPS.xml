@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<libraries xmlns:xlink="http://www.w3.org/1999/xlink">
+  <library>
+    <libraryName>SMPS Control Library</libraryName>
+    <libraryOverview>
+      <description>
+        The SMPS Control Library contains function blocks that are optimized for the dsPIC33F 
+        and dsPIC33E family of Digital Signal Controllers (DSC). The library functions are designed 
+        to be used within an application framework for realizing 
+        an efficient and flexible way of implementing the control of an SMPS application.
+      </description>
+      <linkDescription xlink:type="simple" xlink:href="http://www.microchip.com/stellent/idcplg?IdcService=SS_GET_PAGE&amp;nodeId=2680&amp;dDocName=en567449" xlink:show="new">More Details</linkDescription>
+    </libraryOverview>
+    <contentFiles>
+      <contentFile>
+        <description>3-Pole 3-Zero: digital implementation of an analog type III controller</description>
+      </contentFile>
+      <contentFile>
+        <description>2-Pole 2-Zero: digital implementation of an analog type II controller</description>
+      </contentFile>
+      <contentFile>
+        <description>PID: digital implementation of a proportional Integral derivative controller</description>
+      </contentFile>
+    </contentFiles>
+    <downloads>
+      <download>
+        <description>SMPS Control Library and Date Created: 1/17/2014 4:37:26 PM</description>
+        <size>261 KB</size>
+        <linkDescription xlink:type="simple" xlink:href="http://www.microchip.com/Microchip.WWW.SecureSoftwareList/secsoftwaredownload.aspx?device=en567449&amp;lang=en&amp;ReturnURL=http://www.microchip.com/stellent/idcplg?IdcService=SS_GET_PAGE&amp;nodeId=2680&amp;dDocName=en567449#" xlink:show="new">Download Link</linkDescription>
+      </download>
+    </downloads>
+    <requiredToolsForCompilation>
+      <tool>
+        <toolName>XC16 v1.11 compiler</toolName>
+        <toolDescription>
+          Compatible with the library
+        </toolDescription>
+      </tool>
+      <tool>
+        <toolName>MPLAB X IDE v1.90 and later</toolName>
+        <toolDescription>
+          Compatible with the library
+        </toolDescription>
+      </tool>
+    </requiredToolsForCompilation>
+  </library>
+</libraries>

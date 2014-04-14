@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<radar xmlns="http://www.sensor.org"
+      xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"
+      xsi:schemaLocation=
+                "http://www.test.org sensor.xsd
+                 http://www.sensor.org radar.xsd">
+    <sensor>gamma</sensor>
+</radar>

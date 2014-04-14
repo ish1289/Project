@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns:xlink="http://www.w3.org/1999/xlink">
+    <style type="text/css">
+        .alignmentCenter{
+        text-align: center;
+        }
+        .setWidth{
+        width: 50%;
+        }
+        }
+      </style>
+    <body>
+        <h3 class="alignmentCenter">The Coq Proof Assistant</h3>
+        <h3>Overview:- </h3>
+    Coq is a formal proof management system. It provides a formal language to write 
+    mathematical definitions, executable algorithms and theorems together with an environment 
+    for semi-interactive development of machine-checked proofs. Typical applications include the formalization 
+    of programming languages semantics (e.g. the CompCert compiler certification project or Java Card 
+    EAL7 certification in industrial context), the formalization of mathematics (e.g. the full formalization 
+    of the 4 color theorem or constructive mathematics at Nijmegen) and teaching.
+ <br/>
+        <h3>Contributors:-</h3>Description-There is a strong and active community of users working with Coq. They are contributing formal developments, extensions of Coq, 
+     and tools based on Coq (see Related Tools).<br/>
+        <a href="http://coq.inria.fr/pylons/contribs/index">The Coq Users' Contributions</a>
+        <br/>
+        <h3>Available Versions:-</h3>
+        <table border="1">
+            <tr bgcolor="#9acd32">
+                <th>Version Name</th>
+                <th>Description</th>
+                <th>Year</th>
+                <th>Link</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>Coq 8.4pl3</td>
+                <td>This version features: 1) a new modular and uniform extension of the arithmetical libraries by P. Letouzey which systematically provides power, gcd/lcm, square root, base 2 logarithm, division, modulo, bitwise operators, logical shift, comparisons, iterators for all of nat, N, Z, BigN and BigZ on top of a uniform naming layer </td>
+                <td>-</td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="http://coq.inria.fr/coq-84-is-out">More Information</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="http://coq.inria.fr/distrib/V8.4pl3/CHANGES">Changes from Previous Versions</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="http://coq.inria.fr/distrib/V8.4pl3/COMPATIBILITY">Main Incompatibilites</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>Current</td>
+            </tr>
+            <tr>
+                <td>version 8.3</td>
+                <td>-</td>
+                <td>-</td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="http://coq.inria.fr/coq-8.3">Previous Version 8.3</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>Previous</td>
+            </tr>
+            <tr>
+                <td>version 8.2</td>
+                <td>-</td>
+                <td>-</td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="http://coq.inria.fr/coq-82-detailed-description">Previous Version 8.2</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>Previous</td>
+            </tr>
+        </table>
+        <h3>Extensions/Experimental Content:-</h3>
+        <b>Description:- </b>When compiled with Objective Caml 3.11.
+         Coq supports dynamic loading of extensions. Note: Objective Caml = 3.11.1 is required for 
+         building plugins on MacOS 10.5. (*) above means that the plugin is submitted to the user contributions 
+         and planned to be kept compatible with the new releases of Coq to come.<br/>
+        <b>Contents-</b>
+        <br/>The small scale reflection package (ssreflect) contains the robust and compact tactic language and libraries that 
+        were started for supporting the full formalization of the 4 color theorem and that now serves, among other applications, 
+        as support for the ongoing formalization of the odd order theorem in group theory. (*)<br/>
+        <a href="http://www.msr-inria.inria.fr/Projects/math-components">Small scale reflection</a>
+        <br/>
+        <h3>Functionalities/Features:-</h3>Coq implements a program specification and mathematical higher-level language 
+      called Gallina that is based on an expressive formal language called the Calculus of Inductive Constructions that itself combines both a 
+       higher-order logic and a richly-typed functional programming language. 
+        Through a vernacular language of commands<br/>
+        <h3>Getting the tool:-</h3>
+        <table border="1">
+            <tr bgcolor="#9acd32">
+                <th>Description</th>
+                <th>Size</th>
+                <th>Format</th>
+                <th>Link</th>
+                <th>Form</th>
+            </tr>
+            <tr>
+                <td>-</td>
+                <td>4 MB</td>
+                <td>-</td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="http://coq.inria.fr/distrib/V8.4pl3/files/coq-8.4pl3.tar.gz">coq-8.4pl3.tar.gz</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>Source</td>
+            </tr>
+            <tr>
+                <td>-</td>
+                <td>54 MB</td>
+                <td>Windows</td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="http://coq.inria.fr/distrib/V8.4pl3/files/coq-installer-8.4pl3.exe">coq-installer-8.4pl3.exe (bundled with CoqIDE) (sha1, sha1 sig)</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>Binary</td>
+            </tr>
+        </table>
+        <h3>Related Links:- </h3>
+        <a href="http://coq.inria.fr/coq-workshop/">The Coq workshop</a>
+        <br/>
+        <h3>Related Tools</h3>
+        <b>Tool Name: - </b>Software Verification Tools<br/>
+        <b>Description: - </b>Several tools are being built on top of Coq, for software verification purposes.
+Why is a verification conditions generator back-end.
+Krakatoa is a Java code certification tool that uses both Coq and Why to verify the soundness of implementations with regards to the specifications.
+Caduceus is a verification tool for C programs, built on top of Why.
+Concoqtion is a dependently-typed extension of Objective Caml (and of MetaOCaml) with specifications expressed and proved in Coq.
+Ynot is an extension of Coq providing a "Hoare Type Theory" for specifying higher-order, imperative and concurrent programs.
+Ott is a tool to translate the descriptions of the syntax and semantics of programming languages to the syntax of Coq, or of other provers.<br/>Links:- <li>
+            <a href="http://why.lri.fr/index.en.html">Why Tool</a>
+        </li>
+        <li>
+            <a href="http://krakatoa.lri.fr/">Krakatoa Tool</a>
+        </li>
+        <li>
+            <a href="http://why.lri.fr/caduceus/index.en.html">Caduceus Tool</a>
+        </li>
+        <br/>
+        <b>Tool Name: - </b>Representation of binders and termination proofs Tools<br/>
+        <b>Description: - </b>LNgen is a tool for generating Coq code for the infrastructure associated with a locally nameless representation;
+        <br/>Links:- <li>
+            <a href="http://www.cis.upenn.edu/~baydemir/papers/lngen">LNgen Tool</a>
+        </li>
+        <li>
+            <a href="http://hybrid.dsi.unimi.it/">Hybrid Tool</a>
+        </li>
+        <br/>
+        <h3>Supporting Documents</h3>
+        <table border="1">
+            <tr bgcolor="#9acd32">
+                <th>Document Name</th>
+                <th>Description</th>
+                <th>Link</th>
+            </tr>
+            <tr>
+                <td class="setWidth">Reference Manual </td>
+                <td>-</td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="http://coq.inria.fr/distrib/current/refman">Reference Manual</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="setWidth">Standard Library</td>
+                <td>-</td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="http://coq.inria.fr/distrib/current/stdlib/">Standard Library</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

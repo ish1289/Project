@@ -1,0 +1,38 @@
+Lab 14. Creating a Schema for your Home Appliances, Version 2
+
+After completing lab 13 you may have felt dissatisfied with
+the end result.  Let's consider its deficiencies:
+
+[1] We made the element appliance of type a:appliance.  Thus,
+    in the instance document one of our home appliances could
+    have been an appliance.  appliance really represents a class
+    of things, and should never be an instance.  The instances
+    should be juiceAppliance, stereoAppliance, etc.  (Analogously,
+    it wouldn't make sense to allow an instance called person.
+    Instead, the instances should be Roger, Sally, Pete, etc.)
+
+[2] Instead of writing our instance document as:
+
+       <homeAppliances>
+           <appliance xsi:type="j:juiceApplicance">
+              ...
+           </appliance>
+           <appliance xsi:type="stereoApplicance">
+              ...
+           </appliance>
+       </homeAppliances>
+
+It would be much more readable if we could write it as:
+
+       <homeAppliances>
+           <juicer>
+              ...
+           </juicer>
+           <stereo>
+              ...
+           </stereo>
+        </homeAppliances> 
+
+Modify your work from lab 13 so that it no longer has these deficiencies.
+
+As always, validate the instance document against your schema.

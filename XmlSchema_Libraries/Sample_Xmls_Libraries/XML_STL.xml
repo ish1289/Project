@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<libraries xmlns:xlink="http://www.w3.org/1999/xlink">
+  <library>
+    <libraryName>Standard Template Library</libraryName>
+    <libraryOverview>
+      <description>
+        The Standard Template Library, or STL, is a C++ library of container classes, algorithms, and 
+        iterators; it provides many of the basic algorithms and data structures of computer science. 
+        The STL is a generic library, meaning that its components are heavily parameterized: almost every 
+        component in the STL is a template. You should make sure that you 
+        understand how templates work in C++ before you use the STL.
+      </description>
+      <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/stl_introduction.html" xlink:show="new">Introduction to STL</linkDescription>
+    </libraryOverview>
+    <availableVersions>
+      <version status="Current">
+        <versionName>Version 3.3</versionName>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/stl.tar" xlink:show="new">Download the entire STL (v3.3) as a tar file</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/stl.zip" xlink:show="new">Download the entire STL (v3.3) as a zip file</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/stl.tar.gz" xlink:show="new">Download the entire STL (v3.3) as a tar file compressed with gzip</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>Version 3.2</versionName>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/stl32.tar" xlink:show="new">Download the entire STL (v3.2) as a tar file</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/stl32.zip" xlink:show="new">Download the entire STL (v3.2) as a zip file</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/stl32.tar.gz" xlink:show="new">Download the entire STL (v3.2) as a tar file compressed with gzip</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>Version 3.12</versionName>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/stl312.tar" xlink:show="new">Download the entire STL (v3.12) as a tar file</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/stl312.zip" xlink:show="new">Download the entire STL (v3.12) as a zip file</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/stl312.tar.gz" xlink:show="new">Download the entire STL (v3.12) as a tar file compressed with gzip</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>Version 3.13</versionName>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/stl313.tar" xlink:show="new">Download the entire STL (v3.13) as a tar file</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/stl313.zip" xlink:show="new">Download the entire STL (v3.13) as a zip file</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/stl313.tar.gz" xlink:show="new">Download the entire STL (v3.13) as a tar file compressed with gzip</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>Version 3.11</versionName>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/stl311.tar" xlink:show="new">Download the entire STL (v3.11) as a tar file</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/stl311.zip" xlink:show="new">Download the entire STL (v3.11) as a zip file</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/stl311.tar.gz" xlink:show="new">Download the entire STL (v3.11) as a tar file compressed with gzip</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>Version 3.0</versionName>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/stl30.tar" xlink:show="new">Download the entire STL (v3.0) as a tar file</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/stl30.zip" xlink:show="new">Download the entire STL (v3.0) as a zip file</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/stl30.tar.gz" xlink:show="new">Download the entire STL (v3.0) as a tar file compressed with gzip</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>Version 2.03</versionName>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/stl203.tar" xlink:show="new">Download the entire STL (v2.03) as a tar file</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/stl203.zip" xlink:show="new">Download the entire STL (v2.03) as a zip file</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/stl203.tar.gz" xlink:show="new">Download the entire STL (v2.03) as a tar file compressed with gzip</linkDescription>
+      </version>
+    </availableVersions>
+    <experimentalContentsOrExtensions>
+      <content>
+        <name>IOStream Library</name>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/standard_library.html" xlink:show="new">More details</linkDescription>
+      </content>
+    </experimentalContentsOrExtensions>
+    <contentFiles>
+      <contentFile>
+        <name>Containers and algorithms</name>
+        <description>
+          Like many class libraries, the STL includes container classes: classes whose purpose is to contain other objects. The STL includes the classes vector, list, deque, set, multiset, map, multimap, hash_set, hash_multiset, hash_map, and hash_multimap. Each of these classes is a template, and can be instantiated to contain any type of object. You can, for example, use a vector int in much the same way as you would use an ordinary C array, except that vector eliminates the chore of managing dynamic memory allocation by hand.
+        The STL also includes a large collection of algorithms that manipulate the data stored in containers. You can reverse the order of elements in a vector, for example, by using the reverse algorithm.
+        </description>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/Vector.html" xlink:show="new">vector</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/List.html" xlink:show="new">list</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/Deque.html" xlink:show="new">deque</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/set.html" xlink:show="new">set</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/multiset.html" xlink:show="new">multiset</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/Map.html" xlink:show="new">map</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/Multimap.html" xlink:show="new">multimap</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/hash_set.html" xlink:show="new">hash_set</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/hash_multiset.html" xlink:show="new">hash_multiset</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/hash_map.html" xlink:show="new">hash_map</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/hash_multiset.html" xlink:show="new">hash_multiset</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/reverse.html" xlink:show="new">reverse</linkDescription>
+      </contentFile>
+      <contentFile>
+        <name>Iterators</name>
+        <description>
+          Iterators are the mechanism that makes it possible to decouple algorithms from containers: 
+          algorithms are templates, and are parameterized by the type of iterator, so they are not restricted 
+          to a single type of container. Consider, for example, how to write an algorithm that performs linear 
+          search through a range. This is the STL's find algorithm.
+        </description>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/istream_iterator.html" xlink:show="new">istream iterator</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/ostream_iterator.html" xlink:show="new">ostream iterator</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/find.html" xlink:show="new">find algorithm</linkDescription>
+      </contentFile>
+      <contentFile>
+        <name>Concepts and Modeling</name>
+        <description>Concepts are not a part of the C++ language; there is no way to declare 
+        a concept in a program, or to declare that a particular type is a model of a concept. 
+        Nevertheless, concepts are an extremely important part of the STL. Using concepts makes it possible 
+        to write programs that cleanly separate interface from implementation: the author of find only has to 
+        consider the interface specified by the concept Input Iterator, rather than the implementation of every 
+        possible type that conforms to that concept. Similarly, if you want to use find, you need only to ensure 
+        that the arguments you pass to it are models of Input Iterator. This is the reason why find and reverse 
+        can be used with lists, vectors, C arrays, and many other types: programming in terms of concepts, rather 
+        than in terms of specific types, makes it possible to reuse software components and to combine components 
+        together.</description>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/for_each.html" xlink:show="new">for_each Algorithm</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/count.html" xlink:show="new">count</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/InputIterator.html" xlink:show="new">Input Iterator</linkDescription>
+      </contentFile>
+      <contentFile>
+        <name>Refinement</name>
+        <description>
+          The Bidirectional Iterator concept is very similar to the Input Iterator concept: it simply imposes some additional requirements. The types that are models of Bidirectional Iterator are a subset of the types that are models of Input Iterator: every type that is a model of Bidirectional Iterator is also a model of Input Iterator. Int*, for example, is both a model of Bidirectional Iterator and a model of Input Iterator, but istream_iterator, is only a model of Input Iterator: it does not
+          conform to the more stringent Bidirectional Iterator requirements. We describe the relationship between Input Iterator and Bidirectional Iterator by saying that Bidirectional Iterator is a refinement of Input Iterator. Refinement of concepts is very much like inheritance of C++ classes; the main reason we use a different word, instead of just calling it "inheritance", is to emphasize that refinement applies to concepts rather than to actual types.
+          There are actually three more iterator concepts in addition to the two that we have already discussed: the five iterator concepts are Output Iterator, Input Iterator, Forward Iterator, Bidirectional Iterator, and Random Access Iterator; Forward Iterator is a refinement of Input Iterator, Bidirectional Iterator is a refinement of Forward Iterator, and Random Access Iterator is a refinement of Bidirectional Iterator. (Output Iterator is related to the other four concepts, but it is not part of the hierarchy of refinement: it is not a refinement of any of the other iterator concepts, and none of the other iterator concepts are refinements of it.) The Iterator Overview has more information about iterators in general.
+          Container classes, like iterators, are organized into a hierarchy of concepts. All containers are models of the concept Container; more refined concepts, such as Sequence and Associative Container, describe specific types of containers.
+        </description>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/OutputIterator.html" xlink:show="new">Output Iterator</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/InputIterator.html" xlink:show="new">Input Iterator</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/ForwardIterator.html" xlink:show="new">Forward Iterator</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/BidirectionalIterator.html" xlink:show="new">Bidirectional Iterator</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/RandomAccessIterator.html" xlink:show="new">Random Access Iterator</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/Iterators.html" xlink:show="new">Iterator Overview</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/Container.html" xlink:show="new">More Information on Containers</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/Sequence.html" xlink:show="new">Sequence</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/AssociativeContainer.html" xlink:show="new">Associative Containers</linkDescription>
+      </contentFile>
+      <contentFile>
+        <name>Other parts of the STL</name>
+        <description>
+          First, the STL includes several utilities: very basic concepts and functions that are used in many different parts of the library. The concept Assignable, for example, describes types that have assignment operators and copy constructors; almost all STL classes are models of Assignable,
+          and almost all STL algorithms require their arguments to be models of Assignable.
+          Second, the STL includes some low-level mechanisms for allocating and deallocating memory. Allocators are very specialized, and you can safely ignore them for almost all purposes.
+          Finally, the STL includes a large collection of function objects, also known as functors. Just as iterators are a generalization of pointers, function objects are a generalization of functions: a function object is anything that you can call using the ordinary function call syntax. There are several different concepts relating to function objects, including Unary Function (a function object that takes a single argument, i.e. one that is called as f(x)) and Binary Function (a function object that takes two arguments, i.e. one that is called as f(x, y)). Function objects are an important part of generic programming because they allow abstraction not only over the types of objects, but also over the operations that are being performed.
+        </description>
+          <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/Assignable.html" xlink:show="new">Assignable Concept</linkDescription>
+          <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/Allocators.html" xlink:show="new">Allocators</linkDescription>
+          <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/functors.html" xlink:show="new">Function Objects</linkDescription>
+          <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/UnaryFunction.html" xlink:show="new">Unary Functions</linkDescription>
+          <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/BinaryFunction.html" xlink:show="new">Binary Functions</linkDescription>
+      </contentFile>
+    </contentFiles>
+    <downloads>
+      <download>
+        <description>All the information related to downloading STL</description>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/download.html" xlink:show="new">Download STL source code</linkDescription>
+      </download>
+      <download>
+        <description>Note: you do not need this restricted version if you are using Microsoft Visual C++ 5.0 or Borland C++ 5.02, both of which are able to compile the regular version. Now that the ordinary version of the STL can be used with both Microsoft and Borland compilers, SGI is no longer updating the restricted version. It will remain available on this WWW site, but new features will not be added to it.</description>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/ms-brlnd.tar" xlink:show="new">Download the entire STL (for older Microsoft and Borland compilers) as a tar file</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/ms-brlnd.zip" xlink:show="new">Download the entire STL (for older Microsoft and Borland compilers) as a zip file</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/ms-brlnd.tar.gz" xlink:show="new">Download the entire STL (for older Microsoft and Borland compilers) as a tar file compressed with gzip</linkDescription>
+      </download>
+    </downloads>
+    <requiredToolsForCompilation>
+      <tool>
+        <toolName>SGI MIPSpro</toolName>
+        <toolDescription>The STL was developed on SGI MIPSproTM C++ 7.0, 7.1, 7.2, and 7.2.1.</toolDescription>
+        <toolLinkDescription xlink:type="simple" xlink:href="https://www.sgi.com/site_contents.html" xlink:show="new">SGI Site Link</toolLinkDescription>
+      </tool>
+    </requiredToolsForCompilation>
+    <supportingDocuments>
+      <document>
+        <documentName>
+          Download the STL documentation
+        </documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/STL_doc.tar" xlink:show="new">Download the entire STL documentation as a tar file</documentLinkDescription>
+        <documentLinkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/STL_doc.zip" xlink:show="new">Download the entire STL documentation as a zip file</documentLinkDescription>
+        <documentLinkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/STL_doc.tar.gz" xlink:show="new">Download the entire STL documentation as a tar file compressed with gzip</documentLinkDescription>
+      </document>
+      <document>
+        <documentName>
+          STL Design Documents
+        </documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/thread_safety.html" xlink:show="new">Thread safety</documentLinkDescription>
+        <documentLinkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/complexity.html" xlink:show="new">The meaning of complexity specifications</documentLinkDescription>
+        <documentLinkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/string_discussion.html" xlink:show="new">Representations of strings</documentLinkDescription>
+        <documentLinkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/ropeimpl.html" xlink:show="new">Rope Implementation Overview</documentLinkDescription>
+        <documentLinkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/alloc.html" xlink:show="new">SGI STL Allocator Design</documentLinkDescription>
+      </document>
+    </supportingDocuments>
+    <relatedLinks>
+      <relatedLinkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/table_of_contents.html" xlink:show="new">Table of Contents</relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/stl_index.html" xlink:show="new">Index</relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/other_resources.html" xlink:show="new">Other STL Resources</relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/doc_introduction.html" xlink:show="new">How to use STL documentation</relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/stl_index_cat.html" xlink:show="new">Index by Category</relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/whats_new.html" xlink:show="new">What's New</relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="https://www.sgi.com/tech/stl/FAQ.html" xlink:show="new">Frequently Asked Questions</relatedLinkDescription>
+    </relatedLinks>
+  </library>
+</libraries>

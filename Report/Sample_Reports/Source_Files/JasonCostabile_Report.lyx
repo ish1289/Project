@@ -1,0 +1,7336 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass report
+\begin_preamble
+%%% PACKAGES
+\usepackage{color}      % Use colours for code listings
+\usepackage{etoolbox}
+\apptocmd{\sloppy}{\hbadness 10000\relax}{}{}	% Suppress underfull bad box(es) for some bibliography entries
+\usepackage{float}      % Allow "H" parameter for figures
+\usepackage{graphicx}   % Required to use pictures
+\usepackage{listings}   % Allow listing of source codes
+\usepackage{setspace}   % Control line spacing
+\onehalfspacing
+\usepackage{url}        % \url command for bibliography entries
+\usepackage{cite}    %adds a space before citations
+\usepackage{textcomp} %used for a better/lower ~ symbol
+\end_preamble
+\options 11pt,letterpaper
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\listings_params "basicstyle={\ttfamily\scriptsize},breaklines=true,captionpos=t"
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+GOOL: A Generic OO Language
+\end_layout
+
+\begin_layout Author
+Jason Costabile
+\begin_inset Newline newline
+\end_inset
+
+Department of Computing and Software
+\begin_inset Newline newline
+\end_inset
+
+McMaster University
+\end_layout
+
+\begin_layout Abstract
+Most object-oriented languages seem to have a strong common core, but also
+ seem to be 
+\begin_inset Quotes eld
+\end_inset
+
+verbose
+\begin_inset Quotes erd
+\end_inset
+
+ in practice, at least with respect to certain classes of programs.
+ But this observation is informal and anecdotal.
+ The aim of this project is to see if some actual empirical evidence could
+ be provided.
+\end_layout
+
+\begin_layout Abstract
+The method employed was to reverse engineer an executable language from
+ a collection of OO languages, and demonstrate that this new language was
+ expressive enough to succinctly and accurately express a number of (standard)
+ OO programs.
+ The focus here is explicitly bottom-up, to 
+\begin_inset Quotes eld
+\end_inset
+
+discover
+\begin_inset Quotes erd
+\end_inset
+
+ patterns.
+ However, since it was humans doing the discovery, the patterns found may
+ have been coloured by individual experiences.
+\end_layout
+
+\begin_layout Abstract
+The GOOL tool was the end result of this effort.
+ It consists of an internal/embedded Domain-Specific Language (DSL) to serve
+ as the new OO language, and a code generator which renders DSL programs
+ into a representative sample of OO languages.
+\end_layout
+
+\begin_layout Abstract
+The existence of such a language in an accessible and readable form, together
+ with its deterministic transformation into real OO languages, is conjectured
+ to be sufficient evidence for this 
+\begin_inset Quotes eld
+\end_inset
+
+core
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Executive Summary
+\end_layout
+
+\begin_layout Standard
+The goal of this project is to demonstrate that programming languages of
+ the object-oriented (OO) paradigm share some central concepts.
+ That is, there exists a common 
+\begin_inset Quotes eld
+\end_inset
+
+core
+\begin_inset Quotes erd
+\end_inset
+
+ among OO languages, made up of a set of fundamental features and patterns.
+\end_layout
+
+\begin_layout Standard
+We have shown this by designing a new programming language that explicitly
+ models this core.
+ The components and features of the language are those which we have found
+ to be shared among traditional OO languages.
+ It has sufficient scope and functionality to accommodate full implementations
+ of simple programs.
+\end_layout
+
+\begin_layout Standard
+To prove that the language really is representative of mainstream OO programming
+ languages, we created a software tool in Haskell, called GOOL.
+ Development began with modification of an existing tool (used to generate
+ code for story-management modules of video games), since many of its components
+ were suitable for reuse and extension.
+\end_layout
+
+\begin_layout Standard
+GOOL implements our language using Haskell data structures, and can perform
+ a 
+\begin_inset Quotes eld
+\end_inset
+
+translation
+\begin_inset Quotes erd
+\end_inset
+
+ on code from this language to any of six traditional OO languages.
+ The output languages are meant to be a representative sample.
+ The translation process is very straightforward.
+ Each output language has a 
+\begin_inset Quotes eld
+\end_inset
+
+translation dictionary
+\begin_inset Quotes erd
+\end_inset
+
+ associated with it, and every component of our language can be looked up
+ in this dictionary.
+\end_layout
+
+\begin_layout Standard
+We posit that, since compilable code in many different programming languages
+ can be 
+\begin_inset Quotes eld
+\end_inset
+
+trivially
+\begin_inset Quotes erd
+\end_inset
+
+ generated from a single generic representation, these languages must therefore
+ have a core set of common features, and this core is accurately represented
+ by our language.
+\end_layout
+
+\begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Introduction"
+
+\end_inset
+
+Introduction
+\end_layout
+
+\begin_layout Standard
+Object-oriented languages are extremely popular
+\begin_inset CommandInset citation
+LatexCommand cite
+key "web_langpop"
+
+\end_inset
+
+.
+ Even languages that are not strictly object-oriented still support fundamental
+ OO features and allow for OO programming.
+ Throughout all the various implementations, there is a certain general
+ set of core ideas that can be abstracted away from any one specific language.
+ This is made up of a certain set of patterns that form the 
+\begin_inset Quotes eld
+\end_inset
+
+heart
+\begin_inset Quotes erd
+\end_inset
+
+ of the OO style in general, at least as implemented in mainstream languages.
+\end_layout
+
+\begin_layout Standard
+This project seeks to both demonstrate (empirically) the existence of this
+ core, and to test its boundaries.
+ It strives to find just how much of the set of core ideas can be abstracted
+ out by reverse engineering mainstream languages.
+\end_layout
+
+\begin_layout Standard
+An appealing way to accomplish this is to create a separate language which
+ is somehow representative of the original OO languages, and anchor it to
+ mainstream OO programming through some tangible link to compilable OO code.
+ The link must be substantial and direct enough to prove that the language
+ is, indeed, representative of identified OO patterns.
+ If these criteria are met, the resulting system would suffice to demonstrate
+ the existence of the aforementioned core, as comprised by the patterns
+ represented in the language.
+\end_layout
+
+\begin_layout Standard
+This serves to summarize the ultimate goal of this project.
+ A more specific account of what it aims to accomplish can be found in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "chap:Requirements"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+It seemed logical to develop a software tool that could realize this concept.
+ This would be an obvious way to provide practical, concrete evidence.
+ Based on the requirements, a tool could be designed to explicitly demonstrate
+ the aforementioned core.
+\end_layout
+
+\begin_layout Standard
+We proposed a specific methodology for this, describing the tool to be designed
+ and developed.
+ After some deliberation and refinement, we decided to create a new object-orien
+ted programming language, in the form of an embedded domain-specific language
+ (see 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "chap:Domain-Specific-Languages-(DSLs)"
+
+\end_inset
+
+ for an explanation of domain-specific languages).
+ This would allow for the most direct and straightforward representation
+ of the core.
+ The 
+\begin_inset Quotes eld
+\end_inset
+
+link
+\begin_inset Quotes erd
+\end_inset
+
+ (acting as proof that this language really is representative of OO programming)
+ would be the tool's ability to translate these programs into traditional
+ OO code, using several mainstream programming languages.
+ The generated code must be a direct translation from the input code, and
+ it must follow the same basic patterns in all output languages.
+ Again, this seemed to be the most logical and straightforward way to prove
+ a connection.
+ The tool was named GOOL: a Generic Object-Oriented Language.
+\end_layout
+
+\begin_layout Standard
+In order to jumpstart development, a previously completed tool was reused
+ as a starting point.
+ This tool, called SAGA, was created for a very different purpose (generation
+ of story manager modules for video game development), but included several
+ components, as well as the basic framework, that would be needed for GOOL.
+ One of its components was a system for code generation to various languages.
+ It also defined an intermediate representation language (known as AbstractCode)
+, which could be developed and expanded into the 
+\begin_inset Quotes eld
+\end_inset
+
+core
+\begin_inset Quotes erd
+\end_inset
+
+ language that GOOL would use.
+ Thus, it was an obvious choice.
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Starting-Point"
+
+\end_inset
+
+ provides a more complete description of SAGA.
+\end_layout
+
+\begin_layout Standard
+The first major phase of GOOL's development consisted of generalizing SAGA's
+ story-specific facilities and transforming it into a tool that could produce
+ general-purpose code.
+ Once this was accomplished, development efforts were focused more directly
+ on the requirements of this project.
+\end_layout
+
+\begin_layout Standard
+Some time was given to making various general improvements.
+ These improvements were largely technical and organizational, primarily
+ benefitting the understandability and maintainability of the code, with
+ regards to the tool's new purpose.
+\end_layout
+
+\begin_layout Standard
+Another phase of development focused on preparation of the AbstractCode
+ structure for a DSL.
+ AbstractCode is the root node of a large algebraic datatype which represents
+ 
+\begin_inset Quotes eld
+\end_inset
+
+code
+\begin_inset Quotes erd
+\end_inset
+
+ as an abstract syntax tree.
+ Since it was previously only an intermediate representation, intended to
+ be maintained and used directly only by the developers of SAGA, a fair
+ amount of effort needed to be put into making it suitable for use by a
+ wider audience.
+ The main goal here was to make the DSL code look and feel like a general
+ purpose OO language.
+ As an internal DSL, the code still needed to suit the rules of the host
+ language (Haskell in our case), but it was found that its resemblance to
+ traditional code could be vastly increased through various methods.
+ Chief among these was the implementation of a large number of “shortcut”
+ functions.
+ These generally represent a sequence of AbstractCode data constructors
+ in a single keyword, allowing the programmer to greatly reduce the verbosity
+ of an AbstractCode program.
+ For example, a statement to print a literal string with a line break:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},breaklines=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+PrintState True string .
+ litString
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+can now be abbreviated to simply:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},breaklines=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+printStrLn
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Additionally, a number of custom unary and binary operators were added to
+ automate the implementation of common expressions and statements.
+ These are similarly used to eliminate the need for typing out clumsy or
+ ugly sequences of datatype constructors in order to represent a simple
+ idea.
+ For instance, a statement to increment the value of a numeric variable:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},breaklines=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+AssignState $ PlusEquals (Var "x") (Var "y")
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+can also be written as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+"x" &+= Var "y"
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Symbolic operators were implemented for expressions that typically use such
+ in general purpose languages, like equality comparisons, or arithmetic
+ operations, as shown above.
+ These, again, served to further the goal of making AbstractCode seem like
+ a conventional language.
+\end_layout
+
+\begin_layout Standard
+In this way, much of the structural overhead of the language could be abstracted
+ out.
+ This task involved the identification of many common or significant patterns
+ in the code (such as the statements shown above).
+ This proved to be an ongoing process, continuing throughout development
+ as more constructs were added to the language and complexity increased.
+\end_layout
+
+\begin_layout Standard
+As an introductory example, the following is a piece of code written entirely
+ with AbstractCode primitives.
+ It implements a simple class that represents a geometric circle.
+ Analogous code in traditional languages will be presented shortly afterwards,
+ for comparison and reference.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "frame=single"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+circleClass :: Class
+\end_layout
+
+\begin_layout Plain Layout
+
+circleClass =
+\end_layout
+
+\begin_layout Plain Layout
+
+    let modName = circleClassName
+\end_layout
+
+\begin_layout Plain Layout
+
+        radius = "radius"
+\end_layout
+
+\begin_layout Plain Layout
+
+        diam = "diameter"
+\end_layout
+
+\begin_layout Plain Layout
+
+        modVars = [
+\end_layout
+
+\begin_layout Plain Layout
+
+            StateVar radius Private (Base Float) 0]
+\end_layout
+
+\begin_layout Plain Layout
+
+    in Class modName Nothing Public modVars [
+\end_layout
+
+\begin_layout Plain Layout
+
+        Method modName Public (Construct modName)
+\end_layout
+
+\begin_layout Plain Layout
+
+            [StateParam "rad" $ Base Float]
+\end_layout
+
+\begin_layout Plain Layout
+
+            [ Block [
+\end_layout
+
+\begin_layout Plain Layout
+
+                AssignState $ Assign
+\end_layout
+
+\begin_layout Plain Layout
+
+                  (ObjVar Self (Var radius)) (Var "rad")
+\end_layout
+
+\begin_layout Plain Layout
+
+            ], Block [
+\end_layout
+
+\begin_layout Plain Layout
+
+                PrintState False (Base String) $
+\end_layout
+
+\begin_layout Plain Layout
+
+                  Lit $ LitStr "Circle created with radius ",
+\end_layout
+
+\begin_layout Plain Layout
+
+                PrintState True (Base Float) $
+\end_layout
+
+\begin_layout Plain Layout
+
+                  ObjVar Self (Var radius)
+\end_layout
+
+\begin_layout Plain Layout
+
+            ] ],
+\end_layout
+
+\begin_layout Plain Layout
+
+        Method "getDiameter" Public (MState $ Base Float) []
+\end_layout
+
+\begin_layout Plain Layout
+
+            [ Block [
+\end_layout
+
+\begin_layout Plain Layout
+
+                DeclState $ VarDecDef diam (Base Float)
+\end_layout
+
+\begin_layout Plain Layout
+
+                  (Expr $ BinaryExpr
+\end_layout
+
+\begin_layout Plain Layout
+
+                    (Var radius) Multiply (Lit $ LitFloat 2.0)),
+\end_layout
+
+\begin_layout Plain Layout
+
+                RetState $ Ret $ Var diam
+\end_layout
+
+\begin_layout Plain Layout
+
+            ] ],
+\end_layout
+
+\begin_layout Plain Layout
+
+        Method "getArea" Public (MState $ Base Float) [] $ oneLiner $
+\end_layout
+
+\begin_layout Plain Layout
+
+            RetState $ Ret $
+\end_layout
+
+\begin_layout Plain Layout
+
+              Expr $ BinaryExpr (Lit $ LitFloat 3.14159)
+\end_layout
+
+\begin_layout Plain Layout
+
+                                Multiply
+\end_layout
+
+\begin_layout Plain Layout
+
+                                (Expr $ BinaryExpr
+\end_layout
+
+\begin_layout Plain Layout
+
+                                  (Var radius) Power (Lit $ LitInt 2))
+\end_layout
+
+\begin_layout Plain Layout
+
+    ]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The equivalent code written in GOOL (i.e.
+ employing GOOL's shortcut functions and operators):
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "frame=single"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+circleClass :: Class
+\end_layout
+
+\begin_layout Plain Layout
+
+circleClass =
+\end_layout
+
+\begin_layout Plain Layout
+
+    let modName = circleClassName
+\end_layout
+
+\begin_layout Plain Layout
+
+        radius = "radius"
+\end_layout
+
+\begin_layout Plain Layout
+
+        diam = "diameter"
+\end_layout
+
+\begin_layout Plain Layout
+
+        modVars = [
+\end_layout
+
+\begin_layout Plain Layout
+
+            privVar neverDel float radius]
+\end_layout
+
+\begin_layout Plain Layout
+
+    in pubClass modName noParent modVars [
+\end_layout
+
+\begin_layout Plain Layout
+
+        pubFunc (Construct modName) modName
+\end_layout
+
+\begin_layout Plain Layout
+
+            [param "rad" float]
+\end_layout
+
+\begin_layout Plain Layout
+
+            [ Block [
+\end_layout
+
+\begin_layout Plain Layout
+
+                Self$->(Var radius) &=.
+ "rad"
+\end_layout
+
+\begin_layout Plain Layout
+
+            ], Block [
+\end_layout
+
+\begin_layout Plain Layout
+
+                printStr "Circle created with radius ",
+\end_layout
+
+\begin_layout Plain Layout
+
+                printLn float $ Self$->(Var radius)
+\end_layout
+
+\begin_layout Plain Layout
+
+            ] ],
+\end_layout
+
+\begin_layout Plain Layout
+
+        pubFunc (MState float) "getDiameter" []
+\end_layout
+
+\begin_layout Plain Layout
+
+            [ Block [
+\end_layout
+
+\begin_layout Plain Layout
+
+                varDecDef diam float (Var radius #* litFloat 2.0),
+\end_layout
+
+\begin_layout Plain Layout
+
+                return $ Var diam
+\end_layout
+
+\begin_layout Plain Layout
+
+            ] ],
+\end_layout
+
+\begin_layout Plain Layout
+
+        pubFunc (MState float) "getArea" [] $ oneLiner $
+\end_layout
+
+\begin_layout Plain Layout
+
+                return $ litFloat 3.14159 #* (Var radius #^ litInt 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+    ]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now, the output code that the GOOL program generates from (either of) the
+ previous code samples.
+ The C++ header:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "frame=single"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class Circle {
+\end_layout
+
+\begin_layout Plain Layout
+
+        public:
+\end_layout
+
+\begin_layout Plain Layout
+
+            Circle(float rad);
+\end_layout
+
+\begin_layout Plain Layout
+
+            float getDiameter();
+\end_layout
+
+\begin_layout Plain Layout
+
+            float getArea();
+\end_layout
+
+\begin_layout Plain Layout
+
+            ~Circle();
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\end_layout
+
+\begin_layout Plain Layout
+
+        private:
+\end_layout
+
+\begin_layout Plain Layout
+
+            float radius;
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+And the C++ source file:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "frame=single"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Circle::Circle(float rad) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    radius = rad;
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cout << "Circle created with radius ";
+\end_layout
+
+\begin_layout Plain Layout
+
+    std::cout << radius << std::endl;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+float Circle::getDiameter() {
+\end_layout
+
+\begin_layout Plain Layout
+
+    float diameter = radius * 2.0;
+\end_layout
+
+\begin_layout Plain Layout
+
+    return diameter;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+float Circle::getArea() {
+\end_layout
+
+\begin_layout Plain Layout
+
+    return 3.14159 * (pow(radius, 2));
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Circle::~Circle() {
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finally, the equivalent output code in Python:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "frame=single"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class Circle:
+\end_layout
+
+\begin_layout Plain Layout
+
+    def __init__(self, rad):
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.radius = rad
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\end_layout
+
+\begin_layout Plain Layout
+
+        sys.stdout.write(str("Circle created with radius "))
+\end_layout
+
+\begin_layout Plain Layout
+
+        print(self.radius)
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    def getDiameter(self):
+\end_layout
+
+\begin_layout Plain Layout
+
+        diameter = radius * 2.0
+\end_layout
+
+\begin_layout Plain Layout
+
+        return diameter
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    def getArea(self):
+\end_layout
+
+\begin_layout Plain Layout
+
+        return 3.14159 * (radius ** 2)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The GOOL syntax seen here is explained in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:AbstractCode"
+
+\end_inset
+
+, and more example programs can be found in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Example-Implementations"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Perhaps the majority of development effort was spent on adding features
+ to the new DSL.
+ Since SAGA had a much more specific purpose, there were a number of common
+ language features that did not yet exist in AbstractCode, as they were
+ never needed for the story engine implementation.
+ The need for several of these, such as simple arithmetic, or a statement
+ to print to the console, was immediately apparent, in order for the DSL
+ to be relatable to mainstream languages.
+ Subsequently, an effective, but simple, methodology for choosing new features
+ to add was designed: examples of small OO programs were chosen and implemented
+ in AbstractCode.
+ In this way, it was natural to discover features used in the examples that
+ would be necessary or helpful to complete their DSL implementations, but
+ that were not yet supported by AbstractCode.
+ Additionally, these examples would support the existence of the link between
+ the AbstractCode core and traditional OO languages.
+\end_layout
+
+\begin_layout Standard
+Other, larger-scale, additions were made, in the form of supplementary output
+ languages.
+ The modular design of SAGA and GOOL made it relatively simple to attach
+ additional language generation modules, referred to as renderers.
+ Each renderer needed to know how to generate output code for each AbstractCode
+ primitive (and often also for special combinations of primitives) in its
+ particular language, except where this output overlapped with that of an
+ existing renderer (which does come up frequently, for some languages more
+ than others).
+ Therefore, each new renderer increased the effort required to add a new
+ AbstractCode feature, and vice versa.
+ As a result, doing either was rarely a trivial task.
+\end_layout
+
+\begin_layout Standard
+GOOL's development process, added language features, and example AbstractCode
+ implementations are all discussed in a technical and detailed capacity
+ in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "chap:Detailed-Development-History"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+It should be noted that there have been various attempts to create a 
+\begin_inset Quotes eld
+\end_inset
+
+semantic core
+\begin_inset Quotes erd
+\end_inset
+
+ OO language in the past (for example, Featherweight Java
+\begin_inset CommandInset citation
+LatexCommand cite
+key "article_featherweightjava"
+
+\end_inset
+
+).
+ However, this project aims to identify a more syntactic core, up to obvious
+ isomorphism of syntax (while maintaining semantic equivalence).
+\end_layout
+
+\begin_layout Standard
+This document will give a detailed explanation of the software tool that
+ resulted from this project, the domain-specific language that it defines,
+ and the story of how it was designed and developed.
+ The chosen goals and requirements of the project are listed in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "chap:Requirements"
+
+\end_inset
+
+.
+ The methodology used to meet these requirements is discussed in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "chap:Methodology"
+
+\end_inset
+
+.
+ Subsequently, some important background information regarding Domain Specific
+ Languages (DSLs) and the structure of OO languages is given in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "chap:Domain-Specific-Languages-(DSLs)"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "chap:Structure-of-an"
+
+\end_inset
+
+, respectively.
+ Finally, the actual development of the software can be discussed.
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Starting-Point"
+
+\end_inset
+
+ explains where development was started and the state of the original tool
+ that was gradually overhauled to become GOOL.
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "chap:The-GOOL-Program"
+
+\end_inset
+
+ describes the ultimate state of the GOOL program at the culmination of
+ this project.
+ Once this is understood, 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "chap:Detailed-Development-History"
+
+\end_inset
+
+ falls back to fill in the gaps in detail, giving a chronological and much
+ more thorough account of GOOL's development.
+\end_layout
+
+\begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Requirements"
+
+\end_inset
+
+Goals
+\end_layout
+
+\begin_layout Standard
+The central goal of this project is to pragmatically demonstrate the existence
+ of a 
+\begin_inset Quotes eld
+\end_inset
+
+common core
+\begin_inset Quotes erd
+\end_inset
+
+ among OO languages by explicitly exhibiting it.
+  By core, we neither mean the intersection of the semantics of all languages
+ (this would likely be too small), nor the union (too large and unwieldly).
+  We mean a set of abstract features which are either present or trivially
+ encodable in a sufficiently large set of (mainstream) object-oriented languages.
+\end_layout
+
+\begin_layout Standard
+Our task, then, is to discover this set of abstract features.
+  The most obvious place to start would be to take a set of textbooks on
+ programming languages which cover a wide range of languages (such as 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "book_tucker_proglang,book_sebesta_concepts,book_friedman_essentials,book_scott_pragmatics,book_clark_comparative"
+
+\end_inset
+
+) to find such a set.
+  But we were curious to see if that set would be the same as the set that
+ we would find if we tried to build abstract features by recognizing common
+ patterns in the languages themselves.
+\end_layout
+
+\begin_layout Standard
+Of course, there is a certain minimum set of features of an OO language
+ which must be present, and this is discussed in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "chap:Structure-of-an"
+
+\end_inset
+
+.
+  
+\end_layout
+
+\begin_layout Standard
+To show that the core really is present in multiple mainstream OO languages,
+ we decided that the most convincing 
+\begin_inset Quotes eld
+\end_inset
+
+proof
+\begin_inset Quotes erd
+\end_inset
+
+ would consist of translating what we identify as the core into compilable,
+ runnable code in these same OO languages.
+  Furthermore, the translation should be 
+\begin_inset Quotes eld
+\end_inset
+
+trivial
+\begin_inset Quotes erd
+\end_inset
+
+, in the sense that it can be performed directly and unambiguously.
+ In the next chapter, we expand on what we mean by this.
+\end_layout
+
+\begin_layout Standard
+It is very important to us that we find a core which works in practice.
+ In other words, our principal measure for whether we have achieved our
+ goals will be if we can take a set of fairly standard OO programs, write
+ them in our core language, and automatically translate them to reasonably
+ idiomatic programs in a set of mainstream OO languages.
+\end_layout
+
+\begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Methodology"
+
+\end_inset
+
+Methodology
+\end_layout
+
+\begin_layout Standard
+In order to accomplish the project's goals, a specific method was utilized:
+ we created a language that (we hope) represents the OO core, and implemented
+ it as an embedded DSL.
+\end_layout
+
+\begin_layout Section
+General Methodology
+\end_layout
+
+\begin_layout Standard
+The primary goal of the project is to find a representation for the 
+\begin_inset Quotes eld
+\end_inset
+
+common core
+\begin_inset Quotes erd
+\end_inset
+
+, consisting of patterns found among OO languages.
+ The first --- and perhaps most important --- step, would be, then, to decide
+ on what these patterns are, and what actually constitutes a 
+\begin_inset Quotes eld
+\end_inset
+
+pattern
+\begin_inset Quotes erd
+\end_inset
+
+.
+ The process that we employed for this is described in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Discovering-Patterns"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+With the set of essential patterns in hand, we could set about creating
+ a representation.
+ The most explicit and direct method would be to assemble this representation
+ in the form of a new, generic OO language.
+ Furthermore, the most direct method to prove that our core permeates mainstream
+ languages would be to show that a straightforward translation exists.
+ The constraints and criteria selected for the language are listed in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Language-Requirements"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+To facilitate this process, a software program could be created that would
+ accept programs in the generic language, and 
+\begin_inset Quotes eld
+\end_inset
+
+translate
+\begin_inset Quotes erd
+\end_inset
+
+ them to traditional languages.
+ Requirements for this software are listed in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Tool-Requirements"
+
+\end_inset
+
+, and a description of the translation process can be found in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Printing-Code"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Discovering-Patterns"
+
+\end_inset
+
+Discovering Patterns
+\end_layout
+
+\begin_layout Standard
+Beyond simply implementing the software, the language that makes up the
+ core representation had to be designed.
+ In order to do this, the core needed to be 
+\begin_inset Quotes eld
+\end_inset
+
+discovered
+\begin_inset Quotes erd
+\end_inset
+
+.
+ This was accomplished by 
+\begin_inset Quotes eld
+\end_inset
+
+reverse engineering
+\begin_inset Quotes erd
+\end_inset
+
+ mainstream OO languages to find patterns at the heart of OO programming.
+ 
+\end_layout
+
+\begin_layout Standard
+A 
+\begin_inset Quotes eld
+\end_inset
+
+pattern
+\begin_inset Quotes erd
+\end_inset
+
+, in this context, refers to any language feature that can be found in common
+ among multiple languages.
+ These patterns were discovered with simple methods.
+\end_layout
+
+\begin_layout Standard
+The first method was suitable for the most obvious and numerous sort of
+ pattern to be represented in the DSL --- the simple, fundamental features
+ (for example, all OO languages make use of variables, conditionals, and
+ loops).
+ Knowledge of programming was applied to brainstorm a list of features that
+ would be necessary for any basic program functionality.
+ Naturally, these would need to be part of the core, as per the project
+ goal to have a functional and practical representation.
+\end_layout
+
+\begin_layout Standard
+In most languages, these sort of patterns would use a nearly identical structure.
+ An 
+\begin_inset Quotes eld
+\end_inset
+
+if
+\begin_inset Quotes erd
+\end_inset
+
+ conditional, for instance, always tests a boolean expression and uses the
+ result to determine whether a code block should be executed.
+ Also, there is a provision for more possible branches, in the form of 
+\begin_inset Quotes eld
+\end_inset
+
+else
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+else if
+\begin_inset Quotes erd
+\end_inset
+
+ blocks (some languages may include a primitive for the 
+\begin_inset Quotes eld
+\end_inset
+
+else if
+\begin_inset Quotes erd
+\end_inset
+
+ parts, like Python's 
+\begin_inset Quotes eld
+\end_inset
+
+elif
+\begin_inset Quotes erd
+\end_inset
+
+, whereas some languages would have to form this structure by simply chaining
+ together 
+\begin_inset Quotes eld
+\end_inset
+
+if-else
+\begin_inset Quotes erd
+\end_inset
+
+ statements.
+ However, the functionality, and the underlying pattern, is identical either
+ way, and thus this form of the 
+\begin_inset Quotes eld
+\end_inset
+
+if
+\begin_inset Quotes erd
+\end_inset
+
+ conditional is a valid pattern for our core).
+\end_layout
+
+\begin_layout Standard
+Other patterns may bear less of a syntactic resemblance, but are nevertheless
+ valid.
+ An example of this is collection containers.
+ The most common container to use for collections in some languages is an
+ array.
+ In some it is a list.
+ In addition, there are frequently other options that serve similar purposes
+ (e.g.
+ Vector; ArrayList).
+ However, in the context of this project, they are extensions of the same
+ pattern.
+ In GOOL's DSL, the differences are abstracted out and a single, representative
+ 
+\begin_inset Quotes eld
+\end_inset
+
+List
+\begin_inset Quotes erd
+\end_inset
+
+ primitive is used instead.
+\end_layout
+
+\begin_layout Standard
+To identify patterns that were less obvious or more esoteric, further methods
+ were used.
+ GOOL's DSL should be capable of expressing simple and 
+\begin_inset Quotes eld
+\end_inset
+
+usual
+\begin_inset Quotes erd
+\end_inset
+
+ programs, to better satisfy the project goals described in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "chap:Requirements"
+
+\end_inset
+
+.
+ Therefore, some representative example programs were written in GOOL.
+ During this process, roadblocks were sometimes encountered when GOOL was
+ missing certain feature that were needed.
+ At these points, a new pattern had to be found and implemented as a feature
+ in GOOL.
+\end_layout
+
+\begin_layout Standard
+For instance, the State example program represents a common Java design
+ pattern (see 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sub:State"
+
+\end_inset
+
+).
+ To produce the desired functionality, some of the classes that comprise
+ this example had to inherit from another class.
+ GOOL's DSL did not yet allow for inheritance, but all of the considered
+ mainstream languages supported it in some form.
+ Thus, an important OO pattern was naturally rediscovered.
+ Examples of other patterns identified in this way include various arithmetic
+ operations, list-element modification, and printing to the console.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Printing-Code"
+
+\end_inset
+
+Printing Code
+\end_layout
+
+\begin_layout Standard
+As discussed in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Tool-Requirements"
+
+\end_inset
+
+, GOOL translates code from the DSL to mainstream languages.
+ This translation is, by design, very direct and straightforward --- it
+ may be more appropriate to refer to the process as simply 
+\begin_inset Quotes eld
+\end_inset
+
+pretty-printing
+\begin_inset Quotes erd
+\end_inset
+
+ the code in a particular language.
+ This can be taken as a measure of the 
+\begin_inset Quotes eld
+\end_inset
+
+distance
+\begin_inset Quotes erd
+\end_inset
+
+ between GOOL's DSL and mainstream languages.
+\end_layout
+
+\begin_layout Standard
+This was done to meet one of the project's goals (see 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "chap:Requirements"
+
+\end_inset
+
+).
+ In particular, the renderer does not perform any inference, and so all
+ relevant details must already be present in the AbstractCode AST representation.
+\end_layout
+
+\begin_layout Standard
+Therefore, the method for printing code is also straightforward: for each
+ output language, GOOL has a translation 
+\begin_inset Quotes eld
+\end_inset
+
+dictionary
+\begin_inset Quotes erd
+\end_inset
+
+ that explicitly describes how to pretty-print each primitive of the DSL.
+ This dictionary is consulted for every component of a GOOL program that
+ is to be printed.
+\end_layout
+
+\begin_layout Standard
+See 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Code-Generation"
+
+\end_inset
+
+ for a more detailed look at the code generation process.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Language-Requirements"
+
+\end_inset
+
+Language Requirements
+\end_layout
+
+\begin_layout Standard
+The language created for this project must meet several criteria in order
+ to accurately and closely represent the OO core.
+ The following is a list of requirements that we designed for the DSL.
+\end_layout
+
+\begin_layout Itemize
+The language can be easily written and read by a programmer of common skill
+ and experience.
+ It should be fairly natural for the programmer to write code in this language.
+\end_layout
+
+\begin_layout Itemize
+It must accomodate a typical OO structure (what constitutes this structure
+ will be discussed in detail in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "chap:Structure-of-an"
+
+\end_inset
+
+), and it must provide, at least at a basic level, the fundamental features
+ associated with OO languages and programming languages in general.
+\end_layout
+
+\begin_layout Itemize
+The language must include only such features as could be expected from a
+ typical OO language.
+\end_layout
+
+\begin_layout Itemize
+The scope of the language should be sufficient to fully represent simple
+ common or 
+\begin_inset Quotes eld
+\end_inset
+
+usual
+\begin_inset Quotes erd
+\end_inset
+
+ programs.
+\end_layout
+
+\begin_layout Itemize
+It must be a generic representation.
+ The structure of the language does not necessarily conform to the structure
+ of any particular existing language.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Tool-Requirements"
+
+\end_inset
+
+Software Requirements
+\end_layout
+
+\begin_layout Standard
+As mentioned previously, the goals of 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "chap:Requirements"
+
+\end_inset
+
+ were accomplished by creating a piece of software.
+ This software had to be specifically designed towards these goals.
+ This section will describe what criteria were required of the software
+ and its DSL in order to ensure that they were met.
+ 
+\end_layout
+
+\begin_layout Itemize
+The software will demonstrate the “common core” of OO languages explicitly.
+ It will generate object-oriented code in several different languages from
+ a single representation.
+\end_layout
+
+\begin_layout Itemize
+The software should accept a code representation in the form of the OO language
+ described in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Language-Requirements"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+The process of translation to all languages must be straightforward and
+ unambiguous.
+\end_layout
+
+\begin_layout Itemize
+The software must transform written generic code into corresponding mainstream
+ object-oriented code in multiple languages.
+\end_layout
+
+\begin_layout Itemize
+Additionally, the output code must be formatted in such a way as to facilitate
+ reading and interpretation by humans.
+ It must follow the usual conventions for whitespace and indentation of
+ written code.
+\end_layout
+
+\begin_layout Itemize
+When compiled and run, the output code should produce semantically equivalent
+ results across all supported languages.
+\end_layout
+
+\begin_layout Itemize
+The software should generate this output code in several different languages
+ which support the object-oriented paradigm, in order to exemplify the patterns
+ which underly it.
+ When rendering code to a language that supports additional paradigms, the
+ object-oriented style should always be preferred.
+\end_layout
+
+\begin_layout Itemize
+Common/popular languages should be chosen as the output languages, as it
+ is desirable to maximize the proportion of programmers that can easily
+ comprehend and use the output code.
+\end_layout
+
+\begin_layout Itemize
+The code rendering system must facilitate extension with supplementary rendering
+ languages.
+\end_layout
+
+\begin_layout Itemize
+In addition, the software should be well-designed with respect to software
+ engineering principles and software quality metrics, including modularity,
+ comprehendability, and maintainability.
+\end_layout
+
+\begin_layout Standard
+We decided that software which meets all of these criteria will suit the
+ aim of the project, and accomplish the overarching goals.
+\end_layout
+
+\begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Domain-Specific-Languages-(DSLs)"
+
+\end_inset
+
+Domain-Specific Languages (DSLs)
+\end_layout
+
+\begin_layout Standard
+Before discussing technical details, it would be beneficial for the reader
+ to have some background knowledge of important concepts.
+ Thus, we briefly digress to provide an introduction to DSLs, and an explanation
+ of how one is used in this project.
+\end_layout
+
+\begin_layout Standard
+SAGA (described in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Starting-Point"
+
+\end_inset
+
+) also made prominent use of a DSL.
+ This chapter in particular is based largely on the report compiled by its
+ author
+\begin_inset CommandInset citation
+LatexCommand cite
+key "paper_beyak_saga"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+What is a DSL?
+\end_layout
+
+\begin_layout Standard
+A DSL is a language of limited scope which is intended to solve a specific
+ set of problems.
+ This set is the domain of the language.
+ DSLs are used to efficiently and concisely express their respective domains.
+ DSLs are typically not Turing complete, and thus they are generally not
+ used to define entire systems like general-purpose languages.
+\end_layout
+
+\begin_layout Standard
+DSL design requires a thorough understanding of the domain in question.
+ This is because there must be some automated process that can deterministically
+ transform a DSL program into some desired representation.
+ Additionally, since DSLs are frequently used by domain experts to express
+ domain-specific ideas, the DSL should incorporate the domain's standard
+ representation of problems.
+\end_layout
+
+\begin_layout Standard
+The purpose of employing a DSL is usually to simplify the programming involved
+ in creating a solution for a domain-specific problem --- if it can be accomplis
+hed just as easily in a general-purpose language, then the effort involved
+ in creating the DSL may not be worthwhile.
+ Using a DSL should generally increase productivity.
+ Sometimes, however, this is not the case, and the main benefits of the
+ DSL lie elsewhere.
+ These might include increased quality of software with respect to various
+ metrics such as reliability, understandability, maintainability, testability,
+ and efficiency.
+ Additionally, the DSL could facilitate implementation of ideas by domain
+ experts who are not programmers.
+\end_layout
+
+\begin_layout Standard
+DSLs may employ various programming styles.
+ Some DSLs are "solution-oriented".
+ This means that the form of the desired solution is described algorithmically.
+ Others are "problem-oriented", meaning that the code is used to describe
+ only what the program should accomplish, but not how to do it.
+ These styles are analagous to, respectively, the imperative and declarative
+ paradigms of general purpose languages.
+ The declarative paradigm is used by many DSLs, and as such they are oriented
+ towards describing the problem.
+ This is often because DSLs are intended to be simpler to program in (within
+ their own domain), and the declarative style is usually appropriate for
+ this purpose.
+\end_layout
+
+\begin_layout Standard
+One primary goal of a DSL is to greatly simplify the expression of common
+ tasks within the domain, with respect to how these tasks would be expressed
+ in conventional languages.
+ Another goal is to reduce the difficulty of implementing complex domain
+ problems.
+\end_layout
+
+\begin_layout Section
+Internal vs.
+ External DSLs
+\end_layout
+
+\begin_layout Standard
+Internal/embedded DSLs can be distinguished from external DSLs.
+ Each type of DSL has benefits and drawbacks in various scenarios.
+ Choosing between an internal and an external DSL requires consideration
+ of several factors.
+\end_layout
+
+\begin_layout Standard
+A DSL that is embedded within some general purpose host language is referred
+ to as an internal DSL.
+ Programming is done in the host language, but with the help of some integrated
+ constructs so that the DSL code is essentially a "new" language within
+ the host language, without being entirely distinct.
+\end_layout
+
+\begin_layout Standard
+The effort required to create an internal DSL is relatively low, since the
+ code can be processed by the host language's compiler.
+ Additionally, the developer of the DSL can take advantage of the host language'
+s established capabilities.
+ One drawback of an internal DSL is that, since it must be written within
+ the constraints of the host language's syntax and grammar, its expressiveness
+ may be limited by the rules of the host's parser.
+ The severity of this limitation can vary greatly between host languages.
+ Another potential problem is that the domain experts will be programming
+ in a (host) language with which they might not be familiar.
+\end_layout
+
+\begin_layout Standard
+External DSLs are not embedded in a host language.
+ As such, they will not be processed by an existing compiler, and the syntax
+ and grammar can be freely customized.
+ This will generally allow for a more natural interface with the DSL, making
+ it easier for domain experts to express ideas.
+ However, this type of DSL will be more difficult to implement, as a compiler
+ must be created for it.
+ This can be a complex task, as the compiler must parse the code, possibly
+ create an intermediate representation, and then generate output code.
+\end_layout
+
+\begin_layout Section
+Project Domain
+\end_layout
+
+\begin_layout Standard
+As can be inferred from previous chapters, the domain relevant to this project
+ is that of object-oriented languages in general.
+ The result is a rather special case of a DSL, whose domain is comparable
+ to general purpose languages, and whose 
+\begin_inset Quotes eld
+\end_inset
+
+domain experts" are programmers.
+ It is still very much a DSL, as it is specialized to favour typical OO
+ problems, and its capabilities are limited to those most fundamentally
+ required in typical OO languages, while still being Turing-complete.
+\end_layout
+
+\begin_layout Standard
+An internal DSL was chosen to reduce the complexity of development, and
+ expedite the process.
+ As this is primarily an academic exercise, we decided that an internal
+ DSL would suffice to accomplish the goals of the project and demonstrate
+ the desired patterns.
+ Since the intended users are programmers, ease of development could be
+ prioritized over giving the DSL a fully customized syntax, facilitating
+ the implementation of more advanced features and patterns.
+\end_layout
+
+\begin_layout Standard
+The choice of host language is discussed in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Overview"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Structure-of-an"
+
+\end_inset
+
+Concepts of an OO Language
+\end_layout
+
+\begin_layout Standard
+At this point, before GOOL's DSL is discussed in detail, the reader should
+ understand what was taken to be the fundamental structure of a 
+\begin_inset Quotes eld
+\end_inset
+
+typical
+\begin_inset Quotes erd
+\end_inset
+
+ OO language.
+ This structure drove much of the design of the language.
+ As such, a brief dissection of this structure is provided here.
+\end_layout
+
+\begin_layout Standard
+Note that this is a description of the structure as specifically implemented
+ in this project's DSL --- obvious concepts which are ignored (e.g.
+ the 
+\emph on
+protected
+\emph default
+ scope in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Scope"
+
+\end_inset
+
+) are simply not supported by the language at this time.
+\end_layout
+
+\begin_layout Section
+Classes and Objects
+\end_layout
+
+\begin_layout Standard
+A class is an OO construct which is a template for instances of itself
+\begin_inset CommandInset citation
+LatexCommand cite
+key "web_csclasses"
+
+\end_inset
+
+.
+ Instances are 
+\emph on
+objects
+\emph default
+ of a class, and the class, in that sense, is often called the 
+\emph on
+type
+\emph default
+ of these objects.
+ In general, a class must be instantiated as an object before any of its
+ contents can be accessed or used.
+\end_layout
+
+\begin_layout Standard
+A class definition can contain a local set of variables, called instance
+ variables.
+ The class can also include its own set of methods (see 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Methods"
+
+\end_inset
+
+).
+ All of these members are used to associate a certain state and behaviour
+ with objects of that class.
+ Each member is associated with a certain scope (see 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Scope"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Multiple objects can be declared as instances of the same class.
+ In this case, each object maintains its own independent collection of data.
+ Modifying the values of the instance variables of one object will not change
+ the variables of any other.
+\end_layout
+
+\begin_layout Standard
+Within a method of a class, 
+\emph on
+this
+\emph default
+ or 
+\emph on
+self
+\emph default
+ refers to the current object --- i.e., the object whose method is being called.
+\end_layout
+
+\begin_layout Standard
+There may also be a hierarchy to classes.
+ A class can 
+\begin_inset Quotes eld
+\end_inset
+
+inherit
+\begin_inset Quotes erd
+\end_inset
+
+ from another class.
+ If class D inherits from class C, then C is called the 
+\emph on
+parent
+\emph default
+ or 
+\emph on
+superclass 
+\emph default
+of D, and D is a 
+\emph on
+child 
+\emph default
+or 
+\emph on
+subclass
+\emph default
+ of C.
+ Inheritance enables code reuse and sharing.
+ Subclasses inherit the methods and variables of their parents.
+\end_layout
+
+\begin_layout Standard
+Any program that creates a variable (object) of type C is called a 
+\emph on
+client
+\emph default
+ of class C.
+\end_layout
+
+\begin_layout Standard
+At a high level, an object-oriented program can be viewed simply as a set
+ of interacting objects
+\begin_inset CommandInset citation
+LatexCommand cite
+key "book_tucker_proglang"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Scope"
+
+\end_inset
+
+Scope
+\end_layout
+
+\begin_layout Standard
+The scope of a method or variable is its level of visibility with respect
+ to its class.
+\end_layout
+
+\begin_layout Standard
+If a variable or method is declared 
+\emph on
+public
+\emph default
+, it will be visible outside of the class.
+ That is, that variable or method can be accessed by any clients of the
+ class.
+\end_layout
+
+\begin_layout Standard
+If a variable or method is declared 
+\emph on
+private
+\emph default
+, it will only be visible within the class.
+ It can be accessed by other methods of the class, but not by clients or
+ subclass objects
+\begin_inset CommandInset citation
+LatexCommand cite
+key "book_tucker_proglang"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Methods"
+
+\end_inset
+
+Methods
+\end_layout
+
+\begin_layout Standard
+A method is a special function that is a part of an object.
+ It can take a certain set of arguments as input.
+ It may also return some value of a particular type (if not, its return
+ type is 
+\begin_inset Quotes eld
+\end_inset
+
+void
+\begin_inset Quotes erd
+\end_inset
+
+).
+ The argument types and return type make up the method's 
+\emph on
+signature
+\emph default
+.
+ In a sense, a method represents an action that the object can perform
+\begin_inset CommandInset citation
+LatexCommand cite
+key "web_rubymethods"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+A special method without a return type, called a constructor, is used to
+ initialize a new object of its class.
+ Execution of the constructor performs memory allocation for the object,
+ and can initialize the instance variables.
+ A constructor is typically not mandatory; if one is not explicitly provided
+ in a class definition, then a simple one (with no parameters) will be implicitl
+y generated.
+ For example, in Java, an object of type C would be initialized in the following
+ way:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+C x = new C(<arguments>);
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This would call the class constructor and pass it the specified arguments.
+ Any public method or variable of x can now be referenced by the client
+ code.
+\end_layout
+
+\begin_layout Standard
+Communication among objects is achieved by calling each others' methods
+ --- this is called 
+\emph on
+message passing
+\emph default
+.
+ The calling object passes the appropriate parameters for the desired method
+ and waits for a response from the callee, in the form of a return value
+\begin_inset CommandInset citation
+LatexCommand cite
+key "book_tucker_proglang"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Statements
+\end_layout
+
+\begin_layout Standard
+Any block of code is composed of statements.
+ A statement is the smallest element of code which actually performs some
+ action.
+ 
+\emph on
+Simple
+\emph default
+ statements may involve assignment to a variable, or calling a function.
+ 
+\emph on
+Compound
+\emph default
+ statements can contain other statements (for example, an 
+\begin_inset Quotes eld
+\end_inset
+
+if
+\begin_inset Quotes erd
+\end_inset
+
+ statement can contain one or more blocks of simpler statements to execute
+ when certain conditions hold)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "web_cppprogstruct"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Control structures
+\emph default
+ are statements, construction patterns, rules, or combinators which affect
+ the flow of execution.
+ These include conditionals (like the 
+\begin_inset Quotes eld
+\end_inset
+
+if
+\begin_inset Quotes erd
+\end_inset
+
+ or 
+\begin_inset Quotes eld
+\end_inset
+
+switch
+\begin_inset Quotes erd
+\end_inset
+
+ statements) and loops (
+\begin_inset Quotes eld
+\end_inset
+
+while
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+for
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+forEach
+\begin_inset Quotes erd
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Section
+Expressions
+\end_layout
+
+\begin_layout Standard
+An expression is some arrangement of constants, variables, function calls,
+ and operators which is well-constructed with respect to the rules of the
+ particular language, and can be evaluated (e.g., 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+5 / 0
+\end_layout
+
+\end_inset
+
+ cannot generally be evaluated).
+ An expression can be evaluated to a value
+\begin_inset CommandInset citation
+LatexCommand cite
+key "web_javaexpr"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Values
+\end_layout
+
+\begin_layout Standard
+A value is considered to be an object or an expression of the language which
+ is in normal form (i.e.
+ it cannot be evaluated any further).
+ Values inhabit types
+\begin_inset CommandInset citation
+LatexCommand cite
+key "book_mitchell_proglang"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Base Types
+\end_layout
+
+\begin_layout Standard
+Base types are the simplest types natively supported by a language.
+ Variables of a base type are not objects; they simply hold a value of the
+ relevant type.
+ In the case of GOOL's DSL, these are integers, floats, characters, strings,
+ and booleans.
+\end_layout
+
+\begin_layout Section
+Compound Types
+\end_layout
+
+\begin_layout Standard
+Compound types are constructed from simpler types (e.g., the type of a certain
+ list object could be List of Lists of Integers).
+ In GOOL, the only compound types are lists and iterators.
+\end_layout
+
+\begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:The-GOOL-Program"
+
+\end_inset
+
+The GOOL Program
+\end_layout
+
+\begin_layout Standard
+This chapter details the final state of the GOOL software tool and the AbstractC
+ode language.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Overview"
+
+\end_inset
+
+Overview
+\end_layout
+
+\begin_layout Standard
+The GOOL program is a code generator.
+ The programmer writes DSL code as an AbstractCode data structure, and GOOL
+ can print equivalent code in one of the supported output languages.
+\end_layout
+
+\begin_layout Standard
+When run, it first parses a text configuration file and uses this to set
+ some user-defined options in an internal data structure, and to determine
+ in which language to render code.
+ It then passes an AbstractCode data structure (containing the DSL implementatio
+n) and any relevant settings to the rendering module of the chosen language.
+ From there, the DSL code structure is evaluated recursively to determine
+ how each component should be rendered, and source files are created containing
+ the resulting code.
+\end_layout
+
+\begin_layout Standard
+GOOL is implemented entirely in Haskell
+\begin_inset CommandInset citation
+LatexCommand cite
+key "web_haskell"
+
+\end_inset
+
+.
+ Haskell is a purely functional language with several advantages for this
+ type of program.
+ GOOL makes frequent use of higher-order functions, particularly when choosing
+ a function to render a given term in AbstractCode.
+ Haskell handles these in a natural manner which is wholly integrated with
+ the way it handles other sorts of functions.
+ Haskell is also excellent at tree processing (which is what ASTs are),
+ and is thus an ideal choice for implementing DSLs.
+\end_layout
+
+\begin_layout Standard
+Also, Haskell has a very streamlined syntax which encourages superior readabilit
+y
+\begin_inset CommandInset citation
+LatexCommand cite
+key "web_haskelldsls"
+
+\end_inset
+
+.
+ There is something of a learning curve for programmers who are inexperienced
+ with functional languages, but once this has been surmounted, concise,
+ clear, and effective code can be written with ease.
+ Haskell provides powerful constructs, like folding and pattern matching,
+ which are particularly effective in facilitating GOOL's implementation.
+ Language definitions in the style of, for example, the Lambda Calculus,
+ naturally lend themselves to functional languages like Haskell (as functional
+ languages are generally, at their cores, augmented forms of the Lambda
+ Calculus
+\begin_inset CommandInset citation
+LatexCommand cite
+key "web_impproglang"
+
+\end_inset
+
+), which helps to increase understandability and decrease the complexity
+ of designing a system around such a language.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Currently-Supported-Output"
+
+\end_inset
+
+Currently Supported Output Languages
+\end_layout
+
+\begin_layout Standard
+Renderers for six languages exist in the current version of GOOL.
+ These languages are C#, C++, Java, Objective-C, Python, and Lua.
+\end_layout
+
+\begin_layout Standard
+We chose C#, C++, and Java because they are some of the most popular general
+ purpose languages
+\begin_inset CommandInset citation
+LatexCommand cite
+key "web_langpop"
+
+\end_inset
+
+, and are particularly popular among object-oriented languages.
+ This relates back to the requirement about usefulness of the output code.
+ Additionally, this provided a good basis for a representative sample of
+ OO programming.
+ As an added benefit, C# and Java are very similar in style and syntax ---
+ which means that their renderers are also very similar.
+ It usually required little additional effort to render a feature in one
+ language once it had been implemented in the other.
+\end_layout
+
+\begin_layout Standard
+We chose Objective-C for its popularity
+\begin_inset CommandInset citation
+LatexCommand cite
+key "web_langpop"
+
+\end_inset
+
+, and its current relevance as the primary language of the Cocoa API, used
+ for Mac OS X and iOS (operating system of the iPhone and iPad) programming
+\begin_inset CommandInset citation
+LatexCommand cite
+key "web_objc"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Python was chosen for its popularity as well
+\begin_inset CommandInset citation
+LatexCommand cite
+key "web_langpop"
+
+\end_inset
+
+, but also because it is a multi-paradigm language that supports object-oriented
+ programming and is not always used to write OO programs.
+ The idea here was to show that, if Python code could be generated alongside
+ other, more 
+\begin_inset Quotes eld
+\end_inset
+
+pure
+\begin_inset Quotes erd
+\end_inset
+
+ OO languages, the patterns demonstrated would be inherent to OO programming
+ and not just OO languages.
+\end_layout
+
+\begin_layout Standard
+Lua may seem like a strange choice, as it does not have any built-in support
+ for the concept of classes and objects
+\begin_inset CommandInset citation
+LatexCommand cite
+key "web_luaoop"
+
+\end_inset
+
+.
+ However, it is possible to simulate this feature using Lua's tables
+\begin_inset CommandInset citation
+LatexCommand cite
+key "web_luaoop,book_ierusalimschy_lua"
+
+\end_inset
+
+.
+ It is even possible to implement OO concepts like inheritance with some
+ effort and overhead
+\begin_inset CommandInset citation
+LatexCommand cite
+key "book_ierusalimschy_lua"
+
+\end_inset
+
+.
+ Lua is supported by GOOL in order to take Python's idea much further ---
+ if the same common core of an OO language can be found and implemented
+ in this feigned OO environment, then it is likely to be a legitimate observatio
+n.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:AbstractCode"
+
+\end_inset
+
+AbstractCode
+\end_layout
+
+\begin_layout Standard
+AbstractCode is, as mentioned above, an abstract syntax tree representing
+ the GOOL DSL.
+ The language definition is comprised of a multi-tiered data structure,
+ which, at its top-level, encapsulates a complete software program.
+ This program is comprised of modules.
+ Each module is made up of member variables and transformations (methods).
+ The decomposition continues like this down to the level of literals and
+ variables.
+\end_layout
+
+\begin_layout Standard
+The full definition of the AbstractCode language is given in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:AbstractCode-Language-Definition"
+
+\end_inset
+
+.
+ Here, the most central primitives of the language will be shown and explained.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\scriptsize\ttfamily},breaklines=true,frame=single"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+data Class = Class {
+\end_layout
+
+\begin_layout Plain Layout
+
+               className :: Label,
+\end_layout
+
+\begin_layout Plain Layout
+
+               parentName :: Maybe Label,
+\end_layout
+
+\begin_layout Plain Layout
+
+               classScope :: Scope,
+\end_layout
+
+\begin_layout Plain Layout
+
+               classVars :: [StateVar],
+\end_layout
+
+\begin_layout Plain Layout
+
+               classMethods :: [Method]}
+\end_layout
+
+\begin_layout Plain Layout
+
+data StateVar = StateVar Label Scope StateType Int
+\end_layout
+
+\begin_layout Plain Layout
+
+data Method = Method Label Scope MethodType [Parameter] Body
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A 
+\series bold
+Class
+\series default
+ in GOOL is equivalent to a class in Java or other mainstream OO languages.
+ The 
+\begin_inset Quotes eld
+\end_inset
+
+parentName
+\begin_inset Quotes erd
+\end_inset
+
+ field allows a Class to inherit from another class by providing its name/label.
+ The member variables and methods of this class are contained in the lists
+ 
+\begin_inset Quotes eld
+\end_inset
+
+classVars
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+classMethods
+\begin_inset Quotes erd
+\end_inset
+
+, respectively.
+\end_layout
+
+\begin_layout Standard
+Hence, 
+\series bold
+StateVars 
+\series default
+are class variables and 
+\series bold
+Methods
+\series default
+ are just class methods.
+ A StateVar requires a name, scope, and type.
+ The integer field is for the 
+\begin_inset Quotes eld
+\end_inset
+
+deletion priority
+\begin_inset Quotes erd
+\end_inset
+
+, explained in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sub:Objective-C"
+
+\end_inset
+
+.
+ A Method requires a name, scope, type, list of parameters, and body of
+ code.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\scriptsize\ttfamily},breaklines=true,frame=single"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+data BaseType = Boolean | Integer | Float | Character | String
+\end_layout
+
+\begin_layout Plain Layout
+
+data ListType = Static | Dynamic
+\end_layout
+
+\begin_layout Plain Layout
+
+data StateType = List ListType StateType
+\end_layout
+
+\begin_layout Plain Layout
+
+               | Base BaseType
+\end_layout
+
+\begin_layout Plain Layout
+
+               | Iterator StateType
+\end_layout
+
+\begin_layout Plain Layout
+
+               | EnumType Label
+\end_layout
+
+\begin_layout Plain Layout
+
+               | Type Label
+\end_layout
+
+\begin_layout Plain Layout
+
+data MethodType = MState StateType
+\end_layout
+
+\begin_layout Plain Layout
+
+                | Void
+\end_layout
+
+\begin_layout Plain Layout
+
+                | Construct Label
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The type of a state variable can fall into a few different categories, defined
+ by 
+\series bold
+StateType
+\series default
+.
+ If it is a list, it must specify whether the list is static or dynamic,
+ and the type of its elements.
+ Base types include the simple or standard primitive types.
+ An iterator must specify the types of the elements it iterates over.
+ EnumTypes and 
+\begin_inset Quotes eld
+\end_inset
+
+custom
+\begin_inset Quotes erd
+\end_inset
+
+ Types are selected by providing the name of the desired type.
+ These are typically intended for miscellaneous types defined elsewhere
+ in the same program.
+ For example, if a programmer has defined a class C, and then later wants
+ to create an object of type C, this object could be declared as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+StateVar "c_obj" Public (Type "C") 0
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This would be equivalent to a declaration in C++ or Java as follows:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+public C c_obj
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+MethodTypes
+\series default
+ define the possible types for a GOOL Method.
+ Methods have a few more possibilities than variables do, so they require
+ a separate set of types (of which the StateTypes are a subset, since a
+ Method can return a value of any StateType).
+ Unlike StateVars, they can be Void, meaning that they do not return a value.
+ They can also be Constructors of a particular class, which are considered
+ special Method types in GOOL.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\scriptsize\ttfamily},breaklines=true,frame=single"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+type Body = [Block]
+\end_layout
+
+\begin_layout Plain Layout
+
+data Block = Block [Statement]
+\end_layout
+
+\begin_layout Plain Layout
+
+data Statement = AssignState Assignment
+\end_layout
+
+\begin_layout Plain Layout
+
+               | DeclState Declaration
+\end_layout
+
+\begin_layout Plain Layout
+
+               | CondState Conditional
+\end_layout
+
+\begin_layout Plain Layout
+
+               | IterState Iteration
+\end_layout
+
+\begin_layout Plain Layout
+
+               | JumpState Jump
+\end_layout
+
+\begin_layout Plain Layout
+
+               | RetState Return
+\end_layout
+
+\begin_layout Plain Layout
+
+               | ValState Value
+\end_layout
+
+\begin_layout Plain Layout
+
+               | CommentState Comment
+\end_layout
+
+\begin_layout Plain Layout
+
+               | FreeState Value
+\end_layout
+
+\begin_layout Plain Layout
+
+               | PrintState {newLine :: Bool, valType :: StateType,
+\end_layout
+
+\begin_layout Plain Layout
+
+                             printVal :: Value}
+\end_layout
+
+\begin_layout Plain Layout
+
+               | ExceptState Exception
+\end_layout
+
+\begin_layout Plain Layout
+
+               | PatternState Pattern
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+These primitives begin to represent the code on a lower level.
+ A 
+\series bold
+Statement
+\series default
+ is a single instruction or control structure.
+ A 
+\series bold
+Block
+\series default
+ is just a series of Statements, and a 
+\series bold
+Body
+\series default
+ is just a group of Blocks (Bodies are only used for aesthetic purposes
+ --- so that related Blocks of code can be split up).
+\end_layout
+
+\begin_layout Standard
+Statements are very important to the language as a whole, since they are
+ where the programmer specifies what is actually to be done.
+ They encapsulate a variety of purposes.
+\end_layout
+
+\begin_layout Standard
+JumpStates are used for loop control statements: Break and Continue (with
+ their traditional meanings).
+\end_layout
+
+\begin_layout Standard
+RetStates are used for returning values from method calls.
+\end_layout
+
+\begin_layout Standard
+ValStates are used to just evaluate values or expressions, without assignment
+ (typically for their side effects).
+\end_layout
+
+\begin_layout Standard
+There is also a Statement included for comments (CommentState), which would
+ not normally be included in a language definition alongside functional
+ primitives.
+ This illustrates an interesting point about the limitations of internal
+ DSLs.
+ In the case of AbstractCode, an internal DSL, any information that should
+ be carried through to the printed output must be specified within one of
+ the Haskell data structures that comprise a program representation.
+ Thus, comments had to be incorporated into the syntax of AbstractCode.
+\end_layout
+
+\begin_layout Standard
+FreeStates are used to free memory by deallocating variables.
+\end_layout
+
+\begin_layout Standard
+PrintStates are used for printing to the console.
+\end_layout
+
+\begin_layout Standard
+ExceptStates are used for throwing and handling exceptions.
+ They are described further in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Added-AbstractCode-Features"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+PatternStates are explained in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Pattern-Statements"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The other Statement types will be demonstrated shortly.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\scriptsize\ttfamily},breaklines=true,frame=single"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+data Assignment = Assign Value Value
+\end_layout
+
+\begin_layout Plain Layout
+
+                | PlusEquals Value Value
+\end_layout
+
+\begin_layout Plain Layout
+
+                | PlusPlus Value
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Assignment
+\series default
+ Statements are used to assign a value to a variable.
+ For example,
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Assign (Var "x") (Lit $ LitInt 5)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+is equivalent to the Java assignment:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+x = 5
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Var and LitInt primitives will be shown later.
+\end_layout
+
+\begin_layout Standard
+Specialized addition or incremental Assignment operations are also provided
+ for convenience.
+ The corresponding Minus operators are not included in AbstractCode, but
+ are supported by GOOL with operators 
+\begin_inset listings
+lstparams "basicstyle={\normalsize\ttfamily}"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+&-=
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset listings
+lstparams "basicstyle={\normalsize\ttfamily}"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+&~-
+\end_layout
+
+\end_inset
+
+ (
+\begin_inset listings
+lstparams "basicstyle={\normalsize\ttfamily}"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+&--
+\end_layout
+
+\end_inset
+
+, as may have been expected, is not used because 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset listings
+lstparams "basicstyle={\normalsize\ttfamily}"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+--
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+ starts a comment in Haskell code, and thus could not be used as part of
+ an operator in AbstractCode --- this is representative of one drawback
+ of internal DSLs).
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\scriptsize\ttfamily},breaklines=true,frame=single"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+data Declaration = VarDec Label StateType
+\end_layout
+
+\begin_layout Plain Layout
+
+                 | ListDec ListType Label StateType Int
+\end_layout
+
+\begin_layout Plain Layout
+
+                 | ListDecValues ListType Label StateType [Value]
+\end_layout
+
+\begin_layout Plain Layout
+
+                 | VarDecDef Label StateType Value
+\end_layout
+
+\begin_layout Plain Layout
+
+                 | ObjDecDef Label StateType Value
+\end_layout
+
+\begin_layout Plain Layout
+
+                 | ConstDecDef Label Literal
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Declaration 
+\series default
+Statements are used to create new variables, lists, objects, or constants.
+ The 
+\begin_inset Quotes eld
+\end_inset
+
+Dec
+\begin_inset Quotes erd
+\end_inset
+
+ versions just declare, while the 
+\begin_inset Quotes eld
+\end_inset
+
+DecDef
+\begin_inset Quotes erd
+\end_inset
+
+ versions allow the programmer to declare and initialize to a certain value
+ at the same time.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\scriptsize\ttfamily},breaklines=true,frame=single"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+data Conditional = If [(Value, Body)] Body
+\end_layout
+
+\begin_layout Plain Layout
+
+                 | Switch Value [(Literal, Body)] Body
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The 
+\series bold
+Conditional
+\series default
+ Statements use a list of (Value, Body) pairs to allow for an unlimited
+ number of conditional branches.
+ The Value serves as the condition to check, and is expected to evaluate
+ to a boolean.
+ The final Body of code is used as the 
+\begin_inset Quotes eld
+\end_inset
+
+default
+\begin_inset Quotes erd
+\end_inset
+
+ branch, executed when none of the others hold true.
+ For example,
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\scriptsize\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+CondState $
+\end_layout
+
+\begin_layout Plain Layout
+
+    If [( Expr $ BinaryExpr (Var "x") Less (Lit $ LitInt 5),
+\end_layout
+
+\begin_layout Plain Layout
+
+          [ Block [ RetState $ Ret (Var "x") ] ] ),
+\end_layout
+
+\begin_layout Plain Layout
+
+        ( Expr $ BinaryExpr (Var "x") Greater (Lit $ LitInt 7),
+\end_layout
+
+\begin_layout Plain Layout
+
+          [ Block [ RetState $ Ret (Lit $ LitInt (-1)) ] ] )
+\end_layout
+
+\begin_layout Plain Layout
+
+       ] [ Block [ RetState $ Ret (Lit $ LitInt 0) ] ]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Is equivalent to:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+if (x < 5) return x;
+\end_layout
+
+\begin_layout Plain Layout
+
+else if (x > 7) return -1;
+\end_layout
+
+\begin_layout Plain Layout
+
+else return 0;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To demonstrate the language in its purest form, the code examples above
+ use only AbstractCode primitives, and do not utilize the many shortcut
+ functions defined by GOOL.
+ While GOOL is still more verbose than a typical language, use of these
+ shortcuts can greatly reduce the overhead and simplify programming.
+ For example, the following code is equivalent to the last example:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\scriptsize\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+ifCond [( Var "x" ?< litInt 5,
+\end_layout
+
+\begin_layout Plain Layout
+
+          oneLiner $ return (Var "x") ),
+\end_layout
+
+\begin_layout Plain Layout
+
+        ( Var "x" ?> litInt 7,
+\end_layout
+
+\begin_layout Plain Layout
+
+          oneLiner $ return (litInt (-1)) )
+\end_layout
+
+\begin_layout Plain Layout
+
+       ] (oneLiner $ return (litInt 0))
+\end_layout
+
+\end_inset
+
+A few examples of these can be seen in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sub:Combinators"
+
+\end_inset
+
+.
+ Shortcut functions are also demonstrated in a more practical way through
+ example implementations in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Example-Implementations"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\scriptsize\ttfamily},breaklines=true,frame=single"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+data Iteration = For {initState :: Statement, guard :: Value,
+\end_layout
+
+\begin_layout Plain Layout
+
+                      update :: Statement, forBody :: Body}
+\end_layout
+
+\begin_layout Plain Layout
+
+               | ForEach Label Value Body
+\end_layout
+
+\begin_layout Plain Layout
+
+               | While Value Body
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Iteration
+\series default
+ Statements are loops.
+ AbstractCode supports For, ForEach, and While loops, all of which implement
+ their traditional behaviour.
+ Note that the initialization and update components of the For loop are
+ just Statements.
+ It is up to the programmer to use meaningful Statements here, e.g.
+ a loop index declaration for 
+\begin_inset Quotes eld
+\end_inset
+
+initState
+\begin_inset Quotes erd
+\end_inset
+
+, and an assignment that increments the index for 
+\begin_inset Quotes eld
+\end_inset
+
+update
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\scriptsize\ttfamily},breaklines=true,frame=single"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+data Value = EnumElement {enumName :: Label, elemName :: Label}
+\end_layout
+
+\begin_layout Plain Layout
+
+           | EnumVar Label
+\end_layout
+
+\begin_layout Plain Layout
+
+           | Expr Expression
+\end_layout
+
+\begin_layout Plain Layout
+
+           | FuncApp Label [Value]
+\end_layout
+
+\begin_layout Plain Layout
+
+           | ObjAccess Value Function
+\end_layout
+
+\begin_layout Plain Layout
+
+           | Lit Literal
+\end_layout
+
+\begin_layout Plain Layout
+
+           | Const Label
+\end_layout
+
+\begin_layout Plain Layout
+
+           | Self
+\end_layout
+
+\begin_layout Plain Layout
+
+           | StateObj StateType [Value]
+\end_layout
+
+\begin_layout Plain Layout
+
+           | ObjVar Value Value
+\end_layout
+
+\begin_layout Plain Layout
+
+           | Var Label
+\end_layout
+
+\begin_layout Plain Layout
+
+           | ListVar Label StateType
+\end_layout
+
+\begin_layout Plain Layout
+
+           | Arg Int
+\end_layout
+
+\begin_layout Plain Layout
+
+           | Input
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Values
+\series default
+ make up the most common low-level component of AbstractCode.
+ The definition encompasses not only the traditional things that would be
+ called values in a programming language (like literals) but also terms
+ that would evaluate to a traditional value (like expressions or function
+ calls).
+ It essentially includes any component that can ultimately be assigned to
+ a variable.
+\end_layout
+
+\begin_layout Standard
+One thing to note here is how different kinds of variables have separate
+ primitives for referencing.
+ In a mainstream language, a variable that represents a list or an enumeration
+ element can typically be referred to in the same way as, say, an integer
+ variable.
+ However, when GOOL prints code in a particular language, it sometimes needs
+ to make simple adjustments that cannot be explicitly specified in the AbstractC
+ode program (since, by design, it performs no inference during translation).
+ Take, for example, enumeration elements.
+ In some output languages, these are really just named integers.
+ In others, like Java, they are a separate entity.
+ Hence, if an AbstractCode program attempts to reference an EnumVar like
+ an integer (say, using it as a list index), then the generated Java code
+ must explicitly cast the variable to an integer, whereas the generated
+ C++ code does not need to do this.
+ So GOOL's Java-printing module must know to insert the casting during code
+ generation.
+ Since GOOL truly just pretty-prints the code, and does not perform any
+ sort of complex inference, the nature of the variable must be explicitly
+ denoted to facilitate this step.
+ Thus, we have an EnumVar primitive to allow for differentiation.
+ See 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sub:Special-Cases"
+
+\end_inset
+
+ for an account of a similar situation with ListVars.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\scriptsize\ttfamily},breaklines=true,frame=single"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+data Literal = LitBool Bool | LitInt Int | LitFloat Float
+\end_layout
+
+\begin_layout Plain Layout
+
+             | LitChar Char | LitStr String
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Literals
+\series default
+ wrap Haskell literals (of the base types) to allow them to be used within
+ an AbstractCode program, as seen in the previous examples in this section.
+\end_layout
+
+\begin_layout Standard
+A few additional AbstractCode features that were added during development
+ are discussed in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Added-AbstractCode-Features"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Code-Generation"
+
+\end_inset
+
+Code Generation
+\end_layout
+
+\begin_layout Standard
+Code generation is performed by a set of Haskell 
+\begin_inset Quotes eld
+\end_inset
+
+language renderer
+\begin_inset Quotes erd
+\end_inset
+
+ modules.
+ One module is required for each output language.
+ These modules define how AbstractCode is translated to their respective
+ languages.
+\end_layout
+
+\begin_layout Standard
+There is also a primary code generation module called LanguageRenderer.
+ This module defines the Config data structure, which serves as an explicit
+ dictionary for a specific language --- i.e., it contains a set of functions
+ which define a direct translation from each component of the AbstractCode
+ language to the target language.
+ Each specific language renderer must populate the fields of the Config
+ structure with these 
+\begin_inset Quotes eld
+\end_inset
+
+translation
+\begin_inset Quotes erd
+\end_inset
+
+ or rendering functions for the various components of AbstractCode.
+ Additionally, there are several fields with simpler types for certain keywords
+ and properties of the language which do not require full rendering functions.
+ The Config structure completely defines how AbstractCode programs should
+ be rendered in a given language.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/RendererConfig.hs"
+lstparams "basicstyle={\\ttfamily\\scriptsize},breaklines=true,caption={Partial Haskell Definition of the Config Data Structure},captionpos=t,frame=single"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Doc type here is used by the HughesPJ pretty printer, and represents
+ an assembled document or piece of text that can be written to an output
+ file
+\begin_inset CommandInset citation
+LatexCommand cite
+key "web_hughespjdoc"
+
+\end_inset
+
+.
+ All generated code is formatted with appropriate spacing and line breaks
+ to make it human-readable.
+\end_layout
+
+\begin_layout Standard
+The other major component of the LanguageRenderer module is made up of default
+ implementations for every necessary rendering function.
+ Each rendered language has some components that are represented the same
+ way in another language.
+ Java and C#, for example, can use identical implementations for the majority
+ of their rendering functions.
+ Even for very dissimilar languages, like Lua, many elements, such as lists
+ of parameters or function calls, would overlap with those found in other
+ languages.
+ Thus it was a natural decision to have a pool of rendering functions that
+ can be shared amongst the individual renderers.
+ These shared implementations help to avoid a great deal of unnecessary
+ effort and repeated code.
+ Some functions have secondary or tertiary shared implementations, when
+ there is more than one implementation that can be shared amongst two or
+ more languages.
+\end_layout
+
+\begin_layout Standard
+Often, however, a language's way of representing a certain component does
+ not overlap with any others.
+ In these cases, the language renderer must provide its Config structure
+ with a custom implementation of the matching type signature.
+\end_layout
+
+\begin_layout Standard
+The naming convention that has been adopted for rendering functions is as
+ follows: the Config-structure field for a function is suffixed with just
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Doc
+\begin_inset Quotes erd
+\end_inset
+
+ (e.g.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+conditionalDoc
+\begin_inset Quotes erd
+\end_inset
+
+).
+ LanguageRenderer's default implementation ends with DocD (
+\begin_inset Quotes eld
+\end_inset
+
+conditionalDocD
+\begin_inset Quotes erd
+\end_inset
+
+).
+ Apostrophes are appended for any secondary and tertiary shared implementations
+ (
+\begin_inset Quotes eld
+\end_inset
+
+conditionalDocD
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$'$
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+conditionalDocD
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$''$
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+), as is the standard Haskell convention for denoting a modified version
+ of a function
+\begin_inset CommandInset citation
+LatexCommand cite
+key "book_lipovaca_lyah"
+
+\end_inset
+
+.
+ Language-specific implementations end with 
+\begin_inset Quotes eld
+\end_inset
+
+Doc
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$'$
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+ (
+\begin_inset Quotes eld
+\end_inset
+
+conditionalDoc
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$'$
+\end_layout
+
+\end_inset
+
+"); again, a nod to the Haskell convention.
+\end_layout
+
+\begin_layout Standard
+Some representative rendering functions will be shown below, as examples.
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:AbstractCode"
+
+\end_inset
+
+ can be referenced for the meaning of any AbstractCode primitives used below.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\scriptsize\ttfamily},breaklines=true,frame=single"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+assignDocD :: Config -> Assignment -> Doc
+\end_layout
+
+\begin_layout Plain Layout
+
+assignDocD c (Assign v1 v2) = valueDoc c v1 <+> text "=" <+>
+\end_layout
+
+\begin_layout Plain Layout
+
+	valueDoc c v2
+\end_layout
+
+\begin_layout Plain Layout
+
+assignDocD c (PlusEquals v1 v2) = valueDoc c v1 <+> text "+=" <+>
+\end_layout
+
+\begin_layout Plain Layout
+
+	valueDoc c v2
+\end_layout
+
+\begin_layout Plain Layout
+
+assignDocD c (PlusPlus v) = valueDoc c v  <> text "++"
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This is the default implementation of a rendering function for Assignment
+ statements.
+ This function is particularly straightforward.
+ Haskell's pattern matching is used to differentiate among the possible
+ Assignment constructors.
+ Some of the pretty printer's functions are used to form the returned Doc:
+ the 
+\begin_inset Quotes eld
+\end_inset
+
+text
+\begin_inset Quotes erd
+\end_inset
+
+ function isomorphically transforms a String into a Doc, the 
+\begin_inset Quotes eld
+\end_inset
+
+<>
+\begin_inset Quotes erd
+\end_inset
+
+ operator concatenates two Docs, and 
+\begin_inset Quotes eld
+\end_inset
+
+<+>
+\begin_inset Quotes erd
+\end_inset
+
+ concatenates and inserts a space
+\begin_inset CommandInset citation
+LatexCommand cite
+key "web_hughespjdoc"
+
+\end_inset
+
+.
+ Thus, a simple assignment would have the printed form 
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+value1 = value2
+\end_layout
+
+\end_inset
+
+, a 
+\begin_inset Quotes eld
+\end_inset
+
+PlusEquals
+\begin_inset Quotes erd
+\end_inset
+
+ assignment would have the form 
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+value1 += value2
+\end_layout
+
+\end_inset
+
+, and a 
+\begin_inset Quotes eld
+\end_inset
+
+PlusPlus
+\begin_inset Quotes erd
+\end_inset
+
+ assignment would look like 
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+++value
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\scriptsize\ttfamily},breaklines=true,frame=single"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+bodyDocD :: Config -> Body -> Doc
+\end_layout
+
+\begin_layout Plain Layout
+
+bodyDocD c bs = vibmap (blockDoc c) blocks
+\end_layout
+
+\begin_layout Plain Layout
+
+    where blocks = filter (
+\backslash
+b -> not $ isEmpty $ blockDoc c b) bs
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+blockDocD :: Config -> Block -> Doc
+\end_layout
+
+\begin_layout Plain Layout
+
+blockDocD c (Block ss) = vmap (statementDoc c NoLoop) statements
+\end_layout
+
+\begin_layout Plain Layout
+
+    where docOf s = statementDoc c NoLoop s
+\end_layout
+
+\begin_layout Plain Layout
+
+          notNullStatement s = (not $ isEmpty $ docOf s)
+\end_layout
+
+\begin_layout Plain Layout
+
+              && (render (docOf s) /= render (end c NoLoop))
+\end_layout
+
+\begin_layout Plain Layout
+
+          statements = filter notNullStatement ss
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+These functions are responsible for pretty-printing Bodies and Blocks of
+ code, respectively.
+ Since a Body is just a collection of Blocks, the 
+\begin_inset Quotes eld
+\end_inset
+
+vibmap
+\begin_inset Quotes erd
+\end_inset
+
+ combinator is used to intersperse line breaks between all Blocks.
+ Any empty Blocks are filtered out and ignored.
+ The blockDocD function prints a Block as a sequence of Statements --- again,
+ filtering out blank Statements.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\scriptsize\ttfamily},breaklines=true,frame=single"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+conditionalDocD :: Config -> Conditional -> Doc
+\end_layout
+
+\begin_layout Plain Layout
+
+conditionalDocD c (If (t:ts) elseBody) =
+\end_layout
+
+\begin_layout Plain Layout
+
+    let ifSect (v, b) = vcat [
+\end_layout
+
+\begin_layout Plain Layout
+
+            text "if" <+> parens (valueDoc c v) <+> ifBodyStart c,
+\end_layout
+
+\begin_layout Plain Layout
+
+            oneTab $ bodyDoc c b,
+\end_layout
+
+\begin_layout Plain Layout
+
+            blockEnd c]
+\end_layout
+
+\begin_layout Plain Layout
+
+        elseIfSect (v, b) = vcat [
+\end_layout
+
+\begin_layout Plain Layout
+
+            elseIf c <+> parens (valueDoc c v) <+> ifBodyStart c,
+\end_layout
+
+\begin_layout Plain Layout
+
+            oneTab $ bodyDoc c b,
+\end_layout
+
+\begin_layout Plain Layout
+
+            blockEnd c]
+\end_layout
+
+\begin_layout Plain Layout
+
+        elseSect = if null elseBody then empty else vcat [
+\end_layout
+
+\begin_layout Plain Layout
+
+            text "else" <+> ifBodyStart c,
+\end_layout
+
+\begin_layout Plain Layout
+
+            oneTab $ bodyDoc c elseBody,
+\end_layout
+
+\begin_layout Plain Layout
+
+            blockEnd c]
+\end_layout
+
+\begin_layout Plain Layout
+
+    in vcat [
+\end_layout
+
+\begin_layout Plain Layout
+
+        ifSect t,
+\end_layout
+
+\begin_layout Plain Layout
+
+        vmap elseIfSect ts,
+\end_layout
+
+\begin_layout Plain Layout
+
+        elseSect]
+\end_layout
+
+\begin_layout Plain Layout
+
+conditionalDocD _ (If [] _) = error "If with no body encountered"
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This is the portion of the default Conditional-rendering function that deals
+ with If conditionals (the Switch part uses a similar approach).
+\end_layout
+
+\begin_layout Standard
+Components like 
+\begin_inset Quotes eld
+\end_inset
+
+ifBodyStart
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+blockEnd
+\begin_inset Quotes erd
+\end_inset
+
+, and 
+\begin_inset Quotes eld
+\end_inset
+
+elseIf
+\begin_inset Quotes erd
+\end_inset
+
+ are defined in the Config structure for each language.
+ By having simple keywords specified separately, we can avoid having to
+ rewrite the conditionalDoc function for a certain language just because,
+ say, other languages use 
+\begin_inset Quotes eld
+\end_inset
+
+else if
+\begin_inset Quotes erd
+\end_inset
+
+ while this one uses 
+\begin_inset Quotes eld
+\end_inset
+
+elif
+\begin_inset Quotes erd
+\end_inset
+
+.
+ The same pattern still holds, albeit with slight differences in syntax.
+\end_layout
+
+\begin_layout Standard
+The first (Value, Body) pair is taken to be the 
+\begin_inset Quotes eld
+\end_inset
+
+if
+\begin_inset Quotes erd
+\end_inset
+
+ branch, and any subsequent pairs are 
+\begin_inset Quotes eld
+\end_inset
+
+else if
+\begin_inset Quotes erd
+\end_inset
+
+ branches.
+ Each 
+\begin_inset Quotes eld
+\end_inset
+
+if
+\begin_inset Quotes erd
+\end_inset
+
+ or 
+\begin_inset Quotes eld
+\end_inset
+
+else if
+\begin_inset Quotes erd
+\end_inset
+
+ branch uses a similar format: 
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+[else] if (condition) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	<code Block to execute if condition holds>
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+All branches (including the 
+\begin_inset Quotes eld
+\end_inset
+
+else
+\begin_inset Quotes erd
+\end_inset
+
+ branch, as long as it is not empty) are concatenated to form the final
+ Doc.
+\end_layout
+
+\begin_layout Standard
+The second pattern-matching case catches If Conditionals with empty (Value,
+ Body) lists.
+ These are invalid, since an 
+\begin_inset Quotes eld
+\end_inset
+
+if
+\begin_inset Quotes erd
+\end_inset
+
+ statement must check at least one condition, so an error is thrown and
+ the printing process fails.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\scriptsize\ttfamily},breaklines=true,frame=single"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+statementDocD :: Config -> StatementLocation -> Statement -> Doc
+\end_layout
+
+\begin_layout Plain Layout
+
+statementDocD c loc (AssignState s) = assignDoc c s <> end c loc
+\end_layout
+
+\begin_layout Plain Layout
+
+statementDocD c loc (DeclState s) = declarationDoc c s <> end c loc
+\end_layout
+
+\begin_layout Plain Layout
+
+statementDocD c _ (CondState s) = conditionalDoc c s
+\end_layout
+
+\begin_layout Plain Layout
+
+statementDocD c _ (IterState s) = iterationDoc c s
+\end_layout
+
+\begin_layout Plain Layout
+
+statementDocD c loc (JumpState s) = jump s <> end c loc
+\end_layout
+
+\begin_layout Plain Layout
+
+statementDocD c loc (RetState s) = retDoc c s <> end c loc
+\end_layout
+
+\begin_layout Plain Layout
+
+statementDocD c loc (ValState s) = valueDoc c s <> end c loc
+\end_layout
+
+\begin_layout Plain Layout
+
+statementDocD c _ (CommentState s) = comment c s
+\end_layout
+
+\begin_layout Plain Layout
+
+statementDocD c loc (FreeState v) = text "delete" <+> valueDoc c v <>
+\end_layout
+
+\begin_layout Plain Layout
+
+	end c loc
+\end_layout
+
+\begin_layout Plain Layout
+
+statementDocD c loc (PrintState newLn t v) = printDoc c newLn t v <>
+\end_layout
+
+\begin_layout Plain Layout
+
+	end c loc
+\end_layout
+
+\begin_layout Plain Layout
+
+statementDocD c loc (ExceptState e) = exceptionDoc c e <> end c loc
+\end_layout
+
+\begin_layout Plain Layout
+
+statementDocD c loc (PatternState p) = patternDoc c p <> end c loc
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This function makes more use of Haskell's pattern-matching.
+ A different implementation is required for each Statement type.
+ In most cases, the statementDocD function just refers to a more specific
+ rendering function for that kind of Statement and applies the end-of-statement
+ symbol (a semicolon, for languages that use such a symbol).
+\end_layout
+
+\begin_layout Standard
+The interesting point in this case is that, since it is so general, every
+ output language uses this version of the Statement-rendering function.
+ It is illustrative of a recurring theme in the code-generation system:
+ refer back to the language-specific Config structure wherever possible,
+ so as to maximize generality.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Configuration-File"
+
+\end_inset
+
+Configuration File
+\end_layout
+
+\begin_layout Standard
+A simple configuration file must be provided to GOOL at runtime.
+ Its main purpose is to specify the desired code generation language (this
+ is the only mandatory setting), and to tell GOOL to render one of the included
+ AbstractCode example implementations, if desired.
+ If an example implementation is not specified, GOOL attempts to render
+ the default AbstractCode implementation.
+\end_layout
+
+\begin_layout Standard
+There are a few language-specific options that can be set as well.
+ A default setting is specified for each one in the relevant language renderer.
+ These design choices are provided merely as an example of possibilities;
+ if GOOL's development were to be continued, there are numerous other configurat
+ion settings that could and should be supported.
+\end_layout
+
+\begin_layout Standard
+An EBNF listing of the syntax of the configuration file can be found in
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Configuration-File-Syntax"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The configuration file options are:
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Generation Language
+\emph default
+: the desired output language for code generation.
+ Supported choices are C#, C++, Java, Objective-C, Python, and Lua.
+ This option must be set in the configuration file, or GOOL will not run.
+ All others are elective.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+ExampleImplementation
+\emph default
+: if this option is set, then code for the chosen example will be generated
+ instead of the default implementation module.
+ Available choices are Patterns, QuickSort, State, and StateV2.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+JavaListType
+\emph default
+: the container type to use for lists in pretty-printed Java code.
+ If Java is not the chosen Generation Language, then setting this option
+ will have no effect.
+ Supported list types are ArrayList, LinkedList, and Vector.
+ If this is not set, GOOL will default to using Vectors.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+CppListType
+\emph default
+: the type to use for lists in pretty-printed C++ code.
+ This option will have no effect if C++ is not the chosen Generation Language.
+ Supported list types are deque and vector.
+ The default choice is vector.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+ObjCStaticListType
+\emph default
+: the type to use for lists in pretty-printed Objective-C code that are
+ declared Static (Dynamic lists must be NSMutableArrays).
+ This option will have no effect if Objective-C is not the chosen Generation
+ Language.
+ Supported list types are NSArray and NSMutableArray.
+ The default choice is NSArray.
+\end_layout
+
+\begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Detailed-Development-History"
+
+\end_inset
+
+Detailed Development History
+\end_layout
+
+\begin_layout Standard
+At this point, the reader has hopefully gained a reasonable understanding
+ of what GOOL does and how it works.
+ This chapter serves to provide the educated reader with a more detailed
+ summary of what work was done to transition from SAGA to GOOL in its current
+ form, throughout the duration of this project.
+ This includes major changes, additions, and a few of the notable issues
+ that were faced.
+ The account is roughly chronological, though some related efforts have
+ been grouped for the sake of readability.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Starting-Point"
+
+\end_inset
+
+Starting Point
+\end_layout
+
+\begin_layout Standard
+In order to properly explain the development of GOOL, it must first be understoo
+d where development began.
+\end_layout
+
+\begin_layout Standard
+GOOL, the tool developed to meet the requirements of 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "chap:Requirements"
+
+\end_inset
+
+, was built off of a previous DSL-centric project, known as SAGA (Story
+ as an Acyclic Graph Assembly)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "paper_beyak_saga,inproc_beyak_saga"
+
+\end_inset
+
+.
+ SAGA implemented a text-based DSL which allowed non-programmers to easily
+ and efficiently create a 
+\begin_inset Quotes eld
+\end_inset
+
+story engine
+\begin_inset Quotes erd
+\end_inset
+
+ for a video game that could be integrated into real-world game projects.
+ The SAGA program served as a compiler: It parsed a 
+\begin_inset Quotes eld
+\end_inset
+
+story description file
+\begin_inset Quotes erd
+\end_inset
+
+ (DSL code), created an intermediate representation of the story engine,
+ and then generated the actual code in a user-selected general purpose language.
+\end_layout
+
+\begin_layout Standard
+As mentioned in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "chap:Introduction"
+
+\end_inset
+
+, SAGA provided much of the framework needed for GOOL.
+ For example, SAGA already included the necessary facilities for code generation
+ in C#, C++, and Java.
+ The main benefit to starting from SAGA was its intermediate representation
+ language.
+ In SAGA, the intermediate representation was an algebraic data type which
+ effectively modelled the basic structure of source code (i.e.
+ abstract syntax trees).
+\end_layout
+
+\begin_layout Standard
+GOOL's DSL began to take shape from the roots of SAGA's intermediate representat
+ion, called AbstractCode.
+\end_layout
+
+\begin_layout Standard
+For a full discussion and report on SAGA, please see 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "paper_beyak_saga"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "inproc_beyak_saga"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Added-AbstractCode-Features"
+
+\end_inset
+
+Added AbstractCode Features
+\end_layout
+
+\begin_layout Standard
+This section will discuss a select few of the primitives that were implemented
+ in the AbstractCode language during development of GOOL.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/BinaryOp.hs"
+lstparams "basicstyle={\\ttfamily\\footnotesize},breaklines=true,caption={Binary operators, with symbolic versions.},captionpos=t,frame=single"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We added several binary operators to the language, each with a symbolic
+ shortcut operator.
+ Equal, Less, and LessEqual had already been included in SAGA's version,
+ but the rest are new.
+ Since there was also a unary Not operator, supporting the other logical
+ operators was not strictly necessary.
+ These are an example of a feature that was added because it is expected
+ in any full-featured programming language, for the programmer's convenience.
+\end_layout
+
+\begin_layout Standard
+The arithmetic operators, on the other hand, are representative of features
+ that were added because they are strictly necessary.
+ Mathematical operations are a fundamental component of programming.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/Module.hs"
+lstparams "basicstyle={\\ttfamily\\footnotesize},breaklines=true,caption={Two of the primitives for an AbstractCode Module.},captionpos=t,frame=single"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Usage example (defines an Enum for the days of the week, and in the MainMethod,
+ declares a variable named 
+\begin_inset Quotes eld
+\end_inset
+
+today
+\begin_inset Quotes erd
+\end_inset
+
+ and initializes it to the Enum element for Tuesday):
+\begin_inset listings
+lstparams "basicstyle={\scriptsize\ttfamily},breaklines=true,frame=single"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+daysEnum :: Class
+\end_layout
+
+\begin_layout Plain Layout
+
+dayEnum =
+\end_layout
+
+\begin_layout Plain Layout
+
+  Enum "Days" Public ["Mon","Tue","Wed","Thur","Fri","Sat","Sun"]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+testClass :: Class
+\end_layout
+
+\begin_layout Plain Layout
+
+testClass = MainClass "Test" [] [
+\end_layout
+
+\begin_layout Plain Layout
+
+        MainMethod [
+\end_layout
+
+\begin_layout Plain Layout
+
+            Block [
+\end_layout
+
+\begin_layout Plain Layout
+
+                varDecDef "today" (EnumType "Days") ("Days" $: "Tue")
+\end_layout
+
+\begin_layout Plain Layout
+
+            ]
+\end_layout
+
+\begin_layout Plain Layout
+
+        ]
+\end_layout
+
+\begin_layout Plain Layout
+
+  ]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+SAGA only supported one standard Class type.
+ GOOL added Enum Classes as a useful feature.
+ They are not truly necessary (in fact, some of the output languages do
+ not have built-in Enums; in these cases, GOOL simulates them with regular
+ integers).
+ The feature was inspired by SAGA's Story Manager, which would communicate
+ about a specified list of story events using hard-coded strings.
+ This seemed inefficient and ugly, and having an Enum type would have allowed
+ for a better, while still human-readable, solution.
+ We assumed that similar cases could occur in AbstractCode programs.
+\end_layout
+
+\begin_layout Standard
+The MainClass Class and MainMethod Method are somewhat representative of
+ the transformation into a robust, executable language.
+ SAGA's Story Manager was meant to be integrated into larger programs, but
+ GOOL is intended to generate standalone programs.
+ Different languages specify Main in different, specific ways (for example,
+ C++ and Java require a method with a specific name and signature, while
+ Python and Lua programs simply begin execution at code that is not encapsulated
+ within methods or classes), and thus it is necessary to explicitly specify
+ which module and method are the Main ones in AbstractCode.
+ Many components of the language have similar reasons for their existence.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/Exception.hs"
+lstparams "basicstyle={\\ttfamily\\footnotesize},breaklines=true,caption={AbstractCode exception-throwing and -handling primitives.},captionpos=t,frame=single"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Exceptions were incorporated into AbstractCode because error-handling is
+ an important part of programming.
+ All output languages supported this construct in one form or another, so
+ it seemed natural that AbstractCode should as well.
+ While this approach is very simplistic (TryCatch will only catch exceptions
+ thrown explicitly by an AbstractCode Throw statement, not those that may
+ be thrown when, say, a list is accessed out of bounds; also, there is only
+ one type of exception to throw), it demonstrates the concept well enough
+ to be suitable for the language.
+ Additionally, since different categories of exceptions may be represented
+ in various ways between languages, they would all need to be defined explicitly
+ in AbstractCode in order to be used (but one could certainly imagine defining
+ a set of exception-type primitives).
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Pattern-Statements"
+
+\end_inset
+
+Gang of Four Design Pattern Statements
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/Pattern.hs"
+lstparams "basicstyle={\\ttfamily\\scriptsize},breaklines=true,caption={The Pattern Statements of AbstractCode.},captionpos=t,frame=single"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Pattern Statements are different from most of the others --- they are
+ in no way expected or fundamental.
+ They were added as a more experimental feature.
+ State, Strategy, and Observer are three examples of the Gang of Four design
+ patterns (specifically, they are behavioural patterns)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "web_javapatterns"
+
+\end_inset
+
+, which are a well-known set of patterns that are used solve common OO programmi
+ng problems.
+ 
+\end_layout
+
+\begin_layout Standard
+Even though they do not have directly analogous primitives in the target
+ languages, these patterns can still be implemented rather simply, and do
+ not require any deviation from our goal of maintaining a 
+\begin_inset Quotes eld
+\end_inset
+
+trivial
+\begin_inset Quotes erd
+\end_inset
+
+ translation process (see 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Requirements"
+
+\end_inset
+
+).
+ In fact, these patterns do not even need to be explicitly translated ---
+ all of their rendering functions utilize existing AbstractCode features
+ to create a new implementation.
+ For example, the following Haskell code shows the rendering functions for
+ the Observer Pattern statements.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\scriptsize\ttfamily},breaklines=true,frame=single"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+patternDocD c (Observer (InitObserverList t os)) = declarationDoc c $
+\end_layout
+
+\begin_layout Plain Layout
+
+  ListDecValues Dynamic observerListName t os
+\end_layout
+
+\begin_layout Plain Layout
+
+patternDocD c (Observer (AddObserver t o)) = valueDoc c $
+\end_layout
+
+\begin_layout Plain Layout
+
+  obsList $.
+ ListAdd last o
+\end_layout
+
+\begin_layout Plain Layout
+
+    where obsList = observerListName `listOf` t
+\end_layout
+
+\begin_layout Plain Layout
+
+          last = obsList $.
+ ListSize
+\end_layout
+
+\begin_layout Plain Layout
+
+patternDocD c (Observer (NotifyObservers t fn ps)) = iterationDoc c $
+\end_layout
+
+\begin_layout Plain Layout
+
+  For initv (Var index ?< (obsList $.
+ ListSize)) ((&++)index) notify
+\end_layout
+
+\begin_layout Plain Layout
+
+    where obsList = observerListName `listOf` t
+\end_layout
+
+\begin_layout Plain Layout
+
+          index = "observerIndex"
+\end_layout
+
+\begin_layout Plain Layout
+
+          initv = varDecDef index (Base Integer) $ litInt 0
+\end_layout
+
+\begin_layout Plain Layout
+
+          notify = oneLiner $
+\end_layout
+
+\begin_layout Plain Layout
+
+                     ValState $ (obsList $.
+ at index) $.
+ Func fn ps
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Pattern Statements prove that patterns do not need to be an 
+\shape italic
+explicit
+\shape default
+ part of OO languages in order to be a part of their common core --- many
+ patterns can be built from fundamental elements that are implicit to the
+ nature of object-oriented programming.
+ These serve as an illustration of the scope of our language, and thus,
+ the discovered core.
+\end_layout
+
+\begin_layout Section
+Changes, Problems, and Improvements
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Objective-C"
+
+\end_inset
+
+Objective-C
+\end_layout
+
+\begin_layout Standard
+Among the first changes made was the addition of more language renderer
+ modules.
+ SAGA supported only Java, C#, and C++.
+ These languages would not be sufficient for GOOL's goal, due to a lack
+ of both quantity and variety.
+ The Objective-C renderer was produced first, as it was expected that this
+ would be the simplest of the new languages to implement.
+ This perception was, however, due to our initial unfamiliarity with the
+ language.
+ Throughout development, Objective-C was generally the source of more difficulty
+ than any other language, typically when trying to implement a new AbstractCode
+ feature.
+ More than a few of these problems stemmed from memory management.
+ Objects that needed to be explicitly released in Objective-C often did
+ not need this in C++, and vice versa.
+ Thus a feature had to be devised that would allow the 
+\begin_inset Quotes eld
+\end_inset
+
+deletion priority
+\begin_inset Quotes erd
+\end_inset
+
+ to be explicitly specified in the AbstractCode.
+ This was an unfortunate concession to make, as it is a language-specific
+ parameter, but we deemed it necessary (short of ignoring memory management
+ altogether, which, while possibly still allowing for functional programs,
+ would obviously be incorrect).
+\end_layout
+
+\begin_layout Standard
+It may be enlightening to know of a few representative examples.
+ NSArrays were used as the default 
+\begin_inset Quotes eld
+\end_inset
+
+list
+\begin_inset Quotes erd
+\end_inset
+
+ type in Objective-C since C-style arrays would not be sufficient for some
+ of AbstractCode's list-manipulation functions.
+ This choice came with a bit of complexity, as NSArrays cannot hold primitive
+ types.
+ Thus, whenever a primitive is added to a list in an AbstractCode program,
+ the Objective-C rendering must wrap that primitive with an appropriate
+ object (usually an NSNumber) before adding it.
+ Similarly, when reading a list element, the object must first be unwrapped
+ back into a primitive.
+\end_layout
+
+\begin_layout Standard
+Another specific, and curious, example of an Objective-C difficulty was
+ found in dealing with NSNumbers.
+ The rendered implementation would crash when intializing an NSArray with
+ a series of NSNumbers.
+ We found that, when using integers 0 thru 12, the intialization worked
+ as desired.
+ However, using any other number resulted in a crash.
+ We eventually discovered that Objective-C includes some sort of optimization
+ for small integers only.
+ This optimization would somehow prevent a memory issue that would otherwise
+ occur
+\begin_inset CommandInset citation
+LatexCommand cite
+key "web_so_nsnumber"
+
+\end_inset
+
+.
+ This assymmetric behaviour was surprising.
+ We eventually solved the problem by using an NSAutoreleasePool to automatically
+ handle the release of the non-optimized NSNumbers.
+\end_layout
+
+\begin_layout Subsection
+Python
+\end_layout
+
+\begin_layout Standard
+The Python renderer was added shortly thereafter.
+ In comparison to Objective-C, there were no specific or large categories
+ of problems that came up.
+ Defining a direct translation proved to be relatively straightforward.
+ Some modifications/generalizations did need to be added to AbstractCode.
+ For example, Python needed to know when a statement was referring to a
+ member of 
+\begin_inset Quotes eld
+\end_inset
+
+this
+\begin_inset Quotes erd
+\end_inset
+
+, as opposed to a locally-defined variable.
+ Thus the 
+\begin_inset Quotes eld
+\end_inset
+
+Self
+\begin_inset Quotes erd
+\end_inset
+
+ value was added to the language, and all member variables now had to be
+ referenced appropriately.
+\end_layout
+
+\begin_layout Standard
+To illustrate, when a Statement within a class had previously looked like:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+(Var "x") &= (Var "y") #+ litInt 5
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where x and y are class member variables, it would now need to be explicit
+ that x and y are members of 
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+Self
+\end_layout
+
+\end_inset
+
+, like so:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Self$->(Var "x") &= Self$->(Var "y") #+ litInt 5
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Structure
+\end_layout
+
+\begin_layout Standard
+At this point, we made some improvements to the structure of the code.
+ Previously, the Config data structure had only contained a few specific
+ options and smaller language features.
+ There was a LanguageRenderer class which defined an assortment of rendering
+ functions that might be used by some of the language-rendering modules.
+ Each specific language renderer would instantiate the LanguageRenderer
+ class and define any supplementary functions that were needed.
+ This was a bit haphazard and inflexible.
+ Some new languages might need more control over rendering than was allowed
+ by the current setup.
+ Thus, we modified the Config structure to serve as an explicit, complete
+ dictionary for a language (this is explained in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Code-Generation"
+
+\end_inset
+
+) --- all rendering functions for a language simply had to be referenced
+ in this dictionary; they could be defined or reused as desired.
+ The LanguageRenderer module's purpose was now mainly to define the general
+ Config structure.
+ This resulted in a great deal of repeated code, until LanguageRenderer
+ became the repository for shared rendering functions.
+\end_layout
+
+\begin_layout Standard
+Many of the function implementations were extremely similar between different
+ languages, but had very small differences that would prevent them from
+ being shared.
+ For example, several of the AbstractCode Function statements had the same
+ basic form in most languages ( <object>.<function name>(<parameters); ),
+ and differed only in the name of the actual function.
+ Specifically, in Java, say, getting the length of a list would look like:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+list.size();
+\end_layout
+
+\end_inset
+
+Whereas in Objective-C, we would use:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+list.count();
+\end_layout
+
+\end_inset
+
+To avoid this redudancy, we generalized many rendering function implementations.
+ The keyword or component that might differ was added as a field in the
+ Config structure, and then the general implementation referenced this field.
+ In this way, more languages could use the shared/default implementation,
+ and this minimized code repetition.
+ While we undertook a focused effort towards generalization after expanding
+ the scope of the Config structure, this principle was applied many times
+ throughout development of GOOL, and represents an ongoing process.
+\end_layout
+
+\begin_layout Standard
+We put the naming convention for rendering functions (described in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Code-Generation"
+
+\end_inset
+
+) in place at this point, to help with organization and clarity of the new
+ structure.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Combinators"
+
+\end_inset
+
+Combinators
+\end_layout
+
+\begin_layout Standard
+We then put some work into increasing the language's resemblance to traditional
+ code.
+ SAGA's design had accounted for this to a certain degree, as had subsequent
+ additions during development of GOOL, but there was a fair amount of room
+ for improvement.
+ To this end, symbolic operators were added and standardized.
+ We created more shortcut functions, and generalized some existing ones,
+ or split them into common derivations.
+\end_layout
+
+\begin_layout Standard
+Some illustrative examples follow.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="6.5cm">
+<column alignment="center" valignment="top" width="6.5cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Using only primitives
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Using shortcut functions/operators
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "basicstyle={\tiny\ttfamily},breaklines=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Expr $ BinaryExpr (Lit $ LitInt 5) Minus (Lit $ LitFloat 3.2) 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "basicstyle={\tiny\ttfamily},breaklines=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+(litInt 5) #- (litFloat 3.2)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "basicstyle={\tiny\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+AssignState $ PlusPlus (Var "i")
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "basicstyle={\tiny\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+(&++)"i"
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "basicstyle={\tiny\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+ObjAccess (Var "list") (ListAccess $ ObjVar Self (Var "idx"))
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "basicstyle={\tiny\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+(Var "list") $.
+ at (Self$->(Var "idx"))
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "basicstyle={\tiny\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+If [(Expr $ BinaryExpr (Var "x") Less (Lit $ LitInt 3),
+\end_layout
+
+\begin_layout Plain Layout
+
+[ Block [ PrintState True (Base String) (Lit $ LitString "OK") ] ] )] []
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "basicstyle={\tiny\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+ifCond [( (Var "x") ?< (litInt 3),
+\end_layout
+
+\begin_layout Plain Layout
+
+   oneLiner $ printStrLn "OK" )] noElse
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This was another process which would continue throughout GOOL's development,
+ requiring some consideration each time more features were added to AbstractCode.
+\end_layout
+
+\begin_layout Subsection
+Splitting
+\end_layout
+
+\begin_layout Standard
+Until this point, the AbstractCode definition had remained integrated with
+ SAGA's Story Manager implementation.
+ The program was of an adequate level of complexity, and had provided a
+ suitable testing ground for any changes and additions made thus far.
+ In order to add and test any significant new features, however, it would
+ soon be necessary to take the defining step of detaching the Story Manager
+ from the language.
+ Due to the considerations made in earlier steps, this was much simpler
+ than expected and took little effort --- primarily, it involved moving
+ a few blocks of code into a new module.
+ Also, a few datatypes used for story elements were abstracted out, and
+ replaced with generic type-definition constructors (e.g.
+ instead of having the language natively supporting a 
+\begin_inset Quotes eld
+\end_inset
+
+NodeTransition
+\begin_inset Quotes erd
+\end_inset
+
+ type, the Story Manager code defined an object type with a label of 
+\begin_inset Quotes eld
+\end_inset
+
+NodeTransition
+\begin_inset Quotes erd
+\end_inset
+
+).
+ In some cases, modules that should be generic still required the use of
+ some functionality of the story-specific module, but this was soon eliminated.
+\end_layout
+
+\begin_layout Standard
+More important was the creation of 
+\begin_inset Quotes eld
+\end_inset
+
+generic mode
+\begin_inset Quotes erd
+\end_inset
+
+, which gave GOOL a way to use and render any AbstractCode representation.
+ This had not been possible previously because some extra functionality
+ --- namely, the parsing of a story scipt, and the data structures that
+ were subsequently created --- was tied in to the representation.
+ Thus, we added a short procedure at the beginning of execution (after the
+ Config file was read and parsed) which decided whether to run GOOL in generic
+ mode or in story mode (essentially, if a Story script was provided, run
+ story mode, else run generic mode).
+ We generalized higher-level code generation instructions to allow for this.
+ Story mode would parse the script as usual and pass the associated data
+ to the dedicated Story Manager implementation module.
+ Generic mode would simply render the implementation found in the default
+ implementation module.
+ This step also did not require significant effort, but was an important
+ milestone nonetheless.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Special-Cases"
+
+\end_inset
+
+Special Cases
+\end_layout
+
+\begin_layout Standard
+Concurrently, a few 
+\begin_inset Quotes eld
+\end_inset
+
+special cases
+\begin_inset Quotes erd
+\end_inset
+
+ that were coded into the language renderers had to be eliminated.
+ These were typically implementations of a rendering function that would
+ check for a certain statement or label that appeared in the Story Manager
+ implementation, and then render it in a specific way for a specific language.
+\end_layout
+
+\begin_layout Standard
+For instance, the following Value-rendering function from Objective-C demonstrat
+es such a 
+\begin_inset Quotes eld
+\end_inset
+
+special case
+\begin_inset Quotes erd
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\scriptsize\ttfamily},frame=single"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+valueDoc' (ObjAccess v@(Var vlbl) f@(ListAccess _)) =
+\end_layout
+
+\begin_layout Plain Layout
+
+  if vlbl == "eventData" then
+\end_layout
+
+\begin_layout Plain Layout
+
+    brackets $ objAccessDoc v f <+> innerFuncAppDoc "boolValue" []
+\end_layout
+
+\begin_layout Plain Layout
+
+  else objAccessDoc v f
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This case is just intended to print the accessing of a list element (typically,
+ this would only amount to something like 
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+list[0]
+\end_layout
+
+\end_inset
+
+).
+ However, it first checks to see if the name of the list being accessed
+ is the same as a specific hard-coded list name used in the Story Manager
+ implementation, and prints an extra function call if so.
+ This is a symptom of the problem described in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sub:Objective-C"
+
+\end_inset
+
+, where primitive types had to be wrapped and unwrapped when used in lists.
+ The list 
+\begin_inset Quotes eld
+\end_inset
+
+eventData
+\begin_inset Quotes erd
+\end_inset
+
+ happened to be the only list that coincided with this issue in the Story
+ Manager, and so the problem was temporarily fixed with the patch shown
+ here.
+\end_layout
+
+\begin_layout Standard
+Obviously, this did not suit the aim of GOOL.
+ These special cases were merely a symptom of a more general case that needed
+ to be accounted for.
+ The vast majority of the work involved in fixing these consisted of identifying
+ the general case.
+ For example, the case above was solved by adding the ListVar primitive
+ to AbstractCode.
+ This is used whenever referencing a variable representing a list --- as
+ opposed to Var, which would still be used for non-list variables.
+ ListVar requires a type parameter, and thus knows the type of its list
+ elements (whereas Var only requires the label of the variable).
+ This is required in some places to render different list types in different
+ ways, such as in the Objective-C NSArray issue described above, where primitive
+ types must be unwrapped every time they are accessed from a list.
+\end_layout
+
+\begin_layout Standard
+The new, more general solution to the given example is shown here:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\scriptsize\ttfamily},frame=single"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+valueDoc' c (ObjAccess v@(ListVar _ t) f@(ListAccess _)) =
+\end_layout
+
+\begin_layout Plain Layout
+
+  getValueDoc t $ objAccessDoc c v f
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+getValueDoc :: StateType -> Doc -> Doc
+\end_layout
+
+\begin_layout Plain Layout
+
+getValueDoc t d = let integer = "integer" in
+\end_layout
+
+\begin_layout Plain Layout
+
+    case t of EnumType _     -> valFrom integer
+\end_layout
+
+\begin_layout Plain Layout
+
+              Base Boolean   -> valFrom "bool"
+\end_layout
+
+\begin_layout Plain Layout
+
+              Base Integer   -> valFrom integer
+\end_layout
+
+\begin_layout Plain Layout
+
+              Base Float     -> valFrom "float"
+\end_layout
+
+\begin_layout Plain Layout
+
+              Base Character -> valFrom "char"
+\end_layout
+
+\begin_layout Plain Layout
+
+              otherwise      -> d
+\end_layout
+
+\begin_layout Plain Layout
+
+    where valFrom typeName =
+\end_layout
+
+\begin_layout Plain Layout
+
+        brackets (d <+> text (typeName ++ "Value"))
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Whenever a ListVar with a base type is accessed, the 
+\begin_inset Quotes eld
+\end_inset
+
+unwrapping
+\begin_inset Quotes erd
+\end_inset
+
+ function for the relevant type is automatically appended.
+\end_layout
+
+\begin_layout Standard
+It should be noted that a more sophisticated type-driven compiler would
+ be able to infer the relevant information.
+ However, in the case of GOOL, this would go against our goal of having
+ a direct, straightforward translation (see 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "chap:Requirements"
+
+\end_inset
+
+ for project goals).
+\end_layout
+
+\begin_layout Subsection
+Lua
+\end_layout
+
+\begin_layout Standard
+Subsequently, we implemented the Lua renderer.
+ Since Lua does not natively support object-oriented code, some work was
+ involved in adapting its renderer to the AbstractCode language.
+ However, this was not as difficult as might be expected, since there has
+ been much previous work on implementing OO in Lua.
+ Once this aspect was working correctly, no specific or complex problems
+ were faced.
+\end_layout
+
+\begin_layout Subsection
+Extras
+\end_layout
+
+\begin_layout Standard
+We then implemented a few example programs in AbstractCode.
+ These served multiple purposes --- intially, the act of creating them was
+ used as a method of identifying important missing features of AbstractCode.
+ After the language became suitably functional, the implementation modules
+ of these examples were permanently integrated into GOOL, and can now be
+ rendered into compilable code at any time with a Config-file option.
+ They now serve as demonstrations of GOOL's execution, and as examples of
+ finished AbstractCode programs, suitable for reference as necessary.
+ Additionally, they act as proof of the accomplishment of this project's
+ goals.
+ Some of these examples are discussed in detail in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Example-Implementations"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We devoted most of the remainder of GOOL's development effort to adding
+ to AbstractCode and making it a more full-featured language.
+ Since SAGA's AbstractCode was an intermediate representation used solely
+ for the Story Manager implementation, it had originally lacked any functionalit
+y that the Story Manager did not require.
+ For example, it included a 
+\begin_inset Quotes eld
+\end_inset
+
+PlusPlus
+\begin_inset Quotes erd
+\end_inset
+
+ statement for incrementing an integer variable by one, but otherwise did
+ not support any sort of algebra.
+ As mentioned previously, GOOL's meta-language would need to include a reasonabl
+e level of functionality in order to achieve its goals.
+ Thus, we added a multitude of features to the language.
+ Some, like algebra, were fundamental and necessary; others, like 
+\begin_inset Quotes eld
+\end_inset
+
+ForEach
+\begin_inset Quotes erd
+\end_inset
+
+ loops or 
+\begin_inset Quotes eld
+\end_inset
+
+Switch
+\begin_inset Quotes erd
+\end_inset
+
+ statements, were not strictly needed (AbstractCode already included For
+ loops and nested If statements), but made the language more robust and
+ programmer-friendly.
+ A selection of the more interesting additions are discussed in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Added-AbstractCode-Features"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Example-Implementations"
+
+\end_inset
+
+Example Implementations
+\end_layout
+
+\begin_layout Standard
+Note that the examples discussed here are only a selection of those which
+ are complete or relatively polished --- many other informal examples were
+ used during development to test various language features.
+ While somewhat simple, one can extrapolate the possibility of larger or
+ more complex programs from these proofs of concept.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:State"
+
+\end_inset
+
+State
+\end_layout
+
+\begin_layout Standard
+This example is based on the Gang of Four's State design pattern
+\begin_inset CommandInset citation
+LatexCommand cite
+key "web_javapatterns"
+
+\end_inset
+
+.
+ The State example demonstrates fundamental AbstractCode features and constructs.
+\end_layout
+
+\begin_layout Standard
+The Controller module is the most important component.
+ Note that the definitions of the terms 
+\begin_inset Quotes eld
+\end_inset
+
+accounting
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+sales
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+management
+\begin_inset Quotes erd
+\end_inset
+
+, and 
+\begin_inset Quotes eld
+\end_inset
+
+connection
+\begin_inset Quotes erd
+\end_inset
+
+ are shown in Listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "listing_State-Shortcuts"
+
+\end_inset
+
+ below.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/State_Controller.hs"
+lstparams "basicstyle={\\ttfamily\\scriptsize},breaklines=true,caption={AbstractCode implementation of the Controller module.},captionpos=t,frame=single"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For easy comparison, the Java code generated for the Controller module follows.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/Controller.java"
+lstparams "basicstyle={\\ttfamily\\scriptsize},breaklines=true,caption={Output Java code for the Controller module.},captionpos=t,frame=single"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The example also illustrates how the embedded nature of the DSL can be leveraged
+ to produce useful program-specific shortcuts when writing code.
+ Several variable names and types have been assigned to names using the
+ Haskell 
+\begin_inset Quotes eld
+\end_inset
+
+let ...
+ in
+\begin_inset Quotes erd
+\end_inset
+
+ construct.
+ Thus repeated use of string literals can be avoided.
+ Additionally, repeated code can be generalized with parameters, as seen
+ with the 
+\begin_inset Quotes eld
+\end_inset
+
+setCurrent
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+doMethod
+\begin_inset Quotes erd
+\end_inset
+
+ combinators above.
+ Shortcut functions can also be defined at a more global level, to be accessible
+ within all modules:
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/State_shortcuts.hs"
+lstparams "basicstyle={\\ttfamily\\scriptsize},breaklines=true,caption={Sample shortcut function definitions from State.},captionpos=t,frame=single,label={listing_State-Shortcuts}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The program shown above represents a simple class named 
+\begin_inset Quotes eld
+\end_inset
+
+Controller
+\begin_inset Quotes erd
+\end_inset
+
+ with four member variables (
+\begin_inset Quotes eld
+\end_inset
+
+acct
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+sales
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+manage
+\begin_inset Quotes erd
+\end_inset
+
+, and 
+\begin_inset Quotes eld
+\end_inset
+
+current
+\begin_inset Quotes erd
+\end_inset
+
+).
+ The 
+\begin_inset Quotes eld
+\end_inset
+
+$->
+\begin_inset Quotes erd
+\end_inset
+
+ operator is used to reference member variables of an object.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+&=
+\begin_inset Quotes erd
+\end_inset
+
+ is standard assignment, and 
+\begin_inset Quotes eld
+\end_inset
+
+$.
+\begin_inset Quotes erd
+\end_inset
+
+ is used to call methods of an object.
+ Controller does not inherit from another class (indicated by 
+\begin_inset Quotes eld
+\end_inset
+
+noParent
+\begin_inset Quotes erd
+\end_inset
+
+) and has eight public methods.
+ The first is its constructor, which takes no parameters (indicated by the
+ empty list: []) and consists of one block of code.
+ This block contains four statements, each initializing one of the member
+ variables.
+ The first three are initialized to a new object of type Accounting, Sales,
+ and Management, respectively.
+ The last, 
+\begin_inset Quotes eld
+\end_inset
+
+current
+\begin_inset Quotes erd
+\end_inset
+
+, defaults to the value of 
+\begin_inset Quotes eld
+\end_inset
+
+acct
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Looking at the list of members variables (
+\begin_inset Quotes eld
+\end_inset
+
+modVars
+\begin_inset Quotes erd
+\end_inset
+
+), 
+\begin_inset Quotes eld
+\end_inset
+
+current
+\begin_inset Quotes erd
+\end_inset
+
+ is of type Connection.
+ The Connection class is defined elsewhere as the parent of Accounting,
+ Sales, and Management, thus 
+\begin_inset Quotes eld
+\end_inset
+
+current
+\begin_inset Quotes erd
+\end_inset
+
+ can hold a value of any of those three types.
+\end_layout
+
+\begin_layout Standard
+The next three methods are used to change the state of the 
+\begin_inset Quotes eld
+\end_inset
+
+current
+\begin_inset Quotes erd
+\end_inset
+
+ member to either Accounting, Sales, or Management (the 
+\begin_inset Quotes eld
+\end_inset
+
+oneLiner
+\begin_inset Quotes erd
+\end_inset
+
+ shortcut function indicates that a Body of code consists of only one statement).
+ The final three methods call some methods 
+\begin_inset Quotes eld
+\end_inset
+
+open
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+close
+\begin_inset Quotes erd
+\end_inset
+
+, and 
+\begin_inset Quotes eld
+\end_inset
+
+log
+\begin_inset Quotes erd
+\end_inset
+
+ on the object held by 
+\begin_inset Quotes eld
+\end_inset
+
+current
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+These methods are defined in the Accounting class as follows.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/State_Accounting.hs"
+lstparams "basicstyle={\\ttfamily\\scriptsize},breaklines=true,caption={AbstractCode implementation of the Accounting module.},captionpos=t,frame=single"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Inheritance is indicated by the 
+\begin_inset Quotes eld
+\end_inset
+
+extends
+\begin_inset Quotes erd
+\end_inset
+
+ parameter, in place of 
+\begin_inset Quotes eld
+\end_inset
+
+noParent
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Sales and Management are defined analogously.
+ Each method simply prints a string to the console.
+\end_layout
+
+\begin_layout Standard
+See the example module for the full, working implementation (module listing
+ in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sub:GOOL.CodeGeneration.AbstractCode-State"
+
+\end_inset
+
+), including all class definitions.
+ To generate code for this example, put the option 
+\begin_inset Quotes eld
+\end_inset
+
+ExampleImplementation = StateV2
+\begin_inset Quotes erd
+\end_inset
+
+ in the Configuration file.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+QuickSort
+\end_layout
+
+\begin_layout Standard
+This example implements an in-place version of the well-known sorting algorithm.
+ Specifically, the algorithm described by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "web_quicksort"
+
+\end_inset
+
+ was referenced.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/Quicksort.hs"
+lstparams "basicstyle={\\ttfamily\\scriptsize},breaklines=true,caption={AbstractCode implementation of QuickSort.},captionpos=t,frame=single"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This implementation might appear complex to a reader who is unfamiliar with
+ AbstractCode.
+ It may be helpful to compare it to the generated output.
+ In Java:
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/Quicksort.java"
+lstparams "basicstyle={\\ttfamily\\scriptsize},breaklines=true,caption={Output Java code for the QuickSort module.},captionpos=t,frame=single"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For further reference, the generated Python code:
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/Quicksort.py"
+lstparams "basicstyle={\\ttfamily\\scriptsize},breaklines=true,caption={Output Python code for the QuickSort module.},captionpos=t,frame=single"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The QuickSort module contains a private Partition method (three parameters,
+ the first being a dynamic list of integers, and the others being left and
+ right bounds; returns an integer), a private Quicksort method for performing
+ the recursive calls (same parameters as Partition; void return type), and
+ a public Quicksort method (the only parameter is a list; void return type)
+ for initiating the sorting process.
+\end_layout
+
+\begin_layout Standard
+This example makes use of various comparison operators (beginning with 
+\begin_inset Quotes eld
+\end_inset
+
+?
+\begin_inset Quotes erd
+\end_inset
+
+) and assignment operators (beginning with 
+\begin_inset Quotes eld
+\end_inset
+
+&
+\begin_inset Quotes erd
+\end_inset
+
+).
+ Arithmetic operators (beginning with 
+\begin_inset Quotes eld
+\end_inset
+
+#
+\begin_inset Quotes erd
+\end_inset
+
+) are also used for the pivot index calculation.
+\end_layout
+
+\begin_layout Standard
+Some notable statements and functions: 
+\begin_inset Quotes eld
+\end_inset
+
+varDecDef
+\begin_inset Quotes erd
+\end_inset
+
+ declares and initializes a variable, while 
+\begin_inset Quotes eld
+\end_inset
+
+varDec
+\begin_inset Quotes erd
+\end_inset
+
+ just declares it.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+listOf
+\begin_inset Quotes erd
+\end_inset
+
+ is used infix to indicate the element type of a ListVar.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+litFloat
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+litInt
+\begin_inset Quotes erd
+\end_inset
+
+ are used to indicate float and integer literals, respectively.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+ifCond
+\begin_inset Quotes erd
+\end_inset
+
+ begins an If conditional.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+at
+\begin_inset Quotes erd
+\end_inset
+
+ is a function called on a ListVar to access an element.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+&++
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+&
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+sim$
+\end_layout
+
+\end_inset
+
+-
+\begin_inset Quotes erd
+\end_inset
+
+ are incremental and decremental assignment operators.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+&.=
+\begin_inset Quotes erd
+\end_inset
+
+ is standard assignment, but assumes that the left operand is the label
+ of a Var.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Floor
+\begin_inset Quotes erd
+\end_inset
+
+ is the mathetical floor operation, and 
+\begin_inset Quotes eld
+\end_inset
+
+Cast
+\begin_inset Quotes erd
+\end_inset
+
+ is used for explicit typecasting.
+\end_layout
+
+\begin_layout Standard
+See the example module for the full, working implementation (module listing
+ in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sub:GOOL.CodeGeneration.AbstractCode-QS"
+
+\end_inset
+
+).
+ To generate code for this example, put the option 
+\begin_inset Quotes eld
+\end_inset
+
+ExampleImplementation = QuickSort
+\begin_inset Quotes erd
+\end_inset
+
+ in the Configuration file.
+\end_layout
+
+\begin_layout Standard
+It speaks well to the purpose and goals of GOOL that the generated Java
+ code for this example matches the original Java (which the AbstractCode
+ was written against) very closely (other than intended differences, such
+ as how the recursive method was hidden from the module interface).
+\end_layout
+
+\begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Conclusions"
+
+\end_inset
+
+Conclusions
+\end_layout
+
+\begin_layout Standard
+The results of this project demonstrate common core of the selected, current
+ OO languages.
+ The fact that several disparate languages with OO elements can be generated
+ equally well from a single, non-trivial, reasonably concise DSL implementation
+ suggests that the DSL must exemplify many patterns that are shared between
+ all languages.
+\end_layout
+
+\begin_layout Standard
+Designing the transformation from AbstractCode to real object-oriented code
+ was not, in fact, particularly difficult.
+ A fair amount of programming effort was certainly required, but the design
+ and decisions involved were mostly straightforward.
+ This, of course, could have been a much more complex task, had the DSL
+ not been designed accordingly.
+\end_layout
+
+\begin_layout Standard
+The most complex aspect of GOOL's development was the design of AbstractCode.
+ The language needed to balance conciseness and simplicity with robustness
+ and sufficient generality to support all of the output languages.
+ At times, this was a challenge.
+ For example, C++ and Objective-C both require explicit destructors for
+ objects.
+ Additionally, the pieces of memory that need to be released in these destructor
+s often differ between the two languages.
+ Therefore, GOOL needed to be able to differentiate between variables which
+ must be explicitly freed in only C++, only Objective-C, both, and neither.
+ Ultimately, the problem was solved by introducing a manually-specified
+ 
+\begin_inset Quotes eld
+\end_inset
+
+deletion priority
+\begin_inset Quotes erd
+\end_inset
+
+ factor to each member variable of a class --- resulting in a small (but
+ still unfortunate) increase in complexity, yet preserving the generality
+ of the DSL, as well as its expandibility to additional future output languages.
+ There were any number of similar situations throughout GOOL's development,
+ where one of GOOL's qualities had to be prioritized over others.
+\end_layout
+
+\begin_layout Standard
+Fortunately, in many situations, these sorts of decisions could be smoothed
+ over by creating helper functions to abstract over the most common cases.
+ This process proved to be beneficial, as the resulting DSL code can be
+ very simple and flexible, while still providing important language-specific
+ details.
+ In the end, the design decisions made for the DSL meant that implementation
+ of the code generation procedures would be relatively natural.
+\end_layout
+
+\begin_layout Standard
+Many relevant and interesting ideas became apparent during development to
+ support our central goal.
+ For instance, as touched upon in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Code-Generation"
+
+\end_inset
+
+ the Java and C# code-rendering modules use nearly identical implementations.
+ There are a few small syntactic differences, to be sure (e.g.
+ C# must use 
+\begin_inset Quotes eld
+\end_inset
+
+Count
+\begin_inset Quotes erd
+\end_inset
+
+ for list sizes, where Java uses 
+\begin_inset Quotes eld
+\end_inset
+
+size
+\begin_inset Quotes erd
+\end_inset
+
+; Java must use a 
+\begin_inset Quotes eld
+\end_inset
+
+String.equals()
+\begin_inset Quotes erd
+\end_inset
+
+ method to check for equality in strings, while C# can use the regular ==
+ operator).
+ But by and large, the C# and Java 
+\begin_inset Quotes eld
+\end_inset
+
+dictionaries
+\begin_inset Quotes erd
+\end_inset
+
+ are evidently quite similar (at least up to the level that is considered
+ by our DSL).
+\end_layout
+
+\begin_layout Standard
+In fact, all the language renderers can share some portion of their implementati
+ons.
+ Even the most 
+\begin_inset Quotes eld
+\end_inset
+
+out-of-place
+\begin_inset Quotes erd
+\end_inset
+
+ language that we considered (Lua) shares a sizeable amount of rendering
+ functions.
+ We have, for instance, the Block, Body, and Assignment default rendering
+ functions --- all seen in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:AbstractCode"
+
+\end_inset
+
+ --- shared between all output languages.
+ In part, this is due to the generalized design of the rendering modules.
+ But at a higher level, this can only be possible because of inherent, common
+ patterns between the languages.
+ A short distance from the generic language of AbstractCode implies a small
+ syntactic/semantic measure of 
+\begin_inset Quotes eld
+\end_inset
+
+deviation
+\begin_inset Quotes erd
+\end_inset
+
+ from a certain central core.
+ This directly supports the point we set out to prove.
+\end_layout
+
+\begin_layout Standard
+The GOOL program is likely not appropriate for use in real-world scenarios.
+ Few realistic use cases exist, and, while many features have been implemented
+ in the language, it is not mature enough to be used for serious, complex
+ applications.
+ GOOL was intended to be a purely academic exercise; a methodology to search
+ for, discover, and demonstrate a set of patterns.
+ This goal has been achieved to an extent that is more than sufficient;
+ however, a great deal of further development should be carried out to discover
+ just how far the common core extends.
+\end_layout
+
+\begin_layout Chapter
+\start_of_appendix
+Module Information
+\end_layout
+
+\begin_layout Section
+Module Hierarchy
+\end_layout
+
+\begin_layout Standard
+The following module hierarchy was produced by Haddock, a tool used to automatic
+ally generate documentation from specially annotated Haskell source code
+\begin_inset CommandInset citation
+LatexCommand cite
+key "web_haddock"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+GOOL Module Hierarchy
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centerline{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/module_hierarchy.png
+	scale 80
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+High-level Module Descriptions
+\end_layout
+
+\begin_layout Subsection
+GOOL.Auxil
+\end_layout
+
+\begin_layout Subsubsection
+GOOL.Auxil.DataTypes
+\end_layout
+
+\begin_layout Standard
+Defines some data types that are used globally.
+\end_layout
+
+\begin_layout Subsubsection
+GOOL.Auxil.DotOutput
+\end_layout
+
+\begin_layout Standard
+This is a SAGA-specific module (see 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Starting-Point"
+
+\end_inset
+
+).
+ It is not used in GOOL's Generic Mode.
+ Since the Story Mode functionality is out of scope for this report, such
+ modules will not be discussed here.
+\end_layout
+
+\begin_layout Subsubsection
+GOOL.Auxil.Helper
+\end_layout
+
+\begin_layout Standard
+Contains several helper functions for formatting output, typically used
+ by the renderer modules.
+ This includes, for example, functions for transforming arbitrary strings
+ into valid variable names, and for handling lists of renderable AbstractCode
+ elements.
+\end_layout
+
+\begin_layout Subsubsection
+GOOL.Auxil.Printing
+\end_layout
+
+\begin_layout Standard
+Contains various useful functions for printing which are not provided by
+ the pretty-printing library.
+\end_layout
+
+\begin_layout Subsection
+GOOL.Code
+\end_layout
+
+\begin_layout Subsubsection
+GOOL.Code
+\end_layout
+
+\begin_layout Standard
+Defines the Code data type.
+ A Code structure wraps generated code documents together with their expected
+ file names.
+\end_layout
+
+\begin_layout Subsection
+GOOL.CodeGeneration
+\end_layout
+
+\begin_layout Subsubsection
+GOOL.CodeGeneration
+\end_layout
+
+\begin_layout Standard
+Implements the high-level process of producing a Code structure from an
+ AbstractCode, and creating the output files.
+\end_layout
+
+\begin_layout Subsubsection
+GOOL.CodeGeneration.AbstractCode
+\end_layout
+
+\begin_layout Standard
+Defines the structure of the AbstractCode datatype, and all of the components
+ of the AbstractCode language.
+ Also contains many shortcut functions and symbolic operators which serve
+ to replace cumbersome and/or common patterns in AbstractCode programming.
+\end_layout
+
+\begin_layout Subsubsection
+GOOL.CodeGeneration.AbstractCode.AbstractCodeImplementation
+\end_layout
+
+\begin_layout Standard
+Contains a program written in AbstractCode.
+ This is the 'default' implementation; i.e.
+ if GOOL is not instructed to render a specific pre-existing example, this
+ is the implementation that will be rendered.
+\end_layout
+
+\begin_layout Subsubsection
+
+\size footnotesize
+GOOL.CodeGeneration.AbstractCode.Examples.PatternExamples.AbstractCodeImplementation
+\end_layout
+
+\begin_layout Standard
+Contains one of the example AbstractCode implementations.
+ This example simply demonstrates the functionality of some of the 
+\begin_inset Quotes eld
+\end_inset
+
+PatternState
+\begin_inset Quotes erd
+\end_inset
+
+ statements of AbstractCode.
+ These statements implement some of the well-known 
+\begin_inset Quotes eld
+\end_inset
+
+Gang of Four
+\begin_inset Quotes erd
+\end_inset
+
+ OO design patterns at a high level.
+\end_layout
+
+\begin_layout Subsubsection
+
+\size footnotesize
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:GOOL.CodeGeneration.AbstractCode-QS"
+
+\end_inset
+
+GOOL.CodeGeneration.AbstractCode.Examples.QuickSort.AbstractCodeImplementation
+\end_layout
+
+\begin_layout Standard
+Contains one of the example AbstractCode implementations.
+ This example implements QuickSort, and performs a few test sorts.
+\end_layout
+
+\begin_layout Subsubsection
+
+\size footnotesize
+GOOL.CodeGeneration.AbstractCode.Examples.State.Version1.AbstractCodeImplementation
+\end_layout
+
+\begin_layout Standard
+Contains one of the example AbstractCode implementations.
+ This example demonstrates a simple State Machine program.
+\end_layout
+
+\begin_layout Subsubsection
+
+\size footnotesize
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:GOOL.CodeGeneration.AbstractCode-State"
+
+\end_inset
+
+GOOL.CodeGeneration.AbstractCode.Examples.State.Version2.AbstractCodeImplementation
+\end_layout
+
+\begin_layout Standard
+Contains one of the example AbstractCode implementations.
+ This example demonstrates the same State Machine program as in Version
+ 1, but uses inheritance to make the implementation more concise.
+\end_layout
+
+\begin_layout Subsubsection
+GOOL.CodeGeneration.AbstractCode.StoryMgrAbstractCode
+\end_layout
+
+\begin_layout Standard
+This is a SAGA-specific module.
+\end_layout
+
+\begin_layout Subsubsection
+GOOL.CodeGeneration.AbstractCode.LanguageRenderer
+\end_layout
+
+\begin_layout Standard
+Defines the structure of the Config datatype, which is meant to contain
+ all rendering functions for a specific language, and thus acts as an explicit
+ dictionary for the language.
+ This module also contains a set of default implementations for the rendering
+ functions.
+\end_layout
+
+\begin_layout Subsubsection
+GOOL.CodeGeneration.AbstractCode.LanguageRenderer.CSharpRenderer
+\end_layout
+
+\begin_layout Standard
+Contains the logic to render C# code from an AbstractCode program.
+\end_layout
+
+\begin_layout Subsubsection
+GOOL.CodeGeneration.AbstractCode.LanguageRenderer.CppRenderer
+\end_layout
+
+\begin_layout Standard
+Contains the logic to render C++ code from an AbstractCode program.
+\end_layout
+
+\begin_layout Subsubsection
+GOOL.CodeGeneration.AbstractCode.LanguageRenderer.JavaRenderer
+\end_layout
+
+\begin_layout Standard
+Contains the logic to render Java code from an AbstractCode program.
+\end_layout
+
+\begin_layout Subsubsection
+GOOL.CodeGeneration.AbstractCode.LanguageRenderer.LuaRenderer
+\end_layout
+
+\begin_layout Standard
+Contains the logic to render Lua code from an AbstractCode program.
+\end_layout
+
+\begin_layout Subsubsection
+GOOL.CodeGeneration.AbstractCode.LanguageRenderer.ObjectiveCRenderer
+\end_layout
+
+\begin_layout Standard
+Contains the logic to render Objective-C code from an AbstractCode program.
+\end_layout
+
+\begin_layout Subsubsection
+GOOL.CodeGeneration.AbstractCode.LanguageRenderer.PythonRenderer
+\end_layout
+
+\begin_layout Standard
+Contains the logic to render Python code from an AbstractCode program.
+\end_layout
+
+\begin_layout Subsection
+GOOL.Parsers
+\end_layout
+
+\begin_layout Subsubsection
+GOOL.Parsers.ConfigParser
+\end_layout
+
+\begin_layout Standard
+Defines the parser for the GOOL configuration file.
+ See 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Configuration-File"
+
+\end_inset
+
+ for details.
+\end_layout
+
+\begin_layout Subsubsection
+GOOL.Parsers.StoryParser
+\end_layout
+
+\begin_layout Standard
+This is a SAGA-specific module.
+\end_layout
+
+\begin_layout Subsection
+Main
+\end_layout
+
+\begin_layout Standard
+The entry point for execution of GOOL.
+ This module is responsible initiates and directs the I/O processes: reading
+ and parsing the configuration file, code generation, and printing any operation
+al feedback for the user.
+\end_layout
+
+\begin_layout Section
+Module Dependency Diagram
+\end_layout
+
+\begin_layout Standard
+Dependencies between the modules of GOOL are illustrated below.
+ The graph was produced by graphmod, a tool used to visually represent module
+ dependencies of Haskell programs
+\begin_inset CommandInset citation
+LatexCommand cite
+key "web_graphmoddoc"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Note that the LanguageRenderer and Examples groups have been collapsed for
+ clarity.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+GOOL Module Dependency Diagram
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centerline{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/dependencygraph.png
+	scale 30
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Configuration-File-Syntax"
+
+\end_inset
+
+Configuration File Syntax
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/Config_BNF.txt"
+lstparams "basicstyle={\\ttfamily\\footnotesize},breaklines=true,caption={EBNF Grammar of the Configuration File},captionpos=t,frame=single"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:AbstractCode-Language-Definition"
+
+\end_inset
+
+AbstractCode Language Definition
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/AbstractCode.hs"
+lstparams "basicstyle={\\ttfamily\\scriptsize},breaklines=true,caption={Haskell Definition of the AbstractCode DSL},captionpos=t,frame=single"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "JasonCostabile_References"
+options "alpha"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

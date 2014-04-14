@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.travel.org"
+            xmlns="http://www.travel.org"
+            elementFormDefault="qualified">
+    <xsd:element name="transportation">
+        <xsd:complexType>
+            <xsd:choice>
+                <xsd:element name="train" type="xsd:string"/>
+                <xsd:element name="plane" type="xsd:string"/>
+                <xsd:element name="automobile" type="xsd:string"/>
+            </xsd:choice>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

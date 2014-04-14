@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modules xmlns:xlink="http://www.w3.org/1999/xlink">
+  <module>
+    <school>York University</school>
+    <moduleName>Systems Engineering For Safety (SEFS)</moduleName>
+    <moduleCode>COM00001M</moduleCode>
+    <year>2013</year>
+    <professors>
+      <contact>
+        <name>Ibrahim Habli</name>
+        <linkDescription xlink:type="simple" xlink:href="http://www.cs.york.ac.uk/people/ihabli" xlink:show="new">Link to Web page:Ibrahim Habli</linkDescription>
+      </contact>
+      <contact>
+        <name>Mark Nicholson</name>
+        <linkDescription xlink:type="simple" xlink:href="http://www.cs.york.ac.uk/people/mark" xlink:show="new">Link to Web page:Mark Nicholson</linkDescription>
+      </contact>
+    </professors>
+    <status>Core</status>
+    <requiredFor>Both Full-time and Part-time</requiredFor>
+    <allowedTracks>
+      <track>LSCITS 1</track>
+      <track>LSCITS 2</track>
+      <track>LSCITS 3</track>
+      <track>LSCITS 4</track>
+      <track>SCSE</track>
+      <track>SSE</track>
+    </allowedTracks>
+    <numberOfCredits>10</numberOfCredits>
+    <teachingTermsAllowed>
+      <term>Autumn 2</term>
+    </teachingTermsAllowed>
+    <preRequisites>
+      <preRequisite>
+        <description>No pre-requisites</description>
+      </preRequisite>
+    </preRequisites>
+    <courseDescription>
+    <description>
+         This module is an introduction to the technical and organisational aspects 
+          of systems engineering, focusing on early lifecycle systems analysis 
+          and modelling (i.e. systems concepts, requirements and architectures). 
+          It intends to present systems engineering principles which are applicable 
+          to a range of critical engineering systems (e.g. control systems, platforms, 
+          systems of systems and autonomous and configurable systems). 
+          In particular, it focuses on the early consideration of, and tradeoffs between, 
+          technical as well as economic attributes such as safety, maintainability, 
+          cost and time-to-market in the context of key organisational challenges related to 
+          technology readiness and process maturity. 
+    </description>
+    </courseDescription>
+    <aims>
+      <aim>
+        <description>This module is an introduction to the technical and organisational aspects 
+        of systems engineering, focusing on early lifecycle systems analysis 
+        and modelling (i.e. systems concepts, requirements and architectures).  </description>
+      </aim>
+      <aim>
+        <description>
+           It intends to present systems engineering principles which are applicable to a range of 
+           critical engineering systems (e.g. control systems, 
+           platforms, systems of systems and autonomous and configurable systems).
+        </description>
+      </aim>
+      <aim>
+        <description>
+            In particular, it focuses on the early consideration of, and tradeoffs between, 
+            technical as well as economic attributes such as safety, maintainability, cost 
+            and time-to-market in the context of key organisational 
+            challenges related to technology readiness and process maturity. 
+        </description>
+      </aim>
+    </aims>
+    <learningOutcomes>
+      <learningOutcome>Explain the scope and nature of systems engineering in the context of high safety risk industries </learningOutcome>
+      <learningOutcome>Identify and assess the interaction between systems engineering and economics</learningOutcome>
+      <learningOutcome>Describe the role and importance of organisational aspects of systems engineering in the development life-cycle in the context of high safety risk industries </learningOutcome>
+      <learningOutcome>Describe the principles of, and issues concerning, systems requirements, architectures, modelling, trade-offs, design rationale and product lines as well as emerging concepts in systems engineering related to adaptive systems </learningOutcome>
+      <learningOutcome>Participate in requirements definition, architecture design, trade-off analysis and system modelling</learningOutcome>
+    </learningOutcomes>
+    <workload>
+      <totalLectureHours>18</totalLectureHours>
+      <totalPracticalHours>17</totalPracticalHours>
+      <totalPrivateStudyTime>30hrs</totalPrivateStudyTime>
+      <assessmentTime>35hrs</assessmentTime>
+    </workload>
+    <feedback>
+      <feedbackDescription>Individual written feedback is provided via the online feedback system till 15th Jan.</feedbackDescription>
+      <feedbackLinkDescription xlink:type="simple" xlink:href="http://www.cs.york.ac.uk/submit/" xlink:show="new">Online Feedback Link</feedbackLinkDescription>  
+   </feedback>
+    <content>
+      <topicsCovered>
+        <topic>
+          <description>Nature of Engineering System </description>
+        </topic>
+        <topic>
+          <description>Developing Technical Systems </description>
+        </topic>
+        <topic>
+          <description>Risk Concepts and Management </description>
+        </topic>
+        <topic>
+          <description>Cost and Price</description>
+        </topic>
+        <topic>
+          <description>Requirements Principles and Management</description>
+        </topic>
+        <topic>
+          <description>Architectural Principles</description>
+        </topic>
+        <topic>
+          <description>System Modelling Notations: SysML </description>
+        </topic>
+        <topic>
+          <description>Systems Analysis</description>
+        </topic>
+        <topic>
+          <description>Product Lines</description>
+        </topic>
+        <topic>
+          <description>Representing Design Knowledge </description>
+        </topic>
+          <topic>
+          <description>Technology Selection and Trade-offs </description>
+        </topic>
+        <topic>
+          <description>Organisational Aspects of Systems Engineering </description>
+        </topic>
+       <topic>
+          <description>Process Maturity &amp; Improvement</description>
+        </topic>
+          <topic>
+          <description>Agile Systems Engineering</description>
+        </topic>
+      </topicsCovered>
+      <teachingMaterial>
+        <material>
+          <materialName>Copies of all lecture slides, case studies and exercises will be provided.</materialName>
+        </material>
+      </teachingMaterial>
+      <books>
+        <book>
+          <bookName>Engineering Design a Systematic Approach</bookName>
+          <bookType>Recommended</bookType>
+          <bookAuthor>G Pahl, W Beitz, K Wallace, L Blessing, F Bauert</bookAuthor>
+          <bookPublisher>Springer Verlag</bookPublisher>
+          <bookYear>1995</bookYear>
+        </book>
+        <book>
+          <bookName>A Practical Guide to SysML: The Systems Modeling Language</bookName>
+          <bookType>Recommended</bookType>
+          <bookAuthor>Sanford Friedenthal</bookAuthor>
+          <bookPublisher>Morgan Kaufmann</bookPublisher>
+          <bookYear>2011</bookYear>
+        </book>
+        <book>
+          <bookName>Systems Engineering Body of Knowledge</bookName>
+          <bookType>Recommended</bookType>
+          <bookPublisher>INCOSE publications</bookPublisher>
+          <bookLinkDescription xlink:type="simple" xlink:href="http://www.incose.org" xlink:show="new">Link to book</bookLinkDescription>
+        </book>
+        <book>
+          <bookName>Quality Functional Deployment</bookName>
+          <bookType>Recommended</bookType>
+          <bookAuthor>L Cohen</bookAuthor>
+          <bookPublisher>Addison Wesley</bookPublisher>
+          <bookYear>1995</bookYear>
+        </book>
+        <book>
+          <bookName>Problem Frames</bookName>
+          <bookType>Recommended</bookType>
+          <bookAuthor>M A Jackson</bookAuthor>
+          <bookPublisher>Addison Wesley</bookPublisher>
+          <bookYear>2001</bookYear>
+        </book>
+      </books>
+      <startDate>2013-10-07</startDate>
+     <assessment>
+        <description>Open assessment is done</description>
+        <startDate>2013-10-10T00:00:00</startDate>
+        <endDate>2013-11-27T00:00:00</endDate>
+      </assessment>
+    </content>
+  </module>
+</modules>

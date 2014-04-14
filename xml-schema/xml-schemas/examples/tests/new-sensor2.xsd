@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2000/10/XMLSchema"
+            targetNamespace="http://www.sensor.org"
+            xmlns="http://www.sensor.org"
+            elementFormDefault="qualified">
+    <xsd:redefine schemaLocation="sensor.xsd">
+        <xsd:simpleType name="sensor_type">
+            <xsd:union memberTypes="sensor-type new-sensors"/>
+        </xsd:simpleType>
+    </xsd:redefine>
+    <xsd:simpleType name="new-sensors">
+        <xsd:restriction base="string">
+            <xsd:enumeration value="gamma"/>
+        </xsd:restriction>
+    </xsd:restriction>
+</xsd:schema>

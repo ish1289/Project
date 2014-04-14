@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns:xlink="http://www.w3.org/1999/xlink">
+    <style type="text/css">
+        .alignmentCenter{
+        text-align: center;
+        }
+        .setWidth{
+        width: 50%;
+        }
+        }
+      </style>
+    <body>
+        <h3 class="alignmentCenter">The Coq Proof Assistant</h3>
+        <h3>Overview:- </h3>
+    Coq is a formal proof management system. It provides a formal language to write 
+    mathematical definitions, 
+    executable algorithms and theorems together with an environment for semi-interactive 
+    development of machine-checked proofs. Typical applications include the formalization 
+    of programming languages semantics (e.g. the CompCert compiler certification project or Java Card 
+    EAL7 certification in industrial context), the formalization of mathematics (e.g. the full formalization 
+    of the 4 color theorem or constructive mathematics at Nijmegen) and teaching.
+ 
+ More about Coq
+ <br/>
+        <h3>Contributors:-</h3>Description-There is a strong and active community of users working with Coq. They are contributing formal developments, extensions of Coq, 
+     and tools based on Coq (see Related Tools).<br/>
+        <a href="http://coq.inria.fr/pylons/contribs/index">The Coq Users' Contributions</a>
+        <br/>Description-All Contacts<br/>
+        <a href="http://coq.inria.fr/community">Contacts</a>
+        <br/>
+        <h3>Available Versions:-</h3>
+        <table border="1">
+            <tr bgcolor="#9acd32">
+                <th>Version Name</th>
+                <th>Description</th>
+                <th>Year</th>
+                <th>Link</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>Coq 8.4pl3</td>
+                <td>This version features: 1) a new modular and uniform extension of the arithmetical libraries by P. Letouzey which systematically provides power, gcd/lcm, square root, base 2 logarithm, division, modulo, bitwise operators, logical shift, comparisons, iterators for all of nat, N, Z, BigN and BigZ on top of a uniform naming layer (e.g. plus and mult are now consistently named add and mul while still remaining mostly compatible with 8.3) (example 1, example 2, example 3);
+2) a new proof engine by A. Spiwack whose most salient feature is the introduction of bullets (+, -, *) and structured scripts ({ ... }) (example).</td>
+                <td>-</td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="http://coq.inria.fr/coq-84-is-out">More Information</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="http://coq.inria.fr/distrib/V8.4pl3/CHANGES">Changes from Previous Versions</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="http://coq.inria.fr/distrib/V8.4pl3/COMPATIBILITY">Main Incompatibilites</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>Current</td>
+            </tr>
+            <tr>
+                <td>version 8.3</td>
+                <td>-</td>
+                <td>-</td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="http://coq.inria.fr/coq-8.3">Previous Version 8.3</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>Previous</td>
+            </tr>
+            <tr>
+                <td>version 8.2</td>
+                <td>-</td>
+                <td>-</td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="http://coq.inria.fr/coq-82-detailed-description">Previous Version 8.2</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>Previous</td>
+            </tr>
+            <tr>
+                <td>All Previous versions</td>
+                <td>-</td>
+                <td>-</td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="ftp://ftp.inria.fr/INRIA/Projects/LogiCal/coq">Previous Versions</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>Previous</td>
+            </tr>
+        </table>
+        <h3>Extensions/Experimental Content:-</h3>
+        <b>Description:- </b>When compiled with Objective Caml 3.11 (which is the case of the Windows and MacOS 
+   packages we release), 
+   Coq supports dynamic loading of extensions. Note: Objective Caml ≥ 3.11.1 is required for 
+   building plugins on MacOS 10.5. (*) above means that the plugin is submitted to the user contributions 
+   and planned to be kept 
+   compatible with the new releases of Coq to come.<br/>
+        <b>Contents-</b>
+        <br/>The small scale reflection package (ssreflect) contains the robust and compact tactic language and libraries that were started for supporting the full formalization of the 4 color theorem and that now serves, among other applications, as support for the ongoing formalization of the odd order theorem in group theory. (*)<br/>
+        <a href="http://www.msr-inria.inria.fr/Projects/math-components">Small scale reflection</a>
+        <br/>
+        <br/>The rewriting modulo associativity and commutativity plugin (AAC_tactics). (*)<br/>
+        <a href="http://sardes.inrialpes.fr/~braibant/aac_tactics/">The rewriting modulo associativity and commutativity plugin</a>
+        <br/>
+        <br/>The classical extraction module provides extraction of programs from classical proofs in Prop.<br/>
+        <a href="http://perso.ens-lyon.fr/alexandre.miquel/kextraction">Classical extraction module</a>
+        <br/>
+        <br/>The rippling plugin for automation of inductive arguments<br/>
+        <a href="https://github.com/tomprince/rippling">The rippling plugin</a>
+        <br/>
+        <br/>The descente infinie plugin for delayed inference of the induction hypothesis needed in well-founded induction. (*)<br/>
+        <a href="http://www.comp.nus.edu.sg/~limengran/di.tar.gz"> descente infinie</a>
+        <br/>
+        <br/>
+        <h3>Functionalities/Features:-</h3>Coq implements a program specification and mathematical higher-level language 
+      called Gallina that is based on an expressive formal language called the Calculus of Inductive Constructions that itself combines both a higher-order logic and a richly-typed functional programming language. 
+      Through a vernacular language of commands<br/>
+        <br/>Coq allows:
+to define functions or predicates, that can be evaluated efficiently;
+to state mathematical theorems and software specifications;
+to interactively develop formal proofs of these theorems;
+to machine-check these proofs by a relatively small certification "kernel";
+to extract certified programs to languages like Objective Caml, Haskell or Scheme.<br/>
+        <br/>As a proof development system, Coq provides interactive proof methods, decision and 
+      semi-decision algorithms, and a tactic language for letting the user define its own proof methods. 
+      Connection with external computer algebra system or theorem provers is available.<br/>
+        <br/>As a platform for the formalization of mathematics or the development of programs, 
+      Coq provides support for high-level notations, 
+      implicit contents and various other useful kinds of macros.<br/>
+        <br/>
+        <h3>Getting the tool:-</h3>
+        <table border="1">
+            <tr bgcolor="#9acd32">
+                <th>Description</th>
+                <th>Size</th>
+                <th>Format</th>
+                <th>Link</th>
+                <th>Form</th>
+            </tr>
+            <tr>
+                <td>Coq comes with libraries for efficient arithmetics in N, Z and Q, libraries about lists, 
+    finite sets and finite maps, libraries on abstract sets, relations, classical analysis, etc.
+Coq is released with:
+a graphical user interface based on gtk (CoqIde) (see screenshots),
+documentation tools (coqdoc and coq-tex) and a statistics tool (coqwc),
+dependency and makefile generation tools for Coq (coq_makefile and coqdep),
+a stand-alone proof verifier (coqchk, from Coq 8.2).</td>
+                <td>-</td>
+                <td>-</td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="http://coq.inria.fr/download">More Information</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>Other</td>
+            </tr>
+            <tr>
+                <td>-</td>
+                <td>4 MB</td>
+                <td>-</td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="http://coq.inria.fr/distrib/V8.4pl3/files/coq-8.4pl3.tar.gz">coq-8.4pl3.tar.gz</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>Source</td>
+            </tr>
+            <tr>
+                <td>-</td>
+                <td>54 MB</td>
+                <td>Windows</td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="http://coq.inria.fr/distrib/V8.4pl3/files/coq-installer-8.4pl3.exe">coq-installer-8.4pl3.exe (bundled with CoqIDE) (sha1, sha1 sig)</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>Binary</td>
+            </tr>
+            <tr>
+                <td>-</td>
+                <td>75 MB and 100 MB</td>
+                <td>Mac OS</td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="http://coq.inria.fr/distrib/V8.4/files/coq-8.4.dmg">coq-8.4.dmg</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="http://coq.inria.fr/distrib/V8.4pl2/files/coqide-8.4pl2.dmg">coqide-8.4pl2.dmg </a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>Binary</td>
+            </tr>
+        </table>
+        <h3>Related Tools</h3>
+        <b>Tool Name: - </b>Software Verification Tools<br/>
+        <b>Description: - </b>Several tools are being built on top of Coq, for software verification purposes.
+Why is a verification conditions generator back-end.
+Krakatoa is a Java code certification tool that uses both Coq and Why to verify the soundness of implementations with regards to the specifications.
+Caduceus is a verification tool for C programs, built on top of Why.
+Concoqtion is a dependently-typed extension of Objective Caml (and of MetaOCaml) with specifications expressed and proved in Coq.
+Ynot is an extension of Coq providing a "Hoare Type Theory" for specifying higher-order, imperative and concurrent programs.
+Ott is a tool to translate the descriptions of the syntax and semantics of programming languages to the syntax of Coq, or of other provers.<br/>Links:- <li>
+            <a href="http://why.lri.fr/index.en.html">Why Tool</a>
+        </li>
+        <li>
+            <a href="http://krakatoa.lri.fr/">Krakatoa Tool</a>
+        </li>
+        <li>
+            <a href="http://why.lri.fr/caduceus/index.en.html">Caduceus Tool</a>
+        </li>
+        <li>
+            <a href="http://www.metaocaml.org/concoqtion/">Concoqtion Tool</a>
+        </li>
+        <li>
+            <a href="http://www.eecs.harvard.edu/~greg/ynot">Ynot Tool</a>
+        </li>
+        <li>
+            <a href="http://www.cl.cam.ac.uk/~pes20/ott">Ott Tool</a>
+        </li>
+        <br/>
+        <b>Tool Name: - </b>Representation of binders and termination proofs Tools<br/>
+        <b>Description: - </b>LNgen is a tool for generating Coq code for the infrastructure associated with a locally nameless representation;
+Hybrid is a package for reasoning with Higher Order Abstract Syntax;
+GMeta is a generic formal metatheory framework for various first-order representations;
+Rainbow automatically generates Coq proofs from termination certificates.<br/>Links:- <li>
+            <a href="http://www.cis.upenn.edu/~baydemir/papers/lngen">LNgen Tool</a>
+        </li>
+        <li>
+            <a href="http://hybrid.dsi.unimi.it/">Hybrid Tool</a>
+        </li>
+        <li>
+            <a href="http://ropas.snu.ac.kr/gmeta/">GMeta Tool</a>
+        </li>
+        <li>
+            <a href="http://color.inria.fr/">Rainbow Tool</a>
+        </li>
+        <br/>
+        <b>Tool Name: - </b>Graphical User Interfaces Tools<br/>
+        <b>Description: - </b>Coq can be used in text mode or in graphical mode using its gtk-based integrated development interface CoqIde. Alternative third-party graphical interfaces are also available :
+The Proof General Emacs/XEmacs interface by David Aspinall with Coq support by Pierre Courtieu;
+a syntax highlighting script and an indentation script for Vim by Vincent Aravantinos;
+the ProofWeb online web interface for Coq (and other proof assistants), with a focus on teaching;
+ProverEditor is an experimental Eclipse plugin with support for Coq;
+for versions of Coq in old syntax (version 7.4 of 2003 and before), Pcoq is a graphical interface and TmCoq is an integration of Coq with TexMacs.<br/>Links:- <li>
+            <a href="http://proofgeneral.inf.ed.ac.uk/">Proof General Tool</a>
+        </li>
+        <li>
+            <a href="http://prover.cs.ru.nl/">ProofWeb Tool</a>
+        </li>
+        <li>
+            <a href="http://provereditor.gforge.inria.fr/">ProverEditor Tool</a>
+        </li>
+        <br/>
+        <b>Tool Name: - </b>Browsing, Searching and Documentation Tools<br/>
+        <b>Description: - </b>The Hypertextual Electronic library of Mathematics (HELM), located at Bologna University (a component of the MoWGli project);
+coq-graphs is a graphical tool to visualize dependencies and coercion graphs in Coq documents.<br/>Links:- <li>
+            <a href="http://helm.cs.unibo.it/library.html">HELM Tool</a>
+        </li>
+        <li>
+            <a href="http://coq.inria.fr/cocorico">Cocorico Tool</a>
+        </li>
+        <br/>
+        <h3>Related Links:- </h3>
+        <a href="http://coq.inria.fr/coq-workshop/">The Coq workshop</a>
+        <br/>
+        <a href="http://coq.inria.fr/cocorico/List%20of%20Coq%20PL%20Projects">formalization of programming languages semantics</a>
+        <br/>
+        <a href="http://compcert.inria.fr/">CompCert compiler</a>
+        <br/>
+        <h3>Supporting Documents</h3>
+        <table border="1">
+            <tr bgcolor="#9acd32">
+                <th>Document Name</th>
+                <th>Description</th>
+                <th>Link</th>
+            </tr>
+            <tr>
+                <td class="setWidth">Reference Manual </td>
+                <td>-</td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="http://coq.inria.fr/distrib/current/refman">Reference Manual</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="setWidth">Standard Library</td>
+                <td>-</td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="http://coq.inria.fr/distrib/current/stdlib/">Standard Library</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="setWidth">All documents</td>
+                <td>-</td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="http://coq.inria.fr/documentation">All documents</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="setWidth">Tutorial.pdf</td>
+                <td>-</td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="http://coq.inria.fr/distrib/V8.4pl3/files/Tutorial.pdf">Tutorial.pdf</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

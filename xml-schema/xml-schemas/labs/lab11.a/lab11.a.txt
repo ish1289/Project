@@ -1,0 +1,15 @@
+Lab 11.a Creating an Appliances Repository Schema
+
+For this lab you are to modify the juicers.xml and juicers.xsd
+that you created in the last lab (lab 10).
+
+In all of the labs thus far we have stored all of our
+schema components in a single schema.  Typically, however,
+you will put elements/types that may be used by
+many schemas into its own schema (a repository schema).
+In our juicer example the appliance type is an example of 
+something that could be used in many schemas.  Hence, let's 
+pull it out of juicers.xsd and put it into a generic schema, 
+appliances.xsd.  Then modify juicers.xsd to use the definition 
+of appliances in appliances.xsd.  For this lab you are to use
+the same namespace for the two schemas.

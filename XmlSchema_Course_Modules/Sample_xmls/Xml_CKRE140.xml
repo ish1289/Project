@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modules xmlns:xlink="http://www.w3.org/1999/xlink">
+  <module>
+    <school>Ryerson University</school>
+    <moduleName>Real-Time Embedded Systems Programming</moduleName>
+    <moduleCode>CKRE140</moduleCode>
+    <year>2013</year>
+    <courseDescription>
+      <description>
+      This course will introduce and explore the programming language and operating system 
+      facilities essential to the implementation of real-time, reactive, embedded, robotic 
+      and/or networked systems. It will provide practical knowledge of the system issues which must 
+      be addressed from design and programming perspective. Differentiated issues arising from design, 
+      concurrent, reactive, safety-critical and embedded systems will be explored in depth. 
+      Simple hands-on development is facilitated with an embedded system development kit.
+      </description>
+    </courseDescription>
+    <aims>
+      <aim>
+        <description>
+          In this course, participants are introduced various building blocks and 
+          underlying scientific and engineering principles behind embedded real-time systems. 
+          Topics will include real-time system characteristics, time constraints, task scheduling methods, 
+          and distributed real-time systems. Participants will examine methods and best practices in 
+          implementing real-time systems used in industry today. Through practical hands-on projects, 
+          participants will experiment with hardware and software implementation of real-time embedded systems.
+        </description>
+      </aim>
+    </aims>
+    <learningOutcomes>
+      <learningOutcome>Master the various concepts of time that arise in real-time systems.</learningOutcome>
+      <learningOutcome>Perform simple performance and scheduling analysis to demonstrate that a system successfully meets real-time constraints.</learningOutcome>
+      <learningOutcome>Describe the design and implementation of systems that support real-time applications.</learningOutcome>
+      <learningOutcome>Design, construct and analyze a small, concurrent, reactive, real-time system using the recommended hardware kits.</learningOutcome>
+      <learningOutcome>Explain problems and constraints with real-time embedded systems</learningOutcome>
+      <learningOutcome>Implement an embedded systems that is capable of reading sensor input, logging the data and presenting it and Explain the role of transfer functions and their relationship with the input and output of a system</learningOutcome>
+      <learningOutcome>Describe the concept of a PID control loop and Implement a real-time system using a PD controller</learningOutcome>
+      <learningOutcome>Identify the timing constraints of different real-time systems and compare and contrast different embedded architecture designs that meet requirements of various real-time systems</learningOutcome>
+      <learningOutcome>Describe concepts of servo motors and servo controllers and understand quadrature encoder output</learningOutcome>
+      <learningOutcome>Acquire programming techniques on external interrupts and reading quadrature encoder</learningOutcome>
+      <learningOutcome>Implement a real-time embedded system using PID control loop</learningOutcome>
+      <learningOutcome>Compare and contrast speed controllers with position controllers and describe methods and techniques of designing a distributed real-time system</learningOutcome>
+      <learningOutcome>Apply principles of real-time systems (multitasking, scheduling, synchronization)</learningOutcome>
+    </learningOutcomes>
+    <rules>
+      <rule>
+        <ruleDescription>In this course, you may choose to make use of YouTube to record your lab activities for submission to the instructor. Before using any such third party tool for your coursework, however, it is important to consider the points regarding privacy:</ruleDescription>
+      </rule>
+      <rule>
+        <ruleDescription>Prior to using any of the YouTube tools for your assignments for this course, please be sure to read the privacy policy of the website. </ruleDescription>
+        <ruleLinkDescription xlink:type="simple" xlink:href="http://www.google.com/intl/en/policies/privacy/" xlink:show="new">Privacy Policy on the YouTube website (Opens new window)</ruleLinkDescription>
+      </rule>
+      <rule>
+        <ruleDescription>Because YouTube is a third-party website, Ryerson University does not control what this website does with posted information. Posted information may be available to the general public, depending upon the settings that you select for your account.</ruleDescription>
+      </rule>
+      <rule>
+        <ruleDescription>In keeping with Ryerson University's Student Code of Academic Conduct (Opens PDF document) and Student Code of Non-Academic Conduct (Opens PDF document), you must ensure that any material you post on the YouTube website is appropriate and relevant to the learning goals of this course. Ryerson University is not liable for any posted material that is inappropriate or that violate the Codes of Conduct. </ruleDescription>
+        <ruleLinkDescription xlink:type="simple" xlink:href="http://www.ryerson.ca/content/dam/senate/policies/pol60.pdf" xlink:show="new"> Ryerson University's Student Code of Academic Conduct (Opens PDF document)</ruleLinkDescription>
+         <ruleLinkDescription xlink:type="simple" xlink:href="http://www.ryerson.ca/content/dam/senate/policies/pol61.pdf" xlink:show="new"> Student Code of Non-Academic Conduct (Opens PDF document)</ruleLinkDescription>
+      </rule>
+      <rule>
+        <ruleCategory>Computer Requirements</ruleCategory>
+        <ruleDescription>Must support one of the following operating systems: Windows XP, Windows 7, OS X and Ubuntu (or other comparable Linux distribution)
+Support USB 2.0 </ruleDescription>
+      </rule>
+      <rule>
+        <ruleCategory>Assignment Submission</ruleCategory>
+        <ruleDescription>Assignment submission must include source code as well as a short written/illustrated report.</ruleDescription>
+      </rule>
+      <rule>
+        <ruleCategory>Kit Requirements</ruleCategory>
+        <ruleDescription>Participants are required to have the following kits:
+Kit 1: Romeo Microcontroller Kit
+Kit 5: PID Trainer Kit. All kits are available to be purchased at the Ryerson Campus Store either in store or online.
+If you have taken other courses in the Robotics and Embedded Systems Certificate, you may already have some of the kits. In that case, you would only need to acquire the remainder kits from the list. 
+</ruleDescription>
+      <ruleLinkDescription xlink:type="simple" xlink:href="http://campusstore.ryerson.ca/t-hourslocation.aspx" xlink:show="new">Ryerson Campus Store details</ruleLinkDescription>
+      </rule>
+    </rules>
+    <content>
+      <topicsCovered>
+        <topic>
+          <description>Introduction Real-Time Embedded System. Topics Covered are - Navigating through your online course
+                What are Real-Time systems and their characteristics?
+                Design Constraints of Real-Time Embedded System</description>
+        </topic>
+        <topic>
+          <description>Hardware Interface. Topics covered are - Sensor Input, PWM Output, Transfer Function</description>
+        </topic>
+        <topic>
+          <description>Introduction to PID Controller. Topics covered are - Why learn PID controllers,
+            PID Controller Example Application, PID Controller Tuning Strategy</description>
+        </topic>
+        <topic>
+          <description>Timing Constraints: Embedded Architecture. Topic Covered: Segway PT Case Study</description>
+        </topic>
+        <topic>
+          <description>Servo Motor and Quadrature Encoder. Topic covered: Servo Motor, R/C Servo Motor, Quadrature Encoders</description>
+        </topic>
+        <topic>
+          <description>Programming External Interrupts. Topics covered: Why Use Interrupts? and External Interrupt with Atmega328p</description>
+        </topic>
+        <topic>
+          <description>Clocks, Timers, and Periodic Execution. Topics covered: Keeping Time, Timers with Atmega328p </description>
+        </topic>
+        <topic>
+          <description>Full PID Controller. Topics covered: The 'I' in PID, Fine tuning the PID controller, Practice exercise on tuning a full PID loop</description>
+        </topic>
+        <topic>
+          <description>Speed Control vs. Position Control. Topics covered: Motor Control: constant speed, Measuring speed using encoders, Practice exercise on using reading encoders	</description>
+        </topic>
+        <topic>
+          <description>Multitasking, Scheduling, Synchronization. Topics covered: Multitasking, Task Scheduling, Synchronization	</description>
+        </topic>
+        <topic>
+          <description>Distributed  Real-Time Systems. Topics Covered: Multiprocessors, Serial communications, Task Scheduling on Multiprocessors</description>
+        </topic>
+      </topicsCovered>
+      <teachingMaterial>
+        <material>
+          <materialName>
+            List of required material
+          </materialName>
+          <materialLinkDescription xlink:type="simple" xlink:href="https://webapps.de.ryerson.ca/bookstore/orderoutline.cfm?course=ckre140" xlink:show="new"> list of the required materials for this course and instructions on how to order them (Opens new window)</materialLinkDescription>
+        </material>
+      <material>
+          <materialName>
+            MIT Opencourseware videos 
+          </materialName>
+          <materialDescription>MIT Opencourseware videos (Opens new window) from the Electrical Engineering and Computer Science course Circuits and Electronics (Course Number 6.002).</materialDescription>
+          <materialLinkDescription xlink:type="simple" xlink:href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/%206-002-circuits-and-electronics-spring-2007/video-lectures/" xlink:show="new"> MIT Opencourseware videos </materialLinkDescription>
+        </material>
+      </teachingMaterial>
+      <assessment>
+        <description>Assessment will be done on based on four parts. 1. Participation on Discussion Board
+        2. Project 1 2. Project 2 3. Project 3</description>
+        <assignments>
+          <assignment>
+            <description>Project #1 – Temperature Control. Using the required kits, participants must:
+             Use a PD loop to implement a temperature control systems as described in the course module.
+             Test your system by changing the temperature of the light bulb with hot and cold air.
+             Write a report describing the power curve of the system. Make sure to include graphs.
+             Assignment submission must include source code as well as a short written/illustrated report.</description>
+            <weight>20%</weight>
+          </assignment>
+          <assignment>
+            <description>Project #2 – Servo Motor Position Control. Using the required kits, participants must:
+              Use a full PID loop to implement a position control-servo controller.
+              Test your system by adding additional loads on the system.
+              Write a report describing the power curve of the system. Make sure to include graphs.
+              Assignment submission must include source code as well as a short written/illustrated report.</description>
+            <weight>35%</weight>
+          </assignment>
+          <assignment>
+            <description>Project #3 – Servo Motor Speed Control. Using the required kits, participants must:
+              Use a full PID loop to implement a speed control-servo controller.
+              Test your system by adding additional loads on the system.
+              Write a report describing the power curve of the system. Make sure to include graphs.
+              Assignment submission must include source code as well as a short written/illustrated report..</description>
+            <weight>35%</weight>
+          </assignment>
+        </assignments>
+      </assessment>
+    </content>
+    <requiredLinks>
+      <relatedLinkDescription xlink:type="simple" xlink:href="https://de.ryerson.ca/de_courses/templates/ce/outline.html?c=1EC3E7AF38E33222BDE173FECAEF6BFA" xlink:show="new"> Missed Term Work or Examinations and Course Repeats </relatedLinkDescription>
+    <relatedLinkDescription xlink:type="simple" xlink:href="https://de.ryerson.ca/de_courses/templates/ce/outline.html?c=1EC3E7AF38E33222BDE173FECAEF6BFA" xlink:show="new"> Plagiarism </relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="https://de.ryerson.ca/de_courses/templates/ce/outline.html?c=1EC3E7AF38E33222BDE173FECAEF6BFA" xlink:show="new"> Marking Scheme</relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="http://campusstore.ryerson.ca/courselistbuilder.aspx" xlink:show="new"> For online book purchase</relatedLinkDescription>
+    </requiredLinks>
+  </module>
+</modules>

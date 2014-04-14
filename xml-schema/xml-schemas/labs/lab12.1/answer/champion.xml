@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<juicer id="champion" electric="true" type="gear"
+        xmlns="http://www.juicer.org" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.juicer.org
+                            juicer.xsd">
+    <description>The Champion Juicer is the answer to every juicing problem. Because it operates on the mastication process principle, the Champion chews the fibers and breaks up the cells of vegetables and fruits. 
+          This give you more fiber, enzymes, vitamins and trace minerals. The juice will be a darker, richer color, with a sweeter, richer more full-bodied flavor.</description>
+    <name>Champion Juicer</name>
+    <image>images\champion.gif</image>
+    <cost currency="USD">239.00</cost>
+    <retailer href="http://www.grainsandgreens.com/juicerparts.html"/>
+</juicer>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<ContactInformation xmlns="http://www.somewhere.com"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xsi:schemaLocation=
+                             "http://www.somewhere.com ContactInformation.xsd">
+    <contactName>
+        <FreeFormText>Jonathan Rich</FreeFormText>
+    </contactName>
+</ContactInformation>

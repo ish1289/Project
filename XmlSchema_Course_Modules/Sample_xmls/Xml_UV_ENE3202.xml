@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modules xmlns:xlink="http://www.w3.org/1999/xlink">
+  <module>
+    <school>Victoria University, Melbourne</school>
+    <moduleName>Embedded and Networked Systems</moduleName>
+    <moduleCode>ENE3202</moduleCode>
+    <year>2014</year>
+    <status>Undergraduate</status>
+    <numberOfCredits>12</numberOfCredits>
+    <preRequisites>
+      <preRequisite>
+        <description>ENE2202 - ELECTRONIC SYSTEMS</description>
+      </preRequisite>
+    </preRequisites>
+  <courseDescription>
+    <description>
+      This unit extends the study of Embedded Computing from year 2 of 
+      the program and introduces the principles of operation of networked computer systems.
+    </description>
+  </courseDescription>
+    <learningOutcomes>
+      <learningOutcome>
+        Describe basic principles and techniques used in computer data communication.
+      </learningOutcome>
+      <learningOutcome>
+        Analyse a situation that requires a computer networking system and make recommendations on the system specification and formulate an implementation plan.
+      </learningOutcome>
+      <learningOutcome>
+        Analyse an industrial control system application and derive an embedded system specification for the application
+      </learningOutcome>
+      <learningOutcome>
+        Implement a real-time, embedded industrial control system using an embedded microcontroller with associated interface and communication devices.
+      </learningOutcome>
+    </learningOutcomes>
+    <content>
+      <topicsCovered>
+        <topic>
+          <description>The unit includes the learning of basic concepts of computer communication. 
+          Data and signals, Frequency Spectrum and bandwidth, Data encoding, Framing and synchronisation. 
+          Modulation of data, Modems. Physical layer interfaces. Transmission of data, Transmission media, 
+          Multiplexing. Error detection and correction. 
+          Data link control, Data link protocols. Local area networks.</description>
+        </topic>
+        <topic>
+          <description>The Embedded Systems area includes system design involving real-time constraints, 
+          Pulse Width Modulation for  actuator control, sensor interfacing using direct digital 
+          sensors and analogue to digital conversion , 
+          inter-device communication using industry standard methods:- USART, SPI, I2C and CAN.</description>
+        </topic>
+      </topicsCovered>
+      <books>
+        <book>
+          <bookName>PIC Microcontroller and Embedded Systems using Assembly Language and C for PIC18 </bookName>
+          <bookType>Recommended</bookType>
+          <bookAuthor>Mazidi, McKinlay and Causey</bookAuthor>
+          <bookPublisher>Pearson/Prentice-Hall</bookPublisher>
+          <bookYear>2008</bookYear>
+        </book>
+        <book>
+          <bookName>Data Communication and Networking</bookName>
+          <bookType>Recommended</bookType>
+          <bookAuthor>Forouzan. B., Fagan. S. C.</bookAuthor>
+          <bookPublisher>McGraw Hill</bookPublisher>
+          <bookYear>2006</bookYear>
+        </book>
+      </books>
+      <assessment>
+        <description>The course grade will be based on a midterm examination, 
+        final examination and lab project.</description>
+        <assignments>
+          <assignment>
+            <description>
+              Semester assignment
+            </description>
+            <weight>10%</weight>
+          </assignment>
+         </assignments>
+         <exams>
+           <exam>
+            <description>
+             Mid-semester test
+            </description>
+            <weight>20%</weight>
+           </exam>
+           <exam>
+            <description>
+              End-of-semester examination
+            </description>
+            <weight>70%</weight>
+           </exam>            
+         </exams>
+      </assessment>
+    </content>
+   <requiredLinks>
+      <relatedLinkDescription xlink:type="simple" xlink:href="http://www.vu.edu.au/courses/applying/how-to-apply" xlink:show="new">  How to apply page  </relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="http://www.vu.edu.au/gotovu?r=cst" xlink:show="new"> Contact Link </relatedLinkDescription>
+   </requiredLinks>
+  </module>
+</modules>

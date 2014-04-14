@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:include schemaLocation="CommonTypes.xsd"/>
+  <xs:element name="results" type="resultsType"></xs:element>
+</xs:schema>

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xlink="http://www.w3.org/1999/xlink">
+<xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="http://www.w3.org/1999/xlink.xsd"/>
+ <!--Importing Common XMLSchema-->
+<xs:include schemaLocation="D:\MEng_Docs\MEng_Docs\Project\Common_Schema\XmlSchema_Common.xsd"/> 
+ 
+<xs:complexType name="allowedTracksType">
+  <xs:sequence>
+    <xs:element name="track" type="xs:string" maxOccurs="unbounded"></xs:element>
+  </xs:sequence>
+</xs:complexType>
+<xs:complexType name="termsType">
+  <xs:sequence>
+    <xs:element name="term" type="xs:string" maxOccurs="unbounded"></xs:element>
+  </xs:sequence>
+</xs:complexType>
+<xs:complexType name="preRequisiteType">
+  <xs:sequence>
+    <xs:element name="description" type="xs:string"></xs:element>
+    <xs:element name="preRequisiteLinkDescription" minOccurs="0" maxOccurs="unbounded">
+      <xs:complexType>
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:anyAttribute namespace="http://www.w3.org/1999/xlink"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+    </xs:element>
+  </xs:sequence>    
+</xs:complexType> 
+<xs:complexType name="preRequisitesType">
+  <xs:sequence>
+    <xs:element name="preRequisite" type="preRequisiteType" maxOccurs="unbounded"></xs:element>
+  </xs:sequence>
+</xs:complexType>
+<xs:complexType name="aimType">
+  <xs:sequence>
+    <xs:element name="description" type="xs:string"></xs:element>
+    <xs:element name="aimLinkDescription" minOccurs="0" maxOccurs="unbounded">
+      <xs:complexType>
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:anyAttribute namespace="http://www.w3.org/1999/xlink"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+    </xs:element>
+  </xs:sequence>    
+</xs:complexType>
+<xs:complexType name="aimsType">
+  <xs:sequence>
+    <xs:element name="aim" type="aimType" maxOccurs="unbounded"></xs:element>
+  </xs:sequence>
+</xs:complexType>
+<xs:complexType name="learningOutcomesType">
+  <xs:sequence>
+    <xs:element name="learningOutcome" type="xs:string" maxOccurs="unbounded"></xs:element>
+  </xs:sequence>    
+</xs:complexType>
+<xs:complexType name="ruleDetailsType">
+   <xs:sequence>
+      <xs:element name="ruleCategory" type="xs:string" minOccurs="0"></xs:element>
+      <xs:element name="ruleDescription" type="xs:string"></xs:element>
+      <xs:element name="ruleLinkDescription" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+           <xs:simpleContent>
+                  <xs:extension base="xs:string">
+                    <xs:anyAttribute namespace="http://www.w3.org/1999/xlink"/>
+                  </xs:extension>
+           </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+ </xs:complexType>
+ <xs:complexType name="ruleType">
+    <xs:sequence>
+      <xs:element name="rule" maxOccurs="unbounded" type="ruleDetailsType"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="workloadType">
+  <xs:sequence>
+    <xs:element name="totalLectureHours" type="xs:string" minOccurs="0"></xs:element>
+    <xs:element name="eachLectureDuration" type="xs:string" minOccurs="0"></xs:element>
+    <xs:element name="totalPracticalHours" type="xs:string" minOccurs="0"></xs:element>
+    <xs:element name="totalPrivateStudyTime" type="xs:string" minOccurs="0"></xs:element>  
+    <xs:element name="assessmentTime" type="xs:string" minOccurs="0"></xs:element>
+    <xs:element name="description" type="xs:string" minOccurs="0"></xs:element>
+  </xs:sequence>
+</xs:complexType>
+<xs:complexType name="feedbackType">
+  <xs:sequence>
+    <xs:element name="feedbackDescription" type="xs:string"></xs:element>
+    <xs:element name="feedbackLinkDescription" minOccurs="0" maxOccurs="unbounded">
+      <xs:complexType>
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:anyAttribute namespace="http://www.w3.org/1999/xlink"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+    </xs:element>
+  </xs:sequence>    
+</xs:complexType>
+<xs:complexType name="topicCoveredType">
+  <xs:sequence>
+    <xs:element name="description" type="xs:string"></xs:element>
+    <xs:element name="LinkDescription" minOccurs="0" maxOccurs="unbounded">
+      <xs:complexType>
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:anyAttribute namespace="http://www.w3.org/1999/xlink"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+    </xs:element>
+  </xs:sequence>
+</xs:complexType>
+<xs:complexType name="topicsCoveredType">
+  <xs:sequence>
+    <xs:element name="topic" type="topicCoveredType" maxOccurs="unbounded"></xs:element>
+  </xs:sequence>
+</xs:complexType>
+   
+<xs:complexType name="teachingMaterialType">
+  <xs:sequence>
+    <xs:element name="materialName" type="xs:string"></xs:element>
+    <xs:element name="materialType" type="xs:string" minOccurs="0"></xs:element>
+    <xs:element name="materialDescription" type="xs:string" minOccurs="0"></xs:element>
+    <xs:element name="materialLinkDescription" minOccurs="0" maxOccurs="unbounded">
+      <xs:complexType>
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:anyAttribute namespace="http://www.w3.org/1999/xlink"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+    </xs:element>
+  </xs:sequence>
+</xs:complexType> 
+<xs:complexType name="teachingMaterialsType">
+  <xs:sequence>
+    <xs:element name="material" type="teachingMaterialType" maxOccurs="unbounded"></xs:element>
+  </xs:sequence>
+</xs:complexType>
+  
+<xs:complexType name="bookType">
+  <xs:sequence>
+     <xs:element name="bookName" type="xs:string"></xs:element>
+     <xs:element name="bookType" type="xs:string" minOccurs="0"></xs:element>
+     <xs:element name="bookDescription" type="xs:string" minOccurs="0"></xs:element>
+     <xs:element name="bookAuthor" type="xs:string" minOccurs="0"></xs:element>
+     <xs:element name="bookPublisher" type="xs:string" minOccurs="0"></xs:element>
+     <xs:element name="bookYear" type="xs:string" minOccurs="0"></xs:element>
+     <xs:element name="bookLinkDescription" minOccurs="0" maxOccurs="unbounded">
+      <xs:complexType>
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:anyAttribute namespace="http://www.w3.org/1999/xlink"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+    </xs:element>
+  </xs:sequence>
+</xs:complexType>
+<xs:complexType name="booksType">
+  <xs:sequence>
+    <xs:element name="book" type="bookType" maxOccurs="unbounded"></xs:element>
+  </xs:sequence>
+</xs:complexType>
+<xs:complexType name="assignmentExamType">
+  <xs:sequence>
+    <xs:element name="description" type="xs:string"></xs:element>
+    <xs:element name="weight" type="xs:string"></xs:element>
+    <xs:element name="LinkDescription" minOccurs="0" maxOccurs="unbounded">
+      <xs:complexType>
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:anyAttribute namespace="http://www.w3.org/1999/xlink"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+    </xs:element>
+  </xs:sequence>
+</xs:complexType>
+<xs:complexType name="assignmentsType">
+    <xs:sequence>
+      <xs:element name="assignment" type="assignmentExamType" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+</xs:complexType>
+   <xs:complexType name="examsType">
+    <xs:sequence>
+      <xs:element name="exam" type="assignmentExamType" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+</xs:complexType>
+<xs:complexType name="assessmentType">
+  <xs:sequence>
+    <xs:element name="description" type="xs:string" minOccurs="0"></xs:element>
+    <xs:element name="assignments" type="assignmentsType" minOccurs="0"></xs:element>
+    <xs:element name="exams" type="examsType" minOccurs="0"></xs:element>
+    <xs:element name="startDate" type="xs:dateTime" minOccurs="0"></xs:element>
+    <xs:element name="endDate" type="xs:dateTime" minOccurs="0"></xs:element>
+  </xs:sequence>
+</xs:complexType>
+<xs:complexType name="contentType">
+  <xs:sequence>
+    <xs:element name="topicsCovered" type="topicsCoveredType" minOccurs="0"></xs:element>
+    <xs:element name="teachingMaterial" type="teachingMaterialsType" minOccurs="0"></xs:element>
+    <xs:element name="books" type="booksType" minOccurs="0"></xs:element>
+    <xs:element name="startDate" type="xs:date" minOccurs="0"></xs:element>
+    <xs:element name="endDate" type="xs:date" minOccurs="0"></xs:element>
+    <xs:element name="assessment" type="assessmentType" minOccurs="0"></xs:element>
+    <xs:element name="allowedTools" type="toolsType" minOccurs="0"></xs:element>           
+  </xs:sequence>
+</xs:complexType>  
+<xs:element name="modules">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="module" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="school" type="xs:string" minOccurs="0"></xs:element>
+            <xs:element name="moduleName" type="xs:string"></xs:element>
+            <xs:element name="moduleCode" type="xs:string"></xs:element>
+            <xs:element name="year" type="xs:string" minOccurs="0"></xs:element>
+            <xs:element name="professors" type="contactsType" minOccurs="0"></xs:element>
+            <xs:element name="status" type="xs:string" minOccurs="0"></xs:element>
+	          <xs:element name="requiredFor" type="xs:string" minOccurs="0"></xs:element>
+	          <xs:element name="allowedTracks" type="allowedTracksType" minOccurs="0"></xs:element>
+            <xs:element name="numberOfCredits" type="xs:string" minOccurs="0"></xs:element>
+	          <xs:element name="teachingTermsAllowed" type="termsType" minOccurs="0"></xs:element>
+	          <xs:element name="preRequisites" type="preRequisitesType" minOccurs="0"></xs:element>
+	          <xs:element name="courseDescription" type="descriptionType" minOccurs="0"></xs:element>
+            <xs:element name="aims" type="aimsType" minOccurs="0"></xs:element>
+            <xs:element name="learningOutcomes" type="learningOutcomesType" minOccurs="0"></xs:element>
+            <xs:element name="rules" type="ruleType" minOccurs="0"></xs:element>
+            <xs:element name="workload" type="workloadType" minOccurs="0"></xs:element> 
+            <xs:element name="feedback" type="feedbackType" minOccurs="0"></xs:element>
+            <xs:element name="content" type="contentType" minOccurs="0"></xs:element>
+            <xs:element name="location" type="xs:string" minOccurs="0"></xs:element>
+            <xs:element name="results" type="resultsType" minOccurs="0"></xs:element>   
+            <xs:element name="requiredLinks" type="relatedLinksType" minOccurs="0"></xs:element>  
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>   
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+</xs:schema>

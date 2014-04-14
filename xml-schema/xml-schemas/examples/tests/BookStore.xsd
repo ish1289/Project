@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.books.org"
+            xmlns:b="http://www.books.org"
+            elementFormDefault="qualified">
+    <element name="BookStore">
+        <complexType>
+            <sequence>
+                <element name="Book" maxOccurs="unbounded">
+                    <complexType>
+                        <sequence>
+                            <element name="Title" type="string"/>
+                            <element name="Author" type="string"/>
+                            <element name="Date" type="string"/>
+                            <element name="ISBN" type="string"/>
+                            <element name="Publisher" type="string"/>
+                        </sequence>
+                    </complexType>
+                </element>
+            </sequence>
+        </complexType>
+    </element>
+</schema>

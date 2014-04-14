@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<juicer id="omega" electric="true" type="centrifugal"
+        xmlns="http://www.juicer.org" >
+    <description>This heavy-duty, American-made juicer has a powerful GE motor that spins at 3,600 rpm to extract 20% - 30% more juice than pulp ejector models (according to independent laboratory tests). Large capaciy bowl hold a ful 1-2 quarts of fruits or vegetables - compared to just one pint for many brands. Easy-cleaning design with lift out disposable filter.</description>
+    <name>Omega Juicer</name>
+    <image>images\omega.jpg</image>
+    <cost currency="USD">234.00</cost>
+    <cost currency="CAD">359.50</cost>
+    <retailer href="http://www.boschcanada.com/omega.htm"/>
+</juicer>

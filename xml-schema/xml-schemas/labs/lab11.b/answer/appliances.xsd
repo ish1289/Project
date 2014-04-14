@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified">
+    <xsd:element name="warranty" type="xsd:string"/>
+    <xsd:complexType name="appliance">
+        <xsd:sequence>
+            <xsd:element name="description" type="xsd:string"/>
+            <xsd:element ref="warranty" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

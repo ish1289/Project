@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<challenges xmlns:xlink="http://www.w3.org/1999/xlink">
+  <challenge>
+    <challengeName>SAT Challenge</challengeName>
+    <area>SAT Solving</area>
+    <challengeDescription>
+      <description>The SAT Challenge 2012 is a competitive event for solvers of the Boolean Satisfiability (SAT) problem.
+      It is organized as a satellite event to the Fifteenth International Conference on Theory and Applications of Satisfiability Testing (SAT 2012) and stands in the tradition of the SAT Competitions that have been held yearly from 2002 to 2005 and biannually starting from 2007, and the SAT-Races held in 2006, 2008 and 2010.
+      The SAT Challenge differs from both previous SAT Competitions and SAT-Races. Similar to SAT Competitions, there will be several tracks suitable for different kinds of solving algorithms (e.g. complete or local search). Similar to SAT-Races, the time to solve each instance will be limited to 15 minutes, and the solvers' 
+      source code need not be made publicly available (although we encourage this)</description> 
+    </challengeDescription>
+    <rules>
+      <rule>
+        <ruleCategory>Participation</ruleCategory>
+        <ruleDescription>A solver may participate in multiple tracks. The organization committee reserves the right to restrict participation of a solver to certain tracks, 
+      and to allow only a limited number of solvers submitted by the same person
+        </ruleDescription>
+        <inputRequirements>
+          <inputRequirement>Solvers must provide a satisfying truth assignment for satisfiable instances</inputRequirement>
+          <inputRequirement>An entrant to the SAT Challenge 2012 is a SAT solver submitted in either source code or binary format using the WWW registration form</inputRequirement>
+        </inputRequirements>
+        <outputRequirements>
+          <outputRequirement>Solvers must provide a satisfying truth assignment for satisfiable instances</outputRequirement>
+        </outputRequirements>
+        <ruleLinkDescription xlink:type="simple" xlink:href="satcompetition.org/2011/rules.pdf" xlink:show="new">Rules Information</ruleLinkDescription>
+      </rule>
+      <rule>
+        <ruleCategory>Benchmarks</ruleCategory>
+        <ruleDescription>
+          All entrants will have to solve a set of benchmark instances in DIMACS CNF format that will be drawn randomly from a pool of instances.
+          This pool will include benchmarks from previous SAT Competitions and SAT-Races, but may be extended with additional instances.
+          The exact benchmark set will not be published in advance.
+          For each instance and solver there will be a time limit of 15 minutes to solve the instance.
+        </ruleDescription>
+      </rule>
+      <rule>
+        <ruleCategory>Systems from organizers</ruleCategory>
+        <ruleDescription>The organizers also reserve the right to submit their own systems or other systems of interest to the competition.
+        Systems submitted by one of the organizers are not considered in the official ranking and are not able to win a prize</ruleDescription>  
+      </rule>
+      <rule>
+        <ruleCategory>Tracks in the competition</ruleCategory>
+        <ruleDescription>
+          Application SAT+UNSAT- problem encodings (both SAT and UNSAT) from real-world applications,
+          such as hardware and software verification, bio-informatics, planning, scheduling, etc.
+          Hard Combinatorial SAT+UNSAT - hard combinatorial problems (both SAT and UNSAT) to challenge.
+          current SAT solving algorithms (similar to the SAT Competition's category “crafted”). 
+          Random SAT -  randomly generated satisfiable instance. 
+          1 Track for Parallel Solvers: Application SAT+UNSAT - Same problem instances as in the Application Main Track. Eight cores can be used. 
+          1 Track for Sequential Portfolio Solvers: 1/3 Application SAT+UNSAT, 1/3 Hard Combinatorial 
+        SAT+UNSAT, 1/3 Random SAT+UNSAT - A portfolio solver is a solver which combines different 
+          (sequential) SAT algorithms. It may, e.g., run multiple solvers in a time-slicing manner 
+          on the given SAT instance, or select one solver out of a set of given ones 
+          (e.g., determined by a machine-learning approach based on some metric) to tackle the problem
+        </ruleDescription>
+      </rule>
+    </rules>
+    <supportingDocuments>
+      <document>
+        <documentName>Google Groups</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="https://groups.google.com/forum/#!forum/sat-challenge-2012" xlink:show="new">
+         SAT challenge 2012
+        </documentLinkDescription> 
+        <documentLinkDescription xlink:type="simple" xlink:href="https://groups.google.com/forum/#!forum/edacc" xlink:show="new">
+         EDACC
+        </documentLinkDescription> 
+      </document>
+      <document>
+        <documentName>Proceedings</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="https://helda.helsinki.fi/handle/10138/34218" xlink:show="new">
+          Proceedings of SAT Challenge 2012
+        </documentLinkDescription>
+      </document>
+      <document>
+        <documentName>Application SAT+UNSAT Benchmark Instances (used in the sequential and parallel Application Track)</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://baldur.iti.kit.edu/SAT-Challenge-2012/downloads/sc2012-application.tar" xlink:show="new">
+          Download Application Benchmark Instances
+        </documentLinkDescription>
+      </document>
+      <document>
+        <documentName>Hard Combinatorial SAT+UNSAT Benchmark Instances</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://baldur.iti.kit.edu/SAT-Challenge-2012/downloads/sc2012-hard-combinatorial.tar" xlink:show="new">
+          Download Hard Combinatorial Benchmark Instances
+        </documentLinkDescription>
+      </document>
+      <document>
+        <documentName>Random SAT Benchmark Instances</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://baldur.iti.kit.edu/SAT-Challenge-2012/downloads/sc2012-random.tar" xlink:show="new">
+          Download Random SAT Benchmark Instances
+        </documentLinkDescription>
+      </document>
+      <document>
+        <documentName>Portfolio (1/3 Application SAT+UNSAT, 1/3 Hard Combinatorial SAT+UNSAT, 1/3 Random SAT+UNSAT) Benchmark Instances</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://baldur.iti.kit.edu/SAT-Challenge-2012/downloads/sc2012-portfolio.tar" xlink:show="new">
+          Download Portfolio Benchmark Instances
+        </documentLinkDescription>
+      </document>
+    </supportingDocuments>
+    <year>2012</year>
+    <assessmentDescription>
+      <description>
+        Assessment of solvers will be based on the number of successfully handled instances and the time needed to solve them. Solvers will be assessed based on the number of instances solved within the run-time limit. If several solvers successfully process the same number of instances, as a second criterion, the cumulated run-time (CPU time for sequential solvers,
+        wall-clock time for parallel solvers) of all solved instances is used to rank the solvers
+      </description>
+     </assessmentDescription>
+    <benchmarks>
+      <benchmark>
+        <categories>Random Challenge</categories>
+        <description>
+          The benchmark pool will include instances from previous SAT-Races and SAT Competitions, but may also contain additional instances.
+          Note that you will not receive an automated acknowledgement of your submission, 
+          as the benchmarks are added to the EDACC system manually. Your benchmark set will appear in the "List of submitted benchmarks" when it is added to the system.
+        </description>
+        <format>Submission of archive with your benchmarks is through the web form. 
+        Please make sure to select the correct category, and to include the PDF file with the description of the benchmarks in the archive</format>
+        <timeline>PT15M</timeline>
+        <benchmarkLinkDescription xlink:type="simple" xlink:href="http://baldur.iti.kit.edu/SAT-Challenge-2012/submission.html" xlink:show="new">
+        Submit new benchmark problems
+        </benchmarkLinkDescription>
+      </benchmark>    
+    </benchmarks>
+    <expectedSolution>
+      <AllowedForms>Source Code</AllowedForms>
+      <AllowedForms>Binary</AllowedForms>
+      <inputRequirements>
+        <inputRequirement>
+          In order to obtain reproducible results, SAT solvers should refrain from using non-deterministic
+          program constructs as far as possible.
+          It is allowed to set a random seed value on the command line, however.
+        </inputRequirement>
+        <inputRequirement>In the three Main Tracks and the Sequential Portfolio Solvers Track: 1 core of 1 CPU and 6 GB of main memory can be used. Two solvers will be run in parallel on each computing node 
+      (i.e. one solver per physical CPU). A runtime limit of 900 seconds CPU time will be enforced</inputRequirement>
+        <inputRequirement>In the Parallel Solvers Track 8 cores and 12 GB of main memory will be available. Only one solver will run on each computing node. 
+      A runtime limit of 900 seconds wall-clock time will be enforced</inputRequirement>
+        <inputRequirement>Binary format submissions must be compatible with the competition 
+      hardware and operating system.Binaries should be statically linked</inputRequirement>
+      </inputRequirements>
+      <outputRequirements>
+        <outputRequirement>In contrast to SAT Competitions, it is not required to make source code or binaries publicly available after the SAT Challenge 2012. 
+      We nevertheless encourage all participants to do so</outputRequirement>
+        <outputRequirement>Each entrant to the SAT Challenge 2012 must include a short (at least 1, at most 2 pages) 
+      description of the system. This should include a list of all authors of the system and their present institutional affiliations. 
+      It should also provide details of any non-standard algorithmic techniques (e.g., heuristics, simplification/learning techniques, etc.) 
+      and data structures. The system description must be formatted in IEEE Proceedings style, and submitted as PDF. 
+      The system descriptions will be posted on the SAT Challenge 2012 website. Furthermore, given that the quality and number of system 
+      descriptions is high enough, the organizers are considering publishing the collection of system description as a report 
+      under the report series of Department of Computer Science, University of Helsinki (with ISSN and ISBN numbers).</outputRequirement>
+        <outputRequirement>Each SAT Challenge 2012 entrant submitted as source code must include a
+        README file explaining how to compile the solver</outputRequirement>  
+      </outputRequirements>
+      <executionEnvironment>
+        <environmentDescription>Solvers submitted to the SAT Challenge 2012 will be run on 
+        the bwGRiD cluster of the State of Baden-Württemberg, Germany</environmentDescription>
+        <compilers>
+          <compiler>
+            <compilerName>GCC 4.1.2</compilerName>
+          </compiler>
+          <compiler>
+            <compilerName>javac 1.6.0</compilerName>
+          </compiler>
+        </compilers>
+        <processors>
+          <processor>
+            <processorName>2x Quad-Core Intel Xeon E5440, 2.83 GHz</processorName>
+            <processorMemory>16 GB per node</processorMemory>
+            <processorDescription>Cache-12 MB L2 per Quad-Core CPU</processorDescription>
+          </processor>
+        </processors>
+        <OSUsed>
+          <OS>
+            <osName>Scientific Linux</osName>
+            <osVersion>kernel 2.6.18, glibc 2.5, both 32-bit and 64-bit</osVersion>
+          </OS>
+        </OSUsed>
+      </executionEnvironment>
+      <deadlines>
+        <deadline>
+          <deadlineName>
+            Webpage for submitting solvers and benchmarks (via the EDACC system) will open and
+            the start of testing phase. During that phase submitters can test their solvers within the EDACC system.
+          </deadlineName>
+          <submissionDeadline>2012-03-11T00:00:00</submissionDeadline>
+        </deadline>
+        <deadline>
+        <deadlineName>Deadline for handing in benchmarks and solvers</deadlineName>
+        <submissionDeadline>2012-04-02T00:00:00</submissionDeadline>
+        </deadline>
+        <deadline>
+          <deadlineName>
+            Selection of benchmark instances for SAT Challenge 2012 finished and
+            submission of updated versions of registered solvers
+          </deadlineName>
+          <submissionDeadline>2012-04-11T00:00:00</submissionDeadline>
+        </deadline>
+        <deadline>
+        <deadlineName>
+          Announcement of results at the SAT 2012 conference
+        </deadlineName>
+        <submissionDeadline>2012-06-18T00:00:00</submissionDeadline>
+        </deadline>
+      </deadlines>
+      <allowedSubmissions>The organization committee reserves the right to restrict participation of a solver to certain tracks, 
+      and to allow only a limited number of solvers submitted by the same person.</allowedSubmissions>
+    </expectedSolution>
+    <contactDetails>
+      <contact>
+        <name>SAT Challenge Organizers</name>
+        <email>satchallenge2012@uni-ulm.de</email>
+      </contact>
+      <contact>
+        <name>Organizing Committee</name>
+        <linkDescription xlink:type="simple" xlink:href="http://www.uni-ulm.de/en/in/institute-of-theoretical-computer-science/m/balint.html" xlink:show="new">
+          Adrian Balint Web Link
+        </linkDescription>  
+        <linkDescription xlink:type="simple" xlink:href="http://anton.belov-mcdowell.com/baker/" xlink:show="new">
+          Dr. Anton Belov Web Link
+        </linkDescription> 
+        <linkDescription xlink:type="simple" xlink:href="http://www.cs.helsinki.fi/u/mjarvisa" xlink:show="new">
+          Dr. Matti Järvisalo Web Link
+        </linkDescription> 
+        <linkDescription xlink:type="simple" xlink:href="http://verialg.iti.kit.edu/english/353.php" xlink:show="new">
+            Dr. rer. nat. Carsten Sinz Web Link
+        </linkDescription>
+      </contact>
+      <contact>
+        <name>Help with the EDACC system</name>
+        <email>edacc.contact@gmail.com</email>
+      </contact>
+    </contactDetails>
+    <results>
+      <resultsLinkDescription xlink:type="simple" xlink:href="http://baldur.iti.kit.edu/SAT-Challenge-2012/results.html" xlink:show="new">
+            Results SAT Challenge 2012
+      </resultsLinkDescription>
+    </results>
+  </challenge>
+</challenges>

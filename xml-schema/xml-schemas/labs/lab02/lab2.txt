@@ -1,0 +1,8 @@
+Lab 2. Using Embedded Element Declarations
+
+For this lab you are to rework the juicers schema
+that you created in lab 1.
+You are to make it more compact.  That is,
+rather than declaring an element and then ref'ing
+it, you are to inline the actual element declaration. 
+Validate the instance document against your schema.

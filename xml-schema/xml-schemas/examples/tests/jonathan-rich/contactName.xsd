@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="qualified"
+        xmlns:xml="http://www.w3.org/XML/1998/namespace">
+
+<!--
+This file demonstrates a problem I am having in attempting to utilize
+the "chameleon" effect.  At the top level I have a schema w/ a
+targetNamespace.  At lower levels are schemas that get reused by
+toplevel schemas having potentially different namespaces.  So the
+lower level schemas are "Chameleon components" which have no target
+namespace.  In these lower level schemas, like this one, I would like
+to be able to define things in terms of other things defined in this
+file.  And since I don't know the namespace this file will eventually
+take on, I would like to avoid having to qualify any references in
+this file w/ a namespace (outside of the "xsd" and "xml" namespaces,
+of course).  Unfortunately, xerces-1.4.x (2 or 3) won't let me do
+this.  I'm not sure if this is a bug in xerces or is a problem w/ the
+spec itself, or whether I'm simply trying to do something that is
+impossible.  In checking my desired schema against IBM Alphaworks'
+Schema Quality Checker or Thompson and Tobin's xsv, it does OK-that is
+it passes.  But against xerces it fails.
+
+This file is my desired schema.  However it does not pass muster with
+xerces tho it does w/ both SQC (Schema Quality Checker Version
+1.2.004) and xsv 1.197/1.101.
+
+** JR 01-08-23
+-->
+
+<xsd:import namespace="http://www.w3.org/XML/1998/namespace" 
+            schemaLocation="namespace.xsd"/>
+
+<xsd:element name="contactName">
+  <xsd:complexType>
+    <xsd:sequence>
+      <xsd:element ref="FreeFormText"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="FreeFormText"  type="FreeFormTextType"/>
+
+<xsd:complexType name="FreeFormTextType">
+  <xsd:simpleContent>
+    <xsd:extension base="nonNullString">
+      <xsd:attribute ref="xml:lang" use="optional"/>
+    </xsd:extension>
+  </xsd:simpleContent>
+</xsd:complexType>
+
+<xsd:simpleType name="nonNullString">
+  <xsd:restriction base="xsd:string">
+    <xsd:minLength value="1"/>
+  </xsd:restriction>
+</xsd:simpleType>
+
+
+</xsd:schema>

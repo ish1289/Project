@@ -1,0 +1,9 @@
+Lab 8.b Using Attributes (cont.)
+
+I have enhanced juicers.xml and juicers.dtd to have a currency
+attribute for cost. 
+Modify the schema that you created in Lab 8.a to incorporate 
+this attribute. 
+
+As always, validate the instance document 
+against your schema.

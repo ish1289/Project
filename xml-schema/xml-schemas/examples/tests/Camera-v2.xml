@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<camera xmlns="http://www.camera.org"
+         xmlns:nikon="http://www.nikon.com"
+         xmlns:olympus="http://www.olympus.com"
+         xmlns:pentax="http://www.pentax.com"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation=
+                   "http://www.camera.org
+                    Camera.xsd
+                    http://www.nikon.com
+                    Nikon.xsd
+                    http://www.olympus.com
+                    Olympus.xsd
+                    http://www.pentax.com
+                    Pentax.xsd">
+    <body>
+        <nikon:description>Ergonomically designed casing for easy handling</nikon:description>
+    </body>
+    <lens>
+        <olympus:zoom>300mm</olympus:zoom>
+        <olympus:f-stop>1.2</olympus:f-stop>
+    </lens>
+    <manual_adapter>
+        <pentax:speed>1/10,000 sec to 100 sec</pentax:speed>
+    </manual_adapter>
+</camera>

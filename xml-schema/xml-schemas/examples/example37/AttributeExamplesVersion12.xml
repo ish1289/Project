@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<AttributeExamples xmlns="http://www.attribute-examples.org"
+                   xmlns:i="http://www.attribute-examples.org"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation=
+                              "http://www.attribute-examples.org
+                               AttributeExamplesVersion12.xsd">
+
+    <!-- ************************************** -->
+    <!--                Version #12             -->
+    <!-- ************************************** -->
+
+    <image/>                                                   <!-- Using the default value -->
+    <image i:src="http://www.xfront.com/BestPractices.html"/>  <!-- Not using the default value -->
+
+</AttributeExamples>

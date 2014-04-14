@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<Store xmlns="http://www.books.org"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation=
+                          "http://www.books.org
+                           testRestriction.xsd">
+        <Flyer>
+                <Title>Summer Sale Extravaganza!</Title>
+                <Date>2001</Date>
+        </Flyer>
+</Store>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<Letter xmlns="http://www.letter.org"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation=
+                              "http://www.letter.org
+                               Letter.xsd">
+    <Body>
+       Dear Sirs:
+            This letter is to inform you that we are
+       are finding your tool <emp> very </emp> useful.
+    </Body>
+</Letter>

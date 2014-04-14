@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<Mission xmlns="http://www.tbmcs.centcom.af.mil/unit/mission"
+         xmlns:xlink="http://www.w3.org/1999/xlink/namespace"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation=
+                   "http://www.tbmcs.centcom.af.mil/unit/mission
+                    Mission.xsd">
+    <MISSION-DATA>...</MISSION-DATA>
+    <Sortie xlink:href="https://www.tbmcs.centcom.af.mil/units/386AEW10/missions/I1H050106784/sortie/100"/>
+</Mission>

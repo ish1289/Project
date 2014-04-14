@@ -1,0 +1,103 @@
+A.	Challenge Name 
+B.	Area
+C.	Challenge Description 
+	a.	Description 
+	b.	Challenge Date 
+		1.	To 
+		2.	From 
+	c.	Challenge Location 
+	d.	Associated Conference
+	e.	Part of Series
+D.	Rules
+	a.	Rule 
+		1.	Rule Category 
+		2.	Description 
+		3.	Input Requirements 
+			i.	Input Requirement
+		4.	Output Requirements 
+			i.	Output Requirement
+		5.	Links 
+E.	 Supporting Documents 
+	a.	Document Name 
+	b.	Description 
+	c.	Link 
+F.	Year 
+G.	Assessment Description 
+	a.	Description 
+	b.	Link 
+	c.	Jury 
+		1.	Jury Name 
+		2.	Description 
+		3.	Phone 
+		4.	Email 
+		5.	Web page Link 
+	d.	Score Details 
+			i.	Score
+				1.	Points 
+				2.	Description 
+H.	Participants
+		a.	Participant 
+		b.	Participant Description Link 
+I.	Benchmarks 
+		a.	Benchmark
+			1.	Categories
+			2.	Description 
+			3.	Format 
+			4.	Timeline
+			5.	Link 
+J.	Expected Solution 
+	a.	Allowed Forms
+	b.	Input Requirements
+			i.	Input Requirement 
+	c.	Output Requirements
+			i.	Output Requirement 
+	d.	Execution Environment 
+		1.	Description 
+		2.	Libraries 
+			i.	Library
+				A.	Name 
+				B.	Link 
+		3.	Compilers 
+			i.	Compiler 
+				A.	Name 
+				B.	Description 
+		4.	Processors
+			i.	Processor
+				A.	Name 
+				B.	Memory 
+				C.	Description 
+		5.	OS Used
+			i.	OS
+				A.	Name 
+				B.	Version 
+	e.	Deadlines 
+		1.	Deadline
+			A.	Name 
+			B.	Date 
+	f.	Allowed Submissions
+K.	Allowed Tools 
+	a.	Tool
+		1.	Name 
+	2.	Description 
+	3.	Link 
+L.	Required Contacts
+	a.	Contact 
+		1.	Name 
+		2.	Description 
+		3.	Phone 
+		4.	Email 
+		5.	Web page Link 
+M.	Results 
+	a.	Link 
+N.	Changes from Previous Challenges 
+	a.	Change 
+		1.	Description 
+		2.	Link 
+O.	Solutions  
+	a.	Format 
+	b.	Description 
+	c.	Input Requirements 
+	d.	Output Requirements 
+	e.	Execution Environment 
+
+

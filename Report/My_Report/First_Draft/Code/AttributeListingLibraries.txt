@@ -1,0 +1,56 @@
+A.	Libraries 
+  i.	Library 
+	1.	Name
+	2.	Overview 
+		a.	Description
+		b.	Link
+	3.	Current Version
+	4.	Versions (Current/Previous descriptions)
+		a.	Version name 
+		b.	Status (current/previous)
+		c.	Description 
+		d.	Link 
+	5.	Experimental Library Contents (Similar to Extensions)
+		a.	content
+			i.	Description 
+			ii.	Link
+	6.	Contributors 
+		a.	Contributor
+			i.	Name
+			ii.	Contribution Description
+			iii.	Email
+			iv.	Phone
+			v.	Web page link 
+	7.	 Content Files
+		a.	Content File
+			i.	Name 
+			ii.	Description 
+			iii.	Link 
+	8.	Downloads
+		a.	Description 
+		b.	Format (OS)
+		c.	Size
+		d.	Link 
+	9.	Required Tools for compilation
+		a.	Tool
+			i.	Tool name 
+			ii.	Description 
+			iii.	Link 
+	10.	Documentation 
+		a.	Document 
+			i.	Name 
+			ii.	Description 
+			iii.	Link 
+	11.	Dependency details
+		a.	Description 
+		b.	Link 
+	12.	Examples
+		a.	Example 
+			i.	Name 
+			ii.	Description 
+			iii.	Link 
+	13.	Related Links 
+		a.	Link 
+	14.	References
+		a.	Description 
+		b.	Link 

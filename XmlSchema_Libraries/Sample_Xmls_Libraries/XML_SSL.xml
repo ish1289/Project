@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<libraries xmlns:xlink="http://www.w3.org/1999/xlink">
+  <library>
+    <libraryName>OpenSSL</libraryName>
+    <libraryOverview>
+      <description>
+        The OpenSSL Project is a collaborative effort to develop a robust, commercial-grade, full-featured, and Open Source toolkit implementing the Secure Sockets Layer (SSL v2/v3) and Transport Layer Security (TLS v1) protocols as well as a full-strength general purpose cryptography library. The project is managed by a worldwide community of volunteers that use the Internet to communicate, plan, and develop the OpenSSL toolkit and its related documentation.
+        OpenSSL is based on the excellent SSLeay library developed by Eric A. Young and Tim J. Hudson. The OpenSSL toolkit is licensed under an Apache-style licence, which basically means that you are free to get and use it for commercial and non-commercial purposes subject to some simple license conditions.
+      </description>
+      <linkDescription xlink:type="simple" xlink:href="http://www.openssl.org/related/ssl.html" xlink:show="new">Transport Layer Security</linkDescription>
+      <linkDescription xlink:type="simple" xlink:href="http://www.openssl.org//source/license.html" xlink:show="new">License Details</linkDescription>
+    </libraryOverview>
+    <availableVersions>
+      <version status="Current">
+        <versionName>OpenSSL 1.0.1g</versionName>
+        <description> OpenSSL 1.0.1g is now available, including bug and security fixes</description>
+        <linkDescription xlink:type="simple" xlink:href="http://www.openssl.org//source/" xlink:show="new">OpenSSL version 1.0.1g</linkDescription>
+      </version>
+    </availableVersions>
+    <contributors>
+      <contact>
+        <name>Mark J. Cox</name>
+        <contactsDescription>Core Team Member and location UK</contactsDescription>
+        <email>mark@openssl.org</email>
+        <email>mark@awe.com</email>
+      </contact>
+      <contact>
+        <name>Ralf S. Engelschall</name>
+        <contactsDescription>Core Team Member and location DE</contactsDescription>
+        <email>rse@openssl.org</email>
+        <email>rse@engelschall.com</email>
+      </contact>
+      <contact>
+        <name>Dr. Stephen Henson</name>
+        <contactsDescription>Core Team Member and location UK</contactsDescription>
+        <email>steve@openssl.org</email>
+        <email>shenson@drh-consultancy.co.uk</email>
+      </contact>
+      <contact>
+        <name>Ben Laurie</name>
+        <contactsDescription>Core Team Member and location UK</contactsDescription>
+        <email>ben@openssl.org</email>
+        <email>ben@algroup.co.uk</email>
+      </contact>
+      <contact>
+        <name>Lutz Jänicke</name>
+        <contactsDescription>Development Team Member and location DE</contactsDescription>
+        <email>jaenicke@openssl.org</email>
+        <email>lutz@lutz-jaenicke.de</email>
+      </contact>
+      <contact>
+        <name>Nils Larsch</name>
+        <contactsDescription>Development Team Member and location DE</contactsDescription>
+        <email>nils@openssl.org</email>
+        <email>nils@openssl.org</email>
+      </contact>
+      <contact>
+        <name>Richard Levitte</name>
+        <contactsDescription>Development Team Member and location SE</contactsDescription>
+        <email>levitte@openssl.org</email>
+        <email>richard@levitte.org</email>
+      </contact>
+      <contact>
+        <name>Bodo Möller</name>
+        <contactsDescription>Development Team Member and location DE</contactsDescription>
+        <email>bodo@openssl.org</email>
+        <email>bmoeller@acm.org</email>
+      </contact>
+      <contact>
+        <name>Ulf Möller</name>
+        <contactsDescription>Development Team Member and location UK</contactsDescription>
+        <email>ulf@openssl.org</email>
+        <email>mail@ulfm.de</email>
+      </contact>
+      <contact>
+        <name>Andy Polyakov</name>
+        <contactsDescription>Development Team Member and location SE</contactsDescription>
+        <email>appro@openssl.org</email>
+        <email>appro@fy.chalmers.se</email>
+      </contact>
+      <contact>
+        <name>Geoff Thorpe</name>
+        <contactsDescription>Development Team Member and location QC</contactsDescription>
+        <email>geoff@openssl.org</email>
+        <email>geoff@geoffthorpe.net</email>
+      </contact>
+      <contact>
+        <name>Holger Reif</name>
+        <contactsDescription>Old Team Member and location DE</contactsDescription>
+        <email>holger@openssl.org</email>
+        <email>holger@reif.net</email>
+      </contact>
+      <contact>
+        <name>Paul C. Sutton</name>
+        <contactsDescription>Old Team Member and location UK</contactsDescription>
+        <email>paul@openssl.org</email>
+        <email>paul@awe.com</email>
+      </contact>
+      <contact>
+        <name>Some Physical Addresses</name>
+        <linkDescription xlink:type="simple" xlink:href="http://www.openssl.org//about/contacts.html" xlink:show="new">Contacts Link</linkDescription> 
+      </contact>
+      <contact>
+        <name>Miscellaneous OpenSSL Contributions</name>
+        <linkDescription xlink:type="simple" xlink:href="http://www.openssl.org//contrib/" xlink:show="new">Link</linkDescription>
+      </contact>
+    </contributors>
+    <downloads>
+      <download>
+        <description>Tarballs</description>
+        <linkDescription xlink:type="simple" xlink:href="http://www.openssl.org/source/" xlink:show="new">Tarball Download Link</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="ftp://ftp.openssl.org/source/" xlink:show="new">Alternate Option to Download Source for OpenSSL</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="ftp://ftp.openssl.org/snapshot/" xlink:show="new">Snapshot of latest development</linkDescription>
+      </download>
+      <download>
+        <description>FTP Mirrors</description>
+        <linkDescription xlink:type="simple" xlink:href="http://www.openssl.org/source/mirror.html" xlink:show="new">FTP Mirrors Link</linkDescription>
+      </download>
+      <download>
+        <description>Git repository</description>
+        <linkDescription xlink:type="simple" xlink:href="http://www.openssl.org/source/repos.html" xlink:show="new">Git repository Link</linkDescription>
+      </download>
+      <download>
+        <description>Git Web</description>
+        <linkDescription xlink:type="simple" xlink:href="http://git.openssl.org/gitweb/" xlink:show="new">Git Web Link</linkDescription>
+      </download>
+      <download>
+        <description>CVS Web Interface</description>
+        <linkDescription xlink:type="simple" xlink:href="http://cvs.openssl.org/" xlink:show="new">Link</linkDescription>
+      </download>
+      <download>
+        <description>OpenSSL for Windows. Works with MSVC++, Builder 3/4/5, and MinGW. Comes in form of self-install executables</description>
+        <linkDescription xlink:type="simple" xlink:href="http://www.slproweb.com/products/Win32OpenSSL.html" xlink:show="new">Link</linkDescription>
+      </download>
+    </downloads>
+    <supportingDocuments>
+      <document>
+        <documentName>
+          openssl(1)
+        </documentName>
+        <documentDescription>Manual page documenting the openssl command line tool</documentDescription>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://www.openssl.org//docs/apps/openssl.html" xlink:show="new">Link</documentLinkDescription>
+      </document>
+      <document>
+        <documentName>
+          ssl(3)
+        </documentName>
+        <documentDescription>Manual page documenting the OpenSSL SSL/TLS library</documentDescription>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://www.openssl.org//docs/ssl/ssl.html" xlink:show="new">ssl(3)</documentLinkDescription>
+      </document>
+      <document>
+        <documentName>
+          crypto(3)
+        </documentName>
+        <documentDescription>Manual page documenting the OpenSSL Crypto library</documentDescription>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://www.openssl.org//docs/crypto/crypto.html" xlink:show="new">Link</documentLinkDescription>
+      </document>
+      <document>
+        <documentName>
+          HOWTO documents
+        </documentName>
+        <documentDescription>HOWTO documents to introduce concepts or explain them in a way that is not possible in the manuals</documentDescription>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://www.openssl.org//docs/HOWTO/" xlink:show="new">Link</documentLinkDescription>
+      </document>
+      <document>
+        <documentName>
+          WIKI
+        </documentName>
+        <documentDescription>A wiki providing information and guidance about openssl. Operated by the OpenSSL foundation</documentDescription>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://wiki.openssl.org/" xlink:show="new">Link</documentLinkDescription>
+      </document>
+      <document>
+        <documentName>
+          FIPS140
+        </documentName>
+        <documentDescription>Data and documentation related to the FIPS140 validation support in OpenSSL</documentDescription>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://www.openssl.org//docs/fips/" xlink:show="new">Link</documentLinkDescription>
+      </document>
+      <document>
+        <documentName>
+          misc
+        </documentName>
+        <documentDescription>Miscellaneous documents with information that has no other logical place. Among others, you will find a list of current PGP/GnuPG fingerprints to help you check OpenSSL distribution signatures</documentDescription>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://www.openssl.org//docs/misc/" xlink:show="new">Link</documentLinkDescription>
+      </document>
+    </supportingDocuments>
+    <relatedLinks>
+      <relatedLinkDescription xlink:type="simple" xlink:href="http://www.openssl.org//related/index.html" xlink:show="new">Related Material</relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="http://www.openssl.org//related/ssl.html" xlink:show="new">References to the Secure Sockets Layer (SSL) and Transfer Layer Security (TLS) protocols</relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="http://www.openssl.org//related/kits.html" xlink:show="new">References to various toolkits and libraries which implement the SSL/TLS protocols and related standards like the X.509 certificate system</relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="http://www.openssl.org//related/apps.html" xlink:show="new">References to various Open Source applications that are using the old SSLeay package or the new OpenSSL package</relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="http://www.openssl.org//related/commercial.html" xlink:show="new">Other OpenSSL Related Commercial Services</relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="http://www.openssl.org//related/misc.html" xlink:show="new">Misc</relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="http://www.openssl.org//support/" xlink:show="new">OpenSSL Support</relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="http://www.openssl.org//support/faq.html" xlink:show="new">Frequently Asked Questions</relatedLinkDescription>
+    </relatedLinks>
+  </library>
+</libraries>

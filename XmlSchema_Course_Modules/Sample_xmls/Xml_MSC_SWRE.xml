@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modules xmlns:xlink="http://www.w3.org/1999/xlink">
+  <module>
+    <school>York University</school>
+    <moduleName>Software Requirements (SWRE)</moduleName>
+    <moduleCode>COM00056M</moduleCode>
+    <year>2013</year>
+    <professors>
+      <contact>
+        <name>Ibrahim Habli</name>
+        <linkDescription xlink:type="simple" xlink:href="http://www.cs.york.ac.uk/people/ihabli" xlink:show="new">Link to Web page:Ibrahim Habli</linkDescription>
+      </contact>
+      <contact>
+        <name>Katrina Attwood</name>
+        <linkDescription xlink:type="simple" xlink:href="http://www.cs.york.ac.uk/people/katrina" xlink:show="new">Link to Web page:Katrina Attwood</linkDescription>
+      </contact>
+    </professors>
+    <status>Optional</status>
+    <requiredFor>Both Full-time and Part-time</requiredFor>
+    <allowedTracks>
+      <track>LSCITS 1</track>
+      <track>LSCITS 2</track>
+      <track>LSCITS 3</track>
+      <track>LSCITS 4</track>
+      <track>SCSE</track>
+      <track>GTC</track>
+    </allowedTracks>
+    <numberOfCredits>10</numberOfCredits>
+    <teachingTermsAllowed>
+      <term>Autumn 4-5</term>
+    </teachingTermsAllowed>
+    <preRequisites>
+      <preRequisite>
+        <description>No pre-requisites</description>
+      </preRequisite>
+    </preRequisites>
+    <courseDescription>
+      <description>
+         The aim of this module is to provide a strong set of principles 
+         and techniques for structuring and representing requirements and architectures. 
+      </description>
+    </courseDescription>
+    <aims>
+      <aim>
+        <description>The aim of this module is to provide a strong set of principles 
+         and techniques for structuring and representing requirements and architectures. </description>
+      </aim>
+    </aims>
+    <learningOutcomes>
+      <learningOutcome>Describe the role of requirements engineering and architecture design and assessment for the development of critical systems</learningOutcome>
+      <learningOutcome>Explain different types of requirements</learningOutcome>
+      <learningOutcome>Perform quality review of requirements</learningOutcome>
+      <learningOutcome>Describe and participate in techniques for requirements elicitation, representation validation, re-use and traceability</learningOutcome>
+      <learningOutcome>Select and apply architectural strategies to address requirements</learningOutcome>
+      <learningOutcome>Assess the selection and application of architectural strategies</learningOutcome>
+      <learningOutcome>Apply appropriate notations for architecture representation</learningOutcome>
+      <learningOutcome>Discuss the state of the art and future directions in architecture modelling</learningOutcome>
+    </learningOutcomes>
+    <workload>
+      <totalLectureHours>19</totalLectureHours>
+       <eachLectureDuration>1 hour</eachLectureDuration>
+      <totalPracticalHours>16</totalPracticalHours>
+      <totalPrivateStudyTime>1hr</totalPrivateStudyTime>
+      <assessmentTime>35hrs</assessmentTime>
+      <description>The teaching for this module combines traditional lectures with a number of exercises and case studies which will be tackled in small groups with a lecturer leading each group. </description>
+    </workload>
+    <feedback>
+      <feedbackDescription>Individual written feedback is provided via the online feedback system till 15th Jan.</feedbackDescription>
+      <feedbackLinkDescription xlink:type="simple" xlink:href="http://www.cs.york.ac.uk/submit/" xlink:show="new">Online Feedback Link</feedbackLinkDescription>  
+   </feedback>
+    <content>
+      <topicsCovered>
+        <topic>
+          <description>Introduction and requirements principles (Introduction; Principles of good requirements engineering)</description>
+        </topic>
+        <topic>
+          <description>Requirements techniques (Requirements Elicitation and Modelling; Use of Natural Language; Requirements reuse;)</description>
+        </topic>
+        <topic>
+          <description>Requirements management and Introduction to Architecture (Requirements validation; Requirements management; Introduction to Architecture based development)</description>
+        </topic>
+        <topic>
+          <description>Architectural techniques (Principles of architecture design and descriptions; Representation of architectures; Architectures for reuse)</description>
+        </topic>
+        <topic>
+          <description>Architectural assessment (Architecture evaluation; Architectures and safety; Mapping architectures to requirements and implementation)</description>
+        </topic>
+      </topicsCovered>
+      <teachingMaterial>
+        <material>
+          <materialName>Copies of all lecture slides, case studies and exercises will be provided.</materialName>
+        </material>
+      </teachingMaterial>
+      <books>
+        <book>
+          <bookName>Software Architecture in Practice</bookName>
+          <bookType>Recommended</bookType>
+          <bookAuthor>Bass, L. et al</bookAuthor>
+          <bookPublisher>Addison-Wesley</bookPublisher>
+          <bookYear>2003</bookYear>
+        </book>
+        <book>
+          <bookName>Requirements Engineering: Processes and Techniques</bookName>
+          <bookType>Recommended</bookType>
+          <bookAuthor>Kotonya, G. and I. Sommerville</bookAuthor>
+          <bookPublisher>Wiley</bookPublisher>
+          <bookYear>1998</bookYear>
+        </book>
+        <book>
+          <bookName>Requirements Engineering: From System Goals to UML Models to Software Specifications</bookName>
+          <bookType>Recommended</bookType>
+          <bookAuthor>Axel van Lamsweerde</bookAuthor>
+          <bookPublisher>John Wiley &amp; Sons</bookPublisher>
+          <bookYear>2009</bookYear>
+          <bookLinkDescription xlink:type="simple" xlink:href="http://www.incose.org" xlink:show="new">Link to book</bookLinkDescription>
+        </book>
+      </books>
+      <startDate>2013-10-21</startDate>
+     <assessment>
+        <description>Open assessment is done</description>
+        <startDate>2013-10-24T00:00:00</startDate>
+        <endDate>2013-12-11T00:00:00</endDate>
+      </assessment>
+    </content>
+  </module>
+</modules>

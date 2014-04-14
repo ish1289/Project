@@ -1,0 +1,9 @@
+Lab 3. Using the Built-in Datatypes
+
+For this lab you are to rework the juicers.xsd
+that you created in Lab 2.  You are to change the
+datatypes from string to another built-in datatype,
+where it makes sense.  Hint: weight, cost, and
+retailer can be declared with a much more relevant
+datatype than string.  As always, validate the instance 
+document against your schema.

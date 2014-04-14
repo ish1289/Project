@@ -1,0 +1,8 @@
+Lab 11.b Demonstating the Chameleon Effect
+
+For this lab you are to modify the Appliances.xsd schema
+that you created in the last lab (lab 11.a).
+
+Modify the Appliances.xsd schema to have no targetNamespace.
+
+Validate juicers.xml.

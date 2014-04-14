@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns:xlink="http://www.w3.org/1999/xlink">
+    <style type="text/css">
+          .alignmentCenter{
+            text-align: center;
+              }
+           .setWidth{
+             width: 50%;
+           }
+          }
+        </style>
+    <body>
+        <h3 class="alignmentCenter">Alea: a library for reasoning on randomized algorithms in Coq</h3>
+        <h3>Overview:- </h3>
+    This library forms a basis for reasoning on randomised algorithms in the proof assistant Coq .
+   The theoretical basis of this work is a joint work with Philippe Audebaud and is described in. 
+   It is developed in the framework of the SCALP project (ANR-07-SESU-010) on Security of Cryptographic 
+   ALgorithms with Probabilities. With respect to previous versions of this library, 
+   the mechanism of type classes introduced by N. Oury and M. Sozeau [4] is used in order to represent 
+   the order structure and the cpo structure on a given type. In this version, P. Courtieu started to 
+   design simple automatic tactics for reasoning on measures, making an essential use of the possibility
+   to rewrite under abstraction.
+ <br/>
+        <h3>Contributors:-</h3>
+        <li>Christine Paulin-Mohring</li>Description-Main contact. LRI, UMR 8623 Univ. Paris-Sud 11, CNRS &amp; INRIA Saclay - Île-de-France<br/>
+        <a href="http://www.lri.fr/~paulin#alea">Web page Link</a>
+        <br/>
+        <h3>Available Versions:-</h3>
+        <table border="1">
+            <tr bgcolor="#9acd32">
+                <th>Version Name</th>
+                <th>Description</th>
+                <th>Year</th>
+                <th>Link</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>Version 8</td>
+                <td>Compatible with Coq V8.4pl2. Also the development for positive real numbers has been slightly adapted.</td>
+                <td>May 2013</td>
+                <td>-</td>
+                <td>Current</td>
+            </tr>
+            <tr>
+                <td>Version 7</td>
+                <td> This library also provides a livrary for positive real numbers represented with both integral part (in nat) and fractional part in [0,1].</td>
+                <td>-</td>
+                <td>-</td>
+                <td>Previous</td>
+            </tr>
+        </table>
+        <h3>Extensions/Experimental Content:-</h3>
+        <b>Description:- </b>This experimental library represents positive real numbers with an integral part 
+   and a fractional part in [0,1]. It requires an extra axiom for decidability of 
+   testing x= y in [0,1].<br/>
+        <b>Contents-</b>
+        <br/>
+        <b>Markov</b>
+        <br/>A general library to implement a minimimalization algorithm for a decidable predicat P on natural numbers, assuming a proof of ? n, P n.<br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/html/ALEA.Markov.html">Markov</a>
+        <br/>
+        <br/>
+        <h3>Content Files:-</h3>
+        <b>Contents-</b>
+        <br/>
+        <b>Misc</b>
+        <br/>A few preliminary definitions, in particular primitives for reasoning classically in Coq are defined.<br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/html/ALEA.Misc.html">Misc</a>
+        <br/>
+        <br/>
+        <b>Cpo</b>
+        <br/>The definition of structures for ordered sets and ?-complete partial orders 
+     (a monotonic sequence has a least-upper bound). We define the type O1?m O2 of monotonic functions and define the fixpoint-construction for monotonic functionals. Continuity is also defined.<br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/html/ALEA.Ccpo.html">Cpo</a>
+        <br/>
+        <br/>
+        <h3>Downloads:-</h3>
+        <table border="1">
+            <tr bgcolor="#9acd32">
+                <th>Description</th>
+                <th>Compatible OS</th>
+                <th>Size</th>
+                <th>Link</th>
+            </tr>
+            <tr>
+                <td>Source Files Downloads</td>
+                <td>-</td>
+                <td>-</td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="http://www.lri.fr/~paulin#alea">Library Download Link</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <b>Tool Name: - </b>Coq<br/>
+        <b>Description: - </b>The source files can be compiled using Coq version V8.3.<br/>Links:- <li>
+            <a href="http://coq.inria.fr/">Coq Link</a>
+        </li>
+        <br/>
+        <h3>Examples:-</h3>
+        <b>IterFlip</b>
+        <br/>A proof of probabilistic termination for a random walk. We consider the program
+            let rec iter x = if flip() then iter (x+1) else x
+         We prove that the probability that this program terminates is 1.<br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/html/ALEA.IterFlip.html">IterFlip</a>
+        <br/>
+        <br/>
+        <b>RandomList</b>
+        <br/>Construction of a distribution to pick uniformely an element in a list.<br/>
+        <a href="https://www.lri.fr/~paulin/ALEA/html/ALEA.RandomList.html">RandomList</a>
+        <br/>
+        <br/>
+        <h3>References:-</h3>Philippe Audebaud and Christine Paulin-Mohring. Proofs of randomized algorithms in Coq. 
+    Science of Computer Programming, 74(8):568–589, 2009. 
+    A preliminary version appeared in the proc. of MPC 06.<br/>
+    </body>
+</html>

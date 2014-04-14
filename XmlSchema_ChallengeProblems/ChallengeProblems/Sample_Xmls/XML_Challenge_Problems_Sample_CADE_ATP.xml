@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="utf-8"?>
+<challenges xmlns:xlink="http://www.w3.org/1999/xlink">
+  <challenge>
+    <challengeName>The CADE ATP System Competition</challengeName>
+    <area>Automated Deduction</area>
+    <challengeDescription>
+      <description>The CADE and IJCAR conferences are the major forums for the presentation of new research in all aspects of automated deduction. In order to stimulate ATP research and system development, and to expose ATP systems within and beyond the ATP community, the CADE ATP System Competition (CASC) is held at each CADE and IJCAR conference. CASC-24 will be held on the 12th June 2013, 
+      during the 24th International Conference on Automated Deduction (CADE-24).</description>
+      <challengeDate>
+        <from>2013-06-09</from>
+        <to>2013-06-14</to>
+      </challengeDate>
+      <challengeLocation>Lake Placid, USA</challengeLocation>
+      <associatedConference>CADE and IJCAR</associatedConference>
+      <partOfSeries>The 24th International Conference on Automated Deduction</partOfSeries>
+    </challengeDescription>
+    <rules>
+      <rule>
+        <ruleCategory>Rules Information</ruleCategory>
+        <ruleDescription>
+          CNF problems are used in only the EPR division (because CNF is now the assembly language of ATP).
+          The FOF, FNT, and LTB divisions no longer have an assurance ranking class. They have only proof/model ranking classes.
+          The LTB division's problem categories are accompanied by sets of training problems and their solutions 
+          taken from the same exports as the competition problems), that can be used for tuning and training during (typically at the start of) 
+          the competition.
+          There have been some minor changes to the Batch Specification Files.
+        </ruleDescription>
+        <inputRequirements>
+          <inputRequirement>
+            Systems are expected to use the SZS ontology and standards for reporting their results.
+          </inputRequirement>
+          <inputRequirement>Systems are expected to use the proposed TPTP ATP System Building Conventions for their installation</inputRequirement>
+        </inputRequirements>
+        <outputRequirements>
+          <outputRequirement>Execution is now monitored by Oliver Roussel's RunSolver, with consequent changes to the System Checks</outputRequirement>
+        </outputRequirements>
+        <ruleLinkDescription xlink:type="simple" xlink:href="http://www.cs.miami.edu/~tptp/CASC/24/Design.html#Problems" xlink:show="new">Rule Information</ruleLinkDescription>
+        <ruleLinkDescription xlink:type="simple" xlink:href="http://www.tptp.org/cgi-bin/SeeTPTP?Category=Documents&amp;File=SZSOntology" xlink:show="new">TPTP Documents File</ruleLinkDescription>
+        <ruleLinkDescription xlink:type="simple" xlink:href="http://www.tptp.org/TPTP/Proposals/SystemBuild.html" xlink:show="new">The TPTP ATP System Building Conventions</ruleLinkDescription>
+        <ruleLinkDescription xlink:type="simple" xlink:href="http://www.cs.miami.edu/~tptp/CASC/24/Design.html#SystemChecks" xlink:show="new">System Checks for Non-Batch Division Systems</ruleLinkDescription>
+      </rule>
+      <rule>
+        <ruleCategory>Divisions</ruleCategory>
+        <ruleDescription>
+          CASC is run in divisions according to problem and system characteristics. There are competition divisions in which systems are
+          explicitly ranked, and a demonstration division in which systems demonstrate their abilities without being formally ranked. 
+          Some divisions are further divided into problem categories, which make it possible to analyse, at a more fine grained level, 
+          which systems work well for what types of problems.
+          The problem categories have no effect on the competition rankings, which are made at only the division level.
+          The competition divisions are open to ATP systems that meet the required system properties. Each competition division uses 
+          problems that have certain logical, language, and syntactic characteristics, so that the ATP systems that compete in the division are,
+          in principle, able to attempt all the problems in the division. In the following effectively propositional means that the problem is known 
+          to be reducible to a propositional problem,
+          e.g., a CNF problem that has no functions with arity greater than zero.
+          ATP systems that cannot run in the competition divisions for any reason (e.g., the system requires special hardware, or the entrant 
+          is an organizer) can be entered into the demonstration division. Demonstration division systems can run on the competition computers, 
+          or the computers can be supplied by the entrant. Computers supplied by the entrant may be brought to CASC, or may be accessed 
+          via the internet. The entry specifies which competition divisions' problems are to be used. The demonstration division results are 
+          presented along with the competition divisions' 
+          results, but might not be comparable with those results. The systems are not ranked and no prizes are awarded.
+        </ruleDescription>
+        <ruleLinkDescription xlink:type="simple" xlink:href="http://www.cs.miami.edu/~tptp/CASC/24/Design.html" xlink:show="new">Division Details</ruleLinkDescription>
+      </rule>
+      <rule>
+        <ruleCategory>Problem Selection</ruleCategory>
+        <ruleDescription>
+          Problems for CASC are taken from the TPTP Problem Library. Additionally, for the LTB division problems will
+          be taken from publicly available problem sets: the HOL problem category will use the HH7150 problem set; the ISA problem category 
+          will use the SH-CASC-14 problem set; the MZR problem category will use the MPTP2078 problem set. The TPTP version used for CASC is 
+          released after the competition has started, so that new problems have not been seen by the entrants. Access to and use of the 
+          non-TPTP problem sets
+          is controlled to ensure that the system complied with the CASC tuning restrictions.
+          The TPTP distinguishes versions of problems as one of standard, incomplete, augmented, especial, or biased. 
+          All except biased problems are eligible.
+          In the LTB division there is consistent symbol usage and formula naming between the training problems and the competition problems.
+        </ruleDescription>
+        <outputRequirements>
+          <outputRequirement>
+            The TPTP uses system performance data to compute problem difficulty ratings, and from the ratings classifies problems as one of:
+            Easy: Solvable by all state-of-the-art ATP systems
+            Difficult: Solvable by some state-of-the-art ATP systems
+            Unsolved: Not yet solved by any ATP system
+            Open: Theorem-hood unknown
+          </outputRequirement>
+          <outputRequirement>Difficult problems with a rating in the range 0.21 to 0.99 are eligible. Problems of lesser and greater ratings might also be eligible in some divisions (especially the batch divisions, because the TPTP problem ratings are computed from non-batch mode results). Performance data from systems submitted by the system submission deadline is used for 
+          computing the problem ratings for the TPTP version used for the competition.</outputRequirement>
+          <outputRequirement>
+            The problems used are randomly selected from the eligible problems at the start of the competition, based on a seed supplied by the
+            competition panel.
+            The selection is constrained so that no division or category contains an excessive number of very similar problems.
+            The selection mechanism is biased to select problems that are new in the TPTP version used, until 50% of
+            the problems in each category have been selected, after which random selection (from old and new problems) continues.
+            The actual percentage of new problems used depends on how many new problems are eligible and the limitation on very similar problems.
+          </outputRequirement>
+        </outputRequirements>
+      </rule>
+      <rule>
+        <ruleCategory>Number of Problems</ruleCategory>
+        <ruleDescription>
+          The minimal numbers of problems that must be used in each division and category, to ensure sufficient confidence in the 
+          competition results, are determined from the numbers of eligible problems in each division and category (the competition organizers 
+          have to ensure that there are sufficient computers available to run the ATP systems on this minimal number of problems). 
+          The minimal numbers of problems are used in determining the time limits imposed on each solution attempt.
+
+          A lower bound on the total number of problems to be used is determined from the number of computers available, 
+          the time allocated to the competition, the number of ATP systems to be run on the competition computers over all 
+          the divisions, and the time limit per problem, according to the following relationship:
+          <![CDATA[NumberOfProblems = (NumberOfComputers * TimeAllocated)/(NumberOfATPSystems * TimeLimit)]]>
+          It is a lower bound on the total number of problems because it assumes that every system uses all of the 
+          time limit for each problem. Since some solution attempts succeed before the time limit is reached, more problems can be used.
+          The numbers of problems used in each division and problem category are (roughly) proportional to the numbers 
+          of eligible problems, after taking into account the limitation on very similar problems. The numbers of problems 
+          used in each division and category are determined according to the judgement of the competition organizers.
+        </ruleDescription>
+      </rule>
+      <rule>
+        <ruleCategory>Problem Preparation</ruleCategory>
+        <ruleDescription>The problems are in TPTP format, with include directives (included files are found relative to the TPTP environment variable). The problems in each non-batch division are given in increasing order of TPTP difficulty rating. The problems in each batch of batch divisions 
+        are given in the natural order of their export.</ruleDescription>
+        <inputRequirements>
+          <inputRequirement>
+            In order to ensure that no system receives an advantage or disadvantage due to the specific presentation of the 
+            problems in the TPTP, the problems are preprocessed to: 
+            strip out all comment lines, including the problem header
+            randomly reorder the formulae/clauses (include directives are left before formulae, type declarations and 
+            definitions are kept before the symbols' uses)
+            randomly swap the arguments of associative connectives, and randomly reverse implications
+            randomly reverse equalities
+          </inputRequirement>
+          <inputRequirement>In order to prevent systems from recognizing problems from their file names, symbolic links are made to the selected problems, using names of the form CCCNNN.p for the symbolic links. CCC is the division or problem category name, and NNN runs from 001 to the number of problems in the division or category. 
+          The problems are specified to the ATP systems using the symbolic link names.</inputRequirement>
+          <inputRequirement>In the demonstration division the same problems are used as for the competition divisions, with the same preprocessing applied. However, 
+          the original file names can be retained for systems running on computers provided by the entrant.</inputRequirement>
+        </inputRequirements>
+      </rule>
+      <rule>
+        <ruleCategory>Batch Specification Files</ruleCategory>
+        <ruleDescription>The problems in each problem category of batch divisions are listed in a batch specification file, 
+        containing global data lines and one or more batch specifications.</ruleDescription>
+        <inputRequirements>
+          <inputRequirement>
+            A problem category line of the form
+            division.category division_mnemonic.category_mnemonic
+            For the LTB division it will be
+            division.category LTB.category_mnemonic
+            where the category mnemonics are HOL, ISA, MZR.
+          </inputRequirement>
+          <inputRequirement>
+            The name of a directory that contains training data in the form of problems in TPTP format and one or more solutions to each problem in TSTP format, in a line of the form
+            division.category.training_directory directory_name
+            A (toy) example directory is TrainingData.HOL. Note that the Axioms directory contains all the axiom files that can be used in the competition problems.
+          </inputRequirement>
+        </inputRequirements>
+        <ruleLinkDescription xlink:type="simple" xlink:href="http://www.cs.miami.edu/~tptp/CASC/24/Design.html" xlink:show="new">Design and Organization Details</ruleLinkDescription>
+      </rule>
+      <rule>
+        <ruleCategory>Resource Limits</ruleCategory>
+        <ruleDescription>Resource Limits Information</ruleDescription>
+        <inputRequirements>
+          <inputRequirement>For Non-Batch divisions - CPU and wall clock time limits are imposed. 
+          The minimal CPU time limit per problem is 240s. The maximal CPU time limit per problem is determined using 
+          the relationship used for determining the number of problems, with the minimal number of problems as the NumberOfProblems. 
+          The CPU time limit is chosen as a reasonable value within the range allowed, and is announced at the competition. 
+          The wall clock time limit is imposed in addition to the CPU time limit, to limit very high memory usage that causes swapping. 
+          The wall clock time limit per problem is double the CPU time limit. An additional memory limit is imposed, depending on the computers' memory. 
+          The time limits are imposed individually on each solution attempt. </inputRequirement>
+          <inputRequirement>For demonstration division - In the demonstration division, each entrant can choose to use either a CPU 
+          or a wall clock time limit, whose value is 
+          the CPU time limit of the competition divisions.</inputRequirement>
+          <inputRequirement>For LTB Division - For each batch there is a wall clock time limit per problem, which is 
+          provided in the configuration section at the start of each batch. The minimal wall clock time limit per problem is 30s. 
+          For each problem category there is an overall wall clock time limit, which is provided in the configuration section at 
+          the start of each batch, and is also available as a command line parameter. The overall limit is the sum over the batches 
+          of the batch's per-problem limit multiplied by the number of problems in the batch. Time spent before starting the 
+          first problem of a batch (e.g., preloading and analysing the batch axioms), and times spent between ending a problem and 
+          starting the next (e.g., learning from a proof just found), are not part of the times taken on the individual problems, 
+          but are part of the overall time taken. There are no CPU time limits.</inputRequirement>
+        </inputRequirements>
+      </rule>
+      <rule>
+        <ruleCategory>System Entry</ruleCategory>
+        <ruleDescription>
+          To be entered into CASC, systems must be registered using the CASC system registration form. 
+          No registrations are accepted after the registration deadline. For each system entered, an entrant 
+          has to be nominated to handle all issues (including execution difficulties) arising before and during the competition. 
+          The nominated entrant must formally register for CASC. It is not necessary for entrants to physically attend the competition.
+          Systems can be entered at only the division level, and can be entered into more than one division (a system that is
+          not entered into a competition division is assumed to perform worse than the entered systems, 
+          for that type of problem - wimping out is not an option). Entering many similar versions of the same system 
+          is deprecated, and entrants may be required to limit the number of system versions that they enter. Systems that 
+          rely essentially on running other ATP systems without adding value are deprecated; the competition panel may disallow 
+          or move such systems to the demonstration division. The division winners of the previous CASC are automatically entered 
+          into their divisions, to provide benchmarks against which progress can be judged.
+        </ruleDescription>
+        <inputRequirements>
+          <inputRequirement>A system description has to be provided for each ATP system entered, using this HTML schema.</inputRequirement>
+          <inputRequirement>
+            The schema has the following sections:
+            Architecture. This section introduces the ATP system, and describes the calculus and inference rules used.
+            Strategies. This section describes the search strategies used, why they are effective, and how they are selected for given problems. Any strategy tuning that is based on specific problems' characteristics must be clearly described (and justified in light of the tuning restrictions).
+            Implementation. This section describes the implementation of the ATP system, including the programming language used, important internal data structures, and any special code libraries used. The availability of the system is also given here.
+            Expected competition performance. This section makes some predictions about the performance of the ATP system in each of the divisions and categories in which it is competing.
+            References.
+          </inputRequirement>
+          <inputRequirement>The system description has to be emailed to the competition organizers by the system description deadline. The system descriptions, along with information 
+          regarding the competition design and procedures, form the proceedings for the competition.</inputRequirement>
+          <inputRequirement>For systems in the proof/model classes, representative sample solutions must be emailed to the competition organizers by the sample solutions deadline. Use of the TPTP format for proofs and finite interpretations is encouraged. The competition panel decides whether or 
+          not proofs and models are acceptable for the proof/model ranking classes.</inputRequirement>
+          <inputRequirement>Proof samples for proof classes must include a proof for SEU140+2. Model samples for model classes must include models for NLP042+1 and SWV017+1. The sample solutions must illustrate the use of all inference rules. 
+          An explanation must be provided for any non-obvious features.</inputRequirement>
+        </inputRequirements>
+        <ruleLinkDescription xlink:type="simple" xlink:href="http://www.cs.miami.edu/~tptp/CASC/24/Design.html" xlink:show="new">System Description Details</ruleLinkDescription>
+        <ruleLinkDescription xlink:type="simple" xlink:href="http://www.cs.miami.edu/~tptp/CASC/24/SystemRegistration.html" xlink:show="new">System Registration Details</ruleLinkDescription>
+        <ruleLinkDescription xlink:type="simple" xlink:href="http://www.cs.miami.edu/~tptp/CASC/24/CASCRegistration.html" xlink:show="new">CASC Registration Details</ruleLinkDescription>
+      </rule>
+    </rules>
+    <supportingDocuments>
+      <document>
+        <documentName>TPTP Problem Library</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://www.tptp.org" xlink:show="new">
+          The TPTP Problem Library for Automated Theorem Proving</documentLinkDescription>
+      </document>
+      <document>
+        <documentName>System Checks</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://www.cs.miami.edu/~tptp/CASC/24/Design.html" xlink:show="new">
+          System Checks Details
+        </documentLinkDescription>
+      </document>
+      <document>
+        <documentName>Sample System Descriptions and Solutions</documentName>
+         <documentLinkDescription xlink:type="simple" xlink:href="http://www.cs.miami.edu/~tptp/CASC/24/SystemDescriptions.html" xlink:show="new">
+          System Description
+        </documentLinkDescription>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://www.cs.miami.edu/~tptp/CASC/24/SampleSolutions.html" xlink:show="new">
+        Sample Solutions
+        </documentLinkDescription>
+      </document>
+      <document>
+        <documentName>Proceedings</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://www.cs.miami.edu/~tptp/CASC/24/Proceedings.pdf" xlink:show="new">
+        Proceedings
+        </documentLinkDescription>
+      </document>
+      <document>
+        <documentName>System Information</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://www.cs.miami.edu/~tptp/CASC/24/SystemInfo" xlink:show="new">
+        CASC System Information
+        </documentLinkDescription>  
+      </document>
+      <document>
+        <documentName>T-Shirt Design</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://www.cs.miami.edu/~tptp/CASC/24/T-shirtGIF.html" xlink:show="new">
+         T-Shirt Design
+        </documentLinkDescription>  
+      </document>
+      <document>
+        <documentName>System's Sources and Executables</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://www.cs.miami.edu/~tptp/CASC/24/Systems.tgz" xlink:show="new">
+         System's Sources and Executables
+        </documentLinkDescription> 
+      </document>
+      <document>
+        <documentName>Soundness Testing Problem List</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://www.cs.miami.edu/~tptp/CASC/24/SoundnessTesting.html" xlink:show="new">
+         Soundness Testing Problem List
+        </documentLinkDescription> 
+      </document>
+      <document>
+        <documentName>Eligible Problem List</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://www.cs.miami.edu/~tptp/CASC/24/EligibleProblems.html" xlink:show="new">
+         Eligible Problem List
+        </documentLinkDescription> 
+      </document>
+      <document>
+        <documentName>Very Similar Problem List</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://www.cs.miami.edu/~tptp/CASC/24/VerySimilarProblemsLists.tgz" xlink:show="new">
+         Very Similar Problem List
+        </documentLinkDescription> 
+      </document>
+      <document>
+        <documentName>Unseen Problem List</documentName> 
+        <documentLinkDescription xlink:type="simple" xlink:href="http://www.cs.miami.edu/~tptp/CASC/24/UnseenProblems.html" xlink:show="new">
+          Unseen Problem List
+        </documentLinkDescription> 
+      </document>
+      <document>
+        <documentName>Selected Problem List</documentName>
+         <documentLinkDescription xlink:type="simple" xlink:href="http://www.cs.miami.edu/~tptp/CASC/24/SelectedProblems.html" xlink:show="new">
+         Selected Problem List
+        </documentLinkDescription> 
+      </document>
+      <document>
+        <documentName>
+          Problem files, precisely as used in the competition (.tgz)
+          The time limit was 240s per problem in the non-batch divisions.
+          The time limit was 60s per problem in the LTB division.
+        </documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://www.cs.miami.edu/~tptp/CASC/24/Problems.tgz" xlink:show="new">
+         Problem files
+        </documentLinkDescription> 
+      </document>
+      <document>
+        <documentName>Systems' output files</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://www.cs.miami.edu/~tptp/CASC/24/Results.tgz" xlink:show="new">
+         Systems' output files
+        </documentLinkDescription>
+      </document>
+      <document>
+        <documentName>Competition photos</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://www.cs.miami.edu/~tptp/CASC/24/Photos" xlink:show="new">
+         Competition photos
+        </documentLinkDescription> 
+      </document>
+      <document>
+        <documentName>Information about previous CASCs</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://www.cs.miami.edu/~tptp/CASC/" xlink:show="new">
+         Information about previous CASCs
+        </documentLinkDescription> 
+      </document>
+    </supportingDocuments>
+    <year>2012</year>
+    <assessmentDescription>
+      <description>
+        CASC evaluates the performance of sound, fully automatic, classical 1st order ATP systems. The evaluation is in terms of:
+        the number of problems solved,
+        the number of problems solved with a solution output, and
+        the average runtime for problems solved;
+        in the context of:
+        a bounded number of eligible problems, chosen from the TPTP Problem Library, and
+        specified time limits on solution attempts.
+        The competition is overseen by a panel of knowledgeable researchers who are not participating in the event.
+      </description>
+      <assessmentLinkDescription xlink:type="simple" xlink:href="http://www.cs.miami.edu/~tptp/CASC/24/Design.html#Evaluation" xlink:show="new">
+          Assessment Description
+      </assessmentLinkDescription> 
+      <jury>
+        <contact>
+          <name>Armin Biere</name>
+          <linkDescription xlink:type="simple" xlink:href="http://fmv.jku.at/biere/" xlink:show="new">
+            Armin Biere Web Link
+          </linkDescription>
+        </contact>
+        <contact>
+          <name>Maria Paola Bonacina</name>
+          <linkDescription xlink:type="simple" xlink:href="http://profs.sci.univr.it/~bonacina//" xlink:show="new">
+            Maria Paola Bonacina Web Link
+          </linkDescription>
+        </contact>
+        <contact>
+          <name>Christoph Weidenbach</name>
+          <linkDescription xlink:type="simple" xlink:href="http://www.mpi-inf.mpg.de/~weidenb/" xlink:show="new">
+            Christoph Weidenbach Web Link
+          </linkDescription>
+        </contact>
+      </jury>
+    </assessmentDescription>
+    <participants>
+      <participant>The details are given in the following link</participant>
+      <participantDescriptionLink xlink:type="simple" xlink:href="http://www.cs.miami.edu/~tptp/CASC/24/Entrants.html" xlink:show="new">
+            Entrants
+      </participantDescriptionLink>
+    </participants>
+    <expectedSolution>
+      <inputRequirements>
+        <inputRequirement>Systems must be sound. At some time before the competition all the systems in the competition divisions are tested for soundness. Non-theorems are submitted to the systems in the THF, TFA, FOF, EPR, and LTB divisions, and theorems are 
+        submitted to the systems in the FNT and EPR divisions. Finding a proof of a non-theorem or a disproof of a theorem indicates unsoundness. If a system fails the soundness testing it must be repaired by the unsoundness repair deadline or be withdrawn. The soundness testing eliminates the possibility of a system simply delaying for some amount of time and then claiming to have found a solution. For systems running on computers supplied by the entrant in the demonstration division, the entrant must perform the soundness testing and report the results to the competition organizers.</inputRequirement>
+        <inputRequirement>Systems do not have to be complete in any sense, including calculus, search control, implementation, or resource requirements.</inputRequirement>
+        <inputRequirement>All techniques used must be general purpose, and expected to extend usefully to new unseen problems. The precomputation and storage of information about individual TPTP problems or their solutions is not allowed. Strategies and strategy selection based on individual TPTP problems or their solutions are not allowed. If machine learning procedures are used, the learning must ensure that sufficient generalization is obtained so that no there is no specialization to individual problems or their solutions.</inputRequirement>
+        <inputRequirement>
+          The LTB division's problem categories are accompanied by sets of training problems and their solutions (taken from the same exports as the competition problems), that can be used for tuning and training during (typically at the start of) the competition. The training problems are not used in the competition. There are at least twice as many training problems as competition problems in each problem category. The training problems and solutions may be used for producing generally useful strategies that extend to "unseen" problems in the problem sets. Such strategies can rely on the consistent naming of symbols and formulas in the problem sets, and may use techniques for memorization and generalization of problems and solutions in the training set. The system description must fully explain any such tuning or training that has been done.
+          For the LTB division problems will be taken from publicly available problem sets: the HOL problem category will use the HH7150 problem set; the ISA problem category will use the SH-CASC-14 problem set; the MZR problem category will use the MPTP2078 problem set. Precomputation and storage of information about problems in those sets, or their solutions, is not directly allowed. However, training as described above is allowed.
+        </inputRequirement>
+        <inputRequirement>The system's performance must be reproducible by running the system again.</inputRequirement>
+        <inputRequirement>Systems must run on a single locally provided standard UNIX computer (the competition computers). ATP systems that cannot run on the competition computers can be entered into the demonstration division.</inputRequirement>
+        <inputRequirement>Systems must be executable by a single command line, using an absolute path name for the executable, which might not be in the current directory. In non-batch divisions the command line arguments are the absolute path name of a symbolic link as the problem file name, the individual problem time limit (if required by the entrant), and entrant specified system switches. In batch divisions the command line arguments are the absolute path name of the batch specification file, the overall category time limit (if required by the entrant), and entrant specified system switches. No shell features, such as input or output redirection, may be used in the command line. No assumptions may be made about the format of file names.</inputRequirement>
+        <inputRequirement>Systems must be fully automatic, i.e., all command line switches have to be the same for all problems in each division.</inputRequirement>
+        <inputRequirement>Execution of the ATP systems on the competition computers is controlled by a perl script, provided by the competition organizers. The jobs are queued onto the computers so that each computer is running one job at a time. In non-batch divisions, all attempts at the Nth problems in all the divisions and categories are started before any attempts at the (N+1)th problems. In batch divisions all attempts in each category in the division are started before any attempts at the next category.</inputRequirement>
+        <inputRequirement>During the competition a perl script parses the systems' outputs. If any of an ATP system's distinguished strings are found then the time used to that point is noted. A system has solved a problem iff it outputs its termination string within the time limit, and a system has produced a proof/model iff it outputs its end-of-proof/model string within the time limit. The result and timing data is used to generate an HTML file, and a web browser is used to display the results.</inputRequirement>
+      </inputRequirements>
+      <outputRequirements>
+        <outputRequirement>
+          In non-batch divisions all solution output must be to stdout. In batch divisions all solution output must be to the named output file for each problem.
+        </outputRequirement>
+        <outputRequirement>
+          In batch divisions the systems must print SZS notification lines to stdout when starting and ending work on a problem (including any cleanup work, such as deleting temporary files). For example
+          <![CDATA[
+          % SZS status Started for /home/graph/tptp/TPTP/Problems/CSR/CSR075+2.p
+          ... (system churns away, result and solution output to file)
+          % SZS status Theorem for /home/graph/tptp/TPTP/Problems/CSR/CSR075+2.p
+          % SZS status Ended for /home/graph/tptp/TPTP/Problems/CSR/CSR075+2.p
+          ]]>
+        </outputRequirement>
+        <outputRequirement>
+          For each problem, the systems must output a distinguished string indicating what solution has been found or that no conclusion has been reached. Systems are expected to use the SZS ontology and standards for this. For example
+          <![CDATA[% SZS status Theorem for SYN075+1]]>
+          or
+          <![CDATA[% SZS status GaveUp for SYN075+1]]>
+        </outputRequirement>
+        <outputRequirement>
+          The distinguished strings must be different for:
+          Proved theorems of FOF problems (SZS status Theorem)
+          Disproved conjectures of FNT problems (SZS status CounterSatisfiable)
+          Unsatisfiable sets of formulae (FOF problems without conjectures) and unsatisfiable set of clauses (CNF problems) (SZS status Unsatisfiable)
+          Satisfiable sets of formulae (FNT problems without conjectures) and satisfiable set of clauses (SAT problems) (SZS status Satisfiable)
+          The first distinguished string output is accepted as the system's result.
+        </outputRequirement>
+        <outputRequirement>
+          In batch divisions this line must use the SZS standards, including the problem file name, and must be output to both stdout and the solution file. In batch divisions this line must be output as the last thing before the ending notification line.
+        </outputRequirement>
+        <outputRequirement>
+          When outputting proofs/models, the start and end of the proof/model must be delimited by distinguished strings. Systems are expected to use the SZS ontology and standards for this. For example
+          <![CDATA[% SZS output start CNFRefutation for SYN075+1
+          ...
+          % SZS output end CNFRefutation for SYN075+1]]>
+          The distinguished strings must be different for:
+          Proofs (SZS output forms Proof, Refutation, CNFRefutation)
+          Models (SZS output forms Model, FiniteModel, InfiniteModel, Saturation)
+          The string specifying the problem status must be output before the start of a proof/model. Use of the TPTP format for proofs and finite interpretations is encouraged.
+        </outputRequirement>
+        <outputRequirement>The systems that run on the competition computers must be interruptible by a SIGXCPU signal, so that the CPU time limit can be imposed, and interruptable by a SIGALRM signal, so that the wall clock time limit can be imposed. For systems that create multiple processes, the signal is sent first to the process at the top of the hierarchy, then one second later to all processes in the hierarchy. The default action on receiving these signals is to exit (thus complying with the time limit, as required), but systems may catch the signals and exit of their own accord. If a system runs past a time limit this is noticed in the timing data, and the system is considered to have not solved that problem.</outputRequirement>
+        <outputRequirement>If an ATP system terminates of its own accord, it may not leave any temporary or intermediate output files. If an ATP system is terminated by a SIGXCPU or SIGALRM, it may not leave any temporary or intermediate output files anywhere other than in /tmp. Multiple copies of the ATP systems must be executable concurrently, in the same (NFS cross mounted) directory. It is therefore necessary that temporary files have unique names.</outputRequirement>
+        <outputRequirement>For practical reasons excessive output from an ATP system is not allowed. A limit, dependent on the disk space available, is imposed on the amount of output that can be produced. The limit is at least 10MB per system.</outputRequirement>
+        <outputRequirement>
+          For systems running on the competition computers, entrants must email an installation package to the competition organizers by the system delivery deadline. (See the systems descriptions page for these descriptions.) The installation package must be a .tgz file containing the system source code, any other files required for installation, and a ReadMe file. The ReadMe file must contain:
+          Instructions for installation. Systems are expected to use the proposed TPTP ATP System Building Conventions for their installation.
+          Instructions for executing the system, using %s and %d to indicate where the problem file name and time limit must appear in the command line.
+          The distinguished strings indicating what solution has been found, and delimiting proofs/models.
+        </outputRequirement>
+        <outputRequirement>For systems that do not use the proposed TPTP ATP System Building Conventions, the installation procedure may require changing path variables, invoking make or something similar, etc., but nothing unreasonably complicated. All system binaries must be created in the installation process; they cannot be delivered as part of the installation package. If the ATP system requires any special software, libraries, etc, which is not part of a standard installation, the competition organizers must be told in the system registration. The system is installed onto the competition computers by the competition organizers, following the instructions in the ReadMe file. Installation failures before the system delivery deadline are passed back to the entrant (i.e., delivery of the installation package before the system delivery deadline provides an opportunity to fix things if the installation fails!). After the system delivery deadline no further changes or late systems are accepted. If you are in doubt about your installation package or procedure, please email the competition organizers.</outputRequirement>
+        <outputRequirement>For systems running on entrant supplied computers in the demonstration division, entrants must deliver a source code package to the competition organizers by the start of the competition. The source code package must be a .tgz file containing the system source code.</outputRequirement>
+        <outputRequirement>After the competition all competition division systems' source code is made publicly available on the CASC web site. In the demonstration division, the entrant specifies whether or not the source code is placed on the CASC web site. An open source license is encouraged.</outputRequirement>
+      </outputRequirements>
+      <executionEnvironment>
+        <environmentDescription>
+          Each ATP system will run one job on one computer at a time.
+        </environmentDescription>
+        <processors>
+          <processor>
+            <processorName>Intel(R) Xeon(R) L5410</processorName>
+            <processorMemory>
+              12GB memory
+            </processorMemory>
+            <processorDescription>
+              Four (one quad core chip), 2.333GHz CPUs
+            </processorDescription>
+          </processor>
+        </processors>
+        <OSUsed>
+          <OS>
+            <osName>Linux</osName>
+            <osVersion>Linux, kernel version 2.6.29.4-167.fc11.x86_64</osVersion>
+          </OS>
+        </OSUsed>
+      </executionEnvironment>
+      <deadlines>
+        <deadline>
+          <deadlineName>System submission for problem rating (optional)	: Email To organizers</deadlineName>
+          <submissionDeadline>2013-04-15T00:00:00</submissionDeadline>
+        </deadline>
+        <deadline>
+          <deadlineName>System registration deadline - online</deadlineName>
+          <submissionDeadline>2013-05-13T00:00:00</submissionDeadline>
+        </deadline>
+        <deadline>
+          <deadlineName>System descriptions deadline, Sample solutions deadline - Email to Organizers and Formal CASC registration - online</deadlineName>
+          <submissionDeadline>2013-05-13T00:00:00</submissionDeadline>
+        </deadline>
+        <deadline>
+          <deadlineName>System delivery deadline</deadlineName>
+          <submissionDeadline>2013-05-21T00:00:00</submissionDeadline>
+        </deadline>
+        <deadline>
+          <deadlineName>Soundness testing reports</deadlineName>
+          <submissionDeadline>2013-05-24T00:00:00</submissionDeadline>
+        </deadline>
+        <deadline>
+          <deadlineName>Unsoundness repairs completed</deadlineName>
+          <submissionDeadline>2013-06-05T00:00:00</submissionDeadline>
+        </deadline>
+        <deadline>
+          <deadlineName>CASC dinner and T-shirt distribution - 	Great Adirondack Steak and Seafood</deadlineName>
+          <submissionDeadline>2013-06-11T19:30:00</submissionDeadline>
+        </deadline>
+        <deadline>
+          <deadlineName>Start of competition - Olympic 4</deadlineName>
+          <submissionDeadline>2013-06-12T10:30:00</submissionDeadline>
+        </deadline>
+        <deadline>
+          <deadlineName>Trophy presentation - CADE banquet</deadlineName>
+          <submissionDeadline>2013-06-13T10:30:00</submissionDeadline>
+        </deadline>
+        <deadline>
+          <deadlineName>CASC results presentation - Conference room</deadlineName>
+          <submissionDeadline>2013-06-14T14:00:00</submissionDeadline>
+        </deadline>
+      </deadlines>
+    </expectedSolution>
+    <contactDetails>
+      <contact>
+        <name> Geoff Sutcliffe - Organizer</name>
+        <linkDescription xlink:type="simple" xlink:href="http://www.cs.miami.edu/~geoff/" xlink:show="new">
+            Geoff Sutcliffe Web Link
+          </linkDescription>
+      </contact>
+    </contactDetails>
+    <results>
+      <resultsLinkDescription xlink:type="simple" xlink:href="http://www.cs.miami.edu/~tptp/CASC/24/WWWFiles/DivisionSummary1.html" xlink:show="new">
+            Division Summary 
+      </resultsLinkDescription>
+      <resultsLinkDescription xlink:type="simple" xlink:href="http://www.cs.miami.edu/~tptp/CASC/24/WWWFiles/ResultsSummary.html" xlink:show="new">
+            Results Summary
+      </resultsLinkDescription>
+      <resultsLinkDescription xlink:type="simple" xlink:href="http://www.cs.miami.edu/~tptp/CASC/24/WWWFiles/Results.html" xlink:show="new">
+            Results
+      </resultsLinkDescription>
+      <resultsLinkDescription xlink:type="simple" xlink:href="http://www.cs.miami.edu/~tptp/CASC/24/WWWFiles/ResultsPlots.html" xlink:show="new">
+            Results Plot
+      </resultsLinkDescription>
+    </results>
+  </challenge>
+</challenges>

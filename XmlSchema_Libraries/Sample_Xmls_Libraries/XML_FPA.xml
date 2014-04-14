@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<libraries xmlns:xlink="http://www.w3.org/1999/xlink">
+  <library>
+    <libraryName>A Coq Library on Floating-Point Arithmetic</libraryName>
+    <availableVersions>
+      <version status="Current">
+        <versionName>V8.2</versionName>
+        <linkDescription xlink:type="simple" xlink:href="http://scalp.gforge.inria.fr/" xlink:show="new">Download Link</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>V8.1</versionName>
+        <linkDescription xlink:type="simple" xlink:href="http://scalp.gforge.inria.fr/" xlink:show="new">Download Link</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>V8.0</versionName>
+        <linkDescription xlink:type="simple" xlink:href="http://scalp.gforge.inria.fr/" xlink:show="new">Download Link</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>V7.4</versionName>
+        <linkDescription xlink:type="simple" xlink:href="http://scalp.gforge.inria.fr/" xlink:show="new">Download Link</linkDescription>
+      </version>
+    </availableVersions>
+    <contributors>
+      <contact>
+        <name>Laurent Théry</name>
+        <contactsDescription>First contact</contactsDescription>
+        <linkDescription xlink:type="simple" xlink:href="http://www-sop.inria.fr/lemme/personnel/Laurent.Thery/me.html" xlink:show="new">Web page Link</linkDescription>
+      </contact>
+      <contact>
+        <name>Laurence Rideau</name>
+        <contactsDescription>First contact</contactsDescription>
+        <linkDescription xlink:type="simple" xlink:href="http://www-sop.inria.fr/lemme/personnel/Laurence.Rideau/me.html" xlink:show="new">Web page Link</linkDescription>
+      </contact>
+      <contact>
+        <name>Laurent Fousse</name>
+        <contactsDescription>Current contact</contactsDescription>
+        <linkDescription xlink:type="simple" xlink:href="http://www.komite.net/laurent/" xlink:show="new">Web page Link</linkDescription>
+      </contact>
+      <contact>
+        <name>Guillaume Melquiond</name>
+        <contactsDescription>Current contact</contactsDescription>
+        <linkDescription xlink:type="simple" xlink:href="http://www.msr-inria.inria.fr/~gmelquio/" xlink:show="new">Web page Link</linkDescription>
+      </contact>
+      <contact>
+        <name>Sylvie Boldo</name>
+        <contactsDescription>Current contact</contactsDescription>
+        <linkDescription xlink:type="simple" xlink:href="http://www.lri.fr/~sboldo/" xlink:show="new">Web page Link</linkDescription>
+      </contact>  
+    </contributors>
+    <contentFiles>
+      <contentFile>
+        <name>AlgoPredSucc file</name>
+        <description>
+          An algorithm to compute the predecessor and the successor using rounding to nearest.
+        </description>
+        <linkDescription xlink:type="simple" xlink:href="http://lipforge.ens-lyon.fr/www/pff/AlgoPredSucc.html" xlink:show="new">AlgoPredSucc file</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="http://hal.inria.fr/inria-00337537/fr/" xlink:show="new">Article related to this</linkDescription>
+      </contentFile>
+      <contentFile>
+        <name>FmaEmul</name>
+        <description>
+          Results on a software emulation of the FMA using rounding to odd.
+        </description>
+        <linkDescription xlink:type="simple" xlink:href="https://www.lri.fr/~paulin/ALEA/html/ALEA.Ccpo.html" xlink:show="new">FmaEmul File</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="http://lipforge.ens-lyon.fr/www/pff/DblRndOdd.html" xlink:show="new">DblRndOdd File</linkDescription>
+      </contentFile>
+      <contentFile>
+        <name>discriminant Files</name>
+        <description>A property about a program computating the discriminant by Pr W. Kahan</description>
+        <linkDescription xlink:type="simple" xlink:href="http://lipforge.ens-lyon.fr/www/pff/discriminant.html" xlink:show="new">discriminant</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="http://lipforge.ens-lyon.fr/www/pff/discriminant.html" xlink:show="new">discriminant2</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="http://lipforge.ens-lyon.fr/www/pff/discriminant.html" xlink:show="new">discriminant3</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.lri.fr/~paulin/ALEA/" xlink:show="new">Program computating the discriminant</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="http://www.cs.berkeley.edu/~wkahan/" xlink:show="new">Pr W. Kahan</linkDescription>
+      </contentFile>
+      <contentFile>
+        <name>FArgReduct Files</name>
+        <description>Proved algorithms for argument reductions</description>
+        <linkDescription xlink:type="simple" xlink:href="http://lipforge.ens-lyon.fr/www/pff/FArgReduct2.html" xlink:show="new">FArgReduct2</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="http://lipforge.ens-lyon.fr/www/pff/FArgReduct3.html" xlink:show="new">FArgReduct3</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="http://lipforge.ens-lyon.fr/www/pff/FArgReduct4.html" xlink:show="new">FArgReduct4</linkDescription>
+      </contentFile>
+    </contentFiles>
+    <downloads>
+      <download>
+        <description>Access the library via various indexes (by module, definition, lemma...)</description>
+        <linkDescription xlink:type="simple" xlink:href="http://lipforge.ens-lyon.fr/www/pff/index2.html" xlink:show="new">Library Access Link</linkDescription>
+      </download>
+    </downloads>
+    <requiredToolsForCompilation>
+      <tool>
+        <toolName>Coq</toolName>
+        <toolDescription>The source files can be compiled using Coq version V8.3.</toolDescription>
+      </tool>
+    </requiredToolsForCompilation>
+    <dependencyDetails>
+      <dependency>
+        <description>The following graph, made using dot, describes the dependences between all the files of 
+        the library. All the nodes are clickable to access directly the file. 
+        The colors refer to the directory where the file lie and to the subject matter: beige for the 
+        initial library, green for the expansions, violet for the two's complement, blue for the elementary 
+        functions evaluation and red for the other files.</description>
+        <linkDescription xlink:type="simple" xlink:href="http://lipforge.ens-lyon.fr/www/pff/" xlink:show="new">Dependences between all the files of the library</linkDescription>
+      </dependency>
+    </dependencyDetails>
+    <relatedLinks>
+      <relatedLinkDescription xlink:type="simple" xlink:href="http://lipforge.ens-lyon.fr/projects/pff/" xlink:show="new">Main Page of the Project</relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="http://www.research.att.com/software_tools?fbid=kxjjzybzS-L" xlink:show="new">Dot</relatedLinkDescription>
+    </relatedLinks>
+  </library>
+</libraries>

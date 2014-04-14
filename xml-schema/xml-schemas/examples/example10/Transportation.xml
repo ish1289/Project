@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<transportation xmlns="http://www.travel.org"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation=
+                          "http://www.travel.org
+                           Transportation.xsd">
+        <plane>US Airways, flight #3193</plane>
+</transportation>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:msxsl="urn:schemas-microsoft-com:xslt" exclude-result-prefixes="msxsl"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+<xsl:output method="xml" indent="yes"/>
+<xsl:template match="/">
+<html >
+<style type="text/css">
+ .alignmentCenter{
+ text-align: center;
+ }
+.setWidth{
+ width: 50%;
+}
+}
+</style>
+<body>
+<xsl:for-each select="modules/module">
+ <h3 class="alignmentCenter">
+ <xsl:value-of select="moduleName"/>
+ </h3>
+ <h3 class="alignmentCenter">
+ <xsl:text>Module code: </xsl:text>
+ <xsl:value-of select="moduleCode"/>
+ </h3>
+ <xsl:if test="school">
+ <b><xsl:text>School:- </xsl:text></b> 
+ <xsl:value-of select="school"/>
+ <br/>
+ </xsl:if>
+ <xsl:if test="preRequisites">
+ <h3><xsl:text>Pre-requisites:-</xsl:text></h3>
+ <xsl:for-each select="preRequisites/preRequisite"> 
+ <li><xsl:value-of select="description"/></li>
+ <xsl:if test="preRequisiteLinkDescription">
+ <xsl:for-each select="preRequisiteLinkDescription">                
+  <xsl:element name="a">
+  <xsl:attribute name="href">
+  <xsl:value-of select="./@xlink:href" />
+  </xsl:attribute>
+  <xsl:value-of select="." />
+  </xsl:element>
+   <br/>
+  </xsl:for-each>
+ </xsl:if>
+ </xsl:for-each>
+ </xsl:if>   
+ <xsl:if test="aims">
+ <h3><xsl:text>Aims-</xsl:text></h3>
+ <xsl:for-each select="aims/aim"> 
+ <li><xsl:value-of select="description"/></li>
+ <xsl:if test="aimLinkDescription">
+ <xsl:for-each select="aimLinkDescription">                
+ <xsl:element name="a">
+ <xsl:attribute name="href">
+ <xsl:value-of select="./@xlink:href" />
+ </xsl:attribute>
+ <xsl:value-of select="." />
+ </xsl:element>
+ <br/>
+ </xsl:for-each>
+ </xsl:if>
+ </xsl:for-each>
+ </xsl:if>
+ <xsl:if test="content">
+ <h3>Contents:-</h3>
+ <xsl:if test="content/topicsCovered">
+ <b><xsl:text>Topics Covered-</xsl:text></b><br/>
+  <xsl:for-each select="content/topicsCovered/topic"> 
+  <li><xsl:value-of select="description"/></li>
+  <xsl:if test="LinkDescription">
+  <xsl:for-each select="LinkDescription">                
+  <xsl:element name="a">
+  <xsl:attribute name="href">
+  <xsl:value-of select="./@xlink:href" />
+  </xsl:attribute>
+  <xsl:value-of select="." />
+  </xsl:element>
+  <br/>
+  </xsl:for-each>
+  </xsl:if>
+  </xsl:for-each>
+ </xsl:if>
+</xsl:for-each>  
+</body>
+</html>
+</xsl:template>
+</xsl:stylesheet>

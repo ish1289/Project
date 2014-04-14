@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<libraries xmlns:xlink="http://www.w3.org/1999/xlink">
+  <library>
+    <libraryName>16-bit CPU Self-test Library</libraryName>
+    <libraryOverview>
+      <description>
+        The 16-bit CPU Self-test Library is intended to periodically verify during run-time,
+        that all CPU core features are functioning correctly. This library supports the dsPIC33F,
+        PIC24H, dsPIC33E and PIC24E device families. This
+        library is available for various operating systems including Windows, Linux and Mac OS-X.
+        The 16-bit CPU Self-test Library functions will simply generate some computed results that 
+        can either be logged or transmitted through any communication interface to a secondary 
+        processor in the system. The interpretation of these results that are used to determine whether 
+        the CPU is functioning correctly (and to shut down the system if a failure is detected), 
+        is the responsibility of this secondary processor. The 16-bit CPU Self-test Library test suite 
+        is not meant to test peripheral functionality, but simply that of the CPU core.
+      </description>
+      <linkDescription xlink:type="simple" xlink:href="http://www.microchip.com/stellent/idcplg?IdcService=SS_GET_PAGE&amp;nodeId=2680&amp;dDocName=en559540" xlink:show="new">Link to the library web page</linkDescription>
+    </libraryOverview>
+    <downloads>
+      <download>
+        <description>16-bit CPU Self-test Library for Linux  and Date Created: 9/12/2012 3:54:36 PM</description>
+        <size>3918 KB</size>
+        <linkDescription xlink:type="simple" xlink:href="http://www.microchip.com/Microchip.WWW.SecureSoftwareList/secsoftwaredownload.aspx?device=en559540&amp;lang=en&amp;ReturnURL=http://www.microchip.com/stellent/idcplg?IdcService=SS_GET_PAGE&amp;nodeId=2680&amp;dDocName=en559540#" xlink:show="new">Download Link</linkDescription>
+      </download>
+      <download>
+        <description>16-bit CPU Self-test Library for Mac OS-X   and Date Created: 9/12/2012 4:01:01 PM</description>
+        <size>9937 KB</size>
+        <linkDescription xlink:type="simple" xlink:href="http://www.microchip.com/Microchip.WWW.SecureSoftwareList/secsoftwaredownload.aspx?device=en559540&amp;lang=en&amp;ReturnURL=http://www.microchip.com/stellent/idcplg?IdcService=SS_GET_PAGE&amp;nodeId=2680&amp;dDocName=en559540#" xlink:show="new">Download Link</linkDescription>
+      </download>
+      <download>
+        <description>16-bit CPU Self-test Library for Linux  and Date Created: 9/12/2012 3:59:07 PM</description>
+        <size>3677 KB</size>
+        <linkDescription xlink:type="simple" xlink:href="http://www.microchip.com/Microchip.WWW.SecureSoftwareList/secsoftwaredownload.aspx?device=en559540&amp;lang=en&amp;ReturnURL=http://www.microchip.com/stellent/idcplg?IdcService=SS_GET_PAGE&amp;nodeId=2680&amp;dDocName=en559540#" xlink:show="new">Download Link</linkDescription>
+      </download>
+    </downloads>
+    <supportingDocuments>
+      <document>
+        <documentName>
+          16-Bit CPU Self-Test Library User's Guide
+        </documentName>
+        <documentDescription>Date Created: 6/12/2012 3:35:39 PM</documentDescription>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://ww1.microchip.com/downloads/en/DeviceDoc/52076a.pdf" xlink:show="new">Link</documentLinkDescription>
+      </document>
+    </supportingDocuments>
+  </library>
+</libraries>

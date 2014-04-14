@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<libraries xmlns:xlink="http://www.w3.org/1999/xlink">
+<library>
+  <libraryName>Alea: a library for reasoning on randomized algorithms in Coq</libraryName>
+  <libraryOverview>
+    <description>This library forms a basis for reasoning on randomised algorithms in the proof assistant Coq .
+   The theoretical basis of this work is a joint work with Philippe Audebaud and is described in. 
+   It is developed in the framework of the SCALP project (ANR-07-SESU-010) on Security of Cryptographic 
+   ALgorithms with Probabilities. With respect to previous versions of this library, 
+   the mechanism of type classes introduced by N. Oury and M. Sozeau [4] is used in order to represent 
+   the order structure and the cpo structure on a given type. In this version, P. Courtieu started to 
+   design simple automatic tactics for reasoning on measures, making an essential use of the possibility
+   to rewrite under abstraction.
+ </description>
+ </libraryOverview>
+ <availableVersions>
+   <version status="Current">
+     <versionName>Version 8</versionName>
+     <year>May 2013</year>
+     <description>Compatible with Coq V8.4pl2. Also the development for positive real numbers has been slightly adapted.</description>
+   </version>
+   <version status="Previous">
+     <versionName>Version 7</versionName>
+     <description> This library also provides a livrary for positive real numbers represented with both integral part (in nat) and fractional part in [0,1].</description>
+   </version>
+ </availableVersions>
+ <experimentalContentsOrExtensions>
+   <contentDescription>This experimental library represents positive real numbers with an integral part 
+   and a fractional part in [0,1]. It requires an extra axiom for decidability of 
+   testing x= y in [0,1].</contentDescription>
+   <content>
+     <name>Markov</name>
+     <description>A general library to implement a minimimalization algorithm for a decidable predicat P on natural numbers, assuming a proof of ? n, P n.</description>
+     <linkDescription xlink:type="simple" xlink:href="https://www.lri.fr/~paulin/ALEA/html/ALEA.Markov.html" xlink:show="new">Markov</linkDescription>
+   </content>
+ </experimentalContentsOrExtensions>
+ <contributors>
+   <contact>
+     <name>Christine Paulin-Mohring</name>
+     <contactsDescription>Main contact. LRI, UMR 8623 Univ. Paris-Sud 11, CNRS &amp; INRIA Saclay - Île-de-France</contactsDescription>
+     <linkDescription xlink:type="simple" xlink:href="http://www.lri.fr/~paulin#alea" xlink:show="new">Web page Link</linkDescription>
+   </contact>
+ </contributors>
+<contentFiles>
+  <contentFile>
+     <name>Misc</name>
+     <description>A few preliminary definitions, in particular primitives for reasoning classically in Coq are defined.</description>
+     <linkDescription xlink:type="simple" xlink:href="https://www.lri.fr/~paulin/ALEA/html/ALEA.Misc.html" xlink:show="new">Misc</linkDescription>
+  </contentFile>
+  <contentFile>
+     <name>Cpo</name>
+     <description>The definition of structures for ordered sets and ?-complete partial orders 
+     (a monotonic sequence has a least-upper bound). We define the type O1?m O2 of monotonic functions and define the fixpoint-construction for monotonic functionals. Continuity is also defined.</description>
+     <linkDescription xlink:type="simple" xlink:href="https://www.lri.fr/~paulin/ALEA/html/ALEA.Ccpo.html" xlink:show="new">Cpo</linkDescription>
+  </contentFile>
+</contentFiles>
+<downloads>
+<download>
+  <description>Source Files Downloads</description>
+  <linkDescription xlink:type="simple" xlink:href="http://www.lri.fr/~paulin#alea" xlink:show="new">Library Download Link</linkDescription>
+</download>  
+</downloads>
+<requiredToolsForCompilation>
+  <tool>
+    <toolName>Coq</toolName>
+    <toolDescription>The source files can be compiled using Coq version V8.3.</toolDescription>
+    <toolLinkDescription xlink:type="simple" xlink:href="http://coq.inria.fr/" xlink:show="new">Coq Link</toolLinkDescription>
+  </tool>
+</requiredToolsForCompilation>
+<examples>
+  <example>
+    <name>IterFlip</name>
+     <description>A proof of probabilistic termination for a random walk. We consider the program
+            let rec iter x = if flip() then iter (x+1) else x
+         We prove that the probability that this program terminates is 1.</description>
+     <linkDescription xlink:type="simple" xlink:href="https://www.lri.fr/~paulin/ALEA/html/ALEA.IterFlip.html" xlink:show="new">IterFlip</linkDescription>
+  </example>
+  <example>
+    <name>RandomList</name>
+     <description>Construction of a distribution to pick uniformely an element in a list.</description>
+     <linkDescription xlink:type="simple" xlink:href="https://www.lri.fr/~paulin/ALEA/html/ALEA.RandomList.html" xlink:show="new">RandomList</linkDescription>
+  </example>
+</examples>
+<references>
+  <reference>
+    <description>Philippe Audebaud and Christine Paulin-Mohring. Proofs of randomized algorithms in Coq. 
+    Science of Computer Programming, 74(8):568–589, 2009. 
+    A preliminary version appeared in the proc. of MPC 06.</description>
+  </reference>
+ <reference>
+    <description>Dexter Kozen. Semantics of probabilistic programs. J. of Computer and System Science, 1981.</description>
+  </reference>
+</references>
+</library>
+</libraries>

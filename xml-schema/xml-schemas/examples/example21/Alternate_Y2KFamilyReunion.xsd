@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.CostelloReunion.org"
+            xmlns="http://www.CostelloReunion.org"
+            elementFormDefault="qualified">
+    <xsd:simpleType name="CostelloFamily">
+        <xsd:union>
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="Mary"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="Pat"/>
+                    <xsd:enumeration value="Patti"/>
+                    <xsd:enumeration value="Christopher"/>
+                    <xsd:enumeration value="Elizabeth"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="Barb"/>
+                    <xsd:enumeration value="Greg"/>
+                    <xsd:enumeration value="Dan"/>
+                    <xsd:enumeration value="Kimberly"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="Judy"/>
+                    <xsd:enumeration value="Peter"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="Tom"/>
+                    <xsd:enumeration value="Cheryl"/>
+                    <xsd:enumeration value="Marc"/>
+                    <xsd:enumeration value="Joe"/>
+                    <xsd:enumeration value="Brian"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="Roger"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="John"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:union>
+    </xsd:simpleType>
+    <xsd:element name="Y2KFamilyReunion">
+        <xsd:complexType>
+             <xsd:sequence>
+                 <xsd:element name="Participants">
+                     <xsd:complexType>
+                         <xsd:sequence>
+                             <xsd:element name="Name" type="CostelloFamily" maxOccurs="unbounded"/>
+                         </xsd:sequence>
+                     </xsd:complexType>
+                 </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

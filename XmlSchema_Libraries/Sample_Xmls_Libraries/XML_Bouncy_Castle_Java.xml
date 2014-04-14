@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<libraries xmlns:xlink="http://www.w3.org/1999/xlink">
+  <library>
+    <libraryName>Bouncy Castle Java API for Cryptography</libraryName>
+    <libraryOverview>
+      <linkDescription xlink:type="simple" xlink:href="http://www.bouncycastle.org/index.html" xlink:show="new">General Information about Bouncy Castle APIs</linkDescription>
+      <linkDescription xlink:type="simple" xlink:href="http://www.bouncycastle.org/java.html" xlink:show="new">Link to Java Project</linkDescription>
+    </libraryOverview>
+    <availableVersions>
+      <version status="Current">
+        <versionName>Release 1.50</versionName>
+        <description>
+          This release is primarily a feature release and adds support for client side TLS 1.2 and 
+          client side DTLS 1.2, ECDH and ECDSA for the OpenPGP library (RFC 6637), XSalsa20, ChaCha, SM3, 
+          Threefish, Skein and Poly1305 MAC to the provider and the lightweight library. 
+          The GOST PKCS#5 PBKDF2 PBE function and CryptoPro GOST CFB mode key meshing have also been added, 
+          together with support for RFC 6979 deterministic ECDSA. A simplified certificate path API has also 
+          been added to the PKIX package to provide people with another option for doing path validation and 
+          AEAD support has been added to the JDK15on provider where the JVM supports it. In terms of major bug 
+          fixes, CTS mode is now in alignment with the errata for it detailed in RFC 3692, GOST keys now 
+          correctly encode with the CryptoPro parameter sets where they are available, the TimeStampRequest 
+          stream constructor now sets the extensions field correctly, issues with default RC2 parameter 
+          encoding in CMS have been addressed and the DSTU4145 signer now truncates long hashes correctly 
+          in all cases (occasionally it used to remove 1 bit extra). Further details on these and other 
+          additions and bug fixes can be found in the release notes file accompanying the release.
+        </description>
+        <linkDescription xlink:type="simple" xlink:href="http://www.bouncycastle.org/latest_releases.html" xlink:show="new">
+          More Details
+        </linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="http://www.bouncycastle.org/releasenotes.html" xlink:show="new">
+          Release Notes
+        </linkDescription>
+      </version>
+    </availableVersions>
+    <contributors>
+      <contact>
+        <name>Contributors</name>
+        <linkDescription xlink:type="simple" xlink:href="http://www.bouncycastle.org/contributors.html" xlink:show="new">List of contributors</linkDescription>
+      </contact>
+      <contact>
+        <name>Crypto Workshop support contracts</name>
+        <linkDescription xlink:type="simple" xlink:href="http://www.cryptoworkshop.com/" xlink:show="new">Crypto Workshop</linkDescription>
+      </contact>
+    </contributors>
+    <downloads>
+      <download>
+        <description>
+          Release 1.50
+        </description>
+        <linkDescription xlink:type="simple" xlink:href="http://www.bouncycastle.org/download/crypto-150.tar.gz" xlink:show="new">crypto-150.tar.gz</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="http://www.bouncycastle.org/download/crypto-150.zip" xlink:show="new">crypto-150.zip</linkDescription>
+      </download>
+      <download>
+        <description>
+          SIGNED JAR FILES - 
+          From release 1.40 some implementations of encryption algorithms were removed 
+          from the regular jar files at the request of a number of users. 
+          Jars with names of the form *-ext-* still include these (at the moment the list is: NTRU).
+        </description>
+        <linkDescription xlink:type="simple" xlink:href="http://www.bouncycastle.org/latest_releases.html" xlink:show="new">SIGNED JAR FILES</linkDescription>
+      </download>
+      <download>
+        <description>
+          SOURCES AND JAVADOC
+        </description>
+        <linkDescription xlink:type="simple" xlink:href="http://www.bouncycastle.org/latest_releases.html" xlink:show="new">Web Link</linkDescription>
+      </download>
+    </downloads>
+    <supportingDocuments>
+      <document>
+        <documentName>
+          All Documentation Details
+        </documentName>
+        <documentDescription>
+          Contains all the required and related documentation details for this library
+        </documentDescription>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://www.bouncycastle.org/documentation.html" xlink:show="new">Documentation Details</documentLinkDescription>
+      </document>
+    </supportingDocuments>
+    <relatedLinks>
+      <relatedLinkDescription xlink:type="simple" xlink:href="http://www.bouncycastle.org/licence.html" xlink:show="new">License Details</relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="http://www.bouncycastle.org/wiki/display/JA1/Home" xlink:show="new">Wiki Link</relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="http://www.bouncycastle.org/jira/browse/BJA" xlink:show="new">Issue Tracker</relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="https://www.bouncycastle.org/donate/index.cgi" xlink:show="new">Donate</relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="http://www.bouncycastle.org/mailing_lists.html" xlink:show="new">Mailing Lists</relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="http://www.bouncycastle.org/oids.html" xlink:show="new">Object Identifiers</relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="http://www.bouncycastle.org/about.html" xlink:show="new">History</relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="http://www.bouncycastle.org/mirrors.html" xlink:show="new">Mirroring</relatedLinkDescription>
+    </relatedLinks>
+  </library>
+</libraries>

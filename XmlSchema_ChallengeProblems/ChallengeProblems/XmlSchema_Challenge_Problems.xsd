@@ -1,0 +1,217 @@
+﻿<!--Name: Ishwaree Argade-->
+<!--Challenge Problems XSD - First Version-->
+
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://tempuri.org/XMLSchema.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/XMLSchema.xsd"
+    xmlns:mstns="http://tempuri.org/XMLSchema.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  
+  <!--Declaring Simple Types-->
+  <xs:simpleType name="documentCategoryType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="Tutorial|Discussion|File|Other" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="categoriesType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="Application|Random Challenge|Crafted|Other"></xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="participantType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="Industry Researcher|Academia|Other"></xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="participantsType">
+    <xs:sequence>
+      <xs:element name="participant" maxOccurs="unbounded" type="participantType"></xs:element>
+      </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="solutionFormType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value ="Source Code|Binary|Formal Specification|Other"></xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <!--Declaring ComplexTypes and Groups-->
+  <xs:complexType name="supportingDocumentsType">
+    <xs:sequence>
+      <xs:group ref="groupDocuments"></xs:group>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name ="benchmarkType">
+    <xs:sequence>
+      <xs:element name="categories" type="categoriesType"></xs:element>
+      <xs:element name="description" type="xs:string"></xs:element>
+      <xs:element name="format" type="xs:string" minOccurs="0" maxOccurs="unbounded"></xs:element>
+      <xs:element name="timeline" type="xs:duration"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="documentType">
+    <xs:sequence>
+      <xs:element name="documentName" type="xs:string"></xs:element>
+      <xs:element name="documentCategory" type="documentCategoryType"></xs:element>
+      <xs:element name="link" type="xs:string" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ruleType">
+    <xs:sequence>
+      <xs:element name="rule" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="specificRequirementType">
+    <xs:sequence>
+      <xs:element name="specificRequirement" type="xs:string" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="solutionformatType">
+    <xs:sequence>
+      <xs:element name ="solutionForm" type="solutionFormType"></xs:element>
+      <xs:element name="solutionLink" type="xs:string"></xs:element>
+    </xs:sequence>  
+  </xs:complexType>
+  <xs:complexType name="intputRequirementsType">
+    <xs:sequence>
+      <xs:element name="inputRequirement" type="xs:string" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="outputRequirementsType">
+    <xs:sequence>
+      <xs:element name="outputRequirement" type="xs:string" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="libraryType">
+    <xs:sequence>
+      <xs:element name="library" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="libraryName" type="xs:string"></xs:element>
+            <xs:element name="libraryLink" type="xs:string"></xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="compilersType">
+    <xs:sequence>
+      <xs:element name="compiler" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="compilerName" type="xs:string"></xs:element>
+            <xs:element name="compilerDescription" type="xs:string" minOccurs="0"></xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="processorsType">
+    <xs:sequence>
+      <xs:element name="processor" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="processorName" type="xs:string"></xs:element>
+            <xs:element name="processorMemory" type="xs:string"></xs:element>
+            <xs:element name="processorDescription" type="xs:string" minOccurs="0"></xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="osType">
+    <xs:sequence>
+      <xs:element name="OS" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="osName" type="xs:string"></xs:element>
+            <xs:element name="osVersion" type="xs:string"></xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="allowedToolType">
+    <xs:sequence>
+      <xs:element name="tool" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="toolName" type="xs:string"></xs:element>
+            <xs:element name="toolDescription" type="xs:string"></xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ExecutionEnvironmentType">
+    <xs:sequence>
+      <xs:element name="libraries" type="libraryType" minOccurs="0"></xs:element>
+      <xs:element name="compilers" type="compilersType"></xs:element>
+      <xs:element name="processors" type="processorsType"></xs:element>
+      <xs:element name="OSUsed" type="osType"></xs:element>    
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="groupDocuments">
+    <xs:sequence>
+      <xs:element name="document" type="documentType" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="groupBenchmark">
+    <xs:sequence>
+      <xs:element name="benchmark" type="benchmarkType" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="solutionType">
+    <xs:sequence>
+      <xs:element name="solutionFormat" type="solutionformatType"></xs:element>
+      <xs:element name="solutionDescription" type="xs:string"></xs:element>
+      <xs:element name="inputRequirements" type="intputRequirementsType"></xs:element>
+      <xs:element name="outputRequirements" type="outputRequirementsType"></xs:element>
+      <xs:element name="executionEnvironment" type="ExecutionEnvironmentType"></xs:element>
+      <xs:element name="deadline" type="xs:dateTime"></xs:element>
+      <xs:element name="allowedTools" type="allowedToolType"></xs:element>
+      <xs:element name="allowedSubmissions" type="xs:integer"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="groupSolution">
+    <xs:sequence>
+      <xs:element name="solution" type="solutionType" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="benchmarksType">
+    <xs:sequence>
+      <xs:group ref="groupBenchmark"></xs:group>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="solutionsType">
+    <xs:sequence>
+      <xs:group ref="groupSolution"></xs:group>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!-- Main Schema -->
+ <xs:element name ="challenges">
+   <xs:complexType>
+      <xs:sequence>
+        <xs:element name="challenge" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="challengeName" type="xs:string" />
+              <xs:element name="area" type="xs:string" />
+              <xs:element name="rules" type="ruleType" minOccurs="0"></xs:element>
+              <xs:element name="challengeDescription" type="xs:string"></xs:element>
+              <xs:element name="specificRequirements" type="specificRequirementType" minOccurs="0"></xs:element>
+              <xs:element name="supportingDocuments" type="supportingDocumentsType" minOccurs="0"></xs:element>
+              <xs:element name="year" type="xs:gYear" minOccurs="0"></xs:element>
+              <xs:element name="assessmentDescription" type="xs:string"></xs:element>
+              <xs:element name="participants" type="participantsType"></xs:element>
+              <xs:element name="benchmarks" type="benchmarksType" minOccurs="0"></xs:element>
+              <xs:element name="solutions" type="solutionsType" minOccurs="0"></xs:element>  
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+  </xs:complexType>
+ </xs:element>
+</xs:schema>

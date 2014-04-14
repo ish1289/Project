@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<Y2KFamilyReunion xmlns="http://www.CostelloReunion.org"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation=
+                        "http://www.CostelloReunion.org
+                         Alternate_Y2KFamilyReunion.xsd">
+        <Participants>
+            <Name>Mary</Name>
+            <Name>Pat</Name>
+            <Name>Patti</Name>
+            <Name>Christopher</Name>
+            <Name>Elizabeth</Name>
+            <Name>Judy</Name>
+            <Name>Peter</Name>
+            <Name>Tom</Name>
+            <Name>Cheryl</Name>
+            <Name>Marc</Name>
+            <Name>Joe</Name>
+            <Name>Roger</Name>
+        </Participants>
+</Y2KFamilyReunion>

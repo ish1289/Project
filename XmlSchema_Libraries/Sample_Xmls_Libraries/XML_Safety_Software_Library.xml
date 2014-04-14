@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<libraries xmlns:xlink="http://www.w3.org/1999/xlink">
+  <library>
+    <libraryName>Microchip Certified Class B Safety Software Library for 16 bit &amp; PIC32 MCUs</libraryName>
+    <libraryOverview>
+      <description>
+        With the exponential rise of automatic electronic control in household appliances the need for 
+        reliability and safety of operation is a concern. For this reason the International Electrotechnical 
+        Commission introduced the IEC60730 standard, which requires that household appliances with automatic 
+        electronic control to be evaluated from the point of view of consumer and application safety. 
+        The Class B software classification of IEC60730 is required to have functions that are intended to 
+        prevent unsafe operation of wide range of appliances such as washing machines, dishwashers, dryers, 
+        refrigerators, freezers and cookers/stoves.
+      </description>
+      <linkDescription xlink:type="simple" xlink:href="http://www.microchip.com/stellent/idcplg?IdcService=SS_GET_PAGE&amp;nodeId=2680&amp;dDocName=en548988" xlink:show="new">More Details</linkDescription>
+    </libraryOverview>
+    <contentFiles>
+      <contentFile>
+        <description>Microchip provides the Class B Safety Software Library for its 16-bit and PIC32 MCUs which can
+        overcome the safety critical failures and is in accordance with the IEC 60730 standard to support
+        the Class B certification process. The Class B Safety Software Library implements the important test
+        and diagnostic methods that fall into the Class B category. These methods use various measures to
+        detect and respond to the software related faults and errors. The Class B Safety Software routines can
+        be called periodically at start-up or run time to test the following components: 
+        CPU Registers,CPU Program Counter,Invariable Memory, Variable Memory, Clock, Interrupt Handling and Execution
+        </description>
+      </contentFile>
+    <contentFile>
+      <description>
+        In addition there are different API’s that are available in the Class B Safety Software 
+        Library which can be used to directly integrate with the end user’s application to test 
+        and verify the critical functionalities of a controller and are intended to maximize the 
+        application reliability through Fault detection. When implemented on a 16-bit or PIC32 MCU 
+        microcontroller, these APIs help meet the IEC 60730 standard’s requirements.
+      </description>
+    </contentFile>
+    <contentFile>
+      <description>
+        Microchips’ offering of Class B Safety Software Library to appliance manufacturers who 
+        are obligated to comply with Class B of IEC 60730 is one instance which exemplifies its 
+        commitment to customer satisfaction. It provides the players of cost sensitive white goods 
+        market an additional value by cutting down their time to 
+        market and cost to obtain product certification.
+      </description>
+    </contentFile>
+   </contentFiles>
+    <downloads>
+      <download>
+        <description>16-Bit Class B Software</description>
+        <size>857 KB</size>
+        <linkDescription xlink:type="simple" xlink:href="http://www.microchip.com/Microchip.WWW.SecureSoftwareList/secsoftwaredownload.aspx?device=en548988&amp;lang=en&amp;ReturnURL=http://www.microchip.com/stellent/idcplg?IdcService=SS_GET_PAGE&amp;nodeId=2680&amp;dDocName=en548988#" xlink:show="new">Download Link</linkDescription>
+      </download>
+      <download>
+        <description>Class b PIC12-16 L:ibrary Version 1.02</description>
+        <size>399 KB</size>
+        <linkDescription xlink:type="simple" xlink:href="http://www.microchip.com/Microchip.WWW.SecureSoftwareList/secsoftwaredownload.aspx?device=en548988&amp;lang=en&amp;ReturnURL=http://www.microchip.com/stellent/idcplg?IdcService=SS_GET_PAGE&amp;nodeId=2680&amp;dDocName=en548988#" xlink:show="new">Download Link</linkDescription>
+      </download>
+      <download>
+        <description>PIC18F ClassB-2 Library</description>
+        <size>211 KB</size>
+        <linkDescription xlink:type="simple" xlink:href="http://www.microchip.com/Microchip.WWW.SecureSoftwareList/secsoftwaredownload.aspx?device=en548988&amp;lang=en&amp;ReturnURL=http://www.microchip.com/stellent/idcplg?IdcService=SS_GET_PAGE&amp;nodeId=2680&amp;dDocName=en548988#" xlink:show="new">Download Link</linkDescription>
+      </download>
+      <download>
+        <description>PIC32 Class B Software</description>
+        <size>422 KB</size>
+        <linkDescription xlink:type="simple" xlink:href="http://www.microchip.com/Microchip.WWW.SecureSoftwareList/secsoftwaredownload.aspx?device=en548988&amp;lang=en&amp;ReturnURL=http://www.microchip.com/stellent/idcplg?IdcService=SS_GET_PAGE&amp;nodeId=2680&amp;dDocName=en548988#" xlink:show="new">Download Link</linkDescription>
+      </download>
+    </downloads>
+    <requiredToolsForCompilation>
+      <tool>
+        <toolName>Certification Details</toolName>
+        <toolDescription>To further facilitate Class B certification the library has been certified by VDE, an internationally accredited testing and certification institute, to be fully compliant with the requirements under IEC 60730. If the library is used without any changes in an application this certification can be applied to 
+        the certification of the end application.</toolDescription>
+      </tool>
+    </requiredToolsForCompilation>
+    <supportingDocuments>
+      <document>
+        <documentName>
+          AN1229 - Class B Safety Software Library for PIC MCUs and dsPIC DSCs
+        </documentName>
+        <documentDescription>Date Created: 4/24/2012 4:27:44 PM</documentDescription>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://ww1.microchip.com/downloads/en/AppNotes/01229C.pdf" xlink:show="new">Link</documentLinkDescription>
+      </document>
+      <document>
+        <documentName>
+          Class B Certificate 16bit - VDE
+        </documentName>
+        <documentDescription>Date Created: 12/7/2011 5:52:38 PM</documentDescription>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://ww1.microchip.com/downloads/en/DeviceDoc/PIC24E_PIC24F_PIC24H_dsPIC33E_dsPIC30%2033F%20VDE%20Certificate_Nov%202011%20(2).pdf" xlink:show="new">Link</documentLinkDescription>
+      </document>
+      <document>
+        <documentName>
+          Class B Certificate 8bit - VDE
+        </documentName>
+        <documentDescription>Date Created: 10/17/2011 2:21:00 PM	</documentDescription>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://ww1.microchip.com/downloads/en/DeviceDoc/VDE%20Class%20B%20Certificate%20-%208bit.pdf" xlink:show="new">Link</documentLinkDescription>
+      </document>
+      <document>
+        <documentName>
+          Class B Certificate PIC32 - VDE
+        </documentName>
+        <documentDescription>Date Created: 8/23/2010 6:36:40 PM</documentDescription>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://ww1.microchip.com/downloads/en/DeviceDoc/PIC32Certi_complete.pdf" xlink:show="new">Link</documentLinkDescription>
+      </document>
+    </supportingDocuments>
+  </library>
+</libraries>

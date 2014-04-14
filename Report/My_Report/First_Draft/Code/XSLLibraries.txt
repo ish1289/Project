@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:msxsl="urn:schemas-microsoft-com:xslt" exclude-result-prefixes="msxsl"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+<xsl:output method="xml" indent="yes"/>
+<xsl:template match="/">
+<html>
+<style type="text/css">
+  .alignmentCenter{
+  text-align: center;
+}
+.setWidth{
+ width: 50%;
+}
+}
+</style>
+<body>
+<xsl:for-each select="libraries/library">
+ <h3 class="alignmentCenter">
+ <xsl:value-of select="libraryName"/>
+ </h3>
+ <xsl:if test="libraryOverview">
+  <h3><xsl:text>Overview:- </xsl:text></h3> 
+  <xsl:value-of select="libraryOverview"/>
+  <br/>
+  </xsl:if>
+  <xsl:if test="contributors">
+   <h3>Contributors:-</h3>
+   <xsl:for-each select="contributors/contact">
+   <xsl:if test="name">
+   <li>
+   <xsl:value-of select="name"/>
+   </li>
+   </xsl:if>
+   <xsl:if test="contactsDescription">
+    <xsl:text>Description-</xsl:text>
+    <xsl:for-each select="contactsDescription">
+    <xsl:value-of select="."/>
+    <br/>
+    </xsl:for-each>
+   </xsl:if>
+   <xsl:if test="phone">
+     <xsl:text>Phone-</xsl:text>
+     <br/>
+     <xsl:for-each select="phone">
+     <xsl:value-of select="."/>
+     <br/>
+      </xsl:for-each>
+   </xsl:if>
+   <xsl:if test="email">
+     <xsl:text>Email-</xsl:text>
+     <br/>
+     <xsl:for-each select="email">
+     <xsl:value-of select="."/>
+     <br/>
+     </xsl:for-each>
+   </xsl:if>
+  <xsl:if test="linkDescription">
+   <xsl:for-each select="linkDescription">                
+   <xsl:element name="a">
+   <xsl:attribute name="href">
+   <xsl:value-of select="./@xlink:href" />
+   </xsl:attribute>
+   <xsl:value-of select="." />
+   </xsl:element>
+   <br/>
+   </xsl:for-each>
+   </xsl:if>
+   </xsl:for-each>
+  </xsl:if>           
+ <xsl:if test="contentFiles">
+   <h3><xsl:text>Content Files:-</xsl:text></h3>
+   <xsl:if test="contentFiles/contentDescription">
+   <b>
+   <xsl:text>Description:- </xsl:text>
+   </b><xsl:value-of select="contentFiles/contentDescription"/><br/>
+   </xsl:if> 
+   <b><xsl:text>Contents-</xsl:text></b>
+   <br/>
+   <xsl:for-each select="contentFiles/contentFile"> 
+   <xsl:if test="name">
+  <b><xsl:value-of select="name"></xsl:value-of></b><br/>
+  </xsl:if>
+  <xsl:if test="description">
+   <xsl:value-of select="description"></xsl:value-of><br/>
+   </xsl:if>
+  <xsl:if test="linkDescription">
+   <xsl:for-each select="linkDescription">                
+    <xsl:element name="a">
+    <xsl:attribute name="href">
+    <xsl:value-of select="./@xlink:href" />
+    </xsl:attribute>
+    <xsl:value-of select="." />
+    </xsl:element>
+    <br/>
+    </xsl:for-each>
+    </xsl:if> <br/>
+   </xsl:for-each>
+ </xsl:if>           
+</xsl:for-each>  
+</body>
+</html>
+</xsl:template>
+</xsl:stylesheet>

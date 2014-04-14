@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xlink="http://www.w3.org/1999/xlink">
+<!--Importing Common XMLSchema-->
+<xs:include schemaLocation="D:\MEng_Docs\MEng_Docs\Project\Common_Schema\XmlSchema_Common.xsd"/> 
+<xs:include schemaLocation="D:\MEng_Docs\MEng_Docs\Project\XmlSchema_Libraries\XMLSchema_Common_Libraries_Tools.xsd"/>
+<xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="http://www.w3.org/1999/xlink.xsd"/>  
+  
+<xs:complexType name="functionalitiesType">
+  <xs:sequence>
+    <xs:element name="functionality" type="descriptionType" maxOccurs="unbounded"></xs:element>
+  </xs:sequence>
+</xs:complexType>
+<xs:complexType name="intendedUsersType">
+  <xs:sequence>
+    <xs:element name="user" type="xs:string" maxOccurs="unbounded"></xs:element>
+  </xs:sequence>
+</xs:complexType>
+<xs:complexType name="downloadType">
+  <xs:sequence>
+    <xs:element name="description" type="xs:string" minOccurs="0"></xs:element>
+    <xs:element name="size" type="xs:string" minOccurs="0"></xs:element>
+    <xs:element name="format" type="xs:string" minOccurs="0"></xs:element>
+    <xs:element name="linkDescription" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:simpleContent>
+                  <xs:extension base="xs:string">
+                    <xs:anyAttribute namespace="http://www.w3.org/1999/xlink"/>
+                  </xs:extension>
+           </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+  </xs:sequence>
+<xs:attribute name="status" use="required">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="Source"/>
+        <xs:enumeration value="Binary"/>
+        <xs:enumeration value="Other"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+</xs:complexType>
+<xs:complexType name="howToObtainType">
+  <xs:sequence>
+    <xs:element name="Download" type="downloadType" maxOccurs="unbounded"></xs:element>
+  </xs:sequence>
+</xs:complexType>
+<xs:complexType name="inputRequirementsType">
+    <xs:sequence>
+      <xs:element name="inputRequirement" type="xs:string" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+ </xs:complexType>
+<xs:complexType name="compilersType">
+    <xs:sequence>
+      <xs:element name="compiler" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="compilerName" type="xs:string"></xs:element>
+            <xs:element name="compilerDescription" type="xs:string" minOccurs="0"></xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="processorsType">
+    <xs:sequence>
+      <xs:element name="processor" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="processorName" type="xs:string"></xs:element>
+            <xs:element name="processorMemory" type="xs:string"></xs:element>
+            <xs:element name="processorDescription" type="xs:string" minOccurs="0"></xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="osType">
+    <xs:sequence>
+      <xs:element name="OS" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="osName" type="xs:string"></xs:element>
+            <xs:element name="osVersion" type="xs:string"></xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>   
+ <xs:complexType name="languagesType">
+   <xs:sequence>
+     <xs:element name="language" type="xs:string" maxOccurs="unbounded"></xs:element>
+   </xs:sequence>
+ </xs:complexType>
+ <xs:complexType name="executionEnvironmentType">
+   <xs:sequence>
+     <xs:element name="languagesUsed" type="languagesType" minOccurs="0"></xs:element>
+     <xs:element name="compilers" type="compilersType" minOccurs="0"></xs:element>
+     <xs:element name="processors" type="processorsType" minOccurs="0"></xs:element>
+     <xs:element name="OSUsed" type="osType" minOccurs="0"></xs:element>
+     <xs:element name="description" type="xs:string" minOccurs="0"></xs:element>
+   </xs:sequence>
+ </xs:complexType>
+<xs:element name="verificationTools">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="verificationTool"  maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="toolName" type="xs:string"></xs:element>
+            <xs:element name="toolOverview" type="descriptionType" minOccurs="0"></xs:element>
+            <xs:element name="availableVersions" type="versionsType" minOccurs="0"></xs:element>
+            <xs:element name="Functionalities" type="functionalitiesType" minOccurs="0"></xs:element>
+            <xs:element name="intendedUsers" type="intendedUsersType" minOccurs="0"></xs:element>
+            <xs:element name="experimentalContentsOrExtensions" type="exContentsType" minOccurs="0"></xs:element>
+            <xs:element name="contacts" type="contactsType" minOccurs="0"></xs:element>
+            <xs:element name="contentFiles" type="contentFilesType" minOccurs="0"></xs:element>
+            <xs:element name="supportingDocuments" type="supportingDocumentsType" minOccurs="0"></xs:element>
+            <xs:element name="relatedLinks" type="relatedLinksType" minOccurs="0"></xs:element> 
+            <xs:element name="relatedTools" type="toolsType" minOccurs="0"></xs:element>
+            <xs:element name="howToObtain" type="howToObtainType" minOccurs="0"></xs:element>
+            <xs:element name="executionEnvironment" type="executionEnvironmentType" minOccurs="0"></xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+</xs:schema>

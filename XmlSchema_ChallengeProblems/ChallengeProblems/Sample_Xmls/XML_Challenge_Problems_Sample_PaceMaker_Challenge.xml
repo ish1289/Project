@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<challenges>
+  <challenge>
+    <challengeName>Pacemaker formal method challenge</challengeName>
+    <area>Formal Methods</area>
+    <challengeDescription>
+      <description>
+        Boston Scientific has released into the public domain the system specification for a previous generation pacemaker. A major reason for publishing this specification is to have it serve as the basis
+        for a challenge to the formal methods community, in the spirit of other Grand Challenges.
+      </description>
+    </challengeDescription>
+    <rules>
+      <rule>
+        <ruleDescription>This Challenge has multiple dimensions/levels. Participants may choose to submit a complete version of the pacemaker software, designed to run on specified 
+      PIC hardware - or may choose to submit just a formal requirements documents - or anything in-between.
+      </ruleDescription>
+      </rule>
+    </rules>
+    <supportingDocuments>
+      <document>
+        <documentName>Timing Cycles</documentName>
+        <documentLinkDescription>http://sqrl.mcmaster.ca/_SQRLDocuments/Timing_Cycles.pdf</documentLinkDescription>
+      </document>
+      <document>
+        <documentName>Advanced Timing Cycles</documentName>
+        <documentLinkDescription>http://sqrl.mcmaster.ca/_SQRLDocuments/Advanced_Timing_Cycles.pdf</documentLinkDescription>
+      </document>
+      <document>
+        <documentName>Pacing Codes and Modes: Concepts</documentName>
+        <documentLinkDescription>http://sqrl.mcmaster.ca/_SQRLDocuments/Pacing_Modes.pdf</documentLinkDescription>
+      </document>
+      <document>
+        <documentName>Hardware Platform Design</documentName>
+        <documentLinkDescription>http://sqrl.mcmaster.ca/_SQRLDocuments/UofMinnesota%20FINAL%20REPORT.pdf</documentLinkDescription>
+      </document>
+      <document>
+        <documentName>Challenge Specification Details</documentName>
+        <documentLinkDescription>http://sqrl.mcmaster.ca/_SQRLDocuments/PACEMAKER.pdf</documentLinkDescription>
+      </document>
+      <document>
+        <documentName>FAQS and Pacemaker Information</documentName>
+        <documentLinkDescription>http://wiki.cas.mcmaster.ca/index.php/Pacemaker</documentLinkDescription>
+      </document>
+    </supportingDocuments>
+    <expectedSolution>
+      <AllowedForms>Source Code</AllowedForms>
+      <AllowedForms>Binary</AllowedForms>
+      <AllowedForms>Formal Specification</AllowedForms>
+    </expectedSolution>
+    <contactDetails>
+      <contact>
+        <name>Pacemaker Email</name>
+        <email>pacemaker@sqrl.mcmaster.ca</email>
+      </contact>
+    </contactDetails>
+  </challenge>
+</challenges>

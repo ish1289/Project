@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.repository.org"
+            xmlns="http://www.repository.org"
+            elementFormDefault="qualified">
+    <xsd:element name="Reviewer">
+        <xsd:complexType>
+             <xsd:sequence>
+                 <xsd:element name="Name">
+                     <xsd:complexType>
+                         <xsd:sequence>
+                             <xsd:element name="First" type="xsd:string"/>
+                             <xsd:element name="Last" type="xsd:string"/>
+                         </xsd:sequence>
+                     </xsd:complexType>
+                 </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:attribute name="id" type="xsd:ID"/>
+</xsd:schema>
+

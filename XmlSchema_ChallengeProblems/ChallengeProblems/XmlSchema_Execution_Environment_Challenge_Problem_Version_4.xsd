@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="intputRequirementsType">
+    <xs:sequence>
+      <xs:element name="inputRequirement" type="xs:string" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="outputRequirementsType">
+    <xs:sequence>
+      <xs:element name="outputRequirement" type="xs:string" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="libraryType">
+    <xs:sequence>
+      <xs:element name="library" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="libraryName" type="xs:string"></xs:element>
+            <xs:element name="libraryLink" type="xs:string" minOccurs="0"></xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="compilersType">
+    <xs:sequence>
+      <xs:element name="compiler" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="compilerName" type="xs:string"></xs:element>
+            <xs:element name="compilerDescription" type="xs:string" minOccurs="0"></xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="processorsType">
+    <xs:sequence>
+      <xs:element name="processor" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="processorName" type="xs:string"></xs:element>
+            <xs:element name="processorMemory" type="xs:string"></xs:element>
+            <xs:element name="processorDescription" type="xs:string" minOccurs="0"></xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="osType">
+    <xs:sequence>
+      <xs:element name="OS" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="osName" type="xs:string"></xs:element>
+            <xs:element name="osVersion" type="xs:string"></xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="allowedToolType">
+    <xs:sequence>
+      <xs:element name="tool" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="toolName" type="xs:string"></xs:element>
+            <xs:element name="toolDescription" type="xs:string"></xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="deadlineType">
+    <xs:sequence>
+      <xs:element name="deadlineName" type="xs:string" minOccurs="0"></xs:element>
+      <xs:element name="submissionDeadline" type="xs:dateTime"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="deadlinesType">
+    <xs:sequence>
+      <xs:element name="deadline" type="deadlineType" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ExecutionEnvironmentType">
+    <xs:sequence>
+      <xs:element name="environmentDescription" type="xs:string" minOccurs="0" ></xs:element>
+      <xs:element name="libraries" type="libraryType" minOccurs="0"></xs:element>
+      <xs:element name="compilers" type="compilersType" minOccurs="0"></xs:element>
+      <xs:element name="processors" type="processorsType" minOccurs="0"></xs:element>
+      <xs:element name="OSUsed" type="osType" minOccurs="0"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="expectedSolutionType">
+    <xs:sequence>
+      <xs:element name="AllowedForms" type="xs:string" maxOccurs="unbounded" minOccurs="0"></xs:element>
+      <xs:element name="inputRequirements" type="intputRequirementsType" minOccurs="0"></xs:element>
+      <xs:element name="outputRequirements" type="outputRequirementsType" minOccurs="0"></xs:element>
+      <xs:element name="executionEnvironment" type="ExecutionEnvironmentType" minOccurs="0"></xs:element>
+      <xs:element name="deadlines" type="deadlinesType" minOccurs="0"></xs:element>
+      <xs:element name="allowedTools" type="allowedToolType" minOccurs="0"></xs:element>
+      <xs:element name="allowedSubmissions" type="xs:string" minOccurs="0"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

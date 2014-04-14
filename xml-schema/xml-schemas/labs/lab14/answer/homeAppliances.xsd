@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.homeAppliances.org"
+        xmlns="http://www.homeAppliances.org"
+        elementFormDefault="qualified"
+        xmlns:j="http://www.juicers.org"
+        xmlns:a="http://www.appliances.org">
+    <xsd:import namespace="http://www.juicers.org"
+                schemaLocation="juicers.xsd"/>
+    <xsd:import namespace="http://www.appliances.org"
+                schemaLocation="appliances.xsd"/>
+    <xsd:complexType name="stereoAppliance">
+        <xsd:complexContent>
+            <xsd:extension base="a:appliance">
+                <xsd:sequence>
+                    <xsd:element name="brand" minOccurs="1" maxOccurs="1" type="xsd:string"/>
+                    <xsd:element name="type" minOccurs="1" maxOccurs="1" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="stereo" type="stereoAppliance" substitutionGroup="a:appliance"/>
+    <xsd:element name="juicer" type="j:juiceAppliance" substitutionGroup="a:appliance"/>
+    <xsd:element name="homeAppliances">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="a:appliance" minOccurs="0" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

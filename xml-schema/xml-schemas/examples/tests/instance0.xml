@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Book xmlns="http://www.books.org"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.books.org file:/C:/other-computer/new-xml-course/xml-schemas/examples/tests/BookStorexxx.xsd">
+    <Title>apple</Title>
+    <Author>A</Author>
+    <Date>Date0</Date>
+    <ISBN>ISBN0</ISBN>
+    <Publisher>Publisher0</Publisher>
+</Book>

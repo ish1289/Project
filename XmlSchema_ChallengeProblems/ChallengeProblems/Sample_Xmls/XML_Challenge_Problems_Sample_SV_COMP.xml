@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<challenges xmlns:xlink="http://www.w3.org/1999/xlink">
+  <challenge>
+    <challengeName>Second Intl. Competition on Software Verification</challengeName>
+    <area>Software Verification</area>
+    <challengeDescription>
+      <description>
+        There are several new and powerful software-verification tools around, but they are very difficult to compare.
+        The reason is that no widely distributed benchmark suite is available and most concepts are only validated in research prototypes.
+        This competition wants to change this. Only few projects aim at producing stable tools that can be used
+        by people outside the respective development groups, and the development of such tools is not continuous.
+        Also, PhD students and PostDocs do not adequately benefit from tool development because theoretical papers
+        count more than papers that present technical contributions, like tool papers.
+        Through its visibility, this competition wants to change this, showing off the latest implementation of the
+        research results in our community, and give credits and benefits to researchers and students who spend considerable amounts
+        of time developing verification algorithms and software packages.
+        Goals of the Competition 1)Provide a snapshot of the state-of-the-art in software verification to the community.
+        That means to compare, independently from particular paper projects and specific techniques, different verification tools
+        in terms of precision and performance.
+        2) Increase the visibility and credits that tool developers receive.
+        That means to provide a forum for presentation of tools and discussion of the latest technologies,
+        and to give the students the opportunity to publish about the development work that they have done.
+        3)Establish a set of benchmarks for software verification in the community.
+        This means to create and maintain a set of programs together with explicit properties to check,
+        and to make those publicly available for researchers to be used in performance comparisons when evaluating a new technique.
+      </description>
+      <challengeLocation>Rome, Italy</challengeLocation>
+      <associatedConference>TACAS</associatedConference>
+    </challengeDescription>
+    <rules>
+      <rule>
+        <ruleCategory>General Competition Description</ruleCategory>
+        <ruleDescription>
+          The competition will compare state-of-the-art tools for software verification with respect to effectiveness and efficiency.
+          The competition consists of two phases: a training phase,
+          in which benchmark programs are given to the tool developers, and an evaluation phase, in which all participating verifiers will be executed on benchmark verification tasks, and the number of solved instances as well as the runtime is measured.
+          The competition is performed and presented by the TACAS Competition Chair.
+        </ruleDescription>
+        </rule>
+      <rule>
+        <ruleCategory>Execution of Verification Task</ruleCategory>
+        <ruleDescription>
+          A verification run is a non-interactive execution of a competition candidate on a single verification task,
+          in order to check if the following statement is correct: "The program satisfies the property."
+        </ruleDescription>
+        <inputRequirements>
+          <inputRequirement> A verification task consists of a C program and a property.</inputRequirement>
+          <inputRequirement>
+            The property to be verified for all categories except 'MemorySafety' is the reachability property p_error,
+            which is encoded in the program source code (using the error label 'ERROR').
+            Property	Description
+            p_error	The C label 'ERROR' is not reachable from the entry of function 'main' on any finite execution of the program.
+          </inputRequirement>
+        </inputRequirements>
+        <outputRequirements>
+          <outputRequirement>The result of a verification run is a triple (ANSWER, WITNESS, TIME)</outputRequirement>
+          <outputRequirement>
+            ANSWER is one of the following outcomes: 1)TRUE / SAFE	The property
+            is satisfied (i.e., there is no finite path that violates the property).
+            2) FALSE / UNSAFE + Error Path	The property is violated (i.e., there exists a
+            finite path that violates the property) and a counterexample path is produced.
+            3) UNKNOWN	The tool cannot decide the problem or terminates by a tool crash, time-out,
+            or out-of-memory (i.e., the competition candidate does not succeed in computing an answer TRUE or FALSE).
+          </outputRequirement>
+          <outputRequirement>
+            If the answer is FALSE / UNSAFE, then a counterexample path must be produced and provided as WITNESS.
+            There is no particular fixed format for the error path. The path has to be written to a file or on screen in a
+            reasonable format to make it possible to check validity.
+          </outputRequirement>
+          <outputRequirement>
+            TIME is the consumed CPU time until the verifier terminates. It includes the consumed CPU time of all
+            processes that the verifier starts. If TIME is equal to or larger than the time limit, then the verifier is
+            terminated and the ANSWER is set to "timeout" (and interpreted as UNKNOWN).
+          </outputRequirement>
+          <outputRequirement>
+            If a verification run detects that the property p_mem-safety is violated, then the verification result is required to be
+            more specific; the violated (partial) property has to be given in the result:
+            FALSE(p), with p in {p_valid-free, p_valid-deref, p_valid-memtrack}, means that the (partial) property p is violated.
+            Agreement: All programs in category 'MemorySafety' violate at most one (partial)
+            property p (p in {p_valid-free, p_valid-deref, p_valid-memtrack})
+          </outputRequirement>
+        </outputRequirements>
+         <ruleLinkDescription xlink:type="simple" xlink:href="http://sv-comp.sosy-lab.org/2013/rules.php#programs" xlink:show="new">Details of "Property for Memory Safety"</ruleLinkDescription>
+      </rule>
+      <rule>
+        <ruleCategory>Participation Constraints</ruleCategory>
+        <ruleDescription>
+          A verification tool is qualified to participate as competition candidate if the tool is publicly available on
+          the internet (for the GNU/Linux plattform, more specifically, it must run on an x86_64 machine) and succeeds for more than 50 % of all training programs to parse the input
+          and start the verification process (a tool crash during the verification phase does not disqualify).
+          A person (participant) is qualified as competition contributor for a competition candidate if the person is a
+          contributing designer/developer of the
+          submitted competition candidate (witnessed by occurrence of the person’s name on the tool's project web page,
+          a tool paper, or in the revision logs).
+          A paper is qualified if the quality of the description of the competition candidate suffices to run the tool in the competition and meets the scientific
+          standards of TACAS as competition-candidate representation in the TACAS proceedings.
+        </ruleDescription>
+        </rule>
+      <rule>
+        <ruleCategory>Ranking of Participants</ruleCategory>
+        <ruleDescription>
+          The participating competition candidates are ranked according to the sum of points.
+          Competition candidates with the same sum of points are sub-ranked according to success-runtime.
+          The success-runtime for a competition candidate is the total CPU time over all benchmarks for which the
+          competition candidate reported a correct verification result. The participants have the opportunity to check
+          the verification results against their own expected results and discuss inconsistencies with the competition chair.
+        </ruleDescription>
+      </rule>
+      <rule>
+        <ruleCategory>Opting out of competition</ruleCategory>
+        <ruleDescription>
+          Every team can submit for every category (including meta categories, i.e., categories that consist of
+          verification tasks from other categories) an opt-out statement. In the results table, a dash is entered for that category;
+          no execution results are reported in that category. If a team participates (i.e., does not opt-out), *all* verification tasks
+          that belong to that category are executed with the verifier. The obtained results are reported in the results table; the scores
+          for meta categories are weighted according to the established procedure. (This means, a tool can participate in a meta category and
+          at the same time opt-out from a sub-category,
+          with having the real results of the tool counted towards the meta category, but not reported for the sub-category.)
+        </ruleDescription>
+      </rule>
+    </rules>
+    <supportingDocuments>
+      <document>
+        <documentName>Submission Paper Format</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://sv-comp.sosy-lab.org/2013/submission.php" xlink:show="new">
+          Submissions</documentLinkDescription>
+      </document>
+      <document>
+        <documentName>Benchmark Tasks Details</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="https://svn.sosy-lab.org/software/sv-benchmarks/tags/svcomp13" xlink:show="new">
+          All verification tasks are available for web browsing and for download via
+          the following SVN repository
+        </documentLinkDescription>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://sv-comp.sosy-lab.org/2013/benchmarks.php" xlink:show="new">
+          Benchmark Verification Tasks
+        </documentLinkDescription>
+      </document>
+    </supportingDocuments>
+    <year>2012</year>
+    <assessmentDescription>
+      <description>
+        A meta category is a category that consists of several sub-categories.
+        The scores in such a meta category is computed from the normalized scores in its sub-categories.
+        The scores for a (meta) category is computed from the scores of all k contained (sub-) categories using a normalization
+        by the number of contained verification tasks: The normalized score sn_i of a verifier in category i
+        is obtained by dividing the score s_i by the number of tasks n_i in category i (sn_i = s_i / n_i),
+        then the sum st = SUM(sn_1, ..., sn_1, ..., sn_k) over the normalized scores of the categories is multiplied by
+        the average number of tasks per category.
+        The absolute score values for incorrect results are higher compared to correct results,
+        because a single correct answer should not be able to compensate for a wrong answer.
+        (An imaginary competition candidate that generates random answers should be ranked with a negative sum of points.)
+      </description>
+      <assessmentLinkDescription xlink:type="simple" xlink:href="http://sv-comp.sosy-lab.org/2013/committee.php" xlink:show="new">
+        Link to jury members
+      </assessmentLinkDescription>
+      <scoreDetails>
+        <score>
+          <points>0</points>
+          <description>UNKNOWN	Failure to compute verification result, out of resources, program crash.</description>
+        </score>
+        <score>
+          <points>+1</points>
+          <description>
+            FALSE / UNSAFE
+            correct	The error in the program was found and an error path was reported.
+          </description>
+        </score>
+        <score>
+          <points>-4</points>
+          <description>
+            FALSE / UNSAFE
+            incorrect	An error is reported for a program that fulfills the property (false alarm, incomplete analysis).
+          </description>
+        </score>
+        <score>
+          <points>+2</points>
+          <description>
+            TRUE / SAFE
+            correct	The program was analyzed to be free of errors.
+          </description>
+        </score>
+        <score>
+          <points>-8</points>
+          <description>
+            TRUE / SAFE
+            incorrect	The program had an error but the competition candidate did not find it (missed bug, unsound analysis).
+            The results of type TRUE / SAFE yield higher absolute score values compared to type FALSE / UNSAFE,
+            because it is expected to be 'easier' to detect errors than it is to prove correctness.
+          </description>
+        </score>
+      </scoreDetails>   
+    </assessmentDescription>
+    <benchmarks>
+      <benchmark>
+        <categories>Other</categories>
+        <description>
+          The training verification tasks will be provided by a specified date on this web page.
+          A subset of the training verification tasks will be used for the actual competition experiments.
+          The jury agrees on a procedure to define the subset (if not all verification tasks are taken).
+          Potential competition participants are invited to submit benchmark verification tasks until the specified date.
+        </description>
+        <format>
+          The programs are assumed to be written in GNU C (most of them adhere to ANSI C).
+          Some programs are provided in CIL (C Intermediate Language).
+          Verification tasks have to fulfill two requirements, to be eligible for the competition:
+          (1) the program has to be written in GNU C or ANSI C (note that in contrast to the previous competition,
+          the programs are not necessarily CIL-preprocessed), and (2) the property is instrumented into the program
+          and is violated if the label 'ERROR' is reached or an (implicit) memory-safety property does not hold.
+          A verification tool can assume that a function call __VERIFIER_assume(expression) has the following meaning: 
+          If 'expression' is evaluated to '0', then the function loops forever, otherwise the function returns (no side effects). 
+          The verification tool can assume the following implementation:
+          void __VERIFIER_assume(int expression) { if (!expression) { LOOP: goto LOOP; }; return; }
+          In order to model nondeterministic values, the following functions can be assumed to 
+          return an arbitrary value of the indicated type: __VERIFIER_nondet_X() (and nondet_X(), deprecated) with X in 
+          {bool, char, int, float, loff_t, long, pchar, pointer, pthread_t, sector_t, short, size_t, u32, uchar, uint, ulong, unsigned, ushort} 
+          (no side effects, pointer for void *, etc.). The verification tool can assume that the functions are implemented 
+          according to the following template:
+          X __VERIFIER_nondet_X() { X val; return val; }. 
+          For modeling an atomic execution of a sequence of executions in a multi-threaded run-time environment, 
+          statements can be placed in a function whose name matches '__VERIFIER_atomic_'. 
+          Verifiers are instructed to assume that the execution of such a function is not interrupted
+        </format>
+      </benchmark>
+    </benchmarks>
+    <expectedSolution>
+      <AllowedForms>
+        Competition Contributions consist of a contribution paper that describes the competition contribution, including an outline of the concepts, technology, libraries, and tool infrastructure used in the competition, installation instructions, a specification of the version and parameters to be used for the competition, as well as a link to the executable tool (= competition candidate).
+        Contribution papers have a maximum of 3 pages in LNCS style. 
+      </AllowedForms>
+      <inputRequirements>
+        <inputRequirement>The competition environment feeds the candidates with parameters when started for a verification run. </inputRequirement>
+        <inputRequirement>There is one global set of parameters that can be used to tune the verifier to the benchmark programs. 
+        This set of (command-line) parameters have to be defined in the competition contribution paper. There is one category (Drivers64) that needs to be verified with the information that a 64-bit architecture is used, 
+        thus, if the verifier has a parameter to handle this aspect, it needs to be defined.</inputRequirement>
+        <inputRequirement>There is one category (MemSafety) that requires an additional set of parameters to specify the property. 
+        This needs to be specified in the competition contribution as well.</inputRequirement>
+        <inputRequirement>There are two categories (DeviceDrivers64 and ControlFlowInteger-MemSimple) 
+        for which additional parameters are allowed to specify the simple memory model.</inputRequirement>
+      </inputRequirements>
+      <outputRequirements>
+        <outputRequirement>Every verification run will be started by a batch script that collects statistics and forwards 
+        for each competition candidate 
+        and verification task one of the outcomes: TRUE / SAFE (property holds), FALSE / UNSAFE (property does not hold, bug reported), 
+        UNKNOWN (verification result not known, resources exhausted, crash).</outputRequirement>
+      </outputRequirements>
+      <executionEnvironment>
+        <environmentDescription>Every experiment has a runtime limit of 15 min. 
+        The runtime is measured in seconds of CPU time.</environmentDescription>
+        <processors>
+          <processor>
+            <processorName>Intel i7-2600K </processorName>
+            <processorMemory>16 GB of RAM, of which exactly 15 GB will be made available to the competition candidate</processorMemory>
+            <processorDescription>3.4 GHz 64-bit Quad Core CPU</processorDescription>
+          </processor>
+        </processors>
+        <OSUsed>
+          <OS>
+            <osName>GNU/Linux operating system</osName>
+            <osVersion>x86_64-linux, Ubuntu 12.04</osVersion>
+          </OS>
+        </OSUsed>
+      </executionEnvironment>
+      <deadlines>
+        <deadline>
+          <deadlineName>Submission Deadline for Benchmark Verification Tasks (training phase starts)</deadlineName>
+          <submissionDeadline>2012-07-15T00:00:00</submissionDeadline>
+        </deadline>
+        <deadline>
+          <deadlineName>Submission of Competition Contributions (3-page papers, via EasyChair) by participants (evaluation phase starts). 
+          Resubmission was allowed until Oct. 25, 11:00 (UTC).</deadlineName>
+          <submissionDeadline>2012-10-21T00:00:00</submissionDeadline>
+        </deadline>
+        <deadline>
+          <deadlineName>
+            List of Qualified Competition Candidates published.
+          </deadlineName>
+          <submissionDeadline>2012-12-07T00:00:00</submissionDeadline>
+        </deadline>
+        <deadline>
+        <deadlineName>
+          Offline Benchmarking Phase completed and competition results communicated to the participants (evaluation phase ends).
+        </deadlineName>
+        <submissionDeadline>2012-12-07T00:00:00</submissionDeadline>
+        </deadline>
+        <deadline>
+          <deadlineName>
+            Notifications and reviews.
+          </deadlineName>
+          <submissionDeadline>2012-12-14T00:00:00</submissionDeadline>
+        </deadline>
+        <deadline>
+          <deadlineName>
+            Camera-Ready Paper Deadline for summary papers of qualified competition candidates (3 pages, LNCS style).
+          </deadlineName>
+          <submissionDeadline>2013-01-08T00:00:00</submissionDeadline>
+        </deadline>
+      </deadlines>  
+      <allowedSubmissions>A verification tool can participate several times as different competition candidates, if a significant difference of the conceptual or technological basis of the implementation is justified in the accompanying description paper. This applies to different versions as well as different configurations, 
+      in order to avoid forcing developers to create a new tool for every new concept.</allowedSubmissions>
+    </expectedSolution>
+    <allowedTools>
+        <tool>
+          <toolName>Submission Tool</toolName>
+          <toolDescription>Submit your contribution via following link</toolDescription>
+          <toolLinkDescription xlink:type="simple" xlink:href="https://www.easychair.org/account/signin.cgi?key=7853107.tgAPWZfRTLFvboUL" xlink:show="new">
+          Submission Tool Link
+        </toolLinkDescription>
+        </tool>
+      </allowedTools>
+    <contactDetails>
+      <contact>
+        <name>Competition chair: Dirk Beyer</name>
+        <linkDescription xlink:type="simple" xlink:href="http://www.sosy-lab.org/~dbeyer/" xlink:show="new">
+            Dirk Beyer Web Link
+          </linkDescription>
+      </contact>
+      <contact>
+        <name>For discussion of topics of broad interest that are related to the competition on software verification</name>
+        <email>sv-comp@sosy-lab.org</email>
+      </contact>
+    </contactDetails>
+    <results>
+      <resultsLinkDescription xlink:type="simple" xlink:href="http://www.sosy-lab.org/~dbeyer/Publications/2012-TACAS.Competition_on_Software_Verification.pdf" xlink:show="new">
+            Results of Competition_on_Software_Verification
+      </resultsLinkDescription>
+    </results>
+  </challenge>
+</challenges>

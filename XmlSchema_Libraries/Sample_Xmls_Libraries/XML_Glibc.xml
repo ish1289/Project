@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<libraries xmlns:xlink="http://www.w3.org/1999/xlink">
+  <library>
+    <libraryName>The GNU C Library (glibc)</libraryName>
+    <libraryOverview>
+      <description>
+        Any Unix-like operating system needs a C library: the library which defines the ``system calls''
+        and other basic facilities such as open, malloc, printf, exit etc. The GNU C Library is used as the
+        C library in the GNU systems and most systems with the Linux kernel. The GNU C Library is primarily
+        designed to be
+        a portable and high performance C library. It follows all relevant standards including ISO C11
+        and POSIX.1-2008. It is also internationalized and has one of the most complete internationalization
+        interfaces known. The history of Unix and various standards determine much of the interface of 
+        the C library. In general the GNU C Library supports the ISO C and POSIX standards. 
+        We also try to support the features of popular Unix variants (including BSD and System V) 
+        when those do not conflict with the standards. Different compatibility modes (selectable when you 
+        compile an application) allow the peaceful coexistence of compatibility support for different varieties 
+        of Unix.
+      </description>
+      <linkDescription xlink:type="simple" xlink:href="https://www.gnu.org/software/libc/index.html" xlink:show="new">Link to the library web page</linkDescription>
+    </libraryOverview>
+    <availableVersions>
+      <version status="Current">
+        <versionName>glibc 2.19</versionName>
+        <year>2014</year>
+        <description>Released on: 2014-02-08</description>
+        <linkDescription xlink:type="simple" xlink:href="http://sourceware.org/ml/libc-alpha/2013-08/msg00160.html" xlink:show="new">glibc 2.19 released</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>glibc 2.18</versionName>
+        <year>2013</year>
+        <description>Released on: 2013-08-12</description>
+        <linkDescription xlink:type="simple" xlink:href="https://sourceware.org/ml/libc-alpha/2014-02/msg00224.html" xlink:show="new">glibc 2.18 released</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>glibc 2.17</versionName>
+        <year>2012</year>
+        <description>Released on: 2012-12-25</description>
+        <linkDescription xlink:type="simple" xlink:href="http://sourceware.org/ml/libc-announce/2012/msg00001.html" xlink:show="new">glibc 2.17 released</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>glibc 2.16</versionName>
+        <year>2012</year>
+        <description>Released on: 2012-06-30</description>
+        <linkDescription xlink:type="simple" xlink:href="http://sourceware.org/ml/libc-alpha/2012-06/msg00807.html" xlink:show="new">glibc 2.16 released</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>glibc 2.15</versionName>
+        <year>2012</year>
+        <description>Released on: 2012-03-21</description>
+        <linkDescription xlink:type="simple" xlink:href="http://sourceware.org/ml/libc-alpha/2012-03/msg00836.html" xlink:show="new">glibc 2.15 released</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>glibc 2.14</versionName>
+        <year>2011</year>
+        <description>Released on: 2011-06-07</description>
+        <linkDescription xlink:type="simple" xlink:href="http://sourceware.org/git/?p=glibc.git;a=shortlog;h=refs/heads/release/2.14/master" xlink:show="new">glibc 2.14 released</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>glibc 2.13</versionName>
+        <year>2011</year>
+        <description>Released on: 2011-02-04</description>
+        <linkDescription xlink:type="simple" xlink:href="http://sourceware.org/git/?p=glibc.git;a=shortlog;h=refs/heads/release/2.13/master" xlink:show="new">glibc 2.13 released</linkDescription>
+      </version>
+    </availableVersions>
+    <contributors>
+      <contact>
+        <name>Maintainers</name>
+        <contactsDescription>The GNU C Library is currently maintained by a community of developers many of which are listed on the MAINTAINERS page of the project wiki</contactsDescription>
+        <linkDescription xlink:type="simple" xlink:href="http://sourceware.org/glibc/wiki/MAINTAINERS" xlink:show="new">Link</linkDescription>
+      </contact>
+      <contact>
+        <name>Contributors</name>
+        <contactsDescription>Many others have contributed in large amounts as documented in the glibc Contributors</contactsDescription>
+        <linkDescription xlink:type="simple" xlink:href="https://www.gnu.org/software/libc/manual/html_node/Contributors.html#Contributors" xlink:show="new">Link</linkDescription>
+      </contact>
+    </contributors>
+    <downloads>
+      <download>
+        <description>
+          Releases are available by source branch checkout and ftp tarball. For example, 
+          to download the 2.19 release, checkout the libc branch release/2.19/master, and similarly for all 
+          required add-ons including ports. After the 2.19 release the contributed 
+          ports add-ons have been folded into the main git repo and no longer need to be checked out separately.
+          <![CDATA[e.g. 
+          git clone git://sourceware.org/git/glibc.git
+          cd glibc
+          git checkout --track -b local_glibc-2.19 origin/release/2.19/master
+          To list the current set of branches use:
+          git branch -a ]]>
+        </description>
+        <linkDescription xlink:type="simple" xlink:href="http://ftp.gnu.org/gnu/glibc" xlink:show="new">Releases and pre-releases are available via anonymous ftp and its mirrors</linkDescription>
+      </download>
+      <download>
+        <description>
+          Git Repository. You can access the development source tree using git.
+               <![CDATA[git clone git://sourceware.org/git/glibc.git]]>
+          To additionally fetch the contributed ports add-on (for 2.16 and older release branches, see also README.ports-moved-to-libc):
+          <![CDATA[git clone git://sourceware.org/git/glibc-ports.git]]> 
+        </description>
+        <linkDescription xlink:type="simple" xlink:href="http://sourceware.org/git/?p=glibc.git" xlink:show="new">Download Link</linkDescription>
+      </download>
+    </downloads>
+    <supportingDocuments>
+      <document>
+        <documentName>
+          Manual
+        </documentName>
+        <documentDescription>The manual contains the canonical API descriptions.</documentDescription>
+        <documentLinkDescription xlink:type="simple" xlink:href="https://www.gnu.org/software/libc/manual/" xlink:show="new">The glibc manual is available online here</documentLinkDescription>
+      </document>
+      <document>
+        <documentName>
+          Wiki
+        </documentName>
+        <documentDescription>The glibc wiki contains a lot of important information. Please feel free to add to the community knowledge, feature wishlists, feature designs, debugging tips, or developer notes</documentDescription>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://sourceware.org/glibc/wiki/HomePage" xlink:show="new">The glibc manual is available online here</documentLinkDescription>
+      </document>
+      <document>
+        <documentName>
+          FAQ
+        </documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://sourceware.org/glibc/wiki/FAQ" xlink:show="new">FAQs</documentLinkDescription>
+      </document>
+    </supportingDocuments>
+    <relatedLinks>
+      <relatedLinkDescription xlink:type="simple" xlink:href="https://www.gnu.org/software/libc/development.html" xlink:show="new">Development Details</relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="https://www.gnu.org/software/libc/bugs.html" xlink:show="new">Bugs Details</relatedLinkDescription>
+    </relatedLinks>
+  </library>
+</libraries>

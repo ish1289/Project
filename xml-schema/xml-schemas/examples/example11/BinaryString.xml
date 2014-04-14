@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<binary-string xmlns="http://www.binary.org"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation=
+                          "http://www.binary.org
+                           BinaryString.xsd">
+        <one/>
+        <one>1</one>
+        <zero/>
+        <one>1</one>
+        <zero>0</zero>
+</binary-string>
