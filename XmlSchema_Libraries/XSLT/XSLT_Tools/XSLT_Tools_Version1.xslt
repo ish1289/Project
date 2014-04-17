@@ -23,9 +23,29 @@
           </h3>
           <xsl:if test="toolOverview">
             <h3>
-              <xsl:text>Overview:- </xsl:text>
+              <xsl:text>Overview:-</xsl:text>
             </h3>
-            <xsl:value-of select="toolOverview"/>
+            <xsl:if test="toolOverview/name">
+              <b>
+                <xsl:value-of select="toolOverview/name"></xsl:value-of>
+              </b>
+              <br/>
+            </xsl:if>
+            <xsl:if test="toolOverview/description">
+              <xsl:value-of select="toolOverview/description"></xsl:value-of>
+              <br/>
+            </xsl:if>
+            <xsl:if test="toolOverview/linkDescription">
+              <xsl:for-each select="toolOverview/linkDescription">
+                <xsl:element name="a">
+                  <xsl:attribute name="href">
+                    <xsl:value-of select="./@xlink:href" />
+                  </xsl:attribute>
+                  <xsl:value-of select="." />
+                </xsl:element>
+                <br/>
+              </xsl:for-each>
+            </xsl:if>
             <br/>
           </xsl:if>
           <xsl:if test="contacts">
@@ -382,8 +402,11 @@
                 <xsl:for-each select="executionEnvironment/processors/processor">
                     <xsl:text>Processor Name: - </xsl:text>
                     <xsl:value-of select="processorName" /><br/>
-                    <xsl:text>Processor Memory: - </xsl:text>
-                    <xsl:value-of select="processorMemory" /><br/>
+                   <xsl:if test="processorMemory">
+                     <xsl:text>Processor Memory: - </xsl:text>
+                     <xsl:value-of select="processorMemory" />
+                     <br/>
+                   </xsl:if>
                     <xsl:if test="processorDescription">
                        <xsl:text>Processor Description: - </xsl:text>
                        <xsl:value-of select="processorDescription" /><br/>

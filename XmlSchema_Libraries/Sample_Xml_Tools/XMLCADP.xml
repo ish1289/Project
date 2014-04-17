@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<verificationTools xmlns:xlink="http://www.w3.org/1999/xlink">
+  <verificationTool>
+    <toolName>Construction and Analysis of Distributed Processes</toolName>
+    <toolOverview>
+      <description>
+        CADP ("Construction and Analysis of Distributed Processes", formerly known as
+        "CAESAR/ALDEBARAN Development Package") is a popular toolbox for the design of
+        asynchronous concurrent systems, such as communication protocols, distributed systems,
+        asynchronous circuits, multiprocessor architectures, web services, etc. Since January 2012,
+        CADP is developed by the CONVECS team (formerly, by the VASY team). CADP is connected to various
+        complementary tools.
+        CADP is maintained, regularly improved, and used in many industrial projects.
+        CADP is designed in a modular way and puts the emphasis on intermediate formats and 
+        programming interfaces (such as the BCG and OPEN/CAESAR software environments), which allow 
+        the CADP tools to be 
+        combined with other tools and adapted to various specification languages.
+      </description>
+      <linkDescription xlink:type="simple" xlink:href="http://cadp.inria.fr/" xlink:show="new">More Details</linkDescription>
+    </toolOverview>
+    <availableVersions>
+      <version status="Current">
+        <versionName>Version 2.12</versionName>
+        <description>
+          Last updated on 2012/02/02 14:47:01
+          The CONVECS team is actively developing CADP, notably in the framework of its current research projects.
+          Since 2010, the distribution of CADP has evolved towards a monthly rolling release scheme. There is usually one release the 13th of each month, except in August where it is traditionally scheduled the 26th.
+          Academic users must upgrade at least once a year, so that the CADP team does not spend its time dealing with issues already fixed years before.
+          Commercial users can obtain long-term, stable releases, the most recent one being CADP 2013 Pro.
+        </description>
+        <linkDescription xlink:type="simple" xlink:href="http://coq.inria.fr/coq-84-is-out" xlink:show="new">CONVECS</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="http://convecs.inria.fr/projects" xlink:show="new">Current research projects</linkDescription>
+      </version>
+    </availableVersions>
+    <Functionalities>
+      <functionality>
+        <description>
+          Compilers for several input formalisms, e.g.:High-level descriptions written in various 
+          languages, such as LOTOS (ISO International Standard 8807), LOTOS NT, FSP, pi-calculus, etc. 
+          The CADP toolbox provides compilers (CAESAR, CAESAR.ADT, LNT2LOTOS, FSP2LOTOS, etc.) that 
+          translate high-level descriptions into C code to be used for simulation, verification, and 
+          testing purposes; Low-level descriptions specified as automata (i.e., finite state machines) 
+          and networks of communicating automata that run in parallel, synchronize, and communicate using 
+          process algebra operators or synchronization vectors.
+        </description>
+      </functionality>
+      <functionality>
+        <description>
+          Several equivalence checking tools (minimization and comparisons modulo bisimulation relations), such as BCG_MIN and BISIMULATOR.
+        </description>
+      </functionality>
+      <functionality>
+        <description>
+          Several model-checkers for various temporal logic and mu-calculus, such as EVALUATOR and XTL.
+        </description>
+      </functionality>
+      <functionality>
+        <description>
+          Several verification algorithms combined together: enumerative verification, on-the-fly verification, symbolic verification using binary decision diagrams, compositional minimization, partial orders, distributed model checking, etc.
+        </description>
+      </functionality>
+      <functionality>
+        <description>
+          Plus a bunch of other tools with advanced functionalities such as visual checking, performance evaluation, etc.
+        </description>
+      </functionality>
+    </Functionalities>
+    <contacts>
+      <contact>
+        <name>Contributions</name>
+        <linkDescription xlink:type="simple" xlink:href="http://cadp.inria.fr/contributors.html" xlink:show="new">Details</linkDescription>
+      </contact>
+    </contacts>
+    <contentFiles>
+      <contentDescription>
+        The CADP toolbox contains several closely interconnected components (more than 42 tools and 17 software components), which we classify into the following categories
+      </contentDescription>
+      <contentFile>
+        <name>CADP tools for LOTOS</name>
+        <linkDescription xlink:type="simple" xlink:href="http://cadp.inria.fr/tools.html#section-1" xlink:show="new">Details</linkDescription>
+      </contentFile>
+      <contentFile>
+        <name>CADP tools for explicit state space manipulation</name>
+        <linkDescription xlink:type="simple" xlink:href="http://cadp.inria.fr/tools.html#section-1" xlink:show="new">Details</linkDescription>
+      </contentFile>
+      <contentFile>
+        <name>CADP tools for implicit state space manipulation</name>
+        <linkDescription xlink:type="simple" xlink:href="http://cadp.inria.fr/tools.html#section-1" xlink:show="new">Details</linkDescription>
+      </contentFile>
+      <contentFile>
+        <name>CADP tools for equivalence checking</name>
+        <linkDescription xlink:type="simple" xlink:href="http://cadp.inria.fr/tools.html#section-1" xlink:show="new">Details</linkDescription>
+      </contentFile>
+      <contentFile>
+        <name>CADP tools for model checking</name>
+        <linkDescription xlink:type="simple" xlink:href="http://cadp.inria.fr/tools.html#section-1" xlink:show="new">Details</linkDescription>
+      </contentFile>
+      <contentFile>
+        <name>CADP tools for visual checking</name>
+        <linkDescription xlink:type="simple" xlink:href="http://cadp.inria.fr/tools.html#section-1" xlink:show="new">Details</linkDescription>
+      </contentFile>
+      <contentFile>
+        <name>CADP tools for compositional verification</name>
+        <linkDescription xlink:type="simple" xlink:href="http://cadp.inria.fr/tools.html#section-1" xlink:show="new">Details</linkDescription>
+      </contentFile>
+      <contentFile>
+        <name>CADP tools for distributed verification</name>
+        <linkDescription xlink:type="simple" xlink:href="http://cadp.inria.fr/tools.html#section-1" xlink:show="new">Details</linkDescription>
+      </contentFile>
+      <contentFile>
+        <name>CADP tools for testing</name>
+        <linkDescription xlink:type="simple" xlink:href="http://cadp.inria.fr/tools.html#section-1" xlink:show="new">Details</linkDescription>
+      </contentFile>
+      <contentFile>
+        <name>CADP tools for performance evaluation</name>
+        <linkDescription xlink:type="simple" xlink:href="http://cadp.inria.fr/tools.html#section-1" xlink:show="new">Details</linkDescription>
+      </contentFile>
+      <contentFile>
+        <name>CADP user interface</name>
+        <linkDescription xlink:type="simple" xlink:href="http://cadp.inria.fr/tools.html#section-1" xlink:show="new">Details</linkDescription>
+      </contentFile>
+      <contentFile>
+        <name>CADP installation and maintenance tools</name>
+        <linkDescription xlink:type="simple" xlink:href="http://cadp.inria.fr/tools.html#section-1" xlink:show="new">Details</linkDescription>
+      </contentFile>
+      <contentFile>
+        <name>Other tools</name>
+        <description>There exist other tools interconnected with the CADP toolbox. See the list of research tools developed using CADP for details.</description>
+        <linkDescription xlink:type="simple" xlink:href="research tools developed using CADP" xlink:show="new">Details</linkDescription>
+      </contentFile>
+    </contentFiles>
+    <supportingDocuments>
+      <document>
+        <documentName>FAQ </documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://cadp.inria.fr/faq.html" xlink:show="new">FAQs</documentLinkDescription>
+      </document>
+      <document>
+        <documentName>Tutorials</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://cadp.inria.fr/tutorial/" xlink:show="new">Tutorials</documentLinkDescription>
+      </document>
+      <document>
+        <documentName>Publications</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://cadp.inria.fr/vasy/publications/cadp.html" xlink:show="new">Publications</documentLinkDescription>
+      </document>
+      <document>
+        <documentName>Manual Pages</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://cadp.inria.fr/man/" xlink:show="new">Manual Pages</documentLinkDescription>
+      </document>
+      <document>
+        <documentName>Demo Examples</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://cadp.inria.fr/demos.html" xlink:show="new">Demo Examples</documentLinkDescription>
+      </document>
+      <document>
+        <documentName>Newsletters</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://cadp.inria.fr/news.html" xlink:show="new">Newsletters</documentLinkDescription>
+      </document>
+    </supportingDocuments>
+    <relatedLinks>
+      <relatedLinkDescription xlink:type="simple" xlink:href="http://cadp.inria.fr/status.html" xlink:show="new">Details:Possibly Supported Platform</relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="http://cadp.inria.fr/changes.html" xlink:show="new">Change List</relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="http://cadp.inria.fr/usage/" xlink:show="new">Usage Statistics</relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="http://cadp.inria.fr/forum.html" xlink:show="new">CADP Forum</relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="http://cadp.inria.fr/training/" xlink:show="new">Education Training</relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="http://cadp.inria.fr/case-studies/" xlink:show="new">Case Studies</relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="http://cadp.inria.fr/resources/vlts" xlink:show="new">VLTS Benchmarks</relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="http://cadp.inria.fr/resources/" xlink:show="new">Other Resources</relatedLinkDescription>
+    </relatedLinks>
+    <howToObtain>
+      <Download status="Other">
+        <description>
+          As of September 2011, a simplified procedure for distributing CADP to academic users has 
+          been set up. The new procedure is entirely electronic and does no longer require paper documents 
+          to be signed.
+        </description>
+        <linkDescription xlink:type="simple" xlink:href="http://cadp.inria.fr/registration/" xlink:show="new">Link to Download page</linkDescription>
+      </Download>
+    </howToObtain>
+    <executionEnvironment>
+      <compilers>
+        <compiler>
+          <compilerName>
+            C compiler (e.g., Sun Studio "cc"
+            or GNU "gcc") 
+          </compilerName>
+          <compilerDescription>Used for CADP architecture sol86, sol64, iX86,x64</compilerDescription>
+        </compiler>
+        <compiler>
+          <compilerName>
+            Ghostview
+          </compilerName>
+          <compilerDescription>Used for CADP architecture sol86, sol64, iX86,x64</compilerDescription>
+        </compiler>
+        <compiler>
+          <compilerName>
+            Gnuplot
+          </compilerName>
+          <compilerDescription>Used for CADP architecture sol86, sol64, iX86,x64,win32,mac86</compilerDescription>
+        </compiler>
+        <compiler>
+          <compilerName>
+            Cygwin
+          </compilerName>
+          <compilerDescription>Used for CADP architecture win32</compilerDescription>
+        </compiler>
+        <compiler>
+          <compilerName>
+            Ghostscript
+          </compilerName>
+          <compilerDescription>Used for CADP architecture win32, mac86</compilerDescription>
+        </compiler>
+        <compiler>
+          <compilerName>
+            Evince
+            or Gsview
+          </compilerName>
+          <compilerDescription>Used for CADP architecture win32</compilerDescription>
+        </compiler>
+        <compiler>
+          <compilerName>
+            X11/Quartz, XCode
+          </compilerName>
+          <compilerDescription>Used for CADP architecture mac86</compilerDescription>
+        </compiler>
+      </compilers>
+      <processors>
+        <processor>
+          <processorName>
+            Sun workstation with
+            Intel processor
+          </processorName>
+          <processorDescription>Compatible with sol86</processorDescription>
+        </processor>
+        <processor>
+          <processorName>
+            PC or server with
+            Intel or AMD x86 processor
+          </processorName>
+          <processorDescription>Compatible with iX86, x64</processorDescription>
+        </processor>
+        <processor>
+          <processorName>
+            PC or server with
+            Intel or AMD processor
+          </processorName>
+          <processorDescription>Compatible with win32</processorDescription>
+        </processor>
+        <processor>
+          <processorName>
+            Mac computer with
+            Intel processor
+          </processorName>
+          <processorDescription>Compatible with mac86</processorDescription>
+        </processor>
+      </processors>
+      <OSUsed>
+        <OS>
+          <osName>Solaris 10 </osName>
+          <osVersion>(32-bit and 64bit  mode)</osVersion>
+        </OS>
+        <OS>
+          <osName>32 and 64-bit Linux </osName>
+          <osVersion>
+            Debian 5.0
+            with glibc >= 2.7
+          </osVersion>
+        </OS>
+        <OS>
+          <osName>Windows </osName>
+          <osVersion>
+            XP, Vista, or 7, or 8
+            (either 32- or 64-bit version)
+          </osVersion>
+        </OS>
+        <OS>
+          <osName>Mac OS</osName>
+          <osVersion>
+            X 10.6 "Snow Leopard", 10.7 "Lion",
+            10.8 "Mountain Lion", or 10.9 "Mavericks"
+          </osVersion>
+        </OS>
+      </OSUsed>
+      <description>We use Debian as a reference, but other Linux distributions (e.g., Fedora, Red Hat, Suse, etc.) are also supported. To know if a particular distribution is supported, compare your kernel and libc versions to those of Debian distributions.</description>
+    </executionEnvironment>
+  </verificationTool>
+</verificationTools>
