@@ -1,9 +1,0 @@
-Lab 5. Using Regular Expressions
-
-Modify the schema that you created in Lab 4.
-Create a new datatype called imageType and declare
-the image element to be of that type.
-
-You are to define a Regular Expression for imageType.
-
-As always, validate the instance document against your schema.

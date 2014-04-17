@@ -1,7 +1,0 @@
-Lab 8.a Using Attributes
-
-In this directory you will find a version of juicers.xml
-which uses attributes.  I have included juicers.dtd to 
-show how the attributes were declared.  Modify the schema 
-that you created in Lab 7 to incorporate these attributes. 
-As always, validate the instance document against your schema.

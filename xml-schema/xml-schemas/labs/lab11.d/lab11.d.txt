@@ -1,8 +1,0 @@
-Lab 11.d Creating Lists
-
-For this lab you are to modify the juicers.xml and the schemas
-that you created in lab 11.c.
-
-There are multiple retailers for each juicer.  Modify juicers.xsd
-to allow for a list of values for the href in the retailers
-element.

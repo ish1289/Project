@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<Aircraft xmlns="http://www.tbmcs.centcom.af.mil/unit/mission/sortie/aircraft"
-          xmlns:xlink="http://www.w3.org/1999/xlink/namespace"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation=
-                   "http://www.tbmcs.centcom.af.mil/unit/mission/sortie/aircraft
-                    Aircraft.xsd">
-    <AIRCRAFT-DATA>...</AIRCRAFT-DATA>
-</Aircraft>
