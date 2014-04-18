@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<verificationTools xmlns:xlink="http://www.w3.org/1999/xlink">
+  <verificationTool>
+    <toolName>NuSMV: a new symbolic model checker</toolName>
+    <toolOverview>
+      <description>
+        NuSMV is a symbolic model checker developed as a joint project between:
+        The Embedded Systems Unit in the Center for Information Technology at FBK-IRST
+        The Model Checking group at Carnegie Mellon University ,
+        the Mechanized Reasoning Group at University of Genova
+        The Mechanized Reasoning Group at University of Trento.
+        NuSMV is a reimplementation and extension of SMV, the first model checker based on BDDs.
+        NuSMV has been designed to be an open architecture for model checking, which can be reliably
+        used for the verification of industrial designs, as a core for custom verification tools, as a
+        testbed for formal verification techniques, and applied to other research areas.
+        NuSMV2, combines BDD-based model checking component that exploits the CUDD library developed by
+        Fabio Somenzi at Colorado University and SAT-based model checking component that includes an
+        RBC-based Bounded Model Checker, which can be connected to the Minisat SAT Solver and/or to the
+        ZChaff SAT Solver. The University of Genova has contributed SIM, a state-of-the-art SAT solver used
+        until version 2.5.0, and the RBC package use in the Bounded Model Checking algorithms.
+      </description>
+      <linkDescription xlink:type="simple" xlink:href="http://nusmv.fbk.eu/" xlink:show="new">More Details</linkDescription>
+    </toolOverview>
+    <availableVersions>
+      <version status="Current">
+        <versionName>NuSMV 2.5.4</versionName>
+        <description>
+          NuSMV 2.5.4 is a minor release that provides many bug fixes, some internals 
+          improvement, and a few new features
+        </description>
+        <linkDescription xlink:type="simple" xlink:href="http://nusmv.fbk.eu/announce-NuSMV-2.5.4.txt" xlink:show="new">Anounce for NuSMV 2.5.4.</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>NuSMV 2.5.3</versionName>
+        <linkDescription xlink:type="simple" xlink:href="http://nusmv.fbk.eu/announce-NuSMV-2.5.3.txt" xlink:show="new">Anounce for NuSMV 2.5.3.</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>NuSMV 2.5.2</versionName>
+        <linkDescription xlink:type="simple" xlink:href="http://nusmv.fbk.eu/announce-NuSMV-2.5.2.txt" xlink:show="new">Anounce for NuSMV 2.5.2.</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>NuSMV 2.5.1</versionName>
+        <linkDescription xlink:type="simple" xlink:href="http://nusmv.fbk.eu/announce-NuSMV-2.5.1.txt" xlink:show="new">Anounce for NuSMV 2.5.1.</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>NuSMV 2.5.0</versionName>
+        <linkDescription xlink:type="simple" xlink:href="http://nusmv.fbk.eu/announce-NuSMV-2.5.0.txt" xlink:show="new">Anounce for NuSMV 2.5.0.</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>NuSMV 2.4.3</versionName>
+        <linkDescription xlink:type="simple" xlink:href="http://nusmv.fbk.eu/announce-NuSMV-2.4.3.txt" xlink:show="new">Anounce for NuSMV 2.4.3.</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>NuSMV 2.4.2</versionName>
+        <linkDescription xlink:type="simple" xlink:href="http://nusmv.fbk.eu/announce-NuSMV-2.4.2.txt" xlink:show="new">Anounce for NuSMV 2.4.2.</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>NuSMV 2.4.1</versionName>
+        <linkDescription xlink:type="simple" xlink:href="http://nusmv.fbk.eu/announce-NuSMV-2.4.1.txt" xlink:show="new">Anounce for NuSMV 2.4.1.</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>NuSMV 2.4.0</versionName>
+        <linkDescription xlink:type="simple" xlink:href="http://nusmv.fbk.eu/announce-NuSMV-2.4.0.txt" xlink:show="new">Anounce for NuSMV 2.4.0.</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>NuSMV 2.3.1</versionName>
+        <linkDescription xlink:type="simple" xlink:href="http://nusmv.fbk.eu/announce-NuSMV-2.3.1.txt" xlink:show="new">Anounce for NuSMV 2.3.1.</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>NuSMV 2.3.0</versionName>
+        <linkDescription xlink:type="simple" xlink:href="http://nusmv.fbk.eu/announce-NuSMV-2.3.0.txt" xlink:show="new">Anounce for NuSMV 2.3.0.</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>NuSMV 2.2.5</versionName>
+        <linkDescription xlink:type="simple" xlink:href="http://nusmv.fbk.eu/announce-NuSMV-2.2.5.txt" xlink:show="new">Anounce for NuSMV 2.2.5</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>NuSMV 2.2.4</versionName>
+        <linkDescription xlink:type="simple" xlink:href="http://nusmv.fbk.eu/announce-NuSMV-2.2.4.txt" xlink:show="new">Anounce for NuSMV 2.2.4.</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>NuSMV 2.2.3</versionName>
+        <linkDescription xlink:type="simple" xlink:href="http://nusmv.fbk.eu/announce-NuSMV-2.2.3.txt" xlink:show="new">Anounce for NuSMV 2.2.3.</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>NuSMV 2.2.2</versionName>
+        <linkDescription xlink:type="simple" xlink:href="http://nusmv.fbk.eu/announce-NuSMV-2.2.2.txt" xlink:show="new">Anounce for NuSMV 2.2.2.</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>NuSMV 2.2.1</versionName>
+        <linkDescription xlink:type="simple" xlink:href="http://nusmv.fbk.eu/announce-NuSMV-2.2.1.txt" xlink:show="new">Anounce for NuSMV 2.2.1.</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>NuSMV 2.2</versionName>
+        <linkDescription xlink:type="simple" xlink:href="http://nusmv.fbk.eu/announce-NuSMV-2.2.0.txt" xlink:show="new">Anounce for NuSMV 2.2</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>NuSMV 2.1</versionName>
+        <linkDescription xlink:type="simple" xlink:href="http://nusmv.fbk.eu/announce-NuSMV-2.1.0.txt" xlink:show="new">Anounce for NuSMV 2.1</linkDescription>
+      </version>
+      <version status="Previous">
+        <versionName>NuSMV 2</versionName>
+        <linkDescription xlink:type="simple" xlink:href="http://nusmv.fbk.eu/announce-NuSMV-2.0.0.txt" xlink:show="new">Anounce for NuSMV 2</linkDescription>
+      </version>
+    </availableVersions>
+    <contacts>
+      <contact>
+        <name>List of people and institutions involved in the project</name>
+        <linkDescription xlink:type="simple" xlink:href="http://nusmv.fbk.eu/NuSMV/project_members.html" xlink:show="new">Details</linkDescription>
+      </contact>
+      <contact>
+        <name>Mailing Lists</name>
+        <contactsDescription>
+          We maintain some mailing lists of people interested and using NuSMV.
+          If you want to subscribe to one of the NuSMV mailing lists and be informed by e-mail on latest news about NuSMV
+        </contactsDescription>
+        <email>nusmv@fbk.eu</email>
+        <linkDescription xlink:type="simple" xlink:href="http://nusmv.fbk.eu/mail.html" xlink:show="new">Mailing Lists</linkDescription>
+      </contact>
+      <contact>
+        <name>Support or bug reporting</name>
+        <email>nusmv-users@list.fbk.eu</email>
+      </contact>
+    </contacts>
+    <supportingDocuments>
+      <document>
+        <documentName>User Manual</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://nusmv.fbk.eu/NuSMV/userman/index-v2.html" xlink:show="new">User Manual</documentLinkDescription>
+      </document>
+      <document>
+        <documentName>Tutorial</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://nusmv.fbk.eu/NuSMV/tutorial/index.html" xlink:show="new">Tutorial</documentLinkDescription>
+      </document>
+      <document>
+        <documentName>Programmer Model</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://nusmv.fbk.eu/NuSMV/progman/progmanual-v2.html" xlink:show="new">Programmer Model</documentLinkDescription>
+      </document>
+      <document>
+        <documentName>FAQs</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://nusmv.fbk.eu/faq.html" xlink:show="new">FAQs</documentLinkDescription>
+      </document>
+      <document>
+        <documentName>Papers</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://nusmv.fbk.eu/NuSMV/papers.html" xlink:show="new">Papers</documentLinkDescription>
+      </document>
+      <document>
+        <documentName>Examples</documentName>
+        <documentLinkDescription xlink:type="simple" xlink:href="http://nusmv.fbk.eu/examples/examples.html" xlink:show="new">Examples</documentLinkDescription>
+      </document>
+    </supportingDocuments>
+    <relatedLinks>
+      <relatedLinkDescription xlink:type="simple" xlink:href="http://nusmv.fbk.eu/open_nusmv/flier.html" xlink:show="new">NuSMV 2 is OpenSource!</relatedLinkDescription>
+      <relatedLinkDescription xlink:type="simple" xlink:href="http://nusmv.fbk.eu/#Other_projects" xlink:show="new">Links to some projects using NuSMV</relatedLinkDescription>
+    </relatedLinks>
+    <howToObtain>
+      <Download status="Other">
+        <description>
+          Follow the link to retrieve a copy of NuSMV. Or send an e-mail to nusmv@fbk.eu.
+        </description>
+        <linkDescription xlink:type="simple" xlink:href="http://nusmv.fbk.eu/NuSMV/download/getting-v2.html" xlink:show="new">Link to Download page</linkDescription>
+      </Download>
+    </howToObtain>
+  </verificationTool>
+</verificationTools>
