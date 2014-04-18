@@ -28,7 +28,7 @@
           Academic users must upgrade at least once a year, so that the CADP team does not spend its time dealing with issues already fixed years before.
           Commercial users can obtain long-term, stable releases, the most recent one being CADP 2013 Pro.
         </description>
-        <linkDescription xlink:type="simple" xlink:href="http://coq.inria.fr/coq-84-is-out" xlink:show="new">CONVECS</linkDescription>
+        <linkDescription xlink:type="simple" xlink:href="http://convecs.inria.fr/" xlink:show="new">CONVECS</linkDescription>
         <linkDescription xlink:type="simple" xlink:href="http://convecs.inria.fr/projects" xlink:show="new">Current research projects</linkDescription>
       </version>
     </availableVersions>
